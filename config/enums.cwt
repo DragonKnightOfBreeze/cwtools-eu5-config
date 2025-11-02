@@ -420,4 +420,38 @@ enums = {
         work_of_art
     }
 
+    enum[annex_country_reason] = {
+        diplomatic
+        civilwar
+        militaryconquest
+    }
+
+    # probably incomplete
+    enum[country_type] = {
+        building
+        location
+        army
+        navy
+        pop
+    }
+
+    enum[integration_level] = {
+        core
+        incorporated
+        conquered
+        colonized
+    }
+
+    enum[rebel_type] = {
+        estate
+        nationalist
+        religious
+        pretender
+    }
+
+    enum[levy_type] = {
+        army
+        navy
+    }
+
 }

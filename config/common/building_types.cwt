@@ -25,6 +25,9 @@ building_type = {
     employment_size = <script_value>
     employment_size = <static_value>
 
+    ## cardinality = 0..1
+    own_or_overlord_relation_needed = <scripted_relation>
+
     ### location ranks that the building can be built in
     ## cardinality = 0..inf
     <location_rank> = bool
@@ -87,6 +90,7 @@ building_type = {
     category = <building_category>
 
     ### what goods are required during construction
+    ## cardinality = 0..1
     construction_demand = <goods_demand>
 
     ### production methods for each slot. (add as many lists as you desire)
@@ -127,6 +131,12 @@ building_type = {
 
     ## cardinality = 0..1
     on_destroyed = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    on_construction_started = single_alias_right[effect_clause]
+
+    ## cardinality = 0..1
+    on_construction_ended = single_alias_right[effect_clause]
 
     ### what building type this one makes obsolete
     ## cardinality = 0..1
