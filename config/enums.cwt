@@ -182,20 +182,6 @@ enums = {
         monthly
     }
 
-    enum[selected_trigger_looking_for] = {
-        character
-        location
-        province
-        area
-        region
-        country
-        value
-        boolean
-        international_organization
-        law
-        policy
-        active_resolution
-    }
     enum[selected_trigger_source_flag] = {
         same_international_organization
         neighbor
@@ -296,6 +282,8 @@ enums = {
     }
 
     enum[scope] = {
+        value
+        boolean
         active_resolution
         area
         building
@@ -473,6 +461,20 @@ enums = {
     enum[automated_system] = {
         finances
         research
+        trade
+        productionmethods
+        laws
+        cabinet
+        parliament
+        estates
+        exploration
+        colonies
+        cultureacceptance
+        religiousdoctrines
+        buildings
+        rgo
+        armybuilder
+        navybuilder
     }
 
     enum[pin_collection] = {
@@ -486,6 +488,26 @@ enums = {
         front
         cyclone
         tornado
+    }
+
+    enum[generic_action_type] = {
+        owncountry
+        religious
+        religiousfaction
+        diplomacy
+        subject
+        character
+        location
+        internationalorganization
+        situation
+        internationalorganizationparliament
+        disaster
+    }
+
+    enum[formable_country_rule] = {
+        historical
+        plausible
+        fantasy
     }
 
 }

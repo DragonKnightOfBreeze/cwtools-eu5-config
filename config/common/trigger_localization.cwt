@@ -9,6 +9,9 @@ trigger_localization = {
     global = localisation
 
     ## cardinality = 0..1
+    none = localisation
+
+    ## cardinality = 0..1
     global_not = localisation
 
     ## cardinality = 0..1

@@ -2266,7 +2266,7 @@ alias[effect:create_character] = scope[character]
 alias[effect:create_colonial_charter] = {
     source = scope[location]
 
-    target = scope[location]
+    target = scope[province_definition]
 }
 
 ### creates the country from its cores

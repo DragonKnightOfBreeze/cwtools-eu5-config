@@ -1,0 +1,15 @@
+types = {
+    type[generic_action_ai_list] = {
+        path = "game/common/generic_action_ai_lists"
+        file_extension = .txt
+    }
+}
+
+generic_action_ai_list = {
+    potential = single_alias_right[trigger_clause]
+
+    actions = {
+        ## cardinality = 0..inf
+        <generic_action>
+    }
+}

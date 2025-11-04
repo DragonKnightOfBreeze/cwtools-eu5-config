@@ -1,0 +1,71 @@
+types = {
+    type[continent] = {
+        path = "game/map_data"
+        path_file = "definitions.txt"
+        localisation = {
+            name = "$"
+        }
+    }
+    type[sub_continent] = {
+        path = "game/map_data"
+        path_file = "definitions.txt"
+        localisation = {
+            name = "$"
+        }
+        skip_root_key = {
+            any
+        }
+    }
+    type[region] = {
+        path = "game/map_data"
+        path_file = "definitions.txt"
+        localisation = {
+            name = "$"
+        }
+        skip_root_key = {
+            any
+            any
+        }
+    }
+    type[area] = {
+        path = "game/map_data"
+        path_file = "definitions.txt"
+        localisation = {
+            name = "$"
+        }
+        skip_root_key = {
+            any
+            any
+            any
+        }
+    }
+    type[province] = {
+        path = "game/map_data"
+        path_file = "definitions.txt"
+        localisation = {
+            name = "$"
+        }
+        skip_root_key = {
+            any
+            any
+            any
+            any
+        }
+    }
+}
+
+continent = {}
+sub_continent = {}
+region = {}
+area = {}
+province = {}
+
+enums = {
+    complex_enum[location] = {
+        path = "game/map_data"
+        path_file = "definitions.txt"
+        name = {
+            # no idea how to fill this
+        }
+    }
+}

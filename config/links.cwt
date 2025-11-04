@@ -19,6 +19,8 @@ links = {
     #     output_scope = any
     # }
 
+    # === Event Targets
+
     active_mission = {
         input_scopes = { country }
         output_scope = mission
@@ -1394,8 +1396,8 @@ links = {
         output_scope = any
         from_data = yes
         type = both
-        prefix = global_var:
-        data_source = value[global_variable]
+        prefix = var:
+        data_source = value[variable]
     }
     vegetation = {
         input_scopes = { any }
@@ -1431,5 +1433,4060 @@ links = {
         from_data = yes
         prefix = work_of_art_type:
         data_source = <artist_work>
+    }
+
+    # === Triggers
+
+    add_estate_satisfaction_utility = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = add_estate_satisfaction_utility:
+        data_source = <estate>
+        data_source = value
+    }
+    add_static_modifier_utility = {
+        input_scopes = { location country character  }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = add_static_modifier_utility:
+        data_source = <static_modifier>
+    }
+    adm = {
+        input_scopes = { character }
+        output_scope = value
+        type = value
+    }
+    age_in_days = {
+        input_scopes = { character }
+        output_scope = value
+        type = value
+    }
+    age_in_years = {
+        input_scopes = { character }
+        output_scope = value
+        type = value
+    }
+    ai_issue_voting_bias = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = ai_issue_voting_bias:
+        data_source = scope[country]
+        data_source = scope[country]
+        data_source = scope[vote]
+    }
+    ai_parliament_issue_resolution_vote_bias = {
+        input_scopes = { parliament_issue }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = ai_parliament_issue_resolution_vote_bias:
+        data_source = scope[country]
+        data_source = scope[country]
+    }
+    ai_policy_resolution_propose_bias = {
+        input_scopes = { policy }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = ai_policy_resolution_propose_bias:
+        data_source = scope[country]
+        data_source = scope[country]
+    }
+    ai_policy_resolution_vote_bias = {
+        input_scopes = { policy }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = ai_policy_resolution_vote_bias:
+        data_source = scope[country]
+        data_source = scope[country]
+    }
+    ai_unlock_unit_score = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = ai_policy_resolution_vote_bias:
+        data_source = <unit>
+    }
+    ai_will_do = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    annexation_cost = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = annexation_cost:
+        data_source = scope[country]
+    }
+    antagonism = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = antagonism:
+        data_source = scope[country]
+    }
+    area_average_control = {
+        input_scopes = { area }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = area_average_control:
+        data_source = scope[country]
+    }
+    area_average_integration = {
+        input_scopes = { area }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = area_average_integration:
+        data_source = scope[country]
+    }
+    area_exploration_progress = {
+        input_scopes = { area }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = area_exploration_progress:
+        data_source = scope[country]
+    }
+    army_maintenance = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    army_size = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    army_size_percentage = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    army_tradition = {
+        input_scopes = { country international_organization }
+        output_scope = value
+        type = value
+    }
+    army_tradition_percentage = {
+        input_scopes = { country international_organization }
+        output_scope = value
+        type = value
+    }
+    art_progress = {
+        input_scopes = { character }
+        output_scope = value
+        type = value
+    }
+    art_quality = {
+        input_scopes = { work_of_art }
+        output_scope = value
+        type = value
+    }
+    artist_skill = {
+        input_scopes = { character }
+        output_scope = value
+        type = value
+    }
+    available_merchant_capacity = {
+        input_scopes = { market }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = available_merchant_capacity:
+        data_source = scope[country]
+    }
+    average_control_in_home_region = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    average_country_literacy = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    average_location_literacy = {
+        input_scopes = { location }
+        output_scope = value
+        type = value
+    }
+    average_satisfaction = {
+        input_scopes = { location }
+        output_scope = value
+        type = value
+    }
+    average_special_status_power = {
+        input_scopes = { international_organization }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = average_special_status_power:
+        data_source = <international_organization_special_status>
+    }
+    besieger_strength = {
+        input_scopes = { siege }
+        output_scope = value
+        type = value
+    }
+    border_distance_to = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = border_distance_to:
+        data_source = scope[country]
+    }
+    building_efficiency = {
+        input_scopes = { location }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = building_efficiency:
+        data_source = scope[building_type]
+    }
+    building_employed_amount = {
+        input_scopes = { building }
+        output_scope = value
+        type = value
+    }
+    building_employment_size_amount = {
+        input_scopes = { building }
+        output_scope = value
+        type = value
+    }
+    building_goods_input = {
+        input_scopes = { building }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = building_goods_input:
+        data_source = scope[goods]
+    }
+    building_index = {
+        input_scopes = { building }
+        output_scope = value
+        type = value
+    }
+    building_level = {
+        input_scopes = { building }
+        output_scope = value
+        type = value
+    }
+    building_levels_under_construction = {
+        input_scopes = { building }
+        output_scope = value
+        type = value
+    }
+    building_manpower_produced = {
+        input_scopes = { building_type }
+        output_scope = value
+        type = value
+    }
+    building_max_level = {
+        input_scopes = { building }
+        output_scope = value
+        type = value
+    }
+    building_potential_profit = {
+        input_scopes = { building }
+        output_scope = value
+        type = value
+    }
+    building_profit = {
+        input_scopes = { building }
+        output_scope = value
+        type = value
+    }
+    building_sailors_produced = {
+        input_scopes = { building_type }
+        output_scope = value
+        type = value
+    }
+    building_type_max_level = {
+        input_scopes = { location }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = building_type_max_level:
+        data_source = scope[building_type]
+    }
+    ### Utility of an cancelling and exploration to the country - usage: cancel_exploration_utility(<area>) or exploration_utility = { area = <area> value <operator><threshold> }
+    cancel_exploration_utility = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = building_type_max_level:
+        data_source = scope[area]
+    }
+    ### Checks the progress of the casus belli creation against the target country in percentage. Usage: cb_creation_progress_against = { target = <country scope> value = <value> } or cb_creation_progress_against(<country scope>)
+    cb_creation_progress_against = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = cb_creation_progress_against:
+        data_source = scope[country]
+    }
+    ### Progress of a colonial charter - usage: colonial_charter_progress(<province definition>) or colonial_charter_progress = { province_definition = <province definition> value <operator><threshold> }
+    colonial_charter_progress = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+        from_data = yes
+        prefix = colonial_charter_progress:
+        data_source = scope[province_definition]
+    }
+    ### Utility of a colonial charter - usage: colonial_charter_utility(<province definition>|<source province>) or colonial_charter_utility = { province_definition = <province definition> source = <source province> value <operator><threshold> }
+    colonial_charter_utility = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+        from_argument = yes
+        prefix = colonial_charter_utility:
+        data_source = scope[province_definition]
+        data_source = scope[location]
+    }
+    ### value of the colonial charter
+    colonial_charter_value = {
+        input_scopes = { colonial_charter }
+        output_scope = value
+        type = value
+    }
+    ### What is the xx position (0-1) the country has?
+    colonial_maintenance = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### The colonial range of the country
+    colonial_range = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### Checks the strength of the combat side in scope
+    combat_side_strength = {
+        input_scopes = { combat_side }
+        output_scope = value
+        type = value
+    }
+    #TODO: continue here
+    combined_special_status_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    combined_unique_special_status_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    compare_value = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    conquer_desire = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    conquistador_utility = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    controls = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_art_quality = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_can_join_international_organization = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_combined_special_status_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_combined_special_status_power_fraction = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_economical_base = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_estate_loan_size = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_exists = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_has_been_member_for_years = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_has_disease = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_has_disease_outbreak = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_has_estate = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_highest_rated_special_status_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_interaction_acceptance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_loan_capacity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_rank_level = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_rank_level_on_date = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_strength = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_tax_base = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_total_army_levy_size = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    country_total_navy_levy_size = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    court_language_utility = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    court_maintenance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    create_market_utility = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    cultural_influence = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    cultural_maintenance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    cultural_tradition = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    cultural_unity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    culture_group_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    culture_group_percentage_in_country = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    culture_group_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    culture_group_population_in_country = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    culture_opinion_impact = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    culture_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    culture_percentage_in_area = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    culture_percentage_in_country = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    culture_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    culture_population_in_country = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    currency_percentage_towards_limit = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    currency_utility = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    current_date = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    current_mission_task = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    current_month = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    current_ruler_term_years = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    current_tooltip_depth = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    current_year = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    days_since_disaster_end = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    days_since_disaster_start = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    days_since_situation_end = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    days_since_situation_start = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    debug_only = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    defensive_alliance_strength = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    definition_is_for_levy = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    demands_goods = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    demands_goods_by_pops = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    dependency_length_days = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    destroy_market_utility = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    development = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    devotion = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    devotion_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    dip = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    diplomatic_capacity_of_new_relation = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    diplomatic_capacity_without_maintenance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    diplomatic_maintenance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    diplomatic_range = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    disaster_has_ended = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    disaster_is_active = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    discount_needed_for_law_change = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    disease_country_deaths = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    disease_has_stagnated = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    disease_is_active = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    disease_outbreak_country_deaths = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    disease_outbreak_is_active = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    disease_outbreak_presence = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    disease_outbreak_total_deaths = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    disease_presence = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    disease_resistance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    disease_total_deaths = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    distance_to = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    distance_to_area = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    distance_to_squared = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    does_owner_want_to_give_away = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    doom = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    doom_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    dynastic_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    effective_skill = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    employment_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    employment_size = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    employment_system_desire = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    estate_gold = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    estate_loan_interest = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    estate_max_tax = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    estate_opinion = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    estate_satisfaction = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    estate_tax = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    estate_tax_rate = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    estate_taxable_income = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    expected_army_size = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    expected_navy_size = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    experience_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    exploration_expected_cost = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    exploration_maintenance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    exploration_monthly_cost = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    exploration_monthly_progress = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    exploration_needed_time = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    exploration_progress = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    exploration_time = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    exploration_utility = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    favors = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    fertility = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    food_consumption = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    food_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    food_price = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    food_production = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    food_value = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    forbids_sovereign_diplomacy = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    fort_maintenance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    garrison_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    garrison_strength = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    get_antagonism = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    get_opinion = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    get_trust = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    gives_fleet_basing_rights = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    gives_fleet_basing_rights_to = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    gives_food_access = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    gives_food_access_to = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    gives_isolation_exemption_to = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    gives_military_access_to = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    giving_scripted_relation_of_type = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    gold = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    gold_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    goods = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    goods_demand_in_market = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    goods_output = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    goods_supply_in_market = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    government_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    government_power_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    great_power_ranking = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    great_power_score = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    had_disaster_for_years = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    harmony = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    harmony_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_accepted_culture = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_accessible_coastline = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_active_resolution = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_advance_for_employment_system = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_advance_for_succession_law = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_any_active_disaster = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_any_convertable_pops = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_any_culture_group = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_any_disease_present = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_any_mission_active = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_any_possible_disaster = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_art_in_progress = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_assigned_explorer = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_autocephalous_patriarchates = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_available_marriage_slot = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_avatar = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_been_formed = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_been_influenced_by_parliament_agenda = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_blocked_treaties = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_breach = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_building = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_cabinet_action = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_canonization = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_cardinals = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_casus_belli = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_casus_belli_on = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_child_education_selected = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_claim_on_province = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_colonial_charter = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_colonial_charter_in = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_colonial_charters = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_colonial_claim = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_combat = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_commander = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_consort = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_core = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_countries_with_antagonism = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_countries_with_coalition_grade_antagonism = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_countries_with_near_coalition_grade_antagonism = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_countries_with_timed_antagonism = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_culture_group = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_customer = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_discovered = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_discovered_area = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_doom = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_dynasty = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_earthquakes = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_elections = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_embraced_institution = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_employment_system = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_estate = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_estate_privilege = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_exploration = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_exploration_construction = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_exports = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_extended_winter = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_fixed_liturgical_language = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_fort = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_gifted_gold_to = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_heir = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_historical_rival = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_historical_rivals = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_holy_sites = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_honor = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_imports = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_institution = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_insulted = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_invited_religious_figure = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_karma = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_land_ownership_rule = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_latest_road_to = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_leader = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_levies = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_limited_diplomacy = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_location = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_market_construction = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_markets = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_member = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_mercenaries = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_merchant = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_migration = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_mission_task = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_multiple_players = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_mutual_scripted_relation_of_type = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_newsletter_subscription = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_nickname = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_ongoing_parliament_debate = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_overlords_ruler = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_owned_buildings = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_owner = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_parliament = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_participated_in_parliament = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_passable_land = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_patriarchs = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_periphora = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_ports = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_positive_opinion = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_possible_institution_spawn = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_possible_nomad_targets = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_potential_royal_marriage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_primary_or_accepted_culture = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_primary_or_accepted_or_tolerated_culture = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_prisoners = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_privateers_from = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_purity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_raised_army_levies = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_raised_levies = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_raised_navy_levies = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_rebel = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_reform = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_regent = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_regular_elections = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_regulars = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_religious_aspect = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_religious_factions = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_religious_focuses = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_religious_head = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_religious_influence = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_religious_schools = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_river = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_road_constructions = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_road_to = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_royal_marriage_with = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_ruler = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_scripted_relation_of_type = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_sects = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_shared_culture_group = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_siege = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_societal_value = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_sound_tolls = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_special_status_available = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_support_from = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_target_casus_belli_on_us = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_temporary_demand = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_temporary_demands = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_tolerated_culture = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_trade_treaty_with = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_truce_with = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_unit = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_volcano = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_voted_for_issue_in_parliament = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    has_yanantin = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    heathen_population_fraction = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    heir_candidates_count = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    heir_position = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    heir_score = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    heir_score_country = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    heir_score_home = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    heretic_population_fraction = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    higher_temporary_taxes_needed = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    hire_price = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    honor = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    honor_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    horde_unity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    horde_unity_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    implementation_progress_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    in_assault = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    in_cabinet = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    in_civil_war = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    in_combat = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    in_marriage_union_with = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    in_retreat = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    in_siege = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    in_trade_range_of = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    in_union_with = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    in_war_of_casus_belli = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    in_zone_of_control = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    inflation = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    inflation_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    integration_progress = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_can_add_land = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_can_own_land = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_can_remove_land = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_has_internal_peace = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_has_law = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_has_laws = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_has_leader = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_has_policy = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_leader_count = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_leader_reign = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_leader_reign_in_days = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_lifetime = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_lifetime_in_days = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_locations_owned_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_num_locations = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    international_organization_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    intrinsic_disease_resistance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    io_within_diplomatic_range = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    join_organization_ai_desire = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    karma = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    karma_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    knows_about_institution = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    knows_country = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    language_percentage_in_country = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    language_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    law_enabled_to_international_organization = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    law_is_locked_in_international_organization = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    law_visible_to_international_organization = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    leader_special_status_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    leader_special_status_power_fraction = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    legitimacy = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    legitimacy_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    liberty_desire = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    list_size = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    liturgical_language_utility = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    loan_amount = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    loan_interest = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    local_control = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    local_cultural_unity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    local_political_power_fraction = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    local_religious_unity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_art_quality = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_building_level = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_can_be_added_to_international_organization = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_can_be_removed_from_international_organization = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_counter = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_maritime_merchant_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_maritime_presence_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_max_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_num_holy_sites = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_num_works_of_art = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_peace_cost = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_population_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_privateer_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_progress_for_formable = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_size = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_tax_base = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_unemployed_population_for_building_type = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_within_range = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    location_works_of_art_star_rating = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    long_term_trigger_currency_utility = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    lowest_prosperity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    lowest_war_score = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    manpower = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    manpower_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    market_access = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    market_food = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    market_food_deficit = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    market_food_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    market_food_traded = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    market_max_food = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    market_monthly_food_balance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    market_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    market_possible_goods_trade_surplus = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    max_control = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    max_countries_with_special_status = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    max_garrison_strength = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    max_manpower = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    max_possible_candidates = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    max_religious_aspects = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    max_rgo_workers = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    max_sailors = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    max_sects = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    mercenary_has_owner = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    merchant_capacity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    merchant_power_in_market = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    migration_attraction = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    mil = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    military_strength = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    military_tech_level = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    mission_completed = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    mission_task_bypassed = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    mission_task_completed = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    modifier_utility = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    modifier_utility_include_locations = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    monthly_balance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    monthly_conversion = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    monthly_cost = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    monthly_income_total = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    monthly_income_trade_and_tax = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    monthly_manpower = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    monthly_sailors = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    monthly_trade_income = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    months_between_leader_changes = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    months_left = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    months_since_last_parliament_called = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    months_since_peace = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    months_since_war = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    morale_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    naval_range = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    navy_maintenance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    navy_size = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    navy_size_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    navy_tradition = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    navy_tradition_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    need_reforms = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    needs_opinion_with = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_adult_capable_characters = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_affected_locations = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_army_constructions = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_artists = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_avatars = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_buildings = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_cardinals = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_characters = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_civil_constructions = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_colonial_charters = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_countries_in_religion = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_countries_with_special_status = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_embraced_institutions = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_explorations = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_foreign_buildings = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_forts = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_known_institutions = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_loans = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_locations = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_locations_owned_or_owned_by_subjects = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_locations_owned_or_owned_by_subjects_or_below = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_navy_constructions = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_active_parliament_agendas = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_advances_researched = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_children = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_diplomats = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_electors = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_locations_owned_by_io = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_markets_with_merchants = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_non_rural = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_non_rural_ports = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_ports = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_rebel_characters = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_rebel_supporters = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_religious_aspects = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_spouses = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_trades = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_traits = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_of_traits_of_category = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_open_reform_slots = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_possible_privileges = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_possible_rivals = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_privileges = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_province_definitions_in_area = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_provinces = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_rebels = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_reforms = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_regiments = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_relations_above_limit = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_rivals = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_roads = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_subjects = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_subunits = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_union_countries = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_unions = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    num_works_of_art = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    offensive_alliance_strength = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    only_allowed_overlord_court_language = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    only_allowed_overlord_primary_culture = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    only_allowed_overlord_primary_or_kindred_culture = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    opinion = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    opinion_difference_between = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    organization_strength_relative_to_country = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    overlord_can_build_markets = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    overlord_can_destroy_markets = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    overlord_can_enforce_peace_on_subject = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    own_entire_area = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    own_entire_province = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    owns = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    owns_any_foreign_buildings_in = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    owns_or_non_sovereign_subject_owns = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    parliament_issue_chance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    parliament_issue_support = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    parliament_issue_will_pass = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    parliament_type_enabled_in_international_organization = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    parliament_type_is_enabled_in = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    parliament_type_is_locked_in = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    parliament_type_is_locked_in_international_organization = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    parliament_type_utility = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    parliament_type_visible_in = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    parliament_type_visible_in_international_organization = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    payment_contribution = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    payment_maintenance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    policy_enabled_to_international_organization = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    policy_has_ai_propose_value = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    policy_is_locked_in_international_organization = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    policy_visible_to_international_organization = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    pop_character_chance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    pop_knows_about_goods = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    pop_literacy = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    pop_satisfaction = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    pop_size = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    pop_type_percentage_in_country = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    pop_type_population_in_country = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    population_in_area = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    population_with_traits = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    possible_military_leaders = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    power_projection = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    prestige = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    prestige_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    prev_antagonism_towards_this = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    prev_opinion_of_this = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    prev_trust_of_this = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    price_in_market = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    prisoner_strength = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    privateer_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    privateer_utility = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    production_method_profit = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    proper_culture_nobles = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    prosperity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_army_levy_size = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_average_control = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_average_development = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_average_integration = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_cabinet_action = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_cultural_unity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_food = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_food_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_max_food = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_monthly_food_production = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_navy_levy_size = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_possible_institutions = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_prosperity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_rebel_progress = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_religious_unity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_satisfaction = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    province_tax_base = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    proximity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    purity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    purity_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    random_integer = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    rank_index = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    raw_material_amount = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    raw_material_occurrence = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    raw_material_output = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    rebel_estate_type = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    rebel_last_months_progress = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    rebel_locations = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    rebel_progress = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    rebel_size = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    receives_fleet_basing_rights_from = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    receives_food_access_from = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    receives_isolation_exemption_from = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    receives_military_access_from = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    receiving_scripted_relation_of_type = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    reform_desire = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    regular_army_size = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    relative_military_strength = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    relative_raw_material_price = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    relative_strength = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    release_only = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    relevant_countries = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    religion_group_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    religion_group_percentage_in_country = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    religion_group_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    religion_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    religion_percentage_in_country = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    religion_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    religion_population_in_country = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    religious_influence = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    religious_influence_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    religious_unity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    relocate_market_utility = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    remaining_debt = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    remaining_parliament_days = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    remove_static_modifier_utility = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    republican_tradition = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    republican_tradition_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    requires_goods = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    requires_vote = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    research_progress = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    resolution_is_active = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    resolution_opinion = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    reverse_country_interaction_acceptance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    rgo_workers = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    righteousness = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    righteousness_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    rite_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    rite_power_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    ruler_reign = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    ruler_reign_in_days = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    ruler_term_start_date = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    sailors = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    sailors_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    satisfaction = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    self_control = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    self_control_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    short_term_trigger_currency_utility = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    situation_has_ended = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    situation_is_active = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    slider_minting_value = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    societal_value_cabinet_action = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    societal_value_progress = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    special_status_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    special_status_power_fraction = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    spy_network = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    stability = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    stability_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    state_religion_clergy = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    strength_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    sub_unit_type = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    subject_can_be_annexed = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    subject_level = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    subject_loyalty = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    subjects_relative_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    subunit_morale = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    subunit_morale_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    subunit_number = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    subunit_strength = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    subunit_strength_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    supports_rebel = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    target_satisfaction = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    this_antagonism_towards_prev = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    this_opinion_of_prev = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    this_trust_of_prev = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    threat_level_to = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    tithe = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_abilities = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_accepted_culture_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_building_levels = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_cardinals = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_control_scaled_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_debt = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_development = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_dynastic_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_effective_goods_production_buildings = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_enemies = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_goods_traded = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_goods_value_traded = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_heathen_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_heretic_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_locations_owned = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_members = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_merchant_capacity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_merchant_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_not_tolerated_culture_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_payment_contribution = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_population_in_international_organization = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_population_in_international_organization_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_primary_culture_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_special_status_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_special_status_power_fraction = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_tolerated_culture_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_true_faith_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    total_unique_special_status_power = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    trade_buy = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    trade_capacity_usage_percent = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    trade_profit = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    trade_sell = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    trade_volume = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    tribal_cohesion = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    tribal_cohesion_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    trust = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    union_length_days = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    unique_international_organization_type_exists = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    unit_has_leader = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    unit_strength = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    upkeep_maintenance = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    used_cultures_capacity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    used_diplomatic_capacity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    used_merchant_capacity = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    valid_estate_for_heir_selection = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    vote_impact_in_resolution = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    vote_percentage_impact_in_resolution = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    votes_for_resolution = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    wants_casus_belli_with = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    wants_military_access_in = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    wants_opinion_with = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    wants_to_give_away_any_province = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    wants_to_subjugate = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    war_enthusiasm = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    war_exhaustion = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    war_exhaustion_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    war_length = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    war_length_in_years = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    war_score_in_war = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    war_score_of_country = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    war_score_versus = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    war_stalling_length = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    war_stalling_length_in_years = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    within_colonial_range_of = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    within_diplomatic_range = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    within_naval_range_of = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    world_art_quality = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    world_culture_group_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    world_culture_group_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    world_culture_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    world_culture_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    world_religion_group_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    world_religion_group_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    world_religion_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    world_religion_population = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    yanantin = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    yanantin_percentage = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    yearly_gold = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    yearly_manpower = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    yearly_sailors = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    yearly_salary = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    years_active = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    years_in_international_organization = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    years_since_disaster_end = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    years_since_disaster_start = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    years_since_situation_end = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+    }
+    years_since_situation_start = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
     }
 }
