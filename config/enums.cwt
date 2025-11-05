@@ -238,6 +238,7 @@ enums = {
         elector
         free_city
         centralization
+        socioeconomic
     }
     enum[law_type] = {
         international_organization
@@ -533,6 +534,21 @@ enums = {
         lottery
         score
         none
+    }
+
+    enum[mission_playstyle] = {
+        administrative
+        military
+        diplomatic
+    }
+
+    enum[parliament_agenda_type] = {
+        country
+        international_organization
+    }
+    enum[parliament_issue_type] = {
+        country
+        international_organization
     }
 
 }

@@ -15,6 +15,7 @@ single_alias[ordered_list_formula_clause] = {
     limit = {
         alias_name[trigger] = alias_match_left[trigger]
     }
+
     ## cardinality = 0..1
     order_by = value_field
     ## cardinality = 0..1
@@ -24,15 +25,32 @@ single_alias[ordered_list_formula_clause] = {
     ## cardinality = 0..1
     order_by = <static_value>
     ## cardinality = 0..1
-    value = $define_reference
+    order_by = $define_reference
+
+    ## cardinality = 0..1
+    min = int_value_field
+    ## cardinality = 0..1
+    min = single_alias_right[formula]
+    ## cardinality = 0..1
+    min = <script_value>
+    ## cardinality = 0..1
+    min = <static_value>
+
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
-    max = int_value_field
+    max = single_alias_right[formula]
+    ## cardinality = 0..1
+    max = <script_value>
+    ## cardinality = 0..1
+    max = <static_value>
+
     ## cardinality = 0..1
     position = int
+
     ## cardinality = 0..1
     check_range_bounds = no
+
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
@@ -48,6 +66,99 @@ single_alias[random_list_formula_clause] = {
     ## cardinality = 0..1
     weight = single_alias_right[formula]
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+# = Exceptions
+
+alias[arithmetic_operation:every_country_with_special_status_of_type] = {
+    type = <international_organization_special_status>
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[effect] = alias_match_left[effect]
+}
+alias[arithmetic_operation:ordered_country_with_special_status_of_type] = {
+    type = <international_organization_special_status>
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+
+    ## cardinality = 0..1
+    order_by = value_field
+    ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+    ## cardinality = 0..1
+    order_by = <script_value>
+    ## cardinality = 0..1
+    order_by = <static_value>
+    ## cardinality = 0..1
+    order_by = $define_reference
+
+    ## cardinality = 0..1
+    min = int_value_field
+    ## cardinality = 0..1
+    min = single_alias_right[formula]
+    ## cardinality = 0..1
+    min = <script_value>
+    ## cardinality = 0..1
+    min = <static_value>
+
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = single_alias_right[formula]
+    ## cardinality = 0..1
+    max = <script_value>
+    ## cardinality = 0..1
+    max = <static_value>
+
+    ## cardinality = 0..1
+    position = int
+
+    ## cardinality = 0..1
+    check_range_bounds = no
+
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+alias[arithmetic_operation:random_country_with_special_status_of_type] = {
+    type = <international_organization_special_status>
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[formula]
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### a random list effect random_list = { X1 = { trigger = { enables/disable this effect} modifier = Y1 effect1 } X2 = { trigger = { enables/disable this effect} modifier = Y2 effect2 } ... } Selects one effect from the list and fires it. The effects are weighted by numbers X1, X2... (the higher the number, the higher the chance of the effect being picked). The chances can be modified by optional value modifier lists Y1, Y2... (AKA MTTH constructs)
+## scopes = { any }
+alias[arithmetic_operation:random_list] = {
+    ## cardinality = 0..inf
+    int = single_alias_right[random_formula_list_clause]
+}
+single_alias[random_formula_list_clause] = {
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+
+    ## cardinality = 0..inf
+    trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..inf
+    modifier = single_alias_right[formula]
 }
 
 # = Every lists
@@ -120,7 +231,6 @@ alias[arithmetic_operation:every_country_with_antagonism_against_us] = single_al
 alias[arithmetic_operation:every_country_with_capital_in_geography] = single_alias_right[every_list_formula_clause]
 alias[arithmetic_operation:every_country_with_cardinals] = single_alias_right[every_list_formula_clause]
 alias[arithmetic_operation:every_country_with_coalition_grade_antagonism_against_us] = single_alias_right[every_list_formula_clause]
-alias[arithmetic_operation:every_country_with_special_status_of_type] = single_alias_right[every_list_formula_clause]
 alias[arithmetic_operation:every_country_with_succession_law] = single_alias_right[every_list_formula_clause]
 alias[arithmetic_operation:every_culture] = single_alias_right[every_list_formula_clause]
 alias[arithmetic_operation:every_culture_group] = single_alias_right[every_list_formula_clause]
@@ -385,7 +495,6 @@ alias[arithmetic_operation:ordered_country_with_antagonism_against_us] = single_
 alias[arithmetic_operation:ordered_country_with_capital_in_geography] = single_alias_right[ordered_list_formula_clause]
 alias[arithmetic_operation:ordered_country_with_cardinals] = single_alias_right[ordered_list_formula_clause]
 alias[arithmetic_operation:ordered_country_with_coalition_grade_antagonism_against_us] = single_alias_right[ordered_list_formula_clause]
-alias[arithmetic_operation:ordered_country_with_special_status_of_type] = single_alias_right[ordered_list_formula_clause]
 alias[arithmetic_operation:ordered_country_with_succession_law] = single_alias_right[ordered_list_formula_clause]
 alias[arithmetic_operation:ordered_culture] = single_alias_right[ordered_list_formula_clause]
 alias[arithmetic_operation:ordered_culture_group] = single_alias_right[ordered_list_formula_clause]
@@ -650,7 +759,6 @@ alias[arithmetic_operation:random_country_with_antagonism_against_us] = single_a
 alias[arithmetic_operation:random_country_with_capital_in_geography] = single_alias_right[random_list_formula_clause]
 alias[arithmetic_operation:random_country_with_cardinals] = single_alias_right[random_list_formula_clause]
 alias[arithmetic_operation:random_country_with_coalition_grade_antagonism_against_us] = single_alias_right[random_list_formula_clause]
-alias[arithmetic_operation:random_country_with_special_status_of_type] = single_alias_right[random_list_formula_clause]
 alias[arithmetic_operation:random_country_with_succession_law] = single_alias_right[random_list_formula_clause]
 alias[arithmetic_operation:random_culture] = single_alias_right[random_list_formula_clause]
 alias[arithmetic_operation:random_culture_group] = single_alias_right[random_list_formula_clause]
@@ -722,7 +830,6 @@ alias[arithmetic_operation:random_invited_religious_figure] = single_alias_right
 alias[arithmetic_operation:random_known_country] = single_alias_right[random_list_formula_clause]
 alias[arithmetic_operation:random_left_flank] = single_alias_right[random_list_formula_clause]
 alias[arithmetic_operation:random_lent_loan] = single_alias_right[random_list_formula_clause]
-alias[arithmetic_operation:random_list] = single_alias_right[random_list_formula_clause]
 alias[arithmetic_operation:random_loan] = single_alias_right[random_list_formula_clause]
 alias[arithmetic_operation:random_loan_lent_to_country] = single_alias_right[random_list_formula_clause]
 alias[arithmetic_operation:random_location_in_area] = single_alias_right[random_list_formula_clause]

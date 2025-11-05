@@ -316,16 +316,14 @@ alias[effect:add_enemy_to_international_organization] = scope[country]
 
 ### Changes the satisfaction of an estate
 ## scopes = { country }
-alias[effect:add_estate_satisfaction] = value_field
-### Changes the satisfaction of an estate
-## scopes = { country }
-alias[effect:add_estate_satisfaction] = <script_value>
-### Changes the satisfaction of an estate
-## scopes = { country }
-alias[effect:add_estate_satisfaction] = <static_value>
-### Changes the satisfaction of an estate
-## scopes = { country }
-alias[effect:add_estate_satisfaction] = single_alias_right[formula]
+alias[effect:add_estate_satisfaction] = {
+    type = scope[estate_type]
+
+    value = value_field
+    value = <script_value>
+    value = <static_value>
+    value = single_alias_right[formula]
+}
 
 ### Adds extended winter to target area
 ## scopes = { any }
@@ -2732,7 +2730,7 @@ alias[effect:divorce_character] = scope[character]
 ### Drops an antagonism bomb at a location, causing antagonism with surrounding countries depending on how they feel about you and the target. Usage: drop_antagonism_bomb = { target = <location> value = <script value for base antagonism> modifier = <antagonism bias> [is_taking_value = yes <calculates antagonism as if the target would be taken>] }
 ## scopes = { country }
 alias[effect:drop_antagonism_bomb] = {
-    target = scope[location]<location>
+    target = scope[location]
 
     ## cardinality = 0..1
     value = value_field
@@ -4461,11 +4459,17 @@ alias[effect:set_variable] = {
     ## cardinality = 0..inf
     alias_name[duration] = alias_match_left[duration]
 
+    ## cardinality = 0..1
     value = value_field
+    ## cardinality = 0..1
     value = <script_value>
+    ## cardinality = 0..1
     value = <static_value>
+    ## cardinality = 0..1
     value = single_alias_right[formula]
+    ## cardinality = 0..1
     value = scope_field
+    ## cardinality = 0..1
     value = bool
 }
 

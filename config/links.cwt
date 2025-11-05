@@ -135,12 +135,16 @@ links = {
         input_scopes = { building_type }
         output_scope = value
     }
-    building_type = {
+    building_type_link = {
         input_scopes = { any }
         output_scope = building_type
         from_data = yes
         prefix = building_type:
         data_source = <building_type>
+    }
+    building_type = {
+        input_scopes = { building }
+        output_scope = building_type
     }
     c = {
         input_scopes = { any }
@@ -148,6 +152,13 @@ links = {
         from_data = yes
         prefix = c:
         data_source = <country>
+    }
+    c_formable = {
+        input_scopes = { any }
+        output_scope = country
+        from_data = yes
+        prefix = c:
+        data_source = <formable_country>
     }
     cabinet_action = {
         input_scopes = { any }
@@ -433,12 +444,16 @@ links = {
         prefix = estate_privilege:
         data_source = <estate_privilege>
     }
-    estate_satisfaction = {
+    estate_satisfaction_link = {
         input_scopes = { country }
         output_scope = value
         from_data = yes
         prefix = estate_satisfaction:
         data_source = <estate>
+    }
+    estate_satisfaction = {
+        input_scopes = { estate }
+        output_scope = value
     }
     estate_target_satisfaction = {
         input_scopes = { country }
@@ -817,7 +832,7 @@ links = {
         output_scope = mission_task
         from_data = yes
         prefix = mission_task:
-        data_source = <mission_task>
+        data_source = value[mission_task]
     }
     modifier = {
         input_scopes = { location country unit character religion province international_organization }
@@ -963,14 +978,18 @@ links = {
         output_scope = policy
         from_data = yes
         prefix = policy:
-        data_source = <policy>
+        data_source = value[policy]
     }
-    pop_type = {
+    pop_type_link = {
         input_scopes = { any }
         output_scope = pop_type
         from_data = yes
         prefix = pop_type:
         data_source = <pop_type>
+    }
+    pop_type = {
+        input_scopes = { pop }
+        output_scope = pop_type
     }
     previous_owner = {
         input_scopes = { location }
@@ -2379,11 +2398,6 @@ links = {
         type = value
     }
     estate_opinion = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    estate_satisfaction = {
         input_scopes = { any }
         output_scope = value
         type = value
