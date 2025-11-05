@@ -120,11 +120,12 @@ alias[color:color] = <named_color>
 alias[color:color] = colour[rgb]
 alias[color:color] = colour[hsv360]
 alias[color:color] = single_alias_right[scripted_color_clause]
+alias[color:color] = $define_reference
 
 single_alias[scripted_color_clause] = {
-    lerp = {
-        #TODO
-    }
+    #TODO
+    # ## cardinality = 0..1
+    # lerp = {}
 }
 
 single_alias[selected_trigger_clause] = {

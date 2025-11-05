@@ -156,4 +156,6 @@ alias[arithmetic_operation:else] = {
 }
 
 alias[arithmetic_operation:desc] = localisation
+alias[arithmetic_operation:desc] = scalar
 alias[arithmetic_operation:format] = localisation
+alias[arithmetic_operation:format] = scalar

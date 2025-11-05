@@ -1,0 +1,73 @@
+types = {
+    type[international_organization_land_ownership_rule] = {
+        path = "game/common/international_organization_land_ownership_rules"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+    }
+}
+
+international_organization_land_ownership_rule = {
+    ### applied to locations that are owned by the international organization
+    ## cardinality = 0..inf
+    modifier = single_alias_right[modifier_clause]
+
+    ### can we add locations to the organization in general (root = international organization)
+    ## cardinality = 0..1
+    can_add_trigger = single_alias_right[trigger_clause]
+
+    ### can we remove locations from an organization in general (root = international organization)
+    ## cardinality = 0..1
+    can_remove_trigger = single_alias_right[trigger_clause]
+
+    ### can we add a location to the organization (root = location, recipient = international organization)
+    ## cardinality = 0..1
+    can_add_location_trigger = single_alias_right[trigger_clause]
+
+    ### can we remove a location from an organization (root = location, recipient = international organization)
+    ## cardinality = 0..1
+    can_remove_location_trigger = single_alias_right[trigger_clause]
+
+    ### effect when a location is added to the orgnaisation (root = location, recipient = international organization)
+    ## cardinality = 0..1
+    on_added = single_alias_right[effect_clause]
+
+    ### effect when a location is removed from the orgnaisation (root = location, recipient = international organization)
+    ## cardinality = 0..1
+    on_removed = single_alias_right[effect_clause]
+
+    ### how much the actual country owner of the land wants to add it to the organization (root = location, recipient = international organization)
+    ## cardinality = 0..1
+    ai_desire_to_add = value_field
+    ### how much the actual country owner of the land wants to add it to the organization (root = location, recipient = international organization)
+    ## cardinality = 0..1
+    ai_desire_to_add = <script_value>
+    ### how much the actual country owner of the land wants to add it to the organization (root = location, recipient = international organization)
+    ## cardinality = 0..1
+    ai_desire_to_add = <static_value>
+    ### how much the actual country owner of the land wants to add it to the organization (root = location, recipient = international organization)
+    ## cardinality = 0..1
+    ai_desire_to_add = single_alias_right[formula]
+
+    ### <optional> color of owned locations on the diplomatic map (will be stripes)
+    ## cardinality = 0..1
+    owned_location_color = <named_color>
+    ### <optional> color of owned locations on the diplomatic map (will be stripes)
+    ## cardinality = 0..1
+    owned_location_color = colour[rgb]
+    ### <optional> color of owned locations on the diplomatic map (will be stripes)
+    ## cardinality = 0..1
+    owned_location_color = colour[hsv360]
+    ### <optional> color of owned locations on the diplomatic map (will be stripes)
+    ## cardinality = 0..1
+    owned_location_color = single_alias_right[scripted_color_clause]
+    ### <optional> color of owned locations on the diplomatic map (will be stripes)
+    ## cardinality = 0..1
+    owned_location_color = $define_reference
+
+    ## cardinality = 0..1
+    allow_control_propagation = bool
+
+}

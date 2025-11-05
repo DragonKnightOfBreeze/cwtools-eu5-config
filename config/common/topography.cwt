@@ -35,6 +35,8 @@ topography = {
     debug_color = <named_color>
     debug_color = colour[rgb]
     debug_color = colour[hsv360]
+    debug_color = single_alias_right[scripted_color_clause]
+    debug_color = $define_reference
 
     ## cardinality = 0..1
     vegetation_density = value_field

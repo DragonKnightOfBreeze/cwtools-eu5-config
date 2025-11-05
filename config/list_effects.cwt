@@ -50,6 +50,64 @@ single_alias[random_list_clause] = {
     alias_name[effect] = alias_match_left[effect]
 }
 
+# = Exceptions
+
+alias[effect:every_country_with_special_status_of_type] = {
+    type = <international_organization_special_status>
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    alias_name[effect] = alias_match_left[effect]
+}
+alias[effect:ordered_country_with_special_status_of_type] = {
+    type = <international_organization_special_status>
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    order_by = value_field
+    ## cardinality = 0..1
+    order_by = single_alias_right[formula]
+    ## cardinality = 0..1
+    order_by = <script_value>
+    ## cardinality = 0..1
+    order_by = <static_value>
+    ## cardinality = 0..1
+    value = $define_reference
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    max = int_value_field
+    ## cardinality = 0..1
+    position = int
+    ## cardinality = 0..1
+    check_range_bounds = no
+    alias_name[effect] = alias_match_left[effect]
+}
+alias[effect:random_country_with_special_status_of_type] = {
+    type = <international_organization_special_status>
+
+    ## cardinality = 0..1
+    limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..inf
+    alternative_limit = {
+        alias_name[trigger] = alias_match_left[trigger]
+    }
+    ## cardinality = 0..1
+    weight = single_alias_right[formula]
+    alias_name[effect] = alias_match_left[effect]
+}
+
 # = Every lists
 
 alias[effect:every_accepted_culture] = single_alias_right[every_list_clause]
@@ -120,7 +178,6 @@ alias[effect:every_country_with_antagonism_against_us] = single_alias_right[ever
 alias[effect:every_country_with_capital_in_geography] = single_alias_right[every_list_clause]
 alias[effect:every_country_with_cardinals] = single_alias_right[every_list_clause]
 alias[effect:every_country_with_coalition_grade_antagonism_against_us] = single_alias_right[every_list_clause]
-alias[effect:every_country_with_special_status_of_type] = single_alias_right[every_list_clause]
 alias[effect:every_country_with_succession_law] = single_alias_right[every_list_clause]
 alias[effect:every_culture] = single_alias_right[every_list_clause]
 alias[effect:every_culture_group] = single_alias_right[every_list_clause]
@@ -385,7 +442,6 @@ alias[effect:ordered_country_with_antagonism_against_us] = single_alias_right[or
 alias[effect:ordered_country_with_capital_in_geography] = single_alias_right[ordered_list_clause]
 alias[effect:ordered_country_with_cardinals] = single_alias_right[ordered_list_clause]
 alias[effect:ordered_country_with_coalition_grade_antagonism_against_us] = single_alias_right[ordered_list_clause]
-alias[effect:ordered_country_with_special_status_of_type] = single_alias_right[ordered_list_clause]
 alias[effect:ordered_country_with_succession_law] = single_alias_right[ordered_list_clause]
 alias[effect:ordered_culture] = single_alias_right[ordered_list_clause]
 alias[effect:ordered_culture_group] = single_alias_right[ordered_list_clause]
@@ -650,7 +706,6 @@ alias[effect:random_country_with_antagonism_against_us] = single_alias_right[ran
 alias[effect:random_country_with_capital_in_geography] = single_alias_right[random_list_clause]
 alias[effect:random_country_with_cardinals] = single_alias_right[random_list_clause]
 alias[effect:random_country_with_coalition_grade_antagonism_against_us] = single_alias_right[random_list_clause]
-alias[effect:random_country_with_special_status_of_type] = single_alias_right[random_list_clause]
 alias[effect:random_country_with_succession_law] = single_alias_right[random_list_clause]
 alias[effect:random_culture] = single_alias_right[random_list_clause]
 alias[effect:random_culture_group] = single_alias_right[random_list_clause]

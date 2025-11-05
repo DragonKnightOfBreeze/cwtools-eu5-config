@@ -517,4 +517,22 @@ enums = {
         mil
     }
 
+    enum[international_organization_leader_type] = {
+        none
+        country
+        character
+    }
+    enum[international_organization_leader_change_trigger_type] = {
+        none
+        rulerchange
+        timed
+    }
+    enum[international_organization_leader_change_method] = {
+        rotation
+        vote
+        lottery
+        score
+        none
+    }
+
 }

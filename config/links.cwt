@@ -637,7 +637,7 @@ links = {
     }
     international_organization_type_link = {
         input_scopes = { location }
-        output_scope = value
+        output_scope = international_organization_type
         from_data = yes
         prefix = international_organization_type:
         data_source = <international_organization>
@@ -666,6 +666,14 @@ links = {
         from_data = yes
         prefix = language:
         data_source = <language>
+    }
+    attacker_leader = {
+        input_scopes = { war }
+        output_scope = country
+    }
+    defender_leader = {
+        input_scopes = { war }
+        output_scope = country
     }
     language = {
         input_scopes = { culture }
@@ -1011,12 +1019,16 @@ links = {
         prefix = production_method:
         data_source = <production_method>
     }
-    province = {
-        input_scopes = { country }
+    province_link = {
+        input_scopes = { any }
         output_scope = province
         from_data = yes
         prefix = province:
         data_source = <province>
+    }
+    province = {
+        input_scopes = { location }
+        output_scope = province
     }
     province_capital = {
         input_scopes = { province }

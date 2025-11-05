@@ -141,10 +141,10 @@ alias[effect:add_breach] = int
 alias[effect:add_casus_belli] = {
     target = scope[country]
 
-    type = <casus_belli>
+    type = scope[casus_belli]
 
     ## cardinality = 0..1
-    province = <province>
+    province = scope[province]
 
     ## cardinality = 0..inf
     alias_name[duration] = alias_match_left[duration]
