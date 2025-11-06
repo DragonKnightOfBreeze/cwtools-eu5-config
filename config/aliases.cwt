@@ -118,7 +118,9 @@ alias[duration:enum[duration]] = <static_value>
 alias[duration:enum[duration]] = single_alias_right[formula]
 
 single_alias[selected_trigger_clause] = {
+    ## cardinality = 0..1
     name = localisation
+
     ## cardinality = 0..1
     none_available_msg_key = localisation
 
@@ -135,6 +137,12 @@ single_alias[selected_trigger_clause] = {
     ### actor/recipient/target/target_1/target_2/target_3/target_4 (ai only)
     ## cardinality = 0..1
     source_ai_override = value[event_target]
+
+    ## cardinality = 0..1
+    pre_evaluation_number_to_evaluate_fully = int
+
+    ## cardinality = 0..1
+    max_targets_for_ui = int
 
     ### options to improve game performance by narrowing down the choice
     ## cardinality = 0..1

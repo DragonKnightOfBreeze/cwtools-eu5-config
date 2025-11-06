@@ -1334,12 +1334,9 @@ alias[effect:add_truce_with] = {
 }
 
 ### Adds a trust modifier, add_trust = { modifier = X  target = Z scale = {script value} }
-## scopes = { any }
+## scopes = { country }
 alias[effect:add_trust] = {
-    modifier = int_value_field
-    modifier = <script_value>
-    modifier = <static_value>
-    modifier = single_alias_right[formula]
+    modifier = <bias>
 
     target = scope[country]
 
@@ -2182,11 +2179,11 @@ alias[effect:construct_building] = {
 
     ### defaults to location owner
     ## cardinality = 0..1
-    owner = country
+    owner = scope[country]
 
     ### defaults to building owner
     ## cardinality = 0..1
-    payer = country
+    payer = scope[country]
 }
 
 ### starts the construction of the specified building by an estate in the location
@@ -3230,6 +3227,9 @@ alias[effect:make_saint_in_character_religion] = scope[country]
 alias[effect:make_subject_of] = {
     target = scope[country]
     type = scope[subject_type]
+
+    ## cardinality = 0..1
+    war = scope[war]
 }
 
 ### make the usit available for hire as a mercenary. Usage: make_unit_available_for_hire = { cost_multiplier = <> months = <> }

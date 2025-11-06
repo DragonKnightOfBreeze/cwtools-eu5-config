@@ -183,6 +183,7 @@ enums = {
     }
 
     enum[selected_trigger_source_flag] = {
+        diplomatic_range
         same_international_organization
         neighbor
         possible_colonial_charters
@@ -554,6 +555,14 @@ enums = {
         explorer
         religious_figure
         child
+    }
+
+    enum[peace_treaty_category] = {
+        country
+        location
+        province
+        area
+        dismantle_fort
     }
 
 }

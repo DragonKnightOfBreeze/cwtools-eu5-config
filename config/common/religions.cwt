@@ -124,7 +124,7 @@ religion = {
     ## cardinality = 0..1
     custom_tags = {
         ## cardinality = 0..inf
-        scalar
+        value_set[custom_tag]
     }
 
     ## cardinality = 0..inf

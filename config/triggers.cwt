@@ -420,7 +420,7 @@ alias[trigger:character_nickname] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:climate] = bool
+alias[trigger:climate] = <climate>
 
 ### todo
 ## scopes = { any }
@@ -544,10 +544,6 @@ alias[trigger:country_strength] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:country_tax_base] = bool
-
-### todo
-## scopes = { any }
 alias[trigger:country_total_army_levy_size] = bool
 
 ### todo
@@ -556,7 +552,7 @@ alias[trigger:country_total_navy_levy_size] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:country_type] = bool
+alias[trigger:country_type] = enum[country_type]
 
 ### todo
 ## scopes = { any }
@@ -640,7 +636,7 @@ alias[trigger:currency_utility] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:current_age] = bool
+alias[trigger:current_age] = <age>
 
 ### todo
 ## scopes = { any }
@@ -1136,10 +1132,6 @@ alias[trigger:great_power_ranking] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:great_power_score] = bool
-
-### todo
-## scopes = { any }
 alias[trigger:had_disaster_for_years] = bool
 
 ### todo
@@ -1164,7 +1156,7 @@ alias[trigger:has_active_resolution] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_advance] = bool
+alias[trigger:has_advance] = <advance>
 
 ### todo
 ## scopes = { any }
@@ -1248,7 +1240,7 @@ alias[trigger:has_building] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_building_with_at_least_one_level] = bool
+alias[trigger:has_building_with_at_least_one_level] = <building_type>
 
 ### todo
 ## scopes = { any }
@@ -1364,7 +1356,7 @@ alias[trigger:has_country_modifier] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_culture_group] = bool
+alias[trigger:has_culture_group] = scope[culture_group]
 
 ### todo
 ## scopes = { any }
@@ -1384,7 +1376,7 @@ alias[trigger:has_discovered] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_discovered_area] = bool
+alias[trigger:has_discovered_area] = scope[area]
 
 ### todo
 ## scopes = { any }
@@ -1420,7 +1412,7 @@ alias[trigger:has_enabled_currency] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_estate] = bool
+alias[trigger:has_estate] = scope[estate_type]
 
 ### todo
 ## scopes = { any }
@@ -1680,7 +1672,7 @@ alias[trigger:has_periphora] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_policy] = bool
+alias[trigger:has_policy] = value[policy]
 
 ### todo
 ## scopes = { any }
@@ -1748,7 +1740,7 @@ alias[trigger:has_rebel] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_reform] = bool
+alias[trigger:has_reform] = scope[government_reform]
 
 ### todo
 ## scopes = { any }
@@ -1860,7 +1852,7 @@ alias[trigger:has_support_from] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_tag] = bool
+alias[trigger:has_tag] = value[custom_tag_good]
 
 ### todo
 ## scopes = { any }
@@ -1884,15 +1876,15 @@ alias[trigger:has_trade_treaty_with] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_trait] = bool
+alias[trigger:has_trait] = <trait>
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_trait_category] = bool
+alias[trigger:has_trait_category] = enum[trait_category]
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_truce_with] = bool
+alias[trigger:has_truce_with] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -2038,7 +2030,7 @@ alias[trigger:in_trade_range_of] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:in_union_with] = bool
+alias[trigger:in_union_with] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -2202,7 +2194,7 @@ alias[trigger:is_already_merged] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_an_attacker] = bool
+alias[trigger:is_an_attacker] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -2250,7 +2242,7 @@ alias[trigger:is_at_max_level] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_at_war_with] = bool
+alias[trigger:is_at_war_with] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -2410,7 +2402,7 @@ alias[trigger:is_demanded_in_market_by_units] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_discovered_by] = bool
+alias[trigger:is_discovered_by] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -2638,7 +2630,7 @@ alias[trigger:is_latest_road_type_for] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_leader_of_international_organization] = bool
+alias[trigger:is_leader_of_international_organization] = scope[international_organization]
 
 ### todo
 ## scopes = { any }
@@ -2698,7 +2690,7 @@ alias[trigger:is_max_level] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_member_of_international_organization] = bool
+alias[trigger:is_member_of_international_organization] = scope[international_organization]
 
 ### todo
 ## scopes = { any }
@@ -2758,7 +2750,7 @@ alias[trigger:is_navy] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_neighbor_of] = bool
+alias[trigger:is_neighbor_of] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -2822,7 +2814,7 @@ alias[trigger:is_owned_or_owned_by_subjects_of] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_owned_or_owned_by_subjects_or_below_of] = bool
+alias[trigger:is_owned_or_owned_by_subjects_or_below_of] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -2862,7 +2854,7 @@ alias[trigger:is_produced_by_production_method] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_produced_in_market] = bool
+alias[trigger:is_produced_in_market] = scope[goods]
 
 ### todo
 ## scopes = { any }
@@ -2930,7 +2922,7 @@ alias[trigger:is_revolutionary] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_rival_of] = bool
+alias[trigger:is_rival_of] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -2978,7 +2970,7 @@ alias[trigger:is_sibling_of] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_situation_active] = bool
+alias[trigger:is_situation_active] = scope[situation]
 
 ### todo
 ## scopes = { any }
@@ -3006,7 +2998,7 @@ alias[trigger:is_subject_or_below_of] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_subject_type] = bool
+alias[trigger:is_subject_type] = <subject_type>
 
 ### todo
 ## scopes = { any }
@@ -3054,7 +3046,7 @@ alias[trigger:is_trade_cb] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_traded_in_market] = bool
+alias[trigger:is_traded_in_market] = scope[goods]
 
 ### todo
 ## scopes = { any }
@@ -3106,7 +3098,7 @@ alias[trigger:is_used_by_production_method] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_valid_colonial_charter] = bool
+alias[trigger:is_valid_colonial_charter] = scope[colonial_charter]
 
 ### todo
 ## scopes = { any }
@@ -3122,7 +3114,7 @@ alias[trigger:is_visible_for_international_organization] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_war_leader_of] = bool
+alias[trigger:is_war_leader_of] = scope[war]
 
 ### todo
 ## scopes = { any }
@@ -3150,7 +3142,7 @@ alias[trigger:knows_about_institution] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:knows_country] = bool
+alias[trigger:knows_country] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -3211,10 +3203,6 @@ alias[trigger:list_size] = bool
 ### todo
 ## scopes = { any }
 alias[trigger:liturgical_language_utility] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:loan_amount] = bool
 
 ### todo
 ## scopes = { any }
@@ -3464,42 +3452,6 @@ alias[trigger:modifier_utility_include_locations] = {
 
 ### todo
 ## scopes = { any }
-alias[trigger:monthly_balance] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:monthly_conversion] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:monthly_cost] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:monthly_income_total] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:monthly_income_trade_and_tax] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:monthly_sailors] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:monthly_trade_income] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:months_between_leader_changes] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:morale_percentage] = bool
-
-### todo
-## scopes = { any }
 alias[trigger:nand] = bool
 
 ### todo
@@ -3720,10 +3672,6 @@ alias[trigger:pop_type_population_in_country] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:population] = bool
-
-### todo
-## scopes = { any }
 alias[trigger:population_in_area] = bool
 
 ### todo
@@ -3741,10 +3689,6 @@ alias[trigger:power] = bool
 ### todo
 ## scopes = { any }
 alias[trigger:power_projection] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:prestige] = bool
 
 ### todo
 ## scopes = { any }
@@ -4127,7 +4071,7 @@ alias[trigger:satisfaction] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:save_temporary_scope_as] = bool
+alias[trigger:save_temporary_scope_as] = value_set[event_target]
 
 ### todo
 ## scopes = { any }
@@ -4219,10 +4163,6 @@ alias[trigger:subject_level] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:subject_loyalty] = bool
-
-### todo
-## scopes = { any }
 alias[trigger:subjects_relative_power] = bool
 
 ### todo
@@ -4294,119 +4234,7 @@ alias[trigger:tithe] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:topography] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_abilities] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_accepted_culture_population] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_building_levels] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_cardinals] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_control_scaled_population] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_debt] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_development] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_dynastic_power] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_effective_goods_production_buildings] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_enemies] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_goods_traded] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_goods_value_traded] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_heathen_population] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_heretic_population] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_locations_owned] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_members] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_merchant_capacity] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_merchant_power] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_not_tolerated_culture_population] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_payment_contribution] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_population_in_international_organization] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_population_in_international_organization_percentage] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_primary_culture_population] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_special_status_power] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_special_status_power_fraction] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_tolerated_culture_population] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_true_faith_population] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:total_unique_special_status_power] = bool
+alias[trigger:topography] = <topography>
 
 ### todo
 ## scopes = { any }
@@ -4502,7 +4330,7 @@ alias[trigger:variable_list_size] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:vegetation] = bool
+alias[trigger:vegetation] = <vegetation>
 
 ### todo
 ## scopes = { any }

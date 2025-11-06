@@ -43,15 +43,15 @@ government_reform = {
     locked = single_alias_right[trigger_clause]
 
     ### (scale = script for the scale, potential_trigger = trigger for if the modifier applies)> which is applied to whole countries
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     country_modifier = single_alias_right[modifier_clause]
 
     ### (scale = script for the scale, potential_trigger = trigger for if the modifier applies)> which is applied to provinces
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     location_modifier = single_alias_right[modifier_clause]
 
     ### (scale = script for the scale, potential_trigger = trigger for if the modifier applies)> which is applied to provinces
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     province_modifier = single_alias_right[modifier_clause]
 
     ### fired when the action is chosen (root = country)
@@ -70,7 +70,7 @@ government_reform = {
     ## cardinality = 0..1
     male_regnal_names = {
         ## cardinality = 0..inf
-        localization
+        localisation
     }
 
     ### optional list of female names assumed by rulers of the country

@@ -135,6 +135,6 @@ heir_selection = {
     ## cardinality = 0..1
     custom_tags = {
         ## cardinality = 0..inf
-        scalar
+        value_set[custom_tag]
     }
 }

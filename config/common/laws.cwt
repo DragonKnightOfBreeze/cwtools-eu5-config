@@ -45,7 +45,7 @@ law = {
     ## cardinality = 0..1
     custom_tags = {
         ## cardinality = 0..inf
-        scalar
+        value_set[custom_tag]
     }
 
     ### for laws that are unique for some religion/s
@@ -73,7 +73,7 @@ law = {
         ## cardinality = 0..1
         custom_tags = {
             ## cardinality = 0..inf
-            scalar
+            value_set[custom_tag]
         }
 
         ### what you have to pay to activate the policy
