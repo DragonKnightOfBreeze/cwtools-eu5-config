@@ -547,4 +547,14 @@ enums = {
         international_organization
     }
 
+    enum[trait_category] = {
+        ruler
+        general
+        admiral
+        artist
+        explorer
+        religious_figure
+        child
+    }
+
 }

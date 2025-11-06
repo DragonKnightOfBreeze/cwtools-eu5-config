@@ -1,0 +1,11 @@
+types = {
+    type[town_setup] = {
+        path = "game/common/town_setups"
+        file_extension = .txt
+    }
+}
+
+town_setup = {
+    ## cardinality = 1..inf
+    <building_type> = int
+}

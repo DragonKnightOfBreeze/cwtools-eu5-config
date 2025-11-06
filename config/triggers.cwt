@@ -947,9 +947,10 @@ alias[trigger:estate_type_allowed_in_command] = bool
 ## scopes = { any }
 alias[trigger:estate_type_allowed_in_parliament] = bool
 
-### todo
+### Checks whether the specified scope target exists (check for not being the null object)
+### exists = from.owner.var:cool_var.mother
 ## scopes = { any }
-alias[trigger:exists] = bool
+alias[trigger:exists] = scope_field
 
 ### todo
 ## scopes = { any }
@@ -1463,13 +1464,15 @@ alias[trigger:has_game_rule] = bool
 ## scopes = { any }
 alias[trigger:has_gifted_gold_to] = bool
 
-### todo
+### Checks whether the current scope has the specified variable set
+### has_variable = name
 ## scopes = { any }
-alias[trigger:has_global_variable] = bool
+alias[trigger:has_global_variable] = value[global_variable]
 
-### todo
+### Checks whether the current scope has the specified variable list set
+### has_variable_list = name
 ## scopes = { any }
-alias[trigger:has_global_variable_list] = bool
+alias[trigger:has_global_variable_list] = value[global_variable_list]
 
 ### todo
 ## scopes = { any }
@@ -1559,13 +1562,15 @@ alias[trigger:has_loc_key] = bool
 ## scopes = { any }
 alias[trigger:has_local_dlc] = bool
 
-### todo
+### Checks whether the current scope has the specified variable set
+### has_variable = name
 ## scopes = { any }
-alias[trigger:has_local_variable] = bool
+alias[trigger:has_local_variable] = value[local_variable]
 
-### todo
+### Checks whether the current scope has the specified variable list set
+### has_variable_list = name
 ## scopes = { any }
-alias[trigger:has_local_variable_list] = bool
+alias[trigger:has_local_variable_list] = value[local_variable_list]
 
 ### todo
 ## scopes = { any }
@@ -1907,13 +1912,15 @@ alias[trigger:has_unit_modifier] = bool
 ## scopes = { any }
 alias[trigger:has_unlocked_any_unit_of_category] = bool
 
-### todo
+### Checks whether the current scope has the specified variable set
+### has_variable = name
 ## scopes = { any }
-alias[trigger:has_variable] = bool
+alias[trigger:has_variable] = value[variable]
 
-### todo
+### Checks whether the current scope has the specified variable list set
+### has_variable_list = name
 ## scopes = { any }
-alias[trigger:has_variable_list] = bool
+alias[trigger:has_variable_list] = value[variable_list]
 
 ### todo
 ## scopes = { any }

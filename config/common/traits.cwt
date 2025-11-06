@@ -1,0 +1,30 @@
+types = {
+    type[trait] = {
+        path = "game/common/traits"
+        file_extension = .txt
+        localisation = {
+            name = "$"
+        }
+    }
+}
+
+trait = {
+    ### Which type of character can use this trait? Default is "ruler".
+    ## cardinality = 0..1
+    category = enum[trait_category]
+
+    ## cardinality = 0..1
+    flavor = <trait_flavor>
+
+    ### What else does the character need for this trait to be a valid choice?
+    ## cardinality = 0..1
+    allow = single_alias_right[trigger_clause]
+
+    ### What effect does this trait have when the character's role is the same as this trait's category?
+    ## cardinality = 0..1
+    modifier = single_alias_right[modifier_clause]
+
+    ### MTTH style of chance determining how likely this trait is to appear
+    ## cardinality = 0..1
+    chance = single_alias_right[formula]
+}

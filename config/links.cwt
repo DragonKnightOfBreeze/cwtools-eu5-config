@@ -893,8 +893,8 @@ links = {
         data_source = <estate>
     }
     origin = {
-        input_scopes = { disease }
-        output_scope = disease_outbreak
+        input_scopes = { work_of_art institution disease_outbreak disease }
+        output_scope = location
     }
     original_outbreak = {
         input_scopes = { disease }
@@ -1334,7 +1334,7 @@ links = {
         output_scope = value
         from_data = yes
         prefix = sub_unit_fraction:
-        data_source = <unit_type>
+        data_source = <unit_category>
     }
     sub_unit_strength = {
         input_scopes = { unit }
