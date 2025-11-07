@@ -1141,7 +1141,7 @@ links = {
         output_scope = relation_type
         from_data = yes
         prefix = relation_type:
-        data_source = <scripted_relation_type>
+        data_source = <scripted_relation>
     }
     religion_link = {
         input_scopes = { any }
@@ -1396,12 +1396,16 @@ links = {
         prefix = subject_military_stance:
         data_source = <subject_military_stance>
     }
-    subject_type = {
+    subject_type_link = {
         input_scopes = { any }
         output_scope = subject_type
         from_data = yes
         prefix = subject_type:
         data_source = <subject_type>
+    }
+    subject_type = {
+        input_scopes = { country }
+        output_scope = subject_type
     }
     subunit_home = {
         input_scopes = { sub_unit }
@@ -1760,7 +1764,7 @@ links = {
         input_scopes = { market }
         output_scope = value
         type = value
-        from_data = yes
+        from_argument = yes
         prefix = available_merchant_capacity:
         data_source = scope[country]
     }
@@ -3959,9 +3963,12 @@ links = {
         type = value
     }
     merchant_power_in_market = {
-        input_scopes = { any }
+        input_scopes = { market }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = merchant_power_in_market:
+        data_source = scope[country]
     }
     migration_attraction = {
         input_scopes = { any }
@@ -5406,9 +5413,12 @@ links = {
         type = value
     }
     trust = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        prefix = trust:
+        from_argument = yes
+        data_source = scope[country]
     }
     union_length_days = {
         input_scopes = { any }

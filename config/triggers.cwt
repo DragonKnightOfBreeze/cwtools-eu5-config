@@ -532,10 +532,6 @@ alias[trigger:country_loan_capacity] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:country_rank_level] = bool
-
-### todo
-## scopes = { any }
 alias[trigger:country_rank_level_on_date] = bool
 
 ### todo
@@ -936,14 +932,6 @@ alias[trigger:exists] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:expected_army_size] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:expected_navy_size] = bool
-
-### todo
-## scopes = { any }
 alias[trigger:experience_percentage] = bool
 
 ### todo
@@ -1044,7 +1032,7 @@ alias[trigger:gives_fleet_basing_rights] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:gives_fleet_basing_rights_to] = bool
+alias[trigger:gives_fleet_basing_rights_to] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -1052,15 +1040,15 @@ alias[trigger:gives_food_access] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:gives_food_access_to] = bool
+alias[trigger:gives_food_access_to] = scope[country]
 
 ### todo
 ## scopes = { any }
-alias[trigger:gives_isolation_exemption_to] = bool
+alias[trigger:gives_isolation_exemption_to] = scope[country]
 
 ### todo
 ## scopes = { any }
-alias[trigger:gives_military_access_to] = bool
+alias[trigger:gives_military_access_to] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -1212,7 +1200,7 @@ alias[trigger:has_been_influenced_by_parliament_agenda] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_blocked_treaties] = bool
+alias[trigger:has_blocked_treaties] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -1260,7 +1248,7 @@ alias[trigger:has_casus_belli_of_type_on] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_casus_belli_on] = bool
+alias[trigger:has_casus_belli_on] = scope[country]
 
 ### Does the scoped character have a given modifier
 ## scopes = { character }
@@ -1696,7 +1684,7 @@ alias[trigger:has_prisoners] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_privateers_from] = bool
+alias[trigger:has_privateers_from] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -2414,19 +2402,19 @@ alias[trigger:is_eligible_military_leader] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_embargoed_by] = bool
+alias[trigger:is_embargoed_by] = scope[country]
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_embargoing] = bool
+alias[trigger:is_embargoing] = scope[country]
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_embraced_for] = bool
+alias[trigger:is_embraced_for] = scope[country]
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_enemy_of] = bool
+alias[trigger:is_enemy_of] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -2457,8 +2445,8 @@ alias[trigger:is_export_banned] = bool
 alias[trigger:is_female] = bool
 
 ### todo
-## scopes = { any }
-alias[trigger:is_fighting_war_together_with] = bool
+## scopes = { country }
+alias[trigger:is_fighting_war_together_with] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -2958,11 +2946,11 @@ alias[trigger:is_subject] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_subject_of] = bool
+alias[trigger:is_subject_of] = scope[country]
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_subject_or_below_of] = bool
+alias[trigger:is_subject_or_below_of] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -2994,7 +2982,7 @@ alias[trigger:is_target_in_variable_list] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_target_of_international_organization_of_type] = bool
+alias[trigger:is_target_of_international_organization_of_type] = <international_organization>
 
 ### todo
 ## scopes = { any }
@@ -3508,7 +3496,7 @@ alias[trigger:owns] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:owns_any_foreign_buildings_in] = bool
+alias[trigger:owns_any_foreign_buildings_in] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -3812,19 +3800,19 @@ alias[trigger:rebel_size] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:receives_fleet_basing_rights_from] = bool
+alias[trigger:receives_fleet_basing_rights_from] = scope[country]
 
 ### todo
 ## scopes = { any }
-alias[trigger:receives_food_access_from] = bool
+alias[trigger:receives_food_access_from] = scope[country]
 
 ### todo
 ## scopes = { any }
-alias[trigger:receives_isolation_exemption_from] = bool
+alias[trigger:receives_isolation_exemption_from] = scope[country]
 
 ### todo
 ## scopes = { any }
-alias[trigger:receives_military_access_from] = bool
+alias[trigger:receives_military_access_from] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -4293,8 +4281,8 @@ alias[trigger:wants_opinion_with] = bool
 alias[trigger:wants_to_give_away_any_province] = bool
 
 ### todo
-## scopes = { any }
-alias[trigger:wants_to_subjugate] = bool
+## scopes = { country }
+alias[trigger:wants_to_subjugate] = scope[country]
 
 ### todo
 ## scopes = { any }

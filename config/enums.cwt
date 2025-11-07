@@ -559,4 +559,26 @@ enums = {
         dismantle_fort
     }
 
+    enum[call_to_arms_type] = {
+        none
+        mutual
+        giving
+        receiving
+    }
+
+    enum[scripted_relation_type] = {
+        diplomacy
+        subject
+    }
+
+    enum[scripted_relation_direction] = {
+        oneway
+        mutual
+    }
+
+    enum[scripted_relation_for_ai] = {
+        friendly
+        hostile
+    }
+
 }
