@@ -146,11 +146,11 @@ single_alias[selected_trigger_clause] = {
 
     ### options to improve game performance by narrowing down the choice
     ## cardinality = 0..1
-    source_flags = enum[selected_trigger_source_flag]
+    source_flags = value[event_target]
 
     ### options to improve game performance by narrowing down the choice for Ai countries
     ## cardinality = 0..1
-    source_flags_ai_override = enum[selected_trigger_source_flag]
+    source_flags_ai_override = value[event_target]
 
     ### gives us a list of possible candidates to look at. scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc. Fill the list with add_to_list = source on the scope object
     ## cardinality = 0..1

@@ -615,6 +615,10 @@ alias[trigger:cultural_view] = {
     target = scope[culture]
 
     value == enum[culture_opinion]
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
 }
 
 ### Gets the percentage of the population that follow a particular culture group in the location/province/province_defintion/area/region/subcontinent/continent - culture_group_percentage = { culture_group = <culture group> value ><= <value> }
@@ -907,127 +911,203 @@ alias[trigger:disease_outbreak_is_active] = scope[disease_outbreak]
 alias[trigger:disease_outbreak_presence] = {
     disease_outbreak = scope[disease_outbreak]
 
-    amount == value_field
-    amount == <script_value>
-    amount == <static_value>
-    amount == single_alias_right[formula]
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
 }
 
-### todo
-## scopes = { any }
-alias[trigger:disease_presence] = bool
+### Checks the presence of a disease in a location or subunit. usage: disease_presence(<disease>) or disease_presence = { disease = <disease> value <comparator> <real> }
+## scopes = { location sub_unit }
+alias[trigger:disease_presence] = {
+    disease = scope[disease]
 
-### todo
-## scopes = { any }
-alias[trigger:disease_resistance] = bool
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:distance_to] = bool
+### Checks the resistance to a disease in a location or subunit. usage: disease_resistance(<disease>) or disease_resistance = { target = <disease> value <comparator> <real> }
+## scopes = { location sub_unit }
+alias[trigger:disease_resistance] = {
+    disease = scope[disease]
 
-### todo
-## scopes = { any }
-alias[trigger:distance_to_area] = bool
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:distance_to_squared] = bool
+### gets distance between locations
+## scopes = { location }
+alias[trigger:distance_to] =  {
+    location = scope[location]
 
-### todo
-## scopes = { any }
-alias[trigger:does_estate_want_other_policy] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
+### gets distance between a location and an area
+## scopes = { location }
+alias[trigger:distance_to_area] = {
+    area = scope[area]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### gets distance squared as the crow flies between locations (much quicker than distance_to, useful if you're just comparing)
+## scopes = { location }
+alias[trigger:distance_to_squared] = {
+    location = scope[location]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Checks if a country has at least one law for which the input estate want another policy
+## scopes = { country }
+alias[trigger:does_estate_want_other_policy] = {
+    estate = scope[estate]
+
+    policy = scope[policy]
+}
+
+### Check if a province's owner wants to give it away to a subject
+## scopes = { province }
 alias[trigger:does_owner_want_to_give_away] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:doom] = bool
+### Returns the dynastic power of the scope dynasty or country. For countries, check ruler dynasty or heir dynasty if in regency. Usage: dynastic_power = { international_organization = <international organization> value <operator> <value> } or dynastic_power(<international organization>)
+## scopes = { country dynasty }
+alias[trigger:dynastic_power] = {
+    international_organization = scope[international_organization]
 
-### todo
-## scopes = { any }
-alias[trigger:doom_percentage] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### does a tag exist
 ## scopes = { any }
-alias[trigger:dynastic_power] = bool
+alias[trigger:dynasty_exists] = <dynasty>
 
-### todo
-## scopes = { any }
-alias[trigger:dynasty_exists] = bool
+### if a dynasty a special name-key
+## scopes = { dynasty }
+alias[trigger:dynasty_name] = localisation
 
-### todo
-## scopes = { any }
-alias[trigger:dynasty_name] = bool
+### Checks if a character has a specific education
+## scopes = { character }
+alias[trigger:education] = <child_education>
 
-### todo
-## scopes = { any }
-alias[trigger:education] = bool
+### Is this estate type eligible for the cabinet in the target country? Usage: eligible_for_cabinet = { target = <target country> }
+## scopes = { estate_type }
+alias[trigger:eligible_for_cabinet] = {
+    target = scope[country]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:effective_skill] = bool
+### returns how much the country wants the target employment system. Usage: employment_system_desire = { target = <employment system> value <comparator> <value> }
+## scopes = { country }
+alias[trigger:employment_system_desire] = {
+    target = scope[employment_system]
 
-### todo
-## scopes = { any }
-alias[trigger:eligible_for_cabinet] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:employment_percentage] = bool
+### the current max-tax of an estate in a country - usage: estate_max_tax(<estate_type link>) or estate_max_tax = { estate_type = <estate_type link> value <operator> <amount> }
+## scopes = { country }
+alias[trigger:estate_max_tax] = {
+    estate_type = scope[estate_type]
 
-### todo
-## scopes = { any }
-alias[trigger:employment_size] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:employment_system_desire] = bool
+### the current opinion that an estate in a country has of another country - usage: estate_opinion(<estate_type link>|<country>) or estate_opinion = { estate_type = <estate_type link> target = country value <operator> <amount> }
+## scopes = { country }
+alias[trigger:estate_opinion] = {
+    estate_type = scope[estate_type]
 
-### todo
-## scopes = { any }
-alias[trigger:estate_gold] = bool
+    target = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:estate_loan_interest] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:estate_max_tax] = bool
+### the current opinion that an estate in a country has of another country - usage: estate_opinion(<estate_type link>|<country>) or estate_opinion = { estate_type = <estate_type link> target = country value <operator> <amount> }
+## scopes = { country }
+alias[trigger:estate_satisfaction] = {
+    estate_type = scope[estate_type]
 
-### todo
-## scopes = { any }
-alias[trigger:estate_opinion] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:estate_satisfaction] = bool
+### Checks if estate type is allowed in cabinet
+## scopes = { country }
+alias[trigger:estate_type_allowed_in_cabinet] = {
+    estate_type = scope[estate_type]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:estate_tax] = bool
+### Checks if estate type is allowed in command of a unit
+## scopes = { country }
+alias[trigger:estate_type_allowed_in_command] = {
+    estate_type = scope[estate_type]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:estate_tax_rate] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:estate_taxable_income] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:estate_type_allowed_in_cabinet] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:estate_type_allowed_in_command] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:estate_type_allowed_in_parliament] = bool
+### Checks if estate type is allowed in parliament
+## scopes = { country }
+alias[trigger:estate_type_allowed_in_parliament] = {
+    estate_type = scope[estate_type]
+}
 
 ### Checks whether the specified scope target exists (check for not being the null object)
 ### exists = from.owner.var:cool_var.mother
@@ -1038,41 +1118,54 @@ alias[trigger:exists] = scope_field
 ## scopes = { any }
 alias[trigger:exists] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:experience_percentage] = bool
+### gets the exploration expected cost for a country in the scope area
+## scopes = { area }
+alias[trigger:exploration_expected_cost] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:exploration_expected_cost] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
+### gets the exploration needed time (months) for a country in the scope area
 ## scopes = { any }
-alias[trigger:exploration_maintenance] = bool
+alias[trigger:exploration_needed_time] = {
+    country = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:exploration_monthly_cost] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:exploration_monthly_progress] = bool
+### Utility of an exploration to the country - usage: exploration_utility(<area>|<character>) or exploration_utility = { area = <area> character = <character> value <operator><threshold> }
+## scopes = { country }
+alias[trigger:exploration_utility] = {
+    area = scope[area]
 
-### todo
-## scopes = { any }
-alias[trigger:exploration_needed_time] = bool
+    character = scope[character]
 
-### todo
-## scopes = { any }
-alias[trigger:exploration_progress] = bool
+    location = scope[location]
 
-### todo
-## scopes = { any }
-alias[trigger:exploration_time] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:exploration_utility] = bool
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == <script_value>
+    ## cardinality = 0..inf
+    value == <static_value>
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
 
 ### todo
 ## scopes = { any }
@@ -1244,7 +1337,7 @@ alias[trigger:has_advance_available] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_advance_for_employment_system] = bool
+alias[trigger:has_advance_for_employment_system] = scope[employment_system]
 
 ### todo
 ## scopes = { any }
@@ -1484,7 +1577,7 @@ alias[trigger:has_embraced_institution] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_employment_system] = bool
+alias[trigger:has_employment_system] = scope[employment_system]
 
 ### todo
 ## scopes = { any }
@@ -1880,7 +1973,7 @@ alias[trigger:has_road_to] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:has_royal_marriage_with] = bool
+alias[trigger:has_royal_marriage_with] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -2330,7 +2423,7 @@ alias[trigger:is_being_annexed_by] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_being_explored] = bool
+alias[trigger:is_being_explored] = scope[area]
 
 ### todo
 ## scopes = { any }
@@ -2905,12 +2998,12 @@ alias[trigger:is_port] = bool
 alias[trigger:is_pregnant] = bool
 
 ### todo
-## scopes = { any }
-alias[trigger:is_primary_in] = bool
+## scopes = { culture }
+alias[trigger:is_primary_in] = scope[country]
 
 ### todo
-## scopes = { any }
-alias[trigger:is_primary_or_accepted_in] = bool
+## scopes = { culture }
+alias[trigger:is_primary_or_accepted_in] = scope[country]
 
 ### todo
 ## scopes = { any }
@@ -3094,7 +3187,7 @@ alias[trigger:is_target_of_international_organization_of_type] = <international_
 
 ### todo
 ## scopes = { any }
-alias[trigger:is_threat_to] = bool
+alias[trigger:is_threat_to] = scope[country]
 
 ### If a culture is tolerated in the target country?
 ## scopes = { culture }
@@ -3255,10 +3348,6 @@ alias[trigger:list_size] = bool
 ### todo
 ## scopes = { any }
 alias[trigger:liturgical_language_utility] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:loan_interest] = bool
 
 ### todo
 ## scopes = { any }
@@ -3784,10 +3873,6 @@ alias[trigger:proper_culture_nobles] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:prosperity] = bool
-
-### todo
-## scopes = { any }
 alias[trigger:province_army_levy_size] = bool
 
 ### todo
@@ -4000,7 +4085,14 @@ alias[trigger:religious_influence_percentage] = bool
 
 ### todo
 ## scopes = { any }
-alias[trigger:religious_view] = bool
+alias[trigger:religious_view] = {
+    target = scope[religion]
+
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
 
 ### todo
 ## scopes = { any }

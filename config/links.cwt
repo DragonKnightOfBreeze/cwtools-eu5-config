@@ -455,6 +455,14 @@ links = {
         input_scopes = { any }
         output_scope = any
     }
+    estate_power_link = {
+        input_scopes = { country }
+        output_scope = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = estate_power:
+        data_source = scope[estate_type]
+    }
     estate_power = {
         desc = "desc"
         input_scopes = { any }
@@ -1684,7 +1692,7 @@ links = {
         input_scopes = { country }
         output_scope = value
         type = value
-        from_data = yes
+        from_argument = yes
         prefix = annexation_cost:
         data_source = scope[country]
     }
@@ -1692,7 +1700,7 @@ links = {
         input_scopes = { country }
         output_scope = value
         type = value
-        from_data = yes
+        from_argument = yes
         prefix = antagonism:
         data_source = scope[country]
     }
@@ -2194,7 +2202,9 @@ links = {
         output_scope = value
         type = value
         from_argument = yes
+        argument_separator = pipe
         prefix = culture_percentage_in_area:
+        data_source = scope[country]
         data_source = scope[culture]
     }
     ### The percentage of a specific culture in the current country
@@ -2408,15 +2418,25 @@ links = {
         output_scope = value
         type = value
     }
+    ### Checks the presence of a disease in a location or subunit. usage: disease_presence(<disease>) or disease_presence = { disease = <disease> value <comparator> <real> }
     disease_presence = {
-        input_scopes = { any }
+        input_scopes = { location sub_unit }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = disease_presence:
+        data_source = scope[disease]
     }
+    ### Checks the resistance to a disease in a location or subunit. usage: disease_resistance(<disease>) or disease_resistance = { target = <disease> value <comparator> <real> }
     disease_resistance = {
-        input_scopes = { any }
+        input_scopes = { location sub_unit }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = disease_resistance:
+        data_source = scope[disease]
     }
     ### How many people have been killed by this disease?
     disease_total_deaths = {
@@ -2424,23 +2444,8 @@ links = {
         output_scope = value
         type = value
     }
+    ### gets distance between locations
     distance_to = {
-        input_scopes = { country }
-        output_scope = value
-        type = value
-        from_argument = yes
-        prefix = distance_to:
-        data_source = scope[location]
-    }
-    distance_to_area = {
-        input_scopes = { country }
-        output_scope = value
-        type = value
-        from_argument = yes
-        prefix = distance_to:
-        data_source = scope[area]
-    }
-    distance_to_squared = {
         input_scopes = { location }
         output_scope = value
         type = value
@@ -2448,140 +2453,219 @@ links = {
         prefix = distance_to:
         data_source = scope[location]
     }
-    does_owner_want_to_give_away = {
-        input_scopes = { any }
+    ### gets distance between a location and an area
+    distance_to_area = {
+        input_scopes = { location }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = distance_to_area:
+        data_source = scope[area]
     }
+    distance_to_squared = {
+        input_scopes = { location }
+        output_scope = value
+        type = value
+        from_argument = yes
+        prefix = distance_to_squared:
+        data_source = scope[location]
+    }
+    ### How much doom does the country/IO have?
     doom = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current doom compared to the maximum does the country/IO have?
     doom_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Returns the dynastic power of the scope dynasty or country. For countries, check ruler dynasty or heir dynasty if in regency. Usage: dynastic_power = { international_organization = <international organization> value <operator> <value> } or dynastic_power(<international organization>)
     dynastic_power = {
-        input_scopes = { any }
+        input_scopes = { country dynasty }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = dynastic_power:
+        data_source = scope[international_organization]
     }
+    ### Check the skill level of this cabinet
     effective_skill = {
-        input_scopes = { any }
+        input_scopes = { cabinet }
         output_scope = value
         type = value
     }
+    ### Checks if a location has a certain unemployement percentage
     employment_percentage = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Returns the employment size of a building type per building level
     employment_size = {
-        input_scopes = { any }
+        input_scopes = { building_type }
         output_scope = value
         type = value
     }
+    ### returns how much the country wants the target employment system. Usage: employment_system_desire = { target = <employment system> value <comparator> <value> }
     employment_system_desire = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = employment_system_desire:
+        data_source = scope[employment_system]
     }
+    ### The gold of an estate
     estate_gold = {
-        input_scopes = { any }
+        input_scopes = { estate }
         output_scope = value
         type = value
     }
+    ### Checks the interest of a loan
     estate_loan_interest = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### the current max-tax of an estate in a country - usage: estate_max_tax(<estate_type link>) or estate_max_tax = { estate_type = <estate_type link> value <operator> <amount> }
     estate_max_tax = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = estate_loan_interest:
+        data_source = scope[estate_type]
     }
+    ### the current opinion that an estate in a country has of another country - usage: estate_opinion(<estate_type link>|<country>) or estate_opinion = { estate_type = <estate_type link> target = country value <operator> <amount> }
     estate_opinion = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = estate_opinion:
+        data_source = scope[estate_type]
+        data_source = scope[country]
     }
+    ### the current opinion that an estate in a country has of another country - usage: estate_opinion(<estate_type link>|<country>) or estate_opinion = { estate_type = <estate_type link> target = country value <operator> <amount> }
+    estate_satisfaction = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = estate_satisfaction:
+        data_source = scope[estate_type]
+    }
+    ### The current tax the estate has to pay
     estate_tax = {
-        input_scopes = { any }
+        input_scopes = { estate }
         output_scope = value
         type = value
     }
+    ### The current percentage of tax the estate has to pay. Returns 1 if the estate gets fully taxed even if the max possible tax is below 100%
     estate_tax_rate = {
-        input_scopes = { any }
+        input_scopes = { estate }
         output_scope = value
         type = value
     }
+    ### The taxable income of an estate
     estate_taxable_income = {
-        input_scopes = { any }
+        input_scopes = { estate }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain expected army size
     expected_army_size = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country expects to have a certain amount of ships
     expected_navy_size = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### How many percent experience does this unit have???
     experience_percentage = {
-        input_scopes = { any }
+        input_scopes = { unit }
         output_scope = value
         type = value
     }
+    ### gets the exploration expected cost for a country in the scope area
     exploration_expected_cost = {
-        input_scopes = { any }
+        input_scopes = { area }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = exploration_expected_cost:
+        data_source = scope[country]
     }
+    ### What is the xx position (0-1) the country has?
     exploration_maintenance = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### what is the monthly cost of an exploration?
     exploration_monthly_cost = {
-        input_scopes = { any }
+        input_scopes = { exploration }
         output_scope = value
         type = value
     }
+    ### what is the monthly progress of an exploration?
     exploration_monthly_progress = {
-        input_scopes = { any }
+        input_scopes = { exploration }
         output_scope = value
         type = value
     }
+    ### gets the exploration needed time (months) for a country in the scope area
     exploration_needed_time = {
         input_scopes = { any }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = exploration_needed_time:
+        data_source = scope[country]
     }
+    ### what is the progress of an exploration?
     exploration_progress = {
-        input_scopes = { any }
+        input_scopes = { exploration }
         output_scope = value
         type = value
     }
+    ### what is the total needed progress of an exploration?
     exploration_time = {
-        input_scopes = { any }
+        input_scopes = { exploration }
         output_scope = value
         type = value
     }
+    ### Utility of an exploration to the country - usage: exploration_utility(<area>|<character>) or exploration_utility = { area = <area> character = <character> value <operator><threshold> }
     exploration_utility = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = exploration_utility:
+        data_source = scope[area]
+        data_source = scope[character]
+        data_source = scope[location]
     }
     favors = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = favors:
+        data_source = scope[country]
     }
     fertility = {
         input_scopes = { any }
@@ -2739,696 +2823,6 @@ links = {
         type = value
     }
     harmony_percentage = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_accepted_culture = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_accessible_coastline = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_active_resolution = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_advance_for_employment_system = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_advance_for_succession_law = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_any_active_disaster = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_any_convertable_pops = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_any_culture_group = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_any_disease_present = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_any_mission_active = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_any_possible_disaster = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_art_in_progress = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_assigned_explorer = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_autocephalous_patriarchates = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_available_marriage_slot = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_avatar = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_been_formed = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_been_influenced_by_parliament_agenda = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_blocked_treaties = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_breach = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_building = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_cabinet_action = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_child_education_selected = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_claim_on_province = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_colonial_charter = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_colonial_charter_in = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_colonial_charters = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_colonial_claim = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_combat = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_commander = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_consort = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_core = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_countries_with_antagonism = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_countries_with_coalition_grade_antagonism = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_countries_with_near_coalition_grade_antagonism = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_countries_with_timed_antagonism = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_culture_group = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_customer = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_discovered = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_discovered_area = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_doom = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_dynasty = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_earthquakes = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_elections = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_embraced_institution = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_employment_system = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_estate = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_estate_privilege = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_exploration = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_exploration_construction = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_exports = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_extended_winter = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_fixed_liturgical_language = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_fort = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_gifted_gold_to = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_heir = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_historical_rival = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_historical_rivals = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_holy_sites = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_honor = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_imports = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_institution = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_insulted = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_invited_religious_figure = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_karma = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_land_ownership_rule = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_latest_road_to = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_leader = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_levies = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_limited_diplomacy = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_location = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_market_construction = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_markets = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_member = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_mercenaries = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_merchant = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_migration = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_mission_task = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_multiple_players = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_mutual_scripted_relation_of_type = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_newsletter_subscription = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_nickname = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_ongoing_parliament_debate = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_overlords_ruler = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_owned_buildings = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_owner = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_parliament = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_participated_in_parliament = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_passable_land = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_patriarchs = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_periphora = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_ports = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_positive_opinion = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_possible_institution_spawn = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_possible_nomad_targets = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_potential_royal_marriage = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_primary_or_accepted_culture = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_primary_or_accepted_or_tolerated_culture = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_prisoners = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_privateers_from = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_purity = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_raised_army_levies = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_raised_levies = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_raised_navy_levies = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_rebel = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_reform = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_regent = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_regular_elections = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_regulars = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_religious_aspect = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_religious_factions = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_religious_focuses = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_religious_head = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_religious_influence = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_religious_schools = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_river = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_road_constructions = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_road_to = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_royal_marriage_with = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_ruler = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_scripted_relation_of_type = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_sects = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_shared_culture_group = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_siege = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_societal_value = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_sound_tolls = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_special_status_available = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_support_from = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_target_casus_belli_on_us = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_temporary_demand = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_temporary_demands = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_tolerated_culture = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_trade_treaty_with = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_truce_with = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_unit = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_volcano = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_voted_for_issue_in_parliament = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    has_yanantin = {
         input_scopes = { any }
         output_scope = value
         type = value

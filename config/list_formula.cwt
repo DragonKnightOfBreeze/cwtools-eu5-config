@@ -81,7 +81,7 @@ alias[arithmetic_operation:every_country_with_special_status_of_type] = {
     alternative_limit = {
         alias_name[trigger] = alias_match_left[trigger]
     }
-    alias_name[effect] = alias_match_left[effect]
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 alias[arithmetic_operation:ordered_country_with_special_status_of_type] = {
     type = <international_organization_special_status>

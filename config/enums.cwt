@@ -175,25 +175,6 @@ enums = {
         monthly
     }
 
-    enum[selected_trigger_source_flag] = {
-        diplomatic_range
-        same_international_organization
-        neighbor
-        possible_colonial_charters
-        include_dead
-        include_any_present
-        possible_exploration_areas
-        adjacent_locations
-        vacant_adjacent_locations
-        adjacent_provinces
-        border
-        border_or_recipients_capital_area
-        provinces_ai_wants_to_give_away
-        only_actual_locations
-        law
-        policy
-    }
-
     enum[country_interaction_type] = {
         subject
         diplomacy
@@ -585,6 +566,7 @@ enums = {
     enum[currency] = {
         prestige
         gold
+        doom
     }
 
 }
