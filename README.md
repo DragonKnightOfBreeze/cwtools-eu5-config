@@ -14,9 +14,9 @@ To use these:
 5. Re-open VS Code.
 Once you make changes to the rules, you can press "Ctrl-shift-p" and select "Reload window" to easily restart the extension.
 ## IntelliJ (Paradox Language Support)
-1. Open IntelliJ settings and go to the **Paradox Language Support** [config settings](docs/settings-location.png)
-2. Enable [remote config groups](docs/enable-remote-config.png)
-3. Click the blue *configure* text and [set the remote URL](docs/set-remote-location.png) of this repository for EU5
+1. Open IntelliJ [settings](docs/settings.png) and go to the **Paradox Language Support** [config settings](docs/settings-location.png)
+2. Enable [remote config groups](docs/enable-remote-config.png) and click the blue *configure* text
+3. [Set the remote URL](docs/set-remote-location.png) of this repository for EU5
 
 # CWT Documentation
 See https://github.com/tboby/cwtools/wiki/.cwt-config-file-guidance for guidance on the file format

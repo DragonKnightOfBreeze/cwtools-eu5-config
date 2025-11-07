@@ -4699,9 +4699,20 @@ alias[effect:sort_variable_list] = {
 ## scopes = { location }
 alias[effect:spawn_army_levy_unit] = scope[country]
 
-###
+### Spawns a disease in a location or on a subunit. usage: spawn_disease = { disease = <disease> value = <script value> }
 ## scopes = { location }
-alias[effect:spawn_disease] = scope[disease_outbreak]
+## push_scope = disease_outbreak
+alias[effect:spawn_disease] = {
+    disease = scope[disease]
+
+    value = value_field
+    value = single_alias_right[formula]
+    value = <script_value>
+    value = <static_value>
+    value = $define_reference
+
+    alias_name[effect] = alias_match_left[effect]
+}
 
 ###
 ## scopes = { location }
