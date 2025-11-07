@@ -582,4 +582,9 @@ enums = {
         hostile
     }
 
+    enum[currency] = {
+        prestige
+        gold
+    }
+
 }

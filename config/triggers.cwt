@@ -661,63 +661,108 @@ alias[trigger:culture_group_population_in_country] = {
     value == single_alias_right[formula]
 }
 
-### todo
-## scopes = { any }
-alias[trigger:culture_opinion_impact] = bool
+### Opinion impact of a particular culture on another - usage: culture_opinion_impact(<culture link>) or culture_percentage = { culture = <culture link> value <operator> <amount> }
+## scopes = { culture }
+alias[trigger:culture_opinion_impact] = {
+    culture = scope[culture]
 
-### todo
-## scopes = { any }
-alias[trigger:culture_percentage] = bool
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:culture_percentage_in_area] = bool
+### Gets the percentage of the population that follow a particular culture in the location/province/province_defintion/area/region/subcontinent/continent - culture_percentage = { culture = <culture> value ><= <value> }
+## scopes = { location province province_definition area region sub_continent continent }
+alias[trigger:culture_percentage] = {
+    culture = scope[culture]
 
-### todo
-## scopes = { any }
-alias[trigger:culture_percentage_in_country] = bool
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:culture_population] = bool
+### gets the percentage of the population that follow a particular culture in the area - culture_percentage_in_area = { country = <country> culture = <culture> value ><= <value> }
+## scopes = { area }
+alias[trigger:culture_percentage_in_area] = {
+    culture = scope[culture]
 
-### todo
-## scopes = { any }
-alias[trigger:culture_population_in_country] = bool
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:currency_percentage_towards_limit] = bool
+### The percentage of a specific culture in the current country
+## scopes = { country }
+alias[trigger:culture_percentage_in_country] = {
+    culture = scope[culture]
 
-### todo
-## scopes = { any }
-alias[trigger:currency_utility] = bool
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
 
-### todo
+### Gets the absolute number of the population that follow a particular culture in the location/province/province_defintion/area/region/subcontinent/continent - culture_population = { culture = <culture> value ><= <value> }
+## scopes = { location province province_definition area region sub_continent continent }
+alias[trigger:culture_population] = {
+    culture = scope[culture]
+
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
+
+### The number of pops of a specific culture in the current country
+## scopes = { country }
+alias[trigger:culture_population_in_country] = {
+    culture = scope[culture]
+
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
+
+### Gets currency progress towards specified limit
+## scopes = { country international_organization }
+alias[trigger:currency_percentage_towards_limit] = {
+    currency = enum[currency]
+
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
+}
+
+### Utility of an amount of currency to the country - usage: currency_utility(<currency>|<amount>) or currency_utility = { currency = <currency> amount = <amount> }
+## scopes = { country }
+alias[trigger:currency_utility] = {
+    currency = enum[currency]
+
+    amount == value_field
+    amount == <script_value>
+    amount == <static_value>
+    amount == single_alias_right[formula]
+}
+
+### Checks if it is a certain age!
 ## scopes = { any }
 alias[trigger:current_age] = <age>
 
-### todo
+### Compare the current ingame date.
 ## scopes = { any }
 alias[trigger:current_date] == int
+### Compare the current ingame date.
 ## scopes = { any }
 alias[trigger:current_date] == date_field
 
-### todo
-## scopes = { any }
-alias[trigger:current_mission_task] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:current_month] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:current_ruler_term_years] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:current_tooltip_depth] = bool
+### Checks if the country has the specified mission task in progress.
+## scopes = { country }
+alias[trigger:current_mission_task] = scope[mission_task]
 
 ### Wraps triggers that get a custom description instead of the auto-generated one custom_description = { 	text = <trigger_localization_key> 	subject = <optional subject scope> #defaults to current scope 	object = <optional object scope> 	value = <optional script value> 	... triggers ... }
 ## scopes = { any }
@@ -756,113 +801,117 @@ alias[trigger:custom_tooltip] = {
 ## scopes = { any }
 alias[trigger:custom_tooltip] = localisation
 
-### todo
-## scopes = { any }
-alias[trigger:days_since_disaster_end] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:days_since_disaster_start] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:days_since_situation_end] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:days_since_situation_start] = bool
-
-### todo
+### Log whether the parent trigger succeeded or failed
 ## scopes = { any }
 alias[trigger:debug_log] = bool
 
-### todo
+### Log whether the parent trigger succeeded or failed. Log which children succeeded or failed
 ## scopes = { any }
 alias[trigger:debug_log_details] = bool
 
-### todo
+### Checks if the game is in debug mode or not.
 ## scopes = { any }
 alias[trigger:debug_only] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:defensive_alliance_strength] = bool
-
-### todo
-## scopes = { any }
+### subunit definition is for levies
+## scopes = { sub_unit }
 alias[trigger:definition_is_for_levy] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:demands_goods] = bool
+### Check if the market scope has a demand for the target goods.
+## scopes = { market }
+alias[trigger:demands_goods] = scope[goods]
 
-### todo
-## scopes = { any }
-alias[trigger:demands_goods_by_pops] = bool
+### Check if the market has any pop demand for the target goods.
+## scopes = { market }
+alias[trigger:demands_goods_by_pops] = scope[goods]
 
-### todo
-## scopes = { any }
-alias[trigger:dependency_length_days] = bool
+### returns the number of days a country has been in a dependency (overlord/subject) relationship with the target country. Usage: dependency_length_days = { target = <country> value <comparator> <value> }
+## scopes = { country }
+alias[trigger:dependency_length_days] = {
+    target = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:destroy_market_utility] = bool
+    amount == value_field
+    amount == <script_value>
+    amount == <static_value>
+    amount == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:diplomatic_capacity_of_new_relation] = bool
+### Utility of destroying a market - usage: destroy_market_utility(<location>) or destroy_market_utility = { location = <location> value <operator><threshold> }
+## scopes = { country }
+alias[trigger:destroy_market_utility] = {
+    location = scope[location]
 
-### todo
-## scopes = { any }
-alias[trigger:diplomatic_capacity_without_maintenance] = bool
+    amount == value_field
+    amount == <script_value>
+    amount == <static_value>
+    amount == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:diplomatic_maintenance] = bool
+### Diplomatic capacity that will be used if the country obtains this diplomatic relation
+## scopes = { country }
+alias[trigger:diplomatic_capacity_of_new_relation] = {
+    target = scope[country]
 
-### todo
-## scopes = { any }
-alias[trigger:diplomatic_range] = bool
+    type = scope[relation_type]
 
-### todo
-## scopes = { any }
+    amount == value_field
+    amount == <script_value>
+    amount == <static_value>
+    amount == single_alias_right[formula]
+}
+
+### Check if a Disaster has ended
+## scopes = { disaster }
 alias[trigger:disaster_has_ended] = bool
 
-### todo
-## scopes = { any }
+### Check if a Disaster is active
+## scopes = { disaster }
 alias[trigger:disaster_is_active] = bool
 
-### todo
-## scopes = { any }
-alias[trigger:discount_needed_for_law_change] = bool
+### Checks the number of deaths from a disease in a country. usage: disease_country_deaths(<disease>) or disease_country_deaths = { target = <disease> value <comparator> <real> }
+## scopes = { country }
+alias[trigger:disease_country_deaths] = {
+    target = scope[disease]
 
-### todo
-## scopes = { any }
-alias[trigger:disease_country_deaths] = bool
+    amount == value_field
+    amount == <script_value>
+    amount == <static_value>
+    amount == single_alias_right[formula]
+}
 
-### todo
-## scopes = { any }
-alias[trigger:disease_has_stagnated] = bool
+### Checks if a disease has stagnated in a location or subunit.
+## scopes = { location sub_unit }
+alias[trigger:disease_has_stagnated] = scope[disease]
 
-### todo
+### Checks if a disease is active in the world.
 ## scopes = { any }
-alias[trigger:disease_is_active] = bool
+alias[trigger:disease_is_active] = scope[disease]
 
-### todo
-## scopes = { any }
-alias[trigger:disease_outbreak_country_deaths] = bool
+### Checks the number of deaths from an outbreak in a country. usage: disease_outbreak_country_deaths(<disease_outbreak>) or disease_outbreak_country_deaths = { disease_outbreak = <disease_outbreak> value <comparator> <real> }
+## scopes = { country }
+alias[trigger:disease_outbreak_country_deaths] = {
+    disease_outbreak = scope[disease_outbreak]
 
-### todo
-## scopes = { any }
-alias[trigger:disease_outbreak_is_active] = bool
+    amount == value_field
+    amount == <script_value>
+    amount == <static_value>
+    amount == single_alias_right[formula]
+}
 
-### todo
+### Checks if a disease outbreak is active in the world.
 ## scopes = { any }
-alias[trigger:disease_outbreak_presence] = bool
+alias[trigger:disease_outbreak_is_active] = scope[disease_outbreak]
 
-### todo
-## scopes = { any }
-alias[trigger:disease_outbreak_total_deaths] = bool
+### Checks the presence of a disease in a location or subunit. usage: disease_outbreak_presence(<disease_outbreak>) or disease_outbreak_presence = { disease_outbreak = <disease_outbreak> value <comparator> <real> }
+## scopes = { location sub_unit }
+alias[trigger:disease_outbreak_presence] = {
+    disease_outbreak = scope[disease_outbreak]
+
+    amount == value_field
+    amount == <script_value>
+    amount == <static_value>
+    amount == single_alias_right[formula]
+}
 
 ### todo
 ## scopes = { any }
@@ -871,10 +920,6 @@ alias[trigger:disease_presence] = bool
 ### todo
 ## scopes = { any }
 alias[trigger:disease_resistance] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:disease_total_deaths] = bool
 
 ### todo
 ## scopes = { any }

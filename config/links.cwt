@@ -350,7 +350,7 @@ links = {
         output_scope = value
         from_data = yes
         prefix = default_price:
-        data_source = scope[good]
+        data_source = scope[goods]
     }
     defender_leader = {
         input_scopes = { war }
@@ -1344,7 +1344,7 @@ links = {
         output_scope = value
         from_data = yes
         prefix = stockpile_in_market:
-        data_source = scope[good]
+        data_source = scope[goods]
     }
     sub_continent_link = {
         input_scopes = { any }
@@ -2170,219 +2170,241 @@ links = {
         prefix = culture_group_population_in_country:
         data_source = scope[culture_group]
     }
-    #TODO: continue here
+    ### Opinion impact of a particular culture on another - usage: culture_opinion_impact(<culture link>) or culture_percentage = { culture = <culture link> value <operator> <amount> }
     culture_opinion_impact = {
-        input_scopes = { any }
+        input_scopes = { culture }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = culture_opinion_impact:
+        data_source = scope[culture]
     }
+    ### Gets the percentage of the population that follow a particular culture in the location/province/province_defintion/area/region/subcontinent/continent - culture_percentage = { culture = <culture> value ><= <value> }
     culture_percentage = {
-        input_scopes = { any }
+        input_scopes = { location province province_definition area region sub_continent continent }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = culture_percentage:
+        data_source = scope[culture]
     }
+    ### gets the percentage of the population that follow a particular culture in the area - culture_percentage_in_area = { country = <country> culture = <culture> value ><= <value> }
     culture_percentage_in_area = {
-        input_scopes = { any }
+        input_scopes = { area }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = culture_percentage_in_area:
+        data_source = scope[culture]
     }
+    ### The percentage of a specific culture in the current country
     culture_percentage_in_country = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = culture_percentage_in_country:
+        data_source = scope[culture]
     }
+    ### Gets the absolute number of the population that follow a particular culture in the location/province/province_defintion/area/region/subcontinent/continent - culture_population = { culture = <culture> value ><= <value> }
     culture_population = {
-        input_scopes = { any }
+        input_scopes = { location province province_definition area region sub_continent continent }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = culture_population:
+        data_source = scope[culture]
     }
+    ### The number of pops of a specific culture in the current country
     culture_population_in_country = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = culture_population_in_country:
+        data_source = scope[culture]
     }
+    ### Gets currency progress towards specified limit
     currency_percentage_towards_limit = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = currency_percentage_towards_limit:
+        data_source = enum[currency]
     }
+    ### Utility of an amount of currency to the country - usage: currency_utility(<currency>|<amount>) or currency_utility = { currency = <currency> amount = <amount> }
     currency_utility = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = currency_utility:
+        data_source = enum[currency]
+        data_source = value
     }
+    ### Compare the current ingame date.
     current_date = {
         input_scopes = { any }
         output_scope = date
         type = scope
     }
-    current_mission_task = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Compare the current ingame month (1..12)
     current_month = {
         input_scopes = { any }
         output_scope = value
         type = value
     }
+    ### What is the number of tooltips open right now?
     current_ruler_term_years = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### What is the number of tooltips open right now?
     current_tooltip_depth = {
         input_scopes = { any }
         output_scope = value
         type = value
     }
+    ### Compare the current ingame year
     current_year = {
         input_scopes = { any }
         output_scope = value
         type = value
     }
+    ### Checks if x days have passed since the end of the disaster. Returns -1 if the disaster has never ended.
     days_since_disaster_end = {
-        input_scopes = { any }
+        input_scopes = { disaster }
         output_scope = value
         type = value
     }
+    ### Checks if x days have passed since the start of the disaster. Returns -1 if the disaster has never started.
     days_since_disaster_start = {
-        input_scopes = { any }
+        input_scopes = { disaster }
         output_scope = value
         type = value
     }
+    ### Checks if x days have passed since the end of the situation. Returns -1 if the situation has never ended.
     days_since_situation_end = {
-        input_scopes = { any }
+        input_scopes = { situation }
         output_scope = value
         type = value
     }
+    ### Checks if x days have passed since the start of the situation. Returns -1 if the situation has never started.
     days_since_situation_start = {
-        input_scopes = { any }
+        input_scopes = { situation }
         output_scope = value
         type = value
     }
-    debug_only = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Strength of a defensive alliance, including the nation with all countries giving defensive support and those that can be called in for defensive wars
     defensive_alliance_strength = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
-    definition_is_for_levy = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    demands_goods = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    demands_goods_by_pops = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    dependency_length_days = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Utility of destroying a market - usage: destroy_market_utility(<location>) or destroy_market_utility = { location = <location> value <operator><threshold> }
     destroy_market_utility = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        prefix = destroy_market_utility:
+        data_source = scope[location]
     }
+    ### Checks if a location has a certain Development
     development = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### How much devotion does the country/IO have?
     devotion = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current devotion compared to the maximum does the country/IO have?
     devotion_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### The dip ability of the character
     dip = {
-        input_scopes = { any }
+        input_scopes = { character }
         output_scope = value
         type = value
     }
+    ### Diplomatic capacity that will be used if the country obtains this diplomatic relation
     diplomatic_capacity_of_new_relation = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = diplomatic_capacity_of_new_relation:
+        data_source = scope[country]
+        data_source = scope[relation_type]
     }
+    ### Diplomatic capacity that country would have without paying anything for maintenance
     diplomatic_capacity_without_maintenance = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### What is the xx position (0-1) the country has?
     diplomatic_maintenance = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Is the target country within diplomatic range?
     diplomatic_range = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
-    disaster_has_ended = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    disaster_is_active = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks how much more discount % is needed for Ai to change a law
     discount_needed_for_law_change = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks the number of deaths from a disease in a country. usage: disease_country_deaths(<disease>) or disease_country_deaths = { target = <disease> value <comparator> <real> }
     disease_country_deaths = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = disease_country_deaths:
+        data_source = scope[disease]
     }
-    disease_has_stagnated = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    disease_is_active = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks the number of deaths from an outbreak in a country. usage: disease_outbreak_country_deaths(<disease_outbreak>) or disease_outbreak_country_deaths = { disease_outbreak = <disease_outbreak> value <comparator> <real> }
     disease_outbreak_country_deaths = {
         input_scopes = { any }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = disease_outbreak_country_deaths:
+        data_source = scope[disease_outbreak]
     }
-    disease_outbreak_is_active = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks the presence of a disease in a location or subunit. usage: disease_outbreak_presence(<disease_outbreak>) or disease_outbreak_presence = { disease_outbreak = <disease_outbreak> value <comparator> <real> }
     disease_outbreak_presence = {
-        input_scopes = { any }
+        input_scopes = { location sub_unit }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = disease_outbreak_presence:
+        data_source = scope[disease_outbreak]
     }
+    ### How many people have been killed by this disease outbreak?
     disease_outbreak_total_deaths = {
-        input_scopes = { any }
+        input_scopes = { disease_outbreak }
         output_scope = value
         type = value
     }
@@ -2396,8 +2418,9 @@ links = {
         output_scope = value
         type = value
     }
+    ### How many people have been killed by this disease?
     disease_total_deaths = {
-        input_scopes = { any }
+        input_scopes = { disease }
         output_scope = value
         type = value
     }

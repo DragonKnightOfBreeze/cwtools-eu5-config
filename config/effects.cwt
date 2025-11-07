@@ -410,7 +410,7 @@ alias[effect:add_gold_to_estate] = {
 ### Adds goods to a market's stockpile. Usage: add_goods_supply = { goods = <goods> amount = <amount> }
 ## scopes = { market }
 alias[effect:add_goods_supply] = {
-    goods = scope[good]
+    goods = scope[goods]
 
     amount = value_field
     amount = <script_value>
