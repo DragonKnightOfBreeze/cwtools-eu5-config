@@ -571,6 +571,11 @@ enums = {
         manpower
         sailors
         honor
+        karma
+        purity
+        yanantin
+        honor
+        horde_unity
     }
 
     #TODO: incomplete
@@ -581,7 +586,18 @@ enums = {
 
     #TODO: incomplete
     enum[dlc] = {
+        "Sacred Sites"
+    }
 
+    enum[hemisphere] = {
+        northern
+        southern
+    }
+
+    enum[camera_zoom_level] = {
+        SMALL
+        MEDIUM
+        LARGE
     }
 
 }

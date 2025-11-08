@@ -40,6 +40,9 @@ cabinet_action = {
     ## cardinality = 0..1
     societal_values = value_field
 
+    ## cardinality = 0..1
+    min = value_field
+
     ### <script value> returns the current progress of the action
     ## cardinality = 0..1
     progress = single_alias_right[formula]

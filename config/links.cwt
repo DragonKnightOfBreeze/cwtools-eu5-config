@@ -2254,7 +2254,7 @@ links = {
         argument_separator = pipe
         prefix = currency_utility:
         data_source = enum[currency]
-        data_source = value
+        data_source = any
     }
     ### Compare the current ingame date.
     current_date = {
@@ -2808,233 +2808,176 @@ links = {
         output_scope = value
         type = value
     }
+    ### Checks the fraction of the population having a different religious group than the country
     heathen_population_fraction = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks amount of heirs in heir selection for country
     heir_candidates_count = {
-        input_scopes = { any }
+        input_scopes = { heir_selection }
         output_scope = value
         type = value
     }
+    ### Character's position in line for its country's throne
     heir_position = {
-        input_scopes = { any }
+        input_scopes = { character }
         output_scope = value
         type = value
     }
+    ### Get the hypothetical heir score of the character for the target country, even if the character in question could not be an heir.
     heir_score = {
-        input_scopes = { any }
+        input_scopes = { character }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = heir_score:
+        data_source = scope[country]
     }
+    ### Get the hypothetical heir score of the target character for the current country, even if the character in question could not be an heir.
     heir_score_country = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = heir_score_country:
+        data_source = scope[character]
     }
+    ### Get the hypothetical heir score of the character in the country they currently reside in.
     heir_score_home = {
-        input_scopes = { any }
+        input_scopes = { character }
         output_scope = value
         type = value
     }
+    ### Checks the fraction of the population having a different religion in the same group as the country
     heretic_population_fraction = {
         input_scopes = { any }
         output_scope = value
         type = value
     }
+    ### Checks how much more max tax a country wants
     higher_temporary_taxes_needed = {
         input_scopes = { any }
         output_scope = value
         type = value
     }
+    ### how much would it cost to hire this unit as a merc. Usage: hire_price(<cost multiplier>|<duration in months>)
     hire_price = {
-        input_scopes = { any }
+        input_scopes = { unit }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = hire_price:
+        data_source = scope_field
+        data_source = scope_field
     }
+    ### How much honor does the country/IO have?
     honor = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current honor compared to the maximum does the country/IO have?
     honor_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How much horde_unity does the country/IO have?
     horde_unity = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current horde_unity compared to the maximum does the country/IO have?
     horde_unity_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Checks if the current government reform/avatar/estate privilege/god/policy/law/cabinet action scope has been implemented in percentage.
     implementation_progress_percentage = {
-        input_scopes = { any }
+        input_scopes = { law policy estate_privilege cabinet_action government_reform god avatar }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = implementation_progress_percentage:
+        data_source = scope_field
     }
-    in_assault = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    in_cabinet = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    in_civil_war = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    in_combat = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    in_marriage_union_with = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    in_retreat = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    in_siege = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    in_trade_range_of = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    in_union_with = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    in_war_of_casus_belli = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    in_zone_of_control = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### How much inflation does the country/IO have?
     inflation = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current inflation compared to the maximum does the country/IO have?
     inflation_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Checks the integration progress of a location
     integration_progress = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
-    international_organization_can_add_land = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    international_organization_can_own_land = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    international_organization_can_remove_land = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    international_organization_has_internal_peace = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    international_organization_has_law = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    international_organization_has_laws = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    international_organization_has_leader = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    international_organization_has_policy = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### Checks how many leaders (defined as 'leaders' in the IO type) are currently present in the current international organization
     international_organization_leader_count = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### Checks if the ruler (or regency in case of a power vacuum) of an international organization has ruled for x years
     international_organization_leader_reign = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### Checks if the ruler (or regency in case of a power vacuum) of an international organization has ruled for x days
     international_organization_leader_reign_in_days = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### Checks if the international organization has existed for x years
     international_organization_lifetime = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### Checks if the international organization has existed for x days
     international_organization_lifetime_in_days = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### The percentage of the locations of an international organization owned by a country
     international_organization_locations_owned_percentage = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### Checks if an international organization has a certain amount of owned locations
     international_organization_num_locations = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### Checks if an international organization has a certain population based on the locations it owns
     international_organization_population = {
-        input_scopes = { any }
+        input_scopes = { international_organization }
         output_scope = value
         type = value
     }
+    ### Checks the intrinsic disease resistance in a location (e.g. from buildings)
     intrinsic_disease_resistance = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    io_within_diplomatic_range = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
