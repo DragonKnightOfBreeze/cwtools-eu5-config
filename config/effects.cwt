@@ -651,12 +651,16 @@ alias[effect:add_merchant_power] = {
 alias[effect:add_migration] = {
     owner = scope[country]
 
+    ## cardinality = 0..1
     from = scope[province_definition]
 
+    ## cardinality = 0..1
     from_location = scope[location]
 
+    ## cardinality = 0..1
     to = scope[province_definition]
 
+    ## cardinality = 0..1
     to_location = scope[location]
 
     months = value_field

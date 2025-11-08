@@ -451,9 +451,11 @@ links = {
         output_scope = combat_side
     }
     estate = {
-        desc = "desc"
-        input_scopes = { any }
-        output_scope = any
+        input_scopes = { country }
+        output_scope = estate
+        from_argument = yes
+        prefix = estate:
+        data_source = scope[estate_type]
     }
     estate_power_link = {
         input_scopes = { country }
@@ -2658,6 +2660,7 @@ links = {
         data_source = scope[character]
         data_source = scope[location]
     }
+    ### How much favors does the country have in the target? favors = { target = X [*value >/</>=/<= Y* or *value = { min max }*  }
     favors = {
         input_scopes = { country }
         output_scope = value
@@ -2667,163 +2670,141 @@ links = {
         prefix = favors:
         data_source = scope[country]
     }
+    ### The fertility of the character
     fertility = {
-        input_scopes = { any }
+        input_scopes = { character }
         output_scope = value
         type = value
     }
+    ### Amount of consumed food
     food_consumption = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### How many percent of food does this unit have???
     food_percentage = {
-        input_scopes = { any }
+        input_scopes = { unit }
         output_scope = value
         type = value
     }
+    ### Checks how much the food in the current market costs
     food_price = {
-        input_scopes = { any }
+        input_scopes = { market }
         output_scope = value
         type = value
     }
+    ### Amount of food production
     food_production = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Check the food value of the goods scope.
     food_value = {
-        input_scopes = { any }
+        input_scopes = { goods }
         output_scope = value
         type = value
     }
-    forbids_sovereign_diplomacy = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### What is the xx position (0-1) the country has?
     fort_maintenance = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks the garrison percentage of the location in scope
     garrison_percentage = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks the garrison strength of the location in scope
     garrison_strength = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
-    get_antagonism = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    get_opinion = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    get_trust = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    gives_fleet_basing_rights = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    gives_fleet_basing_rights_to = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    gives_food_access = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    gives_food_access_to = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    gives_isolation_exemption_to = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    gives_military_access_to = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-    giving_scripted_relation_of_type = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
+    ### How much gold does the country/IO have?
     gold = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current gold compared to the maximum does the country/IO have?
     gold_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Checks how much demand exists of a good in the market. Usage: goods_demand_in_market = { goods = <goods> value = <value> } or goods_demand_in_market(<goods>)
     goods_demand_in_market = {
-        input_scopes = { any }
+        input_scopes = { market }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = goods_demand_in_market:
+        data_source = scope[goods]
     }
+    ### Check how much goods the scope location produces.
     goods_output = {
-        input_scopes = { any }
+        input_scopes = { location }
         output_scope = value
         type = value
     }
+    ### Checks how much supply exists of a good in the market. Usage: goods_supply_in_market = { goods = <goods> value = <value> } or goods_supply_in_market(<goods>)
     goods_supply_in_market = {
-        input_scopes = { any }
+        input_scopes = { market }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = goods_supply_in_market:
+        data_source = scope[goods]
     }
+    ### How much government power does the country/IO have?
     government_power = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current government power compared to the maximum does the country/IO have?
     government_power_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### Country's position in the list of great powers
     great_power_ranking = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Checks if a country has a certain Great Power Score
     great_power_score = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
     }
+    ### Check if the country scope had the specified disaster type for a specific amount of years. Usage: had_disaster_for_years = { disaster_type = <disaster type> years = <years> } or had_disaster_for_years(<disaster type>)
     had_disaster_for_years = {
-        input_scopes = { any }
+        input_scopes = { country }
         output_scope = value
         type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = had_disaster_for_years:
+        data_source = scope[disaster_type]
     }
+    ### How much harmony does the country/IO have?
     harmony = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }
+    ### How high the percentage of the current harmony compared to the maximum does the country/IO have?
     harmony_percentage = {
-        input_scopes = { any }
+        input_scopes = { country international_organization }
         output_scope = value
         type = value
     }

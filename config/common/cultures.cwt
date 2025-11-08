@@ -20,7 +20,7 @@ culture = {
 
     tags = {
         ## cardinality = 0..inf
-        scalar
+        value_set[culture_gfx_tag]
     }
 
     opinions = {

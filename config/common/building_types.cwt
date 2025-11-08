@@ -12,18 +12,50 @@ types = {
 building_type = {
     ### building time in days
     build_time = int
+    ### building time in days
     build_time = <script_value>
+    ### building time in days
     build_time = <static_value>
 
     ### maximum levels the building can be upgraded to (root = location, scope:owner = building owner, scope:builder = who's paying)
     max_levels = int
+    ### maximum levels the building can be upgraded to (root = location, scope:owner = building owner, scope:builder = who's paying)
     max_levels = <script_value>
+    ### maximum levels the building can be upgraded to (root = location, scope:owner = building owner, scope:builder = who's paying)
     max_levels = <static_value>
 
     ### how many people can be employed there. 1 = 1000 people
     employment_size = value_field
+    ### how many people can be employed there. 1 = 1000 people
     employment_size = <script_value>
+    ### how many people can be employed there. 1 = 1000 people
     employment_size = <static_value>
+
+    ## cardinality = 0..1
+    pop_size_created = value_field
+    ## cardinality = 0..1
+    pop_size_created = <script_value>
+    ## cardinality = 0..1
+    pop_size_created = <static_value>
+
+    ## cardinality = 0..1
+    increase_per_level_cost = value_field
+    ## cardinality = 0..1
+    increase_per_level_cost = <script_value>
+    ## cardinality = 0..1
+    increase_per_level_cost = <static_value>
+
+    ## cardinality = 0..1
+    allow_wrong_startup = bool
+
+    ## cardinality = 0..1
+    ai_foreign_ignore_naval_range = bool
+
+    ## cardinality = 0..1
+    ai_optimization_flag_coastal = bool
+
+    ## cardinality = 0..1
+    can_close = bool
 
     ## cardinality = 0..1
     own_or_overlord_relation_needed = <scripted_relation>
@@ -98,6 +130,12 @@ building_type = {
     possible_production_methods = {
         ## cardinality = 0..inf
         <production_method>
+    }
+
+    ## cardinality = 0..1
+    graphical_tags = {
+        ## cardinality = 0..inf
+        value_set[building_graphical_tag]
     }
 
     ### defining unique production methods scripted directly into the building

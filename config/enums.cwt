@@ -567,6 +567,21 @@ enums = {
         prestige
         gold
         doom
+        harmony
+        manpower
+        sailors
+        honor
+    }
+
+    #TODO: incomplete
+    enum[diplomacy_type] = {
+        lifts_trade_protection
+        giving_defensive_support
+    }
+
+    #TODO: incomplete
+    enum[dlc] = {
+
     }
 
 }

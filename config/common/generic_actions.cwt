@@ -115,6 +115,15 @@ generic_action = {
 
     ### script for the AI to use, scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc
     ## cardinality = 0..1
+    ai_will_do = value_field
+    ### script for the AI to use, scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc
+    ## cardinality = 0..inf
+    ai_will_do = <script_value>
+    ### script for the AI to use, scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc
+    ## cardinality = 0..inf
+    ai_will_do = <static_value>
+    ### script for the AI to use, scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc
+    ## cardinality = 0..inf
     ai_will_do = single_alias_right[formula]
 
     ### scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc
