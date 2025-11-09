@@ -11,7 +11,7 @@ types = {
 
 historical_score = {
     tag = <country>
-    tag = <formable_country>
+    tag = enum[formable_country_tag]
 
     score = int
 }

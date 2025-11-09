@@ -2947,8 +2947,8 @@ alias[effect:drop_antagonism_bomb] = {
 }
 
 ### enable/disable a religion
-## scopes = { any }
-alias[effect:enable_religion] = scope[religion]
+## scopes = { religion }
+alias[effect:enable_religion] = bool
 
 ### The country scope ends its currently active mission. If set yes, it will complete it, otherwise it will abort the mission.
 ## scopes = { country }
@@ -3313,6 +3313,7 @@ alias[effect:make_subject_of] = {
 ### make the usit available for hire as a mercenary. Usage: make_unit_available_for_hire = { cost_multiplier = <> months = <> }
 ## scopes = { any }
 alias[effect:make_unit_available_for_hire] = {
+    cost_multiplier = scope_field
     cost_multiplier = value_field
     cost_multiplier = single_alias_right[formula]
     cost_multiplier = <script_value>

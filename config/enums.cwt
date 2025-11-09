@@ -466,6 +466,8 @@ enums = {
         diplomacy
         governmentreform
         governmentreforms
+        replaceadmirals
+        replacegenerals
     }
 
     enum[pin_collection] = {
@@ -595,6 +597,9 @@ enums = {
         self_control
         tribal_cohesion
         stability
+        government_power
+        religious_influence
+        legitimacy
     }
 
     #TODO: incomplete

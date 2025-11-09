@@ -71,6 +71,15 @@ casus_belli = {
     additional_war_enthusiasm = single_alias_right[formula]
 
     ## cardinality = 0..1
+    max_warscore_from_battles = value_field
+    ## cardinality = 0..1
+    max_warscore_from_battles = <script_value>
+    ## cardinality = 0..1
+    max_warscore_from_battles = <static_value>
+    ## cardinality = 0..1
+    max_warscore_from_battles = single_alias_right[formula]
+
+    ## cardinality = 0..1
     allow_release_areas = bool
 
     ### gets a value determining how enthusiastic for being in this war said country is. (root = country, scope:war = war)

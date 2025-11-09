@@ -4142,25 +4142,6 @@ alias[trigger:parliament_issue_chance] = {
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
-### The current support in parliament for an issue
-## scopes = { country international_organization }
-alias[trigger:parliament_issue_support] = {
-    ## cardinality = 0..1
-    parliament_issue = scope[parliament_issue]
-
-    ## cardinality = 0..inf
-    value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
-    value == single_alias_right[formula]
-
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
-}
-
 ### Check if the parliament issue of the country / international in debate will pass
 ## scopes = { country international_organization }
 alias[trigger:parliament_issue_will_pass] = bool

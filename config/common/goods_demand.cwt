@@ -12,6 +12,9 @@ goods_demand = {
     category = <goods_demand_category>
 
     <good> = value_field
+    <good> = <script_value>
+    <good> = <static_value>
+    <good> = single_alias_right[formula]
 
     ## cardinality = 0..1
     hidden = bool

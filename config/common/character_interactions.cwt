@@ -22,6 +22,9 @@ character_interaction = {
     ## cardinality = 0..1
     on_own_nation = bool
 
+    ## cardinality = 0..1
+    context_menu_click_mode = scalar
+
     ### scope:actor is the country attempting to perform the action
     ## cardinality = 0..1
     potential = single_alias_right[trigger_clause]

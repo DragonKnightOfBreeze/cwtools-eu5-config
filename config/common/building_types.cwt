@@ -19,6 +19,9 @@ building_type = {
     ### building time in days
     ## cardinality = 0..1
     build_time = <static_value>
+    ### building time in days
+    ## cardinality = 0..1
+    build_time = single_alias_right[formula]
 
     ### maximum levels the building can be upgraded to (root = location, scope:owner = building owner, scope:builder = who's paying)
     max_levels = int
@@ -26,6 +29,8 @@ building_type = {
     max_levels = <script_value>
     ### maximum levels the building can be upgraded to (root = location, scope:owner = building owner, scope:builder = who's paying)
     max_levels = <static_value>
+    ### maximum levels the building can be upgraded to (root = location, scope:owner = building owner, scope:builder = who's paying)
+    max_levels = single_alias_right[formula]
 
     ### how many people can be employed there. 1 = 1000 people
     employment_size = value_field
@@ -33,6 +38,8 @@ building_type = {
     employment_size = <script_value>
     ### how many people can be employed there. 1 = 1000 people
     employment_size = <static_value>
+    ### how many people can be employed there. 1 = 1000 people
+    employment_size = single_alias_right[formula]
 
     ## cardinality = 0..1
     pop_size_created = value_field
@@ -40,6 +47,8 @@ building_type = {
     pop_size_created = <script_value>
     ## cardinality = 0..1
     pop_size_created = <static_value>
+    ## cardinality = 0..1
+    pop_size_created = single_alias_right[formula]
 
     ## cardinality = 0..1
     increase_per_level_cost = value_field
@@ -47,6 +56,8 @@ building_type = {
     increase_per_level_cost = <script_value>
     ## cardinality = 0..1
     increase_per_level_cost = <static_value>
+    ## cardinality = 0..1
+    increase_per_level_cost = single_alias_right[formula]
 
     ## cardinality = 0..1
     allow_wrong_startup = bool
@@ -59,6 +70,9 @@ building_type = {
 
     ## cardinality = 0..1
     can_close = bool
+
+    ## cardinality = 0..1
+    forbidden_for_estates = bool
 
     ## cardinality = 0..1
     lifts_fog_of_war = bool
@@ -150,6 +164,9 @@ building_type = {
         value_set[unique_production_method] = {
             ## cardinality = 0..1
             potential = single_alias_right[trigger_clause]
+
+            ## cardinality = 0..1
+            allow = single_alias_right[trigger_clause]
 
             ## cardinality = 0..1
             no_upkeep = bool

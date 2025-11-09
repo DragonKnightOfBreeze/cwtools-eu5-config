@@ -698,4 +698,4 @@ alias[trigger:any_work_of_art_by_creator] = single_alias_right[any_list_clause]
 ## push_scope = any
 alias[trigger:any_work_of_art_in_country] = single_alias_right[any_list_clause]
 ## push_scope = any
-alias[trigger:any_work_of_art_in_location = single_alias_right[any_list_clause]
+alias[trigger:any_work_of_art_in_location] = single_alias_right[any_list_clause]

@@ -21,6 +21,9 @@ country_interaction = {
     ## cardinality = 0..1
     use_enroute = bool
 
+    ## cardinality = 0..1
+    is_take_over_loan = bool
+
     ### default is yes
     ## cardinality = 0..1
     block_when_at_war = bool
@@ -98,8 +101,26 @@ country_interaction = {
 
     ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So ai_tick = monthly and ai_tick_frequency = 6 means "check every 6 months"
     ## cardinality = 0..1
-    ai_tick_frequency = int
+    ai_tick_frequency = int_value_field
+    ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So ai_tick = monthly and ai_tick_frequency = 6 means "check every 6 months"
+    ## cardinality = 0..1
+    ai_tick_frequency = <script_value>
+    ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So ai_tick = monthly and ai_tick_frequency = 6 means "check every 6 months"
+    ## cardinality = 0..1
+    ai_tick_frequency = <static_value>
+    ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So ai_tick = monthly and ai_tick_frequency = 6 means "check every 6 months"
+    ## cardinality = 0..1
+    ai_tick_frequency = single_alias_right[formula]
 
+    ### script for the AI to use, scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc
+    ## cardinality = 0..1
+    ai_will_do = value_field
+    ### script for the AI to use, scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc
+    ## cardinality = 0..1
+    ai_will_do = <script_value>
+    ### script for the AI to use, scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc
+    ## cardinality = 0..1
+    ai_will_do = <static_value>
     ### script for the AI to use, scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc
     ## cardinality = 0..1
     ai_will_do = single_alias_right[formula]
@@ -111,6 +132,22 @@ country_interaction = {
     ### scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc, is executed only when the diplo action has acceptance
     ## cardinality = 0..1
     accept = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    automation_tick = enum[character_interaction_ai_tick]
+
+    ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So automation_tick = monthly and automation_tick_frequency = 6 means "check every 6 months". Used for the automation process
+    ## cardinality = 0..inf
+    automation_tick_frequency = value_field
+    ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So automation_tick = monthly and automation_tick_frequency = 6 means "check every 6 months". Used for the automation process
+    ## cardinality = 0..inf
+    automation_tick_frequency = <script_value>
+    ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So automation_tick = monthly and automation_tick_frequency = 6 means "check every 6 months". Used for the automation process
+    ## cardinality = 0..inf
+    automation_tick_frequency = <static_value>
+    ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So automation_tick = monthly and automation_tick_frequency = 6 means "check every 6 months". Used for the automation process
+    ## cardinality = 0..inf
+    automation_tick_frequency = single_alias_right[formula]
 
     ## cardinality = 0..1
     cooldown = {

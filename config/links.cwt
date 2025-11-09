@@ -57,7 +57,7 @@ links = {
         data_source = <area>
     }
     area = {
-        input_scopes = { country location }
+        input_scopes = { location province province_definition privateer exploration }
         output_scope = area
     }
     ### Reference the value of a numeric value in an array define: array_define:Namespace|Name|Index. Index is 0-based.
@@ -677,8 +677,7 @@ links = {
     }
     interaction_target = {
         input_scopes = { cabinet }
-        output_scope = value
-        type = value
+        output_scope = scope
         from_data = yes
         prefix = interaction_target:
         data_source = value[event_target]
@@ -740,7 +739,7 @@ links = {
         output_scope = country
     }
     language = {
-        input_scopes = { culture }
+        input_scopes = { country sub_unit character dynasty culture religion market dialect }
         output_scope = language
     }
     language_family_link = {
@@ -781,9 +780,9 @@ links = {
     law_policy = {
         input_scopes = { country international_organization }
         output_scope = policy
-        from_data = yes
+        from_argument = yes
         prefix = law_policy:
-        data_source = <law>
+        data_source = scope[law]
     }
     leader = {
         input_scopes = { unit exploration }
@@ -1387,15 +1386,15 @@ links = {
         output_scope = province
     }
     special_status_link = {
-        input_scopes = { parliament_issue }
-        output_scope = special_status
-    }
-    special_status = {
         input_scopes = { any }
         output_scope = special_status
         from_data = yes
         prefix = special_status:
         data_source = <international_organization_special_status>
+    }
+    special_status = {
+        input_scopes = { parliament_issue }
+        output_scope = special_status
     }
     stockpile_in_market = {
         input_scopes = { market }
@@ -1649,12 +1648,16 @@ links = {
         prefix = work_of_art:
         data_source = <work_of_art>
     }
-    work_of_art_type = {
+    work_of_art_type_link = {
         input_scopes = { any }
         output_scope = work_of_art_type
         from_data = yes
         prefix = work_of_art_type:
         data_source = <artist_work>
+    }
+    work_of_art_type = {
+        input_scopes = { work_of_art }
+        output_scope = work_of_art_type
     }
 
     # === Triggers
@@ -2106,6 +2109,13 @@ links = {
         prefix = country_highest_rated_special_status_power:
         data_source = scope[international_organisation]
     }
+    country_interaction = {
+        input_scopes = { country }
+        output_scope = country_interaction
+        from_data = yes
+        prefix = country_interaction:
+        data_source = <country_interaction>
+    }
     ### How high is the target country's AI value of accepting the country interaction done by the current country scope? Always return 0 if the target is a player
     ### Usage: country_interaction_acceptance = { type = <country interaction> target = <country> value = <value> } or country_interaction_acceptance(<country interaction>|<country>)
     country_interaction_acceptance = {
@@ -2321,7 +2331,18 @@ links = {
         argument_separator = pipe
         prefix = currency_utility:
         data_source = enum[currency]
-        data_source = any
+        data_source = scope_field
+    }
+    ### Utility of an amount of currency to the country - usage: currency_utility(<currency>|<amount>) or currency_utility = { currency = <currency> amount = <amount> }
+    currency_utility_value = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = currency_utility:
+        data_source = enum[currency]
+        data_source = value
     }
     ### Compare the current ingame date.
     current_date = {
@@ -2846,6 +2867,16 @@ links = {
         input_scopes = { country }
         output_scope = value
         type = value
+    }
+    ### Checks if a country has a certain Great Power Score
+    great_power_score_link = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+        from_argument = yes
+        argument_separator = pipe
+        prefix = great_power_score:
+        data_source = scope[country]
     }
     ### Checks if a country has a certain Great Power Score
     great_power_score = {
