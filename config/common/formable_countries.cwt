@@ -102,6 +102,6 @@ formable_country = {
     ## cardinality = 0..1
     locations = {
         ## cardinality = 0..inf
-        enum[location]
+        value[location]
     }
 }

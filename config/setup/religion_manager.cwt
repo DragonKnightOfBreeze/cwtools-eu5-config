@@ -1,0 +1,24 @@
+types = {
+    type[religion_manager] = {
+        path = "game/setup/start"
+        path = "game/in_game/setup/start"
+        path = "game/main_menu/setup/start"
+        path = "game/loading_screen/setup/start"
+        file_extension = .txt
+        unique = no
+        skip_root_key = {
+            religion_manager
+        }
+    }
+}
+
+religion_manager = {
+    ## cardinality = 0..1
+    relation = {
+        ## cardinality = 0..inf
+        <religious_school> = enum[culture_opinion]
+    }
+
+    ## cardinality = 0..inf
+    <religious_school> = enum[culture_opinion]
+}

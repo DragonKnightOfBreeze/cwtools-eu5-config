@@ -61,34 +61,7 @@ continent = {}
 sub_continent = {}
 region = {}
 area = {}
-province = {}
-
-enums = {
-    complex_enum[location] = {
-        path = "game/map_data"
-        path_file = "definitions.txt"
-        start_from_root = yes
-        name = {
-            # scalar = {
-            #     scalar = {
-            #         scalar = {
-            #             scalar = {
-            #                 scalar = {
-            #                     enum_name
-            #                 }
-            #             }
-            #         }
-            #     }
-            # }
-            scalar = {
-                scalar = {
-                    scalar = {
-                        scalar = {
-                            enum_name
-                        }
-                    }
-                }
-            }
-        }
-    }
+province = {
+    ## cardinality = 0..inf
+    value_set[location]
 }

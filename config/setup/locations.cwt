@@ -1,0 +1,23 @@
+types = {
+    ## type_key_filter = locations
+    type[locations] = {
+        path = "game/setup/start"
+        path = "game/in_game/setup/start"
+        path = "game/main_menu/setup/start"
+        path = "game/loading_screen/setup/start"
+        file_extension = .txt
+        unique = no
+    }
+}
+
+locations = {
+    value[location] = {
+        rank = <location_rank>
+        town_setup = <town_setup>
+    }
+
+    value[location] = {
+        ## cardinality = 0..inf
+        <institution> = bool
+    }
+}

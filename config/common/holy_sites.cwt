@@ -12,7 +12,7 @@ types = {
 }
 
 holy_site = {
-    location = enum[location]
+    location = value[location]
 
     type = <holy_site_type>
 

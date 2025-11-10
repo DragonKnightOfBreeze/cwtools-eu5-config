@@ -834,7 +834,7 @@ links = {
         output_scope = location
         from_data = yes
         prefix = location:
-        data_source = <location>
+        data_source = value[location]
     }
     location = {
         input_scopes = { character pop combat siege market exploration work_of_art holy_site building cardinal }

@@ -600,6 +600,9 @@ enums = {
         government_power
         religious_influence
         legitimacy
+        war_exhaustion
+        army_tradition
+        inflation
     }
 
     #TODO: incomplete
@@ -645,6 +648,14 @@ enums = {
         return_empty
         fallback_to_next_entry
         return_loc_key
+    }
+
+    enum[dynasty_name_type] = {
+        default
+        descendant
+        location
+        patronym
+        location_ancient
     }
 
 }
