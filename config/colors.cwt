@@ -7,6 +7,10 @@ alias[color:color] = scope[color]
 single_alias[scripted_color_clause] = {
     ## cardinality = 1..inf
     alias_name[scripted_color] = alias_match_left[scripted_color]
+
+    #TODO: incomplete
+    # seems like it has the same complexity as formulas
+    # see 'map_color' in map modes
 }
 
 

@@ -11,6 +11,9 @@ types = {
     }
     type[sub_continent] = {
         path = "game/map_data"
+        path = "game/in_game/map_data"
+        path = "game/main_menu/map_data"
+        path = "game/loading_screen/map_data"
         path_file = "definitions.txt"
         localisation = {
             name = "$"
@@ -21,6 +24,9 @@ types = {
     }
     type[region] = {
         path = "game/map_data"
+        path = "game/in_game/map_data"
+        path = "game/main_menu/map_data"
+        path = "game/loading_screen/map_data"
         path_file = "definitions.txt"
         localisation = {
             name = "$"
@@ -32,6 +38,9 @@ types = {
     }
     type[area] = {
         path = "game/map_data"
+        path = "game/in_game/map_data"
+        path = "game/main_menu/map_data"
+        path = "game/loading_screen/map_data"
         path_file = "definitions.txt"
         localisation = {
             name = "$"
@@ -44,6 +53,9 @@ types = {
     }
     type[province] = {
         path = "game/map_data"
+        path = "game/in_game/map_data"
+        path = "game/main_menu/map_data"
+        path = "game/loading_screen/map_data"
         path_file = "definitions.txt"
         localisation = {
             name = "$"
