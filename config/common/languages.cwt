@@ -124,12 +124,16 @@ language = {
     male_names = {
         ## cardinality = 0..inf
         localisation
+        ## cardinality = 0..inf
+        localisation.localisation
     }
 
     ## cardinality = 0..1
     female_names = {
         ## cardinality = 0..inf
         localisation
+        ## cardinality = 0..inf
+        localisation.localisation
     }
 
     ## cardinality = 0..1
@@ -159,12 +163,16 @@ dialect = {
     male_names = {
         ## cardinality = 0..inf
         localisation
+        ## cardinality = 0..inf
+        localisation.localisation
     }
 
     ## cardinality = 0..1
     female_names = {
         ## cardinality = 0..inf
         localisation
+        ## cardinality = 0..inf
+        localisation.localisation
     }
 
     ## cardinality = 0..1
