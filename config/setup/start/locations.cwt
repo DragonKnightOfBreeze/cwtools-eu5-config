@@ -12,12 +12,20 @@ types = {
 
 locations = {
     value[location] = {
+        ## cardinality = 0..1
         rank = <location_rank>
+        ## cardinality = 0..1
         town_setup = <town_setup>
-    }
 
-    value[location] = {
         ## cardinality = 0..inf
         <institution> = bool
+
+        ## cardinality = 0..inf
+        define_pop = {
+            type = <pop_type>
+            size = value_field
+            culture = <culture>
+            religion = <religion>
+        }
     }
 }

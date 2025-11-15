@@ -1661,7 +1661,7 @@ links = {
         output_scope = work_of_art
         from_data = yes
         prefix = work_of_art:
-        data_source = <work_of_art>
+        data_source = value[work_of_art]
     }
     work_of_art_type_link = {
         input_scopes = { any }

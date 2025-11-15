@@ -898,4 +898,9 @@ enums = {
         international_organization_event
     }
 
+    enum[war_manager_war_type] = {
+        civil_war
+        war
+    }
+
 }
