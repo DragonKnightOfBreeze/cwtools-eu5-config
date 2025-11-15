@@ -42,4 +42,20 @@ diplomacy_manager = {
         ## cardinality = 0..1
         start_date = int
     }
+
+    ## cardinality = 0..inf
+    opinion = {
+        first = <country>
+
+        second = <country>
+
+        type = <bias>
+    }
+
+    ## cardinality = 0..inf
+    rival = {
+        first = <country>
+
+        second = <country>
+    }
 }

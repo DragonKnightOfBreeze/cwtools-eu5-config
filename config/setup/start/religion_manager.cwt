@@ -13,14 +13,6 @@ types = {
 religion_manager = {
     ## cardinality = 0..inf
     <religion> = {
-        ## cardinality = 0..1
-        relation = {
-            ## cardinality = 0..inf
-            <religious_school> = enum[culture_opinion]
-        }
-
-        ## cardinality = 0..inf
-        <religious_school> = enum[culture_opinion]
 
         ## cardinality = 0..inf
         timed_modifier = single_alias_right[timed_modifier_clause]
@@ -31,5 +23,17 @@ religion_manager = {
 
             country = <country>
         }
+    }
+
+    ## cardinality = 0..inf
+    <religious_school> = {
+        ## cardinality = 0..1
+        relation = {
+            ## cardinality = 0..inf
+            <religious_school> = enum[culture_opinion]
+        }
+
+        ## cardinality = 0..inf
+        <religious_school> = enum[culture_opinion]
     }
 }

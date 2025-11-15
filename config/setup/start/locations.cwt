@@ -27,5 +27,11 @@ locations = {
             culture = <culture>
             religion = <religion>
         }
+
+        ## cardinality = 0..1
+        timed_modifiers = {
+            ## cardinality = 0..inf
+            timed_modifier = single_alias_right[timed_modifier_clause]
+        }
     }
 }
