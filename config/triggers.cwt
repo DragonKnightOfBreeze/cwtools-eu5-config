@@ -2023,7 +2023,7 @@ alias[trigger:has_opinion] = {
 alias[trigger:has_or_had_tag] = <country>
 ### if a country is a specific historical tag or was it.
 ## scopes = { country }
-alias[trigger:has_or_had_tag] = enum[formable_country_tag]
+alias[trigger:has_or_had_tag] = value[dynamic_tag]
 
 ### Check if a subject type has to have its overlord's ruler
 ## scopes = { subject_type }
@@ -4916,16 +4916,17 @@ alias[trigger:switch] = {
 alias[trigger:tag] = <country>
 ### if a country is a specific historical tag
 ## scopes = { country }
-alias[trigger:tag] = enum[formable_country_tag]
-## scopes = { country }
 alias[trigger:tag] = scope[country]
+### if a country is a specific historical tag
+## scopes = { country }
+alias[trigger:tag] = value[dynamic_tag]
 
 ### does a tag exist
 ## scopes = { any }
 alias[trigger:tag_exists] = <country>
 ### does a tag exist
 ## scopes = { any }
-alias[trigger:tag_exists] = enum[formable_country_tag]
+alias[trigger:tag_exists] = value[dynamic_tag]
 
 ### Return the threat level the scope country has towards the target country scope. Usage: threat_level_to = { country = <country scope> value = <value> } or threat_level_to(<country scope>)
 ## scopes = { country }

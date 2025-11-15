@@ -13,8 +13,8 @@ types = {
 }
 
 historical_score = {
-    tag = <country>
-    tag = enum[formable_country_tag]
+    tag = <coat_of_arm>
+    tag = <flag_definition>
 
     score = int
 }

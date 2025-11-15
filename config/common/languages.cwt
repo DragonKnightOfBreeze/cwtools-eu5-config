@@ -106,42 +106,58 @@ language = {
     ## cardinality = 0..1
     first_name_conjoiner = scalar
 
-    #TODO: double names are defined as "localisation.localisation" which is not supported in CWT
-
     ## cardinality = 0..1
     ship_names = {
         ## cardinality = 0..inf
         localisation
+
+        ## cardinality = 0..inf
+        localisation.localisation
     }
 
     ## cardinality = 0..1
     dynasty_template_keys = {
         ## cardinality = 0..inf
         localisation
+
+        ## cardinality = 0..inf
+        localisation.localisation
     }
 
     ## cardinality = 0..1
     male_names = {
         ## cardinality = 0..inf
         localisation
+
+        ## cardinality = 0..inf
+        localisation.localisation
     }
 
     ## cardinality = 0..1
     female_names = {
         ## cardinality = 0..inf
         localisation
+
+        ## cardinality = 0..inf
+        localisation.localisation
     }
 
     ## cardinality = 0..1
     dynasty_names = {
         ## cardinality = 0..inf
         localisation
+
+        ## cardinality = 0..inf
+        localisation.localisation
     }
 
     ## cardinality = 0..1
     lowborn = {
         ## cardinality = 0..inf
         localisation
+
+        ## cardinality = 0..inf
+        localisation.localisation
     }
 
     ## cardinality = 0..1s
@@ -159,24 +175,36 @@ dialect = {
     male_names = {
         ## cardinality = 0..inf
         localisation
+
+        ## cardinality = 0..inf
+        localisation.localisation
     }
 
     ## cardinality = 0..1
     female_names = {
         ## cardinality = 0..inf
         localisation
+
+        ## cardinality = 0..inf
+        localisation.localisation
     }
 
     ## cardinality = 0..1
     dynasty_names = {
         ## cardinality = 0..inf
         localisation
+
+        ## cardinality = 0..inf
+        localisation.localisation
     }
 
     ## cardinality = 0..1
     lowborn = {
         ## cardinality = 0..inf
         localisation
+
+        ## cardinality = 0..inf
+        localisation.localisation
     }
 
     ## cardinality = 0..1
