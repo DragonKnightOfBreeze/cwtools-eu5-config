@@ -147,12 +147,12 @@ links = {
         prefix = c:
         data_source = <country>
     }
-    c_formable = {
+    c_dynamic = {
         input_scopes = { any }
         output_scope = country
         from_data = yes
         prefix = c:
-        data_source = enum[formable_country_tag]
+        data_source = value[dynamic_tag]
     }
     cabinet_action_link = {
         input_scopes = { any }
@@ -1661,7 +1661,7 @@ links = {
         output_scope = work_of_art
         from_data = yes
         prefix = work_of_art:
-        data_source = <work_of_art>
+        data_source = value[work_of_art]
     }
     work_of_art_type_link = {
         input_scopes = { any }

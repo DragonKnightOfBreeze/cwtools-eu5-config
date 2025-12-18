@@ -12,19 +12,6 @@ types = {
     }
 }
 
-enums = {
-    complex_enum[formable_country_tag] = {
-        path = "game/common/formable_countries"
-        path = "game/in_game/common/formable_countries"
-        path = "game/main_menu/common/formable_countries"
-        path = "game/loading_screen/common/formable_countries"
-        file_extension = .txt
-        name = {
-            tag = enum_name
-        }
-    }
-}
-
 formable_country = {
     ### What level is this country? Players can only form countries of equal or higher level. AI can only form of higher level.
     level = int
@@ -65,7 +52,7 @@ formable_country = {
     flag = <coat_of_arm>
     flag = <flag_definition>
 
-    tag = enum[formable_country_tag]
+    tag = value_set[dynamic_tag]
 
     alias_name[color] = alias_match_left[color]
 

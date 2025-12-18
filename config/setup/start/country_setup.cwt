@@ -9,7 +9,17 @@ types = {
             countries
         }
     }
+    ## type_key_filter = current_age
+    type[current_age] = {
+        path = "game/setup/start"
+        path = "game/in_game/setup/start"
+        path = "game/main_menu/setup/start"
+        path = "game/loading_screen/setup/start"
+        file_extension = .txt
+    }
 }
+
+current_age = <age>
 
 country_setup = {
     <country> = {
@@ -216,22 +226,7 @@ country_setup = {
         include = filepath[setup/templates/,.txt]
 
         ## cardinality = 0..inf
-        timed_modifier = {
-            modifier = <static_modifier>
-
-            ## cardinality = 0..1
-            start_date = date_field
-            ## cardinality = 0..1
-            start_date = int
-
-            ## cardinality = 0..1
-            date = date_field
-            ## cardinality = 0..1
-            date = int
-
-            ## cardinality = 0..1
-            size = value_field
-        }
+        timed_modifier = single_alias_right[timed_modifier_clause]
 
         ## cardinality = 0..1
         add_pops_from_locations = {

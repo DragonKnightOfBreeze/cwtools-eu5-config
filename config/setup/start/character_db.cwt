@@ -30,28 +30,36 @@ character = {
 
     first_name = {
         name = localisation
+        name = localisation.localisation
         name = random
     }
     first_name = localisation
+    first_name = localisation.localisation
     first_name = random
 
     ## cardinality = 0..1
     last_name = {
         name = localisation
+        name = localisation.localisation
         name = random
     }
     ## cardinality = 0..1
     last_name = localisation
+    ## cardinality = 0..1
+    last_name = localisation.localisation
     ## cardinality = 0..1
     last_name = random
 
     ## cardinality = 0..1
     nickname = {
         name = localisation
+        name = localisation.localisation
         name = random
     }
     ## cardinality = 0..1
     nickname = localisation
+    ## cardinality = 0..1
+    nickname = localisation.localisation
     ## cardinality = 0..1
     nickname = random
 
@@ -117,22 +125,7 @@ character = {
     has_patronym = bool
 
     ## cardinality = 0..inf
-    timed_modifier = {
-        modifier = <static_modifier>
-
-        ## cardinality = 0..1
-        start_date = date_field
-        ## cardinality = 0..1
-        start_date = int
-
-        ## cardinality = 0..1
-        date = date_field
-        ## cardinality = 0..1
-        date = int
-
-        ## cardinality = 0..1
-        size = value_field
-    }
+    timed_modifier = single_alias_right[timed_modifier_clause]
 
     tag = <country>
 }

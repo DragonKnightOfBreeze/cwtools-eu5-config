@@ -53,15 +53,17 @@ event = {
 	## cardinality = 0..1
 	type = enum[event_type]
 
-    ### The title of the event. Can use scopes from immediate for the localization
-    title = localisation
-    ### Alternative way for event titles which shows the first title which fulfils the trigger. Use that if you rely on saved event targets from immediate
-    title = single_alias_right[complex_desc]
+    subtype[!hidden] = {
+        ### The title of the event. Can use scopes from immediate for the localization
+        title = localisation
+        ### Alternative way for event titles which shows the first title which fulfils the trigger. Use that if you rely on saved event targets from immediate
+        title = single_alias_right[complex_desc]
 
-    ### The description of the event. Can use scopes from immediate for the localization
-    desc = localisation
-    ### Alternative way for event descriptions which shows the first title which fulfils the trigger. Use that if you rely on saved event targets from immediate
-    desc = single_alias_right[complex_desc]
+        ### The description of the event. Can use scopes from immediate for the localization
+        desc = localisation
+        ### Alternative way for event descriptions which shows the first title which fulfils the trigger. Use that if you rely on saved event targets from immediate
+        desc = single_alias_right[complex_desc]
+    }
 
     ### The extra text of the event describing the historical background of the event
     ## cardinality = 0..1
@@ -112,7 +114,7 @@ event = {
         ## cardinality = 1..inf
         tag = <country>
         ## cardinality = 1..inf
-        tag = enum[formable_country_tag]
+        tag = value[dynamic_tag]
 
         ## cardinality = 0..1
         from = date_field
@@ -162,7 +164,7 @@ event = {
 
     ### You can have x amounts of options in a single event
     ### root = defined scope from type
-    ## cardinality = 1..inf
+    ## cardinality = 0..inf
     option = {
         name = localisation
 

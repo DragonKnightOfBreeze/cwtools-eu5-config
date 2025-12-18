@@ -19,7 +19,12 @@ types = {
 }
 
 unit_type = {
-    category = <unit_category>
+    subtype[land] = {
+        category = <unit_category.land>
+    }
+    subtype[naval] = {
+        category = <unit_category.naval>
+    }
 
     ## cardinality = 0..1
     alias_name[color] = alias_match_left[color]

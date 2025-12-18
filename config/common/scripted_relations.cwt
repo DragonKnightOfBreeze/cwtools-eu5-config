@@ -9,6 +9,12 @@ types = {
             name = "$_relation"
             name = "$_relation_desc"
         }
+        subtype[oneway] =  {
+            relation_type = oneway
+        }
+        subtype[mutual] =  {
+            relation_type = mutual
+        }
     }
 }
 
