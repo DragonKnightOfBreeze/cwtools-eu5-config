@@ -95,10 +95,14 @@ single_alias[timed_modifier_clause] = {
     ## cardinality = 0..1
     start_date = date_field
     ## cardinality = 0..1
+    start_date = date_field[y.m.]
+    ## cardinality = 0..1
     start_date = int
 
     ## cardinality = 0..1
     date = date_field
+    ## cardinality = 0..1
+    date = date_field[y.m.]
     ## cardinality = 0..1
     date = int
 

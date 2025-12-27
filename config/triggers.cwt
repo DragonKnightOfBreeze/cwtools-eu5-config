@@ -888,6 +888,12 @@ alias[trigger:current_date] == int
 ### Compare the current ingame date.
 ## scopes = { any }
 alias[trigger:current_date] == date_field
+### Compare the current ingame date.
+## scopes = { any }
+alias[trigger:current_date] == date_field[y.m.]
+### Compare the current ingame date.
+## scopes = { any }
+alias[trigger:current_date] == scope[date]
 
 ### Checks if the country has the specified mission task in progress.
 ## scopes = { country }
@@ -4729,12 +4735,20 @@ alias[trigger:ruled_country_on_or_after] = {
     country = scope[country]
 
     date = date_field
+    date = date_field[y.m.]
+    date = int
     date = scope[date]
 }
 
 ### Gets the start date of the current ruler term
 ## scopes = { country }
 alias[trigger:ruler_term_start_date] == date_field
+### Gets the start date of the current ruler term
+## scopes = { country }
+alias[trigger:ruler_term_start_date] == date_field[y.m.]
+### Gets the start date of the current ruler term
+## scopes = { country }
+alias[trigger:ruler_term_start_date] == int
 ### Gets the start date of the current ruler term
 ## scopes = { country }
 alias[trigger:ruler_term_start_date] == scope[date]

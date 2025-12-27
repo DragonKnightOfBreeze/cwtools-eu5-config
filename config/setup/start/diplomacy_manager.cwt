@@ -40,6 +40,8 @@ diplomacy_manager = {
         ## cardinality = 0..1
         start_date = date_field
         ## cardinality = 0..1
+        start_date = date_field[y.m.]
+        ## cardinality = 0..1
         start_date = int
     }
 

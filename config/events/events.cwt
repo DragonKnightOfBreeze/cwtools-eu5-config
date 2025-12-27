@@ -53,11 +53,12 @@ event = {
 	## cardinality = 0..1
 	type = enum[event_type]
 
+    ### The title of the event. Can use scopes from immediate for the localization
+    title = localisation
+    ### Alternative way for event titles which shows the first title which fulfils the trigger. Use that if you rely on saved event targets from immediate
+    title = single_alias_right[complex_desc]
+
     subtype[!hidden] = {
-        ### The title of the event. Can use scopes from immediate for the localization
-        title = localisation
-        ### Alternative way for event titles which shows the first title which fulfils the trigger. Use that if you rely on saved event targets from immediate
-        title = single_alias_right[complex_desc]
 
         ### The description of the event. Can use scopes from immediate for the localization
         desc = localisation
@@ -119,10 +120,14 @@ event = {
         ## cardinality = 0..1
         from = date_field
         ## cardinality = 0..1
+        from = date_field[y.m.]
+        ## cardinality = 0..1
         from = int
 
         ## cardinality = 0..1
         to = date_field
+        ## cardinality = 0..1
+        to = date_field[y.m.]
         ## cardinality = 0..1
         to = int
 

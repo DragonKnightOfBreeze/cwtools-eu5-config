@@ -93,10 +93,13 @@ character = {
     child_trait = <trait>
 
     birth_date = date_field
+    birth_date = date_field[y.m.]
     birth_date = int
 
     ## cardinality = 0..1
     death_date = date_field
+    ## cardinality = 0..1
+    death_date = date_field[y.m.]
     ## cardinality = 0..1
     death_date = int
 
