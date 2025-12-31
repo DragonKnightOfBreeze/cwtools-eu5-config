@@ -23,6 +23,7 @@ work_of_art_manager = {
         quality = value_field
 
         creation_date = date_field
+        creation_date = date_field[y.m.]
         creation_date = int
 
         key = value_set[work_of_art]

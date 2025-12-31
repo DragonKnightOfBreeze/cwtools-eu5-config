@@ -105,6 +105,10 @@ religion = {
 
     ## cardinality = 0..1
     enable = date_field
+    ## cardinality = 0..1
+    enable = date_field[y.m.]
+    ## cardinality = 0..1
+    enable = int
 
     ## cardinality = 0..1
     max_sects = int

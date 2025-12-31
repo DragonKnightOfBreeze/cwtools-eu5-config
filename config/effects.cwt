@@ -2393,6 +2393,8 @@ alias[effect:create_character] = {
     ## cardinality = 0..1
     birth_date = date_field
     ## cardinality = 0..1
+    birth_date = date_field[y.m.]
+    ## cardinality = 0..1
     birth_date = int
 
     ## cardinality = 0..1
@@ -5149,6 +5151,10 @@ alias[effect:trigger_event_non_silently] = {
 
     ## cardinality = 0..1
     trigger_on_next_date = date_field
+    ## cardinality = 0..1
+    trigger_on_next_date = date_field[y.m.]
+    ## cardinality = 0..1
+    trigger_on_next_date = int
 
     ## cardinality = 0..inf
     alias_name[duration] = alias_match_left[duration]
@@ -5168,6 +5174,10 @@ alias[effect:trigger_event_silently] = {
 
     ## cardinality = 0..1
     trigger_on_next_date = date_field
+    ## cardinality = 0..1
+    trigger_on_next_date = date_field[y.m.]
+    ## cardinality = 0..1
+    trigger_on_next_date = int
 
     ## cardinality = 0..inf
     alias_name[duration] = alias_match_left[duration]

@@ -16,6 +16,7 @@ international_organization_manager = {
         type = <international_organization>
 
         creation_date = date_field
+        creation_date = date_field[y.m.]
         creation_date = int
 
         ## cardinality = 0..1
@@ -44,10 +45,14 @@ international_organization_manager = {
             ## cardinality = 1..inf
             start_date = date_field
             ## cardinality = 1..inf
+            start_date = date_field[y.m.]
+            ## cardinality = 1..inf
             start_date = int
 
             ## cardinality = 0..inf
             end_date = date_field
+            ## cardinality = 1..inf
+            end_date = date_field[y.m.]
             ## cardinality = 0..inf
             end_date = int
 

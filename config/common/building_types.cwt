@@ -13,6 +13,9 @@ types = {
 }
 
 building_type = {
+    ## cardinality = 0..1
+    icon = filepath[gfx/interface/icons/buildings/,.dds]
+
     ### building time in days
     ## cardinality = 0..1
     build_time = int
