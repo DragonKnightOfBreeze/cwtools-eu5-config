@@ -5,7 +5,7 @@ types = {
         path = "game/main_menu/common/game_rules"
         path = "game/loading_screen/common/game_rules"
         skip_root_key = any
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "setting_$"
@@ -18,7 +18,7 @@ types = {
         path = "game/in_game/common/game_rules"
         path = "game/main_menu/common/game_rules"
         path = "game/loading_screen/common/game_rules"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "rule_$"

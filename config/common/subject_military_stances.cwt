@@ -4,7 +4,7 @@ types = {
         path = "game/in_game/common/subject_military_stances"
         path = "game/main_menu/common/subject_military_stances"
         path = "game/loading_screen/common/subject_military_stances"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
             desc = "$_desc"
@@ -18,7 +18,7 @@ subject_military_stance = {
 
     ### prio for chasing units in own (plus subjects'/overlord's) territory
     chase_unit_own_location_priority = value_field
-    
+
     chase_unit_overlord_location_priority = value_field
 
     chase_unit_subject_location_priority = value_field

@@ -4,7 +4,7 @@ types = {
         path = "game/in_game/common/ai_diplochance"
         path = "game/main_menu/common/ai_diplochance"
         path = "game/loading_screen/common/ai_diplochance"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

@@ -4,7 +4,7 @@ types = {
         path = "game/in_game/common/scriptable_hints"
         path = "game/main_menu/common/scriptable_hints"
         path = "game/loading_screen/common/scriptable_hints"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
         }

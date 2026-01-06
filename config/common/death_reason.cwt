@@ -4,7 +4,7 @@ types = {
         path = "game/in_game/common/death_reason"
         path = "game/main_menu/common/death_reason"
         path = "game/loading_screen/common/death_reason"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "DEATH_REASON_$"
         }
