@@ -4,7 +4,7 @@ types = {
         path = "game/in_game/fonts"
         path = "game/main_menu/fonts"
         path = "game/loading_screen/fonts"
-        file_extension = .font
+        path_extension = .font
         name_field = "name"
 
         ## group = definition_type

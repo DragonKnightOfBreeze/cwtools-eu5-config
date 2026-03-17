@@ -5,6 +5,6 @@ types = {
         path = "game/in_game/common/flag_definitions"
         path = "game/main_menu/common/flag_definitions"
         path = "game/loading_screen/common/flag_definitions"
-        file_extension = .txt
+        path_extension = .txt
     }
 }

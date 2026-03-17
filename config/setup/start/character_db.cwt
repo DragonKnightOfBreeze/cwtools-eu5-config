@@ -4,7 +4,7 @@ types = {
         path = "game/in_game/setup/start"
         path = "game/main_menu/setup/start"
         path = "game/loading_screen/setup/start"
-        file_extension = .txt
+        path_extension = .txt
         unique = no
         skip_root_key = {
             character_db

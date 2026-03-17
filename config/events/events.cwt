@@ -5,7 +5,7 @@ types = {
         path = "game/in_game/events"
         path = "game/main_menu/events"
         path = "game/loading_screen/events"
-		file_extension = .txt
+		path_extension = .txt
 
         ## group = event_attribute
 		subtype[hidden] = {

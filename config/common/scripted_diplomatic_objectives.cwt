@@ -4,7 +4,7 @@ types = {
         path = "game/in_game/common/scripted_diplomatic_objectives"
         path = "game/main_menu/common/scripted_diplomatic_objectives"
         path = "game/loading_screen/common/scripted_diplomatic_objectives"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 
@@ -21,13 +21,13 @@ scripted_diplomatic_objective = {
     ### How many days to wait before checking for new objectives again
     ## cardinality = 0..1
     days_between_checks = single_alias_right[formula]
-    
+
     ### ROOT = actor
     actor_trigger = single_alias_right[trigger_clause]
-    
+
     ### scope:recipient = potential country, scope:actor = actor
     recipient_trigger = single_alias_right[trigger_clause]
-    
+
     ### scope:recipient = potential country, scope:actor = actor
     ### Used when sorting which countries and objectives should be prioritized, is used to compare with other scripted objectives as well
     ## cardinality = 0..1
@@ -44,19 +44,19 @@ scripted_diplomatic_objective = {
     ### Used when sorting which countries and objectives should be prioritized, is used to compare with other scripted objectives as well
     ## cardinality = 0..1
     recipient_priority = single_alias_right[formula]
-    
+
     ### Used to narrow down potential countries, if not present all reachable countries will be used
     ## cardinality = 0..1
     recipient_list_builder = single_alias_right[trigger_clause]
-    
+
     ### Used to check if an objective should be paused until the next check. Can be used to avoid deleting objectives in cancel_trigger
     ### scope:recipient = potential country, scope:actor = actor
     pause_trigger = single_alias_right[trigger_clause]
-    
+
     ### Used to check if an objective should be canceled prematurely
     ### scope:recipient = potential country, scope:actor = actor
     cancel_trigger = single_alias_right[trigger_clause]
-    
+
     ### Should the nations improve relations
     ## cardinality = 0..1
     improve_relation = bool
@@ -85,7 +85,7 @@ scripted_diplomatic_objective = {
     ### Should the actor try to destroy recipient
     ## cardinality = 0..1
     destroy = bool
-    
+
     ### Yes to encourage, No to disable
     ## cardinality = 0..1
     country_interactions = {
@@ -97,7 +97,7 @@ scripted_diplomatic_objective = {
     country_relations = {
         <scripted_relation> = bool
     }
-    
+
     ### How much time does the actor have to complete an objective before cancelling, leave empty or 0 for unlimited time
     ### scope:recipient = potential country, scope:actor = actor
     ## cardinality = 0..1
@@ -114,7 +114,7 @@ scripted_diplomatic_objective = {
     ### scope:recipient = potential country, scope:actor = actor
     ## cardinality = 0..1
     time_limit = single_alias_right[formula]
-    
+
     ### How many objectives of the same type can a nation have at once. Leave 0 for unlimited. Default is unlimited.
     ### ROOT = actor
     ## cardinality = 0..1

@@ -4,7 +4,7 @@ types = {
         path = "game/in_game/common/international_organizations"
         path = "game/main_menu/common/international_organizations"
         path = "game/loading_screen/common/international_organizations"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
             desc = "$_desc"
@@ -16,7 +16,7 @@ international_organization = {
     ### to show the ruler/leader history button in the IO view
     ## cardinality = 0..1
     should_show_ruler_history = bool
-    
+
     ### picture to show in the background on the IO panel. Defaults to DEFAULT_IO_BACKGROUND_PATH
     ## cardinality = 0..1
     background_texture = filepath

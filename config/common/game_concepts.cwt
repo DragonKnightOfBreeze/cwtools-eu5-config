@@ -4,7 +4,7 @@ types = {
         path = "game/in_game/common/game_concepts"
         path = "game/main_menu/common/game_concepts"
         path = "game/loading_screen/common/game_concepts"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             ## required
             name = "game_concept_$"

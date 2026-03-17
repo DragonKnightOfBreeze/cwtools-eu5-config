@@ -4,7 +4,7 @@ types = {
         path = "game/in_game/common/languages"
         path = "game/main_menu/common/languages"
         path = "game/loading_screen/common/languages"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
         }
@@ -14,7 +14,7 @@ types = {
         path = "game/in_game/common/languages"
         path = "game/main_menu/common/languages"
         path = "game/loading_screen/common/languages"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$"
         }

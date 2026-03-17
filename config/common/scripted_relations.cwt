@@ -4,7 +4,7 @@ types = {
         path = "game/in_game/common/scripted_relations"
         path = "game/main_menu/common/scripted_relations"
         path = "game/loading_screen/common/scripted_relations"
-        file_extension = .txt
+        path_extension = .txt
         localisation = {
             name = "$_relation"
             name = "$_relation_desc"
@@ -21,10 +21,10 @@ types = {
 scripted_relation = {
     ### defines if the relation type is something you can have with every country or only with subjects
     type = enum[scripted_relation_type]
-    
+
     ### determines if the relationship is a giving/receiving kind or if partners are mutual in the relationship
     relation_type = enum[scripted_relation_direction]
-    
+
     ### whether this relation uses a diplo relation slot
     ## cardinality = 0..1
     uses_diplo_capacity = enum[call_to_arms_type]
@@ -234,15 +234,15 @@ scripted_relation = {
     ### amount of institution spread that the first country sends to the second country's capital per month
     ## cardinality = 0..1
     institution_spread_to_second = single_alias_right[formula]
-    
+
     ### cost to create this relation
     ## cardinality = 0..1
     diplomatic_cost = <price>
-    
+
     ### cost to declare war between the two countries
     ## cardinality = 0..1
     war_declaration_cost = <price>
-    
+
     ### cost to buy the relation (if not specified, you can't buy it)
     ## cardinality = 0..1
     buy_price = <price>

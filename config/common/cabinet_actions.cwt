@@ -4,7 +4,7 @@ types = {
         path = "game/in_game/common/cabinet_actions"
         path = "game/main_menu/common/cabinet_actions"
         path = "game/loading_screen/common/cabinet_actions"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

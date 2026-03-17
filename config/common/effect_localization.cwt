@@ -4,7 +4,7 @@ types = {
         path = "game/in_game/common/effect_localization"
         path = "game/main_menu/common/effect_localization"
         path = "game/loading_screen/common/effect_localization"
-        file_extension = .txt
+        path_extension = .txt
     }
 }
 

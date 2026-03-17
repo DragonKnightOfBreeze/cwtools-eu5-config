@@ -4,7 +4,7 @@ types = {
         path = "game/in_game/common/named_colors"
         path = "game/main_menu/common/named_colors"
         path = "game/loading_screen/common/named_colors"
-        file_extension = .txt
+        path_extension = .txt
         skip_root_key = {
             colors
         }

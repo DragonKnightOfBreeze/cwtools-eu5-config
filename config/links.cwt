@@ -1,13 +1,6 @@
 links = {
     # === Event Targets
 
-    #TODO: Does not work
-    <script_value> = {
-        input_scopes = { any }
-        output_scope = value
-        type = value
-    }
-
     active_mission = {
         input_scopes = { country }
         output_scope = mission
@@ -5439,5 +5432,22 @@ links = {
         input_scopes = { situation }
         output_scope = value
         type = value
+    }
+
+    # script value & static value
+
+    script_value = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+        from_data = yes
+        data_source = <script_value>
+    }
+    static_value = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+        from_data = yes
+        data_source = <static_value>
     }
 }

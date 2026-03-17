@@ -4,14 +4,14 @@ types = {
         path = "game/in_game/common/scripted_effects"
         path = "game/main_menu/common/scripted_effects"
         path = "game/loading_screen/common/scripted_effects"
-        file_extension = .txt
+        path_extension = .txt
     }
     type[inline_scripted_effect] = {
         path = "game/events"
         path = "game/in_game/events"
         path = "game/main_menu/events"
         path = "game/loading_screen/events"
-        file_extension = .txt
+        path_extension = .txt
         type_key_prefix = "scripted_effect"
     }
 }
