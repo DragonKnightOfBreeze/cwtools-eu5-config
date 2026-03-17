@@ -9,14 +9,17 @@ types = {
             ## required
             name = "game_concept_$"
         }
+        images = {
+            icon = texture
+        }
     }
 }
 
 game_concept = {
-    texture = filepath
-    texture = filepath[main_menu]
-    texture = filepath[in_game]
-    texture = filepath[loading_screen]
+    texture = filepath[gfx/interface/icons/,.dds]
+    texture = filepath[main_menu/gfx/interface/icons/,.dds]
+    texture = filepath[in_game/gfx/interface/icons/,.dds]
+    texture = filepath[loading_screen/gfx/interface/icons/,.dds]
 
     ## cardinality = 0..1
     #TODO: how to model this?

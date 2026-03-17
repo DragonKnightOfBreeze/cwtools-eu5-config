@@ -132,9 +132,6 @@ event = {
         to = int
 
         monthly_chance = int
-
-        ## cardinality = 0..inf
-        alias_name[trigger] = alias_match_left[trigger]
     }
 
     ### The game will not log an error about this event being unreferenced. Useful for debug events

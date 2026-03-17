@@ -20,6 +20,6 @@ static_modifier = {
         decaying = yes
     }
 
-    ## cardinality = 1..inf
+    ## cardinality = 0..inf
     alias_name[modifier_element] = alias_match_left[modifier_element]
 }

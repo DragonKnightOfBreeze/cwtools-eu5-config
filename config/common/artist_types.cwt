@@ -14,5 +14,6 @@ types = {
 
 artist_type = {
     ## cardinality = 0..1
+    ## replace_scope = { root = country this = country }
     potential = single_alias_right[trigger_clause]
 }
