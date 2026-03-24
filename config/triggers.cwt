@@ -5575,3 +5575,92 @@ alias[trigger:years_in_international_organization] = {
     ## cardinality = 0..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
+
+### Checks if a country has researched a certain advance but it's not useable at the moment because of conditions
+## scopes = { country }
+alias[trigger:advance_no_longer_activated] = <advance>
+
+### Gets the AI evaluation score for joining an IO due to its policies ai_policy_reason_to_join = { actor = <country scope> international_organization = <international organization scope> value = <script value> } or ai_policy_reason_to_join(<country scope>|<international organization scope>)
+## scopes = { policy }
+alias[trigger:ai_policy_reason_to_join] = {
+    actor = scope[country]
+
+    international_organization = scope[international_organization]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Gets the AI evaluation score for keeping the policy in a vote ai_policy_resolution_keep_bias = { actor = <country scope> international_organization = <international organization scope> value = <script value> } or ai_policy_resolution_keep_bias(<country scope>|<international organization scope>)
+## scopes = { policy }
+alias[trigger:ai_policy_resolution_keep_bias] = {
+    actor = scope[country]
+
+    international_organization = scope[international_organization]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### How high is the annexation progress of the target country for the current country scope? Usage: annexation_progress = { target = <traget country> value = <script value> } or annexation_progress(<target country>)
+## scopes = { country }
+alias[trigger:annexation_progress] = {
+    target = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Get the value of the given bias modifier. Usage: bias_value = { modifier = <bias modifier> value <operator> <script value> } or bias_value(<bias modifier>)
+## scopes = { any }
+alias[trigger:bias_value] = {
+    modifier = <bias>
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Checks if the peace treaty blocks full annexation.
+## scopes = { peace_treaty }
+alias[trigger:blocks_full_annexation] = bool
+
+### Check if the target country scope is capable of destroying the current building scope
+## scopes = { building }
+alias[trigger:building_can_be_destroyed_by] = scope[country]
+### Check if the target country scope is capable of destroying the current building scope
+## scopes = { building }
+alias[trigger:building_can_be_destroyed_by] = <country>
+### Check if the target country scope is capable of destroying the current building scope
+## scopes = { building }
+alias[trigger:building_can_be_destroyed_by] = value[dynamic_tag]
+
+### Checks if a building can be upgraded by the target country
+## scopes = { building }
+alias[trigger:building_can_be_upgraded_by] = scope[country]
+### Checks if a building can be upgraded by the target country
+## scopes = { building }
+alias[trigger:building_can_be_upgraded_by] = <country>
+### Checks if a building can be upgraded by the target country
+## scopes = { building }
+alias[trigger:building_can_be_upgraded_by] = value[dynamic_tag]
+
+### Could the current country scope rival the target country ignoring slots and range?
+## scopes = { country }
+alias[trigger:can_rival] = scope[country]
+### Could the current country scope rival the target country ignoring slots and range?
+## scopes = { country }
+alias[trigger:can_rival] = <country>
+### Could the current country scope rival the target country ignoring slots and range?
+## scopes = { country }
+alias[trigger:can_rival] = value[dynamic_tag]

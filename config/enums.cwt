@@ -603,6 +603,7 @@ enums = {
         war_exhaustion
         army_tradition
         inflation
+        complacency
     }
 
     #TODO: incomplete

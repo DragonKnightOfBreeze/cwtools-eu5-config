@@ -146,6 +146,12 @@ alias[effect:add_casus_belli] = {
     ## cardinality = 0..1
     province = scope[province]
 
+    ## cardinality = 0..1
+    country = scope[country]
+
+    ## cardinality = 0..1
+    character = scope[character]
+
     ## cardinality = 0..inf
     alias_name[duration] = alias_match_left[duration]
 }
@@ -2924,7 +2930,7 @@ alias[effect:debug_log_scopes] = bool
 ## scopes = { country }
 alias[effect:declare_war] = scope[country]
 
-### declares a war with a specific cb  { target = <country> type = <cb_type>
+### declares a war with a specific cb  { target = <country> type = <cb_type> [target_province = ; target_country =, character =] } The country scope will leave all wars they fight together with the target country.
 ## scopes = { country }
 alias[effect:declare_war_with_cb] = {
     target = scope[country]
@@ -2933,6 +2939,12 @@ alias[effect:declare_war_with_cb] = {
 
     ## cardinality = 0..1
     target_province = scope[province]
+
+    ## cardinality = 0..1
+    target_country = scope[country]
+
+    ## cardinality = 0..1
+    target_character = scope[character]
 }
 
 ### destroys the specified building in the location
@@ -3905,10 +3917,6 @@ alias[effect:reverse_add_antagonism] = {
     ## cardinality = 0..1
     scale = value_field
     ## cardinality = 0..1
-    scale = <script_value>
-    ## cardinality = 0..1
-    scale = <static_value>
-    ## cardinality = 0..1
     scale = single_alias_right[formula]
 }
 
@@ -3922,10 +3930,6 @@ alias[effect:reverse_add_opinion] = {
 
     ## cardinality = 0..1
     scale = value_field
-    ## cardinality = 0..1
-    scale = <script_value>
-    ## cardinality = 0..1
-    scale = <static_value>
     ## cardinality = 0..1
     scale = single_alias_right[formula]
 }
@@ -3941,10 +3945,6 @@ alias[effect:reverse_add_trust] = {
     ## cardinality = 0..1
     scale = value_field
     ## cardinality = 0..1
-    scale = <script_value>
-    ## cardinality = 0..1
-    scale = <static_value>
-    ## cardinality = 0..1
     scale = single_alias_right[formula]
 }
 
@@ -3955,8 +3955,6 @@ alias[effect:reverse_change_cultural_view] = {
     target = scope[culture]
 
     change = value_field
-    change = <script_value>
-    change = <static_value>
     change = single_alias_right[formula]
 }
 
@@ -4032,8 +4030,6 @@ alias[effect:save_scope_value_as] = {
     value = scope_field
     value = value_field
     value = single_alias_right[formula]
-    value = <script_value>
-    value = <static_value>
     value = $define_reference
 }
 
@@ -4051,8 +4047,6 @@ alias[effect:save_temporary_scope_value_as] = {
     value = scope_field
     value = value_field
     value = single_alias_right[formula]
-    value = <script_value>
-    value = <static_value>
     value = $define_reference
 }
 
@@ -4063,8 +4057,6 @@ alias[effect:sell_goods_from_location] = {
 
     amount = value_field
     amount = single_alias_right[formula]
-    amount = <script_value>
-    amount = <static_value>
 
     location = scope[location]
 }
@@ -4080,12 +4072,6 @@ alias[effect:set_age_preference] = enum[age_preference]
 ### Sets army tradition
 ## scopes = { country international_organization }
 alias[effect:set_army_tradition] = value_field
-### Sets army tradition
-## scopes = { country international_organization }
-alias[effect:set_army_tradition] = <script_value>
-### Sets army tradition
-## scopes = { country international_organization }
-alias[effect:set_army_tradition] = <static_value>
 ### Sets army tradition
 ## scopes = { country international_organization }
 alias[effect:set_army_tradition] = single_alias_right[formula]
@@ -4182,12 +4168,6 @@ alias[effect:set_cultural_view] = {
 alias[effect:set_devotion] = value_field
 ### Sets devotion
 ## scopes = { country international_organization }
-alias[effect:set_devotion] = <script_value>
-### Sets devotion
-## scopes = { country international_organization }
-alias[effect:set_devotion] = <static_value>
-### Sets devotion
-## scopes = { country international_organization }
 alias[effect:set_devotion] = single_alias_right[formula]
 
 ### sets the presence of a disease in a location or subunit. usage: set_disease_presence = { disease = <source disease outbreak> value = <script value> }
@@ -4197,19 +4177,11 @@ alias[effect:set_disease_presence] = {
 
     value = value_field
     value = single_alias_right[formula]
-    value = <script_value>
-    value = <static_value>
 }
 
 ### Sets doom
 ## scopes = { country international_organization }
 alias[effect:set_doom] = value_field
-### Sets doom
-## scopes = { country international_organization }
-alias[effect:set_doom] = <script_value>
-### Sets doom
-## scopes = { country international_organization }
-alias[effect:set_doom] = <static_value>
 ### Sets doom
 ## scopes = { country international_organization }
 alias[effect:set_doom] = single_alias_right[formula]
@@ -4231,12 +4203,6 @@ alias[effect:set_first_name] = localisation
 alias[effect:set_garrison_size] = value_field
 ### Sets the garrison size of the target location to the specified value
 ## scopes = { country international_organization }
-alias[effect:set_garrison_size] = <script_value>
-### Sets the garrison size of the target location to the specified value
-## scopes = { country international_organization }
-alias[effect:set_garrison_size] = <static_value>
-### Sets the garrison size of the target location to the specified value
-## scopes = { country international_organization }
 alias[effect:set_garrison_size] = single_alias_right[formula]
 
 ### Sets a variable set_variable = { name = X value = Y days = Z } Where X is the name of the variable used to then access it Where Y is any event target, bool, value, script value or flag (flag:W) An optional days where Z is the number of days or script value This variable will be accessible with <type_>var:X. With type being in a scope object or in a top scope Can also be used as set_variable = X (equivalent to set_variable = { name = X value = yes })
@@ -4253,10 +4219,6 @@ alias[effect:set_global_variable] = {
     ## cardinality = 0..1
     value = single_alias_right[formula]
     ## cardinality = 0..1
-    value = <script_value>
-    ## cardinality = 0..1
-    value = <static_value>
-    ## cardinality = 0..1
     value = bool
 }
 ### Sets a variable set_variable = { name = X value = Y days = Z } Where X is the name of the variable used to then access it Where Y is any event target, bool, value, script value or flag (flag:W) An optional days where Z is the number of days or script value This variable will be accessible with <type_>var:X. With type being in a scope object or in a top scope
@@ -4267,23 +4229,11 @@ alias[effect:set_global_variable] = value_set[global_variable]
 alias[effect:set_gold] = value_field
 ### Sets gold
 ## scopes = { country international_organization }
-alias[effect:set_gold] = <script_value>
-### Sets gold
-## scopes = { country international_organization }
-alias[effect:set_gold] = <static_value>
-### Sets gold
-## scopes = { country international_organization }
 alias[effect:set_gold] = single_alias_right[formula]
 
 ### Sets government power
 ## scopes = { country international_organization }
 alias[effect:set_government_power] = value_field
-### Sets government power
-## scopes = { country international_organization }
-alias[effect:set_government_power] = <script_value>
-### Sets government power
-## scopes = { country international_organization }
-alias[effect:set_government_power] = <static_value>
 ### Sets government power
 ## scopes = { country international_organization }
 alias[effect:set_government_power] = single_alias_right[formula]
@@ -4293,23 +4243,11 @@ alias[effect:set_government_power] = single_alias_right[formula]
 alias[effect:set_harmony] = value_field
 ### Sets Harmony
 ## scopes = { country international_organization }
-alias[effect:set_harmony] = <script_value>
-### Sets Harmony
-## scopes = { country international_organization }
-alias[effect:set_harmony] = <static_value>
-### Sets Harmony
-## scopes = { country international_organization }
 alias[effect:set_harmony] = single_alias_right[formula]
 
 ### Sets honor
 ## scopes = { country international_organization }
 alias[effect:set_honor] = value_field
-### Sets honor
-## scopes = { country international_organization }
-alias[effect:set_honor] = <script_value>
-### Sets honor
-## scopes = { country international_organization }
-alias[effect:set_honor] = <static_value>
 ### Sets honor
 ## scopes = { country international_organization }
 alias[effect:set_honor] = single_alias_right[formula]
@@ -4319,12 +4257,6 @@ alias[effect:set_honor] = single_alias_right[formula]
 alias[effect:set_horde_unity] = value_field
 ### Sets horde_unity
 ## scopes = { country international_organization }
-alias[effect:set_horde_unity] = <script_value>
-### Sets horde_unity
-## scopes = { country international_organization }
-alias[effect:set_horde_unity] = <static_value>
-### Sets horde_unity
-## scopes = { country international_organization }
 alias[effect:set_horde_unity] = single_alias_right[formula]
 
 ### Sets inflation
@@ -4332,23 +4264,11 @@ alias[effect:set_horde_unity] = single_alias_right[formula]
 alias[effect:set_inflation] = value_field
 ### Sets inflation
 ## scopes = { country international_organization }
-alias[effect:set_inflation] = <script_value>
-### Sets inflation
-## scopes = { country international_organization }
-alias[effect:set_inflation] = <static_value>
-### Sets inflation
-## scopes = { country international_organization }
 alias[effect:set_inflation] = single_alias_right[formula]
 
 ### Sets karma
 ## scopes = { country international_organization }
 alias[effect:set_karma] = value_field
-### Sets karma
-## scopes = { country international_organization }
-alias[effect:set_karma] = <script_value>
-### Sets karma
-## scopes = { country international_organization }
-alias[effect:set_karma] = <static_value>
 ### Sets karma
 ## scopes = { country international_organization }
 alias[effect:set_karma] = single_alias_right[formula]
@@ -4360,12 +4280,6 @@ alias[effect:set_leader_country] = scope[country]
 ### Sets legitimacy
 ## scopes = { country international_organization }
 alias[effect:set_legitimacy] = value_field
-### Sets legitimacy
-## scopes = { country international_organization }
-alias[effect:set_legitimacy] = <script_value>
-### Sets legitimacy
-## scopes = { country international_organization }
-alias[effect:set_legitimacy] = <static_value>
 ### Sets legitimacy
 ## scopes = { country international_organization }
 alias[effect:set_legitimacy] = single_alias_right[formula]
@@ -4398,10 +4312,6 @@ alias[effect:set_local_variable] = {
     value = value_field
     ## cardinality = 0..1
     value = single_alias_right[formula]
-    ## cardinality = 0..1
-    value = <script_value>
-    ## cardinality = 0..1
-    value = <static_value>
 }
 ### Sets a variable
 ### set_variable = { name = X value = Y days = Z }
@@ -4426,12 +4336,6 @@ alias[effect:set_lowborn] = bool
 alias[effect:set_manpower] = value_field
 ### Sets Manpower
 ## scopes = { country international_organization }
-alias[effect:set_manpower] = <script_value>
-### Sets Manpower
-## scopes = { country international_organization }
-alias[effect:set_manpower] = <static_value>
-### Sets Manpower
-## scopes = { country international_organization }
 alias[effect:set_manpower] = single_alias_right[formula]
 
 ### Sets navy tradition
@@ -4439,23 +4343,11 @@ alias[effect:set_manpower] = single_alias_right[formula]
 alias[effect:set_navy_tradition] = value_field
 ### Sets navy tradition
 ## scopes = { country international_organization }
-alias[effect:set_navy_tradition] = <script_value>
-### Sets navy tradition
-## scopes = { country international_organization }
-alias[effect:set_navy_tradition] = <static_value>
-### Sets navy tradition
-## scopes = { country international_organization }
 alias[effect:set_navy_tradition] = single_alias_right[formula]
 
 ### changes the needs_reform status of a religion
 ## scopes = { religion }
 alias[effect:set_needs_reform] = value_field
-### changes the needs_reform status of a religion
-## scopes = { religion }
-alias[effect:set_needs_reform] = <script_value>
-### changes the needs_reform status of a religion
-## scopes = { religion }
-alias[effect:set_needs_reform] = <static_value>
 ### changes the needs_reform status of a religion
 ## scopes = { religion }
 alias[effect:set_needs_reform] = single_alias_right[formula]
@@ -4493,12 +4385,6 @@ alias[effect:set_parliament_issue] = scope[parliament_issue]
 alias[effect:set_parliament_issue_support] = value_field
 ### sets base support for the issue when calling a parliament
 ## scopes = { country international_organization }
-alias[effect:set_parliament_issue_support] = <script_value>
-### sets base support for the issue when calling a parliament
-## scopes = { country international_organization }
-alias[effect:set_parliament_issue_support] = <static_value>
-### sets base support for the issue when calling a parliament
-## scopes = { country international_organization }
 alias[effect:set_parliament_issue_support] = single_alias_right[formula]
 
 ### Sets the parliament location. Use immediately before 'set_parliament_active = yes'
@@ -4527,23 +4413,11 @@ alias[effect:set_participated_in_parliament] = {
 alias[effect:set_prestige] = value_field
 ### Sets prestige
 ## scopes = { country international_organization }
-alias[effect:set_prestige] = <script_value>
-### Sets prestige
-## scopes = { country international_organization }
-alias[effect:set_prestige] = <static_value>
-### Sets prestige
-## scopes = { country international_organization }
 alias[effect:set_prestige] = single_alias_right[formula]
 
 ### Sets purity
 ## scopes = { country international_organization }
 alias[effect:set_purity] = value_field
-### Sets purity
-## scopes = { country international_organization }
-alias[effect:set_purity] = <script_value>
-### Sets purity
-## scopes = { country international_organization }
-alias[effect:set_purity] = <static_value>
 ### Sets purity
 ## scopes = { country international_organization }
 alias[effect:set_purity] = single_alias_right[formula]
@@ -4555,12 +4429,6 @@ alias[effect:set_regent] = scope[character]
 ### Sets religious influence
 ## scopes = { country international_organization }
 alias[effect:set_religious_influence] = value_field
-### Sets religious influence
-## scopes = { country international_organization }
-alias[effect:set_religious_influence] = <script_value>
-### Sets religious influence
-## scopes = { country international_organization }
-alias[effect:set_religious_influence] = <static_value>
 ### Sets religious influence
 ## scopes = { country international_organization }
 alias[effect:set_religious_influence] = single_alias_right[formula]
@@ -4582,12 +4450,6 @@ alias[effect:set_religious_view] = {
 alias[effect:set_republican_tradition] = value_field
 ### Sets republican_tradition
 ## scopes = { country international_organization }
-alias[effect:set_republican_tradition] = <script_value>
-### Sets republican_tradition
-## scopes = { country international_organization }
-alias[effect:set_republican_tradition] = <static_value>
-### Sets republican_tradition
-## scopes = { country international_organization }
 alias[effect:set_republican_tradition] = single_alias_right[formula]
 
 ### Make the country either revolutionary if set to yes, or get remove its revoutionary status if set to no.
@@ -4603,12 +4465,6 @@ alias[effect:set_revolution_target] = bool
 alias[effect:set_righteousness] = value_field
 ### Sets Righteousness
 ## scopes = { country international_organization }
-alias[effect:set_righteousness] = <script_value>
-### Sets Righteousness
-## scopes = { country international_organization }
-alias[effect:set_righteousness] = <static_value>
-### Sets Righteousness
-## scopes = { country international_organization }
 alias[effect:set_righteousness] = single_alias_right[formula]
 
 ### Sets rite power
@@ -4616,23 +4472,11 @@ alias[effect:set_righteousness] = single_alias_right[formula]
 alias[effect:set_rite_power] = value_field
 ### Sets rite power
 ## scopes = { country international_organization }
-alias[effect:set_rite_power] = <script_value>
-### Sets rite power
-## scopes = { country international_organization }
-alias[effect:set_rite_power] = <static_value>
-### Sets rite power
-## scopes = { country international_organization }
 alias[effect:set_rite_power] = single_alias_right[formula]
 
 ### Sets sailors
 ## scopes = { country international_organization }
 alias[effect:set_sailors] = value_field
-### Sets sailors
-## scopes = { country international_organization }
-alias[effect:set_sailors] = <script_value>
-### Sets sailors
-## scopes = { country international_organization }
-alias[effect:set_sailors] = <static_value>
 ### Sets sailors
 ## scopes = { country international_organization }
 alias[effect:set_sailors] = single_alias_right[formula]
@@ -4650,12 +4494,6 @@ alias[effect:set_school_opinion] = {
 alias[effect:set_self_control] = value_field
 ### Sets Self Control
 ## scopes = { country international_organization }
-alias[effect:set_self_control] = <script_value>
-### Sets Self Control
-## scopes = { country international_organization }
-alias[effect:set_self_control] = <static_value>
-### Sets Self Control
-## scopes = { country international_organization }
 alias[effect:set_self_control] = single_alias_right[formula]
 
 ### Sets societal value
@@ -4664,20 +4502,12 @@ alias[effect:set_societal_value] = {
     type = <societal_value>
 
     value = value_field
-    value = <script_value>
-    value = <static_value>
     value = single_alias_right[formula]
 }
 
 ### Sets stability
 ## scopes = { country international_organization }
 alias[effect:set_stability] = value_field
-### Sets stability
-## scopes = { country international_organization }
-alias[effect:set_stability] = <script_value>
-### Sets stability
-## scopes = { country international_organization }
-alias[effect:set_stability] = <static_value>
 ### Sets stability
 ## scopes = { country international_organization }
 alias[effect:set_stability] = single_alias_right[formula]
@@ -4696,25 +4526,15 @@ alias[effect:set_to_limited_random_stat] = {
     ability = enum[ability_type]
 
     min = value_field
-    min = <script_value>
-    min = <static_value>
     min = single_alias_right[formula]
 
     max = value_field
-    max = <script_value>
-    max = <static_value>
     max = single_alias_right[formula]
 }
 
 ### Sets tribal_cohesion
 ## scopes = { country international_organization }
 alias[effect:set_tribal_cohesion] = value_field
-### Sets tribal_cohesion
-## scopes = { country international_organization }
-alias[effect:set_tribal_cohesion] = <script_value>
-### Sets tribal_cohesion
-## scopes = { country international_organization }
-alias[effect:set_tribal_cohesion] = <static_value>
 ### Sets tribal_cohesion
 ## scopes = { country international_organization }
 alias[effect:set_tribal_cohesion] = single_alias_right[formula]
@@ -4728,8 +4548,6 @@ alias[effect:set_tutorial_var] = {
     name = value_set[tutorial_variable]
 
     value = value_field
-    value = <script_value>
-    value = <static_value>
     value = single_alias_right[formula]
     value = scope_field
     value = bool
@@ -4739,12 +4557,6 @@ alias[effect:set_tutorial_var] = {
 ### Sets the number of people in each subunit in the Unit to the given percentage of maximum
 ## scopes = { unit }
 alias[effect:set_unit_size] = value_field
-### Sets the number of people in each subunit in the Unit to the given percentage of maximum
-## scopes = { unit }
-alias[effect:set_unit_size] = <script_value>
-### Sets the number of people in each subunit in the Unit to the given percentage of maximum
-## scopes = { unit }
-alias[effect:set_unit_size] = <static_value>
 ### Sets the number of people in each subunit in the Unit to the given percentage of maximum
 ## scopes = { unit }
 alias[effect:set_unit_size] = single_alias_right[formula]
@@ -4774,10 +4586,6 @@ alias[effect:set_variable] = {
 
     ## cardinality = 0..1
     value = value_field
-    ## cardinality = 0..1
-    value = <script_value>
-    ## cardinality = 0..1
-    value = <static_value>
     ## cardinality = 0..1
     value = single_alias_right[formula]
     ## cardinality = 0..1
@@ -4814,23 +4622,11 @@ alias[effect:set_vote] = {
 alias[effect:set_war_exhaustion] = value_field
 ### Sets WarExhaustion
 ## scopes = { country international_organization }
-alias[effect:set_war_exhaustion] = <script_value>
-### Sets WarExhaustion
-## scopes = { country international_organization }
-alias[effect:set_war_exhaustion] = <static_value>
-### Sets WarExhaustion
-## scopes = { country international_organization }
 alias[effect:set_war_exhaustion] = single_alias_right[formula]
 
 ### Sets yanantin
 ## scopes = { country international_organization }
 alias[effect:set_yanantin] = value_field
-### Sets yanantin
-## scopes = { country international_organization }
-alias[effect:set_yanantin] = <script_value>
-### Sets yanantin
-## scopes = { country international_organization }
-alias[effect:set_yanantin] = <static_value>
 ### Sets yanantin
 ## scopes = { country international_organization }
 alias[effect:set_yanantin] = single_alias_right[formula]
@@ -4849,8 +4645,6 @@ alias[effect:sort_global_variable_list] = {
 
     order = value_field
     order = single_alias_right[formula]
-    order = <script_value>
-    order = <static_value>
 }
 
 ### Sorts a variable list
@@ -4863,8 +4657,6 @@ alias[effect:sort_local_variable_list] = {
 
     order = value_field
     order = single_alias_right[formula]
-    order = <script_value>
-    order = <static_value>
 }
 
 ### Sorts a variable list
@@ -4877,8 +4669,6 @@ alias[effect:sort_variable_list] = {
 
     order = value_field
     order = single_alias_right[formula]
-    order = <script_value>
-    order = <static_value>
     order = $define_reference
 }
 
@@ -4894,8 +4684,6 @@ alias[effect:spawn_disease] = {
 
     value = value_field
     value = single_alias_right[formula]
-    value = <script_value>
-    value = <static_value>
     value = $define_reference
 
     alias_name[effect] = alias_match_left[effect]
@@ -4912,10 +4700,6 @@ alias[effect:split_pop] = {
     size = value_field
     ## cardinality = 0..1
     size = single_alias_right[formula]
-    ## cardinality = 0..1
-    size = <script_value>
-    ## cardinality = 0..1
-    size = <static_value>
 
     ## cardinality = 0..1
     type = scope[pop_type]
@@ -4927,10 +4711,6 @@ alias[effect:split_pop] = {
     fraction = value_field
     ## cardinality = 0..1
     fraction = single_alias_right[formula]
-    ## cardinality = 0..1
-    fraction = <script_value>
-    ## cardinality = 0..1
-    fraction = <static_value>
 
     ## cardinality = 0..1
     culture = scope[culture]
@@ -4964,10 +4744,6 @@ alias[effect:start_conquistador] = {
     ## cardinality = 0..1
     price_modifier = single_alias_right[formula]
     ## cardinality = 0..1
-    price_modifier = <script_value>
-    ## cardinality = 0..1
-    price_modifier = <static_value>
-    ## cardinality = 0..1
     price_modifier = scope_field
 }
 
@@ -4989,10 +4765,6 @@ alias[effect:start_exploration] = {
     ## cardinality = 0..1
     price_modifier = single_alias_right[formula]
     ## cardinality = 0..1
-    price_modifier = <script_value>
-    ## cardinality = 0..1
-    price_modifier = <static_value>
-    ## cardinality = 0..1
     price_modifier = scope_field
 }
 
@@ -5007,10 +4779,6 @@ alias[effect:start_mission] = {
     value_set[event_target] = value_field
     ## cardinality = 0..1
     value_set[event_target] = single_alias_right[formula]
-    ## cardinality = 0..1
-    value_set[event_target] = <script_value>
-    ## cardinality = 0..1
-    value_set[event_target] = <static_value>
 }
 
 ### Starts a periphora towards the target location. Art will move towards the destination slowly in a procession.
@@ -5055,12 +4823,6 @@ alias[effect:start_work_of_art] = {
     ### optional, will take artist skill into consideration if unset
     ## cardinality = 0..1
     quality = single_alias_right[formula]
-    ### optional, will take artist skill into consideration if unset
-    ## cardinality = 0..1
-    quality = <script_value>
-    ### optional, will take artist skill into consideration if unset
-    ## cardinality = 0..1
-    quality = <static_value>
 
     ### by default no, shows the probable quality of the WoA before it is finished
     ## cardinality = 0..1
@@ -5111,8 +4873,6 @@ alias[effect:transfer_yearly_gold] = {
 
     value = value_field
     value = single_alias_right[formula]
-    value = <script_value>
-    value = <static_value>
 }
 
 ### Transfers a proportion of your yearly Manpower to the target country
@@ -5122,8 +4882,6 @@ alias[effect:transfer_yearly_manpower] = {
 
     value = value_field
     value = single_alias_right[formula]
-    value = <script_value>
-    value = <static_value>
 }
 
 ### Transfers a proportion of your yearly sailors to the target country
@@ -5133,8 +4891,6 @@ alias[effect:transfer_yearly_sailors] = {
 
     value = value_field
     value = single_alias_right[formula]
-    value = <script_value>
-    value = <static_value>
 }
 
 ### triggers an event or on_action, but shows the name of the event
@@ -5211,3 +4967,416 @@ alias[effect:while] = {
 ### forces a white peace in the target war
 ## scopes = { any }
 alias[effect:white_peace] = scope[war]
+
+### Adds complacency
+## scopes = { country international_organization }
+alias[effect:add_complacency] = value_field
+### Adds complacency
+## scopes = { country international_organization }
+alias[effect:add_complacency] = single_alias_right[formula]
+
+### Sets complacency
+## scopes = { country international_organization }
+alias[effect:set_complacency] = value_field
+### Sets complacency
+## scopes = { country international_organization }
+alias[effect:set_complacency] = single_alias_right[formula]
+
+### add a modifier to a dynasty
+### add_dynasty_modifier = { name = name days/months/years=x mode = add/extend/replace/add_and_extend <size = x> <desc = string>}
+### desc replaces the description of how long the modifier lasts
+## scopes = { dynasty }
+alias[effect:add_character_modifieradd_dynasty_modifier] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..inf
+    alias_name[duration] = alias_match_left[duration]
+
+    ## cardinality = 0..1
+    mode = enum[modifier_mode]
+
+    ## cardinality = 0..1
+    size = value_field
+    ## cardinality = 0..1
+    size = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    desc = localisation
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
+}
+
+### Adds the event target to a variable map for the given duration
+### add_to_variable_map = { name = X key = Y value = Z days/weeks/months/years = T }
+### Where X is the name of the variable
+### Where Y and Z are event targets
+### An optional days where T is the number of days or script value
+## scopes = { any }
+alias[effect:add_to_global_variable_map] = {
+    name = value_set[global_variable_map]
+
+    ## cardinality = 0..1
+    key = scope_field
+    ## cardinality = 0..1
+    key = value_field
+    ## cardinality = 0..1
+    key = <script_value>
+    ## cardinality = 0..1
+    key = <static_value>
+    ## cardinality = 0..1
+    key = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    value = scope_field
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = <script_value>
+    ## cardinality = 0..1
+    value = <static_value>
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[duration] = alias_match_left[duration]
+}
+
+### Adds the event target to a variable map for the given duration
+### add_to_variable_map = { name = X key = Y value = Z days/weeks/months/years = T }
+### Where X is the name of the variable
+### Where Y and Z are event targets
+### An optional days where T is the number of days or script value
+## scopes = { any }
+alias[effect:add_to_local_variable_map] = {
+    name = value_set[local_variable_map]
+
+    ## cardinality = 0..1
+    key = scope_field
+    ## cardinality = 0..1
+    key = value_field
+    ## cardinality = 0..1
+    key = <script_value>
+    ## cardinality = 0..1
+    key = <static_value>
+    ## cardinality = 0..1
+    key = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    value = scope_field
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = <script_value>
+    ## cardinality = 0..1
+    value = <static_value>
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[duration] = alias_match_left[duration]
+}
+
+### Adds the event target to a variable map for the given duration
+### add_to_variable_map = { name = X key = Y value = Z days/weeks/months/years = T }
+### Where X is the name of the variable
+### Where Y and Z are event targets
+### An optional days where T is the number of days or script value
+## scopes = { any }
+alias[effect:add_to_variable_map] = {
+    name = value_set[variable_map]
+
+    ## cardinality = 0..1
+    key = scope_field
+    ## cardinality = 0..1
+    key = value_field
+    ## cardinality = 0..1
+    key = <script_value>
+    ## cardinality = 0..1
+    key = <static_value>
+    ## cardinality = 0..1
+    key = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    value = scope_field
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = <script_value>
+    ## cardinality = 0..1
+    value = <static_value>
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[duration] = alias_match_left[duration]
+}
+
+### The current country scope annuls all treaties with the target country.
+## scopes = { country }
+alias[effect:annul_all_treaties_with] = scope[country]
+
+### Change the strength of a modifier applied to the scope character
+### change_character_modifier_size = { modifier = <modifier> value = <script math> [recalculate_immediately = yes] }
+## scopes = { character }
+alias[effect:change_character_modifier_size] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
+}
+
+### Change the strength of a modifier applied to the scope character
+### change_country_modifier_size = { modifier = <modifier> value = <script math> [recalculate_immediately = yes] }
+## scopes = { country }
+alias[effect:change_country_modifier_size] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
+}
+
+### Change the strength of a modifier applied to the scope character
+### change_dynasty_modifier_size = { modifier = <modifier> value = <script math> [recalculate_immediately = yes] }
+## scopes = { dynasty }
+alias[effect:change_dynasty_modifier_size] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
+}
+
+### Change the strength of a modifier applied to the scope character
+### change_international_organization_modifier_size = { modifier = <modifier> value = <script math> [recalculate_immediately = yes] }
+## scopes = { international_organization }
+alias[effect:change_international_organization_modifier_size] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
+}
+
+### Change the strength of a modifier applied to the scope character
+### change_location_modifier_size = { modifier = <modifier> value = <script math> [recalculate_immediately = yes] }
+## scopes = { location }
+alias[effect:change_location_modifier_size] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
+}
+
+### Change the strength of a modifier applied to the scope character
+### change_mercenary_modifier_size = { modifier = <modifier> value = <script math> [recalculate_immediately = yes] }
+## scopes = { mercenary }
+alias[effect:change_mercenary_modifier_size] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
+}
+
+### Change the strength of a modifier applied to the scope character
+### change_province_modifier_size = { modifier = <modifier> value = <script math> [recalculate_immediately = yes] }
+## scopes = { province }
+alias[effect:change_province_modifier_size] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
+}
+
+### Change the strength of a modifier applied to the scope character
+### change_rebel_modifier_size = { modifier = <modifier> value = <script math> [recalculate_immediately = yes] }
+## scopes = { rebels }
+alias[effect:change_rebel_modifier_size] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
+}
+
+### Change the strength of a modifier applied to the scope character
+### change_religion_modifier_size = { modifier = <modifier> value = <script math> [recalculate_immediately = yes] }
+## scopes = { religion }
+alias[effect:change_religion_modifier_size] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
+}
+
+### Change the strength of a modifier applied to the scope character
+### change_unit_modifier_size = { modifier = <modifier> value = <script math> [recalculate_immediately = yes] }
+## scopes = { unit }
+alias[effect:change_unit_modifier_size] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..1
+    value = value_field
+    ## cardinality = 0..1
+    value = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
+}
+
+### change owner of Location to target country but forcefully
+## scopes = { country }
+alias[effect:change_location_owner_forcefully] = scope[country]
+
+### Advances the siege by the given script value
+## scopes = { location }
+alias[effect:change_siege_progress] = value_field
+### Advances the siege by the given script value
+## scopes = { location }
+alias[effect:change_siege_progress] = single_alias_right[formula]
+
+### Empties the map
+## scopes = { any }
+alias[effect:clear_global_variable_map] = value[global_variable_map]
+
+### Empties the map
+## scopes = { any }
+alias[effect:clear_local_variable_map] = value[local_variable_map]
+
+### Empties the map
+## scopes = { any }
+alias[effect:clear_variable_map] = value[variable_map]
+
+### defines a unique country tag for a dynamic country
+## scopes = { country }
+alias[effect:define_unique_country_tag] = value_set[dynamic_tag]
+
+### destroys the specified building in the location
+## scopes = { location }
+alias[effect:destroy_building_forcefully] = scope[building]
+
+### The current country scope will leave every war with or against the target country.
+## scopes = { country }
+alias[effect:leave_all_wars_with] = scope[country]
+
+### Removes the casus belli of the specified type against ALL other countries
+## scopes = { country }
+alias[effect:remove_all_casus_belli_of_type] = scope[casus_belli]
+
+### Remove a modifier from a dynasty
+## scopes = { location country unit character religion province rebels mercenary international_organization }
+alias[effect:remove_dynasty_modifier] = <static_modifier>
+
+### Removes the target from a variable map
+### remove_from_variable_map = { name = X key = Y }
+### Where X is the name of the variable
+### Where Y is an event target
+## scopes = { any }
+alias[effect:remove_from_global_variable_map] = {
+    name = value[global_variable_map]
+
+    ## cardinality = 0..1
+    key = scope_field
+    ## cardinality = 0..1
+    key = value_field
+    ## cardinality = 0..1
+    key = <script_value>
+    ## cardinality = 0..1
+    key = <static_value>
+    ## cardinality = 0..1
+    key = single_alias_right[formula]
+}
+
+### Removes the target from a variable map
+### remove_from_variable_map = { name = X key = Y }
+### Where X is the name of the variable
+### Where Y is an event target
+## scopes = { any }
+alias[effect:remove_from_local_variable_map] = {
+    name = value[local_variable_map]
+
+    ## cardinality = 0..1
+    key = scope_field
+    ## cardinality = 0..1
+    key = value_field
+    ## cardinality = 0..1
+    key = <script_value>
+    ## cardinality = 0..1
+    key = <static_value>
+    ## cardinality = 0..1
+    key = single_alias_right[formula]
+}
+
+### Removes the target from a variable map
+### remove_from_variable_map = { name = X key = Y }
+### Where X is the name of the variable
+### Where Y is an event target
+## scopes = { any }
+alias[effect:remove_from_variable_map] = {
+    name = value[variable_map]
+
+    ## cardinality = 0..1
+    key = scope_field
+    ## cardinality = 0..1
+    key = value_field
+    ## cardinality = 0..1
+    key = <script_value>
+    ## cardinality = 0..1
+    key = <static_value>
+    ## cardinality = 0..1
+    key = single_alias_right[formula]
+}
+
+### Transfers occupation of a Location to the target country
+## scopes = { location }
+alias[effect:transfer_location_occupation] = scope[country]
+
+### Copy the name and adjective of the target country and apply it to the current country scope
+## scopes = { country }
+alias[effect:transfer_subject] = scope[country]
+
+### Update the leadership panel of the target international organization.
+## scopes = { any }
+alias[effect:update_leadership] = scope[international_organization]

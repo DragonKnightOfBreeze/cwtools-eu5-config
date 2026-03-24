@@ -5433,6 +5433,80 @@ links = {
         output_scope = value
         type = value
     }
+    ### How much complacency does the country/IO have?
+    complacency = {
+        input_scopes = { country international_organization }
+        output_scope = value
+        type = value
+    }
+    ### How high the percentage of the current complacency compared to the maximum does the country/IO have?
+    complacency_percentage = {
+        input_scopes = { country international_organization }
+        output_scope = value
+        type = value
+    }
+    ### Gets the AI evaluation score for joining an IO due to its policies ai_policy_reason_to_join = { actor = <country scope> international_organization = <international organization scope> value = <script value> } or ai_policy_reason_to_join(<country scope>|<international organization scope>)
+    ai_policy_reason_to_join = {
+        input_scopes = { policy }
+        output_scope = value
+        type = value
+        prefix = ai_policy_reason_to_join:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[country]
+        data_source = scope[international_organization]
+    }
+    ### Gets the AI evaluation score for keeping the policy in a vote ai_policy_resolution_keep_bias = { actor = <country scope> international_organization = <international organization scope> value = <script value> } or ai_policy_resolution_keep_bias(<country scope>|<international organization scope>)
+    ai_policy_resolution_keep_bias = {
+        input_scopes = { policy }
+        output_scope = value
+        type = value
+        prefix = ai_policy_resolution_keep_bias:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[country]
+        data_source = scope[international_organization]
+    }
+    ### How high is the annexation progress of the target country for the current country scope? Usage: annexation_progress = { target = <traget country> value = <script value> } or annexation_progress(<target country>)
+    annexation_progress = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+        prefix = annexation_progress:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = scope[country]
+    }
+    ### How high is the average estate satisfaction in the country? The crown estate gets ignored here.
+    average_estate_satisfaction = {
+        input_scopes = { country }
+        output_scope = value
+        type = value
+    }
+    ### Get the value of the given bias modifier. Usage: bias_value = { modifier = <bias modifier> value <operator> <script value> } or bias_value(<bias modifier>)
+    bias_value = {
+        input_scopes = { any }
+        output_scope = value
+        type = value
+        prefix = bias_value:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = <bias>
+    }
+    ### What Age was the character born in? E.g. age_1_traditions
+    birth_age = {
+        input_scopes = { character }
+        output_scope = age
+        type = scope
+    }
+    age = {
+        input_scopes = { any }
+        output_scope = age
+        type = scope
+        prefix = age:
+        from_data = yes
+        data_source = <age>
+    }
 
     # script value & static value
 
