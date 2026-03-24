@@ -13,8 +13,8 @@ types = {
 }
 
 historical_score = {
-    tag = <coat_of_arm>
-    tag = <flag_definition>
+    tag = <country>
+    tag = value[dynamic_tag]
 
     score = int
 }

@@ -17,6 +17,7 @@ enums = {
         religion
         internationalorganization
         rebel
+        dynasty
     }
     enum[modifier_format] = {
         FormatPopCaps
@@ -31,6 +32,7 @@ enums = {
     enum[modifier_type] = {
         country
         international_organization
+        dynasty
     }
 
     enum[game_rule_flag] = {
@@ -174,11 +176,13 @@ enums = {
         never
         daily
         monthly
+        yearly
     }
 
     enum[country_interaction_type] = {
         subject
         diplomacy
+        union
     }
 
     enum[war_goal_type] = {
@@ -394,6 +398,7 @@ enums = {
         war
         weather_system
         work_of_art
+        culture_groups
     }
 
     enum[annex_country_reason] = {
@@ -468,6 +473,7 @@ enums = {
         governmentreforms
         replaceadmirals
         replacegenerals
+        privateers
     }
 
     enum[pin_collection] = {

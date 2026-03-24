@@ -52,6 +52,9 @@ advance = {
     unlock_levy = <levy>
 
     ## cardinality = 0..inf
+    unlock_interaction = <character_interaction>
+
+    ## cardinality = 0..inf
     unlock_estate_privilege = <estate_privilege>
 
     ## cardinality = 0..inf

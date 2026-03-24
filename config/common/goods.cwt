@@ -24,6 +24,12 @@ good = {
     ## cardinality = 0..1
     inflation = bool
 
+    ## cardinality = 0..1
+    origin_in_old_world = bool
+
+    ## cardinality = 0..1
+    origin_in_new_world = bool
+
     ### Defaults to 0
     ## cardinality = 0..1
     base_production = value_field
@@ -55,9 +61,32 @@ good = {
     ### ai preference to avoid building a city on this rgo
     ## cardinality = 0..1
     ai_rgo_size_importance = value_field
+    ### ai preference to avoid building a city on this rgo
+    ## cardinality = 0..1
+    ai_rgo_size_importance = single_alias_right[formula]
 
     ## cardinality = 0..1
     ai_rgo_expansion_priority = value_field
+    ## cardinality = 0..1
+    ai_rgo_expansion_priority = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    development_threshold = value_field
+    ## cardinality = 0..1
+    development_threshold = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    wealth_impact_threshold = {
+        ## cardinality = 0..1
+        all = value_field
+        ## cardinality = 0..1
+        all = single_alias_right[formula]
+
+        ## cardinality = 0..inf
+        <pop_type> = value_field
+        ## cardinality = 0..inf
+        <pop_type> = single_alias_right[formula]
+    }
 
     ## cardinality = 0..1
     demand_add = {

@@ -65,17 +65,22 @@ generic_action = {
     price = single_alias_right[formula]
     ### a scripted standard price, listed in \common\prices\ and referenced by name (like price:<price_id>) or as a result of a script (like scope:target.price)
     ## cardinality = 0..1
-    price = <script_value>
-    ### a scripted standard price, listed in \common\prices\ and referenced by name (like price:<price_id>) or as a result of a script (like scope:target.price)
-    ## cardinality = 0..1
-    price = <static_value>
-    ### a scripted standard price, listed in \common\prices\ and referenced by name (like price:<price_id>) or as a result of a script (like scope:target.price)
-    ## cardinality = 0..1
     price = value_field
+
+    ## cardinality = 0..1
+    maximum_targets_in_one_tick = int
+
+    ## cardinality = 0..1
+    disallowed_duplicates_of_targets_for_ai = {
+        value[event_target]
+    }
 
     ### optional, to prevent the price of the action to be paid
     ## cardinality = 0..1
     should_execute_price = bool
+
+    ## cardinality = 0..1
+    force_click_and_confirm_or_hold = bool
 
     ## cardinality = 0..1
     ai_prerequisite = single_alias_right[trigger_clause]
@@ -93,28 +98,18 @@ generic_action = {
     select_trigger = single_alias_right[selected_trigger_clause]
 
     ### use to ban the AI from using an action that is already handled in code OR to indicate how often to process
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ai_tick = enum[character_interaction_ai_tick]
 
     ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So ai_tick = monthly and ai_tick_frequency = 6 means "check every 6 months"
-    ## cardinality = 0..1
+    ## cardinality = 0..1inf
     ai_tick_frequency = value_field
     ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So ai_tick = monthly and ai_tick_frequency = 6 means "check every 6 months"
-    ## cardinality = 0..1
-    ai_tick_frequency = <script_value>
-    ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So ai_tick = monthly and ai_tick_frequency = 6 means "check every 6 months"
-    ## cardinality = 0..1
-    ai_tick_frequency = <static_value>
-    ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So ai_tick = monthly and ai_tick_frequency = 6 means "check every 6 months"
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ai_tick_frequency = single_alias_right[formula]
 
     ## cardinality = 0..1
     price_modifier = value_field
-    ## cardinality = 0..1
-    price_modifier = <script_value>
-    ## cardinality = 0..1
-    price_modifier = <static_value>
     ## cardinality = 0..1
     price_modifier = single_alias_right[formula]
 
@@ -125,12 +120,6 @@ generic_action = {
     ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So automation_tick = monthly and automation_tick_frequency = 6 means "check every 6 months". Used for the automation process
     ## cardinality = 0..inf
     automation_tick_frequency = value_field
-    ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So automation_tick = monthly and automation_tick_frequency = 6 means "check every 6 months". Used for the automation process
-    ## cardinality = 0..inf
-    automation_tick_frequency = <script_value>
-    ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So automation_tick = monthly and automation_tick_frequency = 6 means "check every 6 months". Used for the automation process
-    ## cardinality = 0..inf
-    automation_tick_frequency = <static_value>
     ### how many ticks until next. script to determine how often this action should be checked for each country. root is the country. This is just a per-country check. So automation_tick = monthly and automation_tick_frequency = 6 means "check every 6 months". Used for the automation process
     ## cardinality = 0..inf
     automation_tick_frequency = single_alias_right[formula]
@@ -144,14 +133,8 @@ generic_action = {
     show_in_gui_list = bool
 
     ### script for the AI to use, scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ai_will_do = value_field
-    ### script for the AI to use, scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc
-    ## cardinality = 0..inf
-    ai_will_do = <script_value>
-    ### script for the AI to use, scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc
-    ## cardinality = 0..inf
-    ai_will_do = <static_value>
     ### script for the AI to use, scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc
     ## cardinality = 0..inf
     ai_will_do = single_alias_right[formula]

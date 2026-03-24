@@ -16,8 +16,11 @@ estate = {
     alias_name[color] = alias_match_left[color]
 
     power_per_pop = value_field
+
     tax_per_pop = value_field
+
     rival = value_field
+
     alliance = value_field
 
     ## cardinality = 0..1
@@ -27,18 +30,28 @@ estate = {
 
     ## cardinality = 0..1
     priority_for_dynasty_head = bool
+
     ## cardinality = 0..1
     can_spawn_random_characters = bool
+
     ## cardinality = 0..1
     can_generate_mercenary_leaders = bool
+
     ## cardinality = 0..1
     bank = bool
+
     ## cardinality = 0..1
     use_diminutive = bool
 
+    ## cardinality = 0..1
+    disenfranchise_to = <estate>
+
     satisfaction = single_alias_right[modifier_clause]
+
     high_power = single_alias_right[modifier_clause]
+
     low_power = single_alias_right[modifier_clause]
+
     ## cardinality = 0..1
     power = single_alias_right[modifier_clause]
 

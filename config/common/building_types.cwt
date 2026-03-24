@@ -18,55 +18,36 @@ building_type = {
 
     ### building time in days
     ## cardinality = 0..1
-    build_time = int
-    ### building time in days
-    ## cardinality = 0..1
-    build_time = <script_value>
-    ### building time in days
-    ## cardinality = 0..1
-    build_time = <static_value>
+    build_time = int_value_field
     ### building time in days
     ## cardinality = 0..1
     build_time = single_alias_right[formula]
 
     ### maximum levels the building can be upgraded to (root = location, scope:owner = building owner, scope:builder = who's paying)
-    max_levels = int
-    ### maximum levels the building can be upgraded to (root = location, scope:owner = building owner, scope:builder = who's paying)
-    max_levels = <script_value>
-    ### maximum levels the building can be upgraded to (root = location, scope:owner = building owner, scope:builder = who's paying)
-    max_levels = <static_value>
+    max_levels = int_value_field
     ### maximum levels the building can be upgraded to (root = location, scope:owner = building owner, scope:builder = who's paying)
     max_levels = single_alias_right[formula]
 
     ### how many people can be employed there. 1 = 1000 people
     employment_size = value_field
     ### how many people can be employed there. 1 = 1000 people
-    employment_size = <script_value>
-    ### how many people can be employed there. 1 = 1000 people
-    employment_size = <static_value>
-    ### how many people can be employed there. 1 = 1000 people
     employment_size = single_alias_right[formula]
 
     ## cardinality = 0..1
     pop_size_created = value_field
-    ## cardinality = 0..1
-    pop_size_created = <script_value>
-    ## cardinality = 0..1
-    pop_size_created = <static_value>
     ## cardinality = 0..1
     pop_size_created = single_alias_right[formula]
 
     ## cardinality = 0..1
     increase_per_level_cost = value_field
     ## cardinality = 0..1
-    increase_per_level_cost = <script_value>
-    ## cardinality = 0..1
-    increase_per_level_cost = <static_value>
-    ## cardinality = 0..1
     increase_per_level_cost = single_alias_right[formula]
 
     ## cardinality = 0..1
     allow_wrong_startup = bool
+
+    ## cardinality = 0..1
+    is_special = bool
 
     ## cardinality = 0..1
     ai_foreign_ignore_naval_range = bool
@@ -82,6 +63,10 @@ building_type = {
 
     ## cardinality = 0..1
     lifts_fog_of_war = bool
+
+    ### if set to yes, the building can neither be destroyed via button press nor via the effect for it. remove_if can still delete the building tho
+    ## cardinality = 0..1
+    is_indestructible = bool
 
     ## cardinality = 0..1
     own_or_overlord_relation_needed = <scripted_relation>
@@ -108,6 +93,16 @@ building_type = {
 
     ## cardinality = 0..1
     expensive = bool
+
+    ## cardinality = 0..1
+    automation_build_allowed = bool
+
+    ## cardinality = 0..1
+    ai_forbid_shutdown = bool
+
+    ### When set the building type can appear in important UI elements (e.g. high-priority alerts)
+    ## cardinality = 0..1
+    important_for_ui = bool
 
     ### if yes, and you're building it in a foreign-owned location, you need good relations with the location's owner to build it
     ## cardinality = 0..1

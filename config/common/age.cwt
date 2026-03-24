@@ -31,7 +31,13 @@ age = {
     ## cardinality = 0..1
     war_score_from_battles = value_field
 
+    ## cardinality = 0..1
+    months_for_exploration_spread = value_field
+
     victory_card = int
+
+    ## cardinality = 0..1
+    unique = single_alias_right[modifier_clause]
 
     max_ai_privilege_per_estate = single_alias_right[age_estate_privilige_clause]
 

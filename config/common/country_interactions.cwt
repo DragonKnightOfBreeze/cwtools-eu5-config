@@ -39,6 +39,11 @@ country_interaction = {
     ## cardinality = 0..1
     diplomatic_cost = <diplomatic_cost>
 
+    ## cardinality = 0..1
+    diplomatic_cost_modifier = value_field
+    ## cardinality = 0..1
+    diplomatic_cost_modifier = single_alias_right[formula]
+
     ### Limit the amount of countries Ai will use this on per month
     ## cardinality = 0..1
     ai_limit_per_check = int

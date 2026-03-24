@@ -146,6 +146,15 @@ disease = {
     ### map color for the disease (root is the location, scope:disease is the disease)
     map_color = $define_reference
 
+    ### map color for the disease (root is the location, scope:disease is the disease)
+    secondary_map_color = <named_color>
+    ### map color for the disease (root is the location, scope:disease is the disease)
+    secondary_map_color = color_field
+    ### map color for the disease (root is the location, scope:disease is the disease)
+    secondary_map_color = single_alias_right[scripted_color_clause]
+    ### map color for the disease (root is the location, scope:disease is the disease)
+    secondary_map_color = $define_reference
+
     ### by default, diseases spread to all pop types equally. This can be adjusted here.
     ## cardinality = 0..inf
     specific_pop_type_effect = {

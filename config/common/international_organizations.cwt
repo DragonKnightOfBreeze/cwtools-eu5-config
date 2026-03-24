@@ -33,6 +33,12 @@ international_organization = {
     ## cardinality = 0..1
     has_target = bool
 
+    ## cardinality = 0..1
+    annulled_by_peace_treaty = bool
+
+    ## cardinality = 0..1
+    annullment_favours_required = int
+
     ### does this type have a leader country (defaults to no)
     ## cardinality = 0..1
     has_leader_country = bool
@@ -72,6 +78,9 @@ international_organization = {
     ### does this type allow enemies to target it
     ## cardinality = 0..1
     has_enemies = bool
+
+    ## cardinality = 0..inf
+    enum[currency] = bool
 
     ### can we become an enemy of this organization type (root = potential enemy, recipient = existing organization)
     ## cardinality = 0..1
@@ -270,12 +279,6 @@ international_organization = {
     diplomatic_capacity_cost = value_field
     ### (script value) how much diplomatic capacity is used by this IO. root = country, scope:recipient = IO
     ## cardinality = 0..1
-    diplomatic_capacity_cost = <script_value>
-    ### (script value) how much diplomatic capacity is used by this IO. root = country, scope:recipient = IO
-    ## cardinality = 0..1
-    diplomatic_capacity_cost = <static_value>
-    ### (script value) how much diplomatic capacity is used by this IO. root = country, scope:recipient = IO
-    ## cardinality = 0..1
     diplomatic_capacity_cost = single_alias_right[formula]
 
     ### is creation and maintenance of these IOs limited when it's a subject with limited diplomacy? (defaults to yes)
@@ -352,12 +355,6 @@ international_organization = {
             start = value_field
             ### initial value when the organization is created
             ## cardinality = 0..1
-            start = <script_value>
-            ### initial value when the organization is created
-            ## cardinality = 0..1
-            start = <static_value>
-            ### initial value when the organization is created
-            ## cardinality = 0..1
             start = single_alias_right[formula]
 
             ### if we want to display this var to the world
@@ -379,10 +376,6 @@ international_organization = {
             ## cardinality = 0..1
             monthly_change = value_field
             ## cardinality = 0..1
-            monthly_change = <script_value>
-            ## cardinality = 0..1
-            monthly_change = <static_value>
-            ## cardinality = 0..1
             monthly_change = single_alias_right[formula]
         }
     }
@@ -392,12 +385,6 @@ international_organization = {
     ai_desire_to_join = value_field
     ### how much the AI wants to join the org (root = potential joiner, actor = potential leader, recipient = existing organization if it already exists, target = target if available)
     ## cardinality = 0..1
-    ai_desire_to_join = <script_value>
-    ### how much the AI wants to join the org (root = potential joiner, actor = potential leader, recipient = existing organization if it already exists, target = target if available)
-    ## cardinality = 0..1
-    ai_desire_to_join = <static_value>
-    ### how much the AI wants to join the org (root = potential joiner, actor = potential leader, recipient = existing organization if it already exists, target = target if available)
-    ## cardinality = 0..1
     ai_desire_to_join = single_alias_right[formula]
 
     ### how much the AI wants to accept a new member (root = international organization, actor = potential new member, target = target if available)
@@ -405,17 +392,14 @@ international_organization = {
     ai_desire_to_allow_new_member = value_field
     ### how much the AI wants to accept a new member (root = international organization, actor = potential new member, target = target if available)
     ## cardinality = 0..1
-    ai_desire_to_allow_new_member = <script_value>
-    ### how much the AI wants to accept a new member (root = international organization, actor = potential new member, target = target if available)
-    ## cardinality = 0..1
-    ai_desire_to_allow_new_member = <static_value>
-    ### how much the AI wants to accept a new member (root = international organization, actor = potential new member, target = target if available)
-    ## cardinality = 0..1
     ai_desire_to_allow_new_member = single_alias_right[formula]
 
     ### modifiers we apply to members (scale - root = country, scope:recipient = organization)
     ## cardinality = 0..inf
     modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..inf
+    target_modifier = single_alias_right[modifier_clause]
 
     ### modifiers we apply to the leader (scale - root = country, scope:recipient = organization)
     ## cardinality = 0..inf
@@ -476,6 +460,9 @@ international_organization = {
     ## cardinality = 0..1
     only_leader_country_joins_defensive_wars = bool
 
+    ## cardinality = 0..1
+    joins_defensive_wars_as_co_belligerent = bool
+
     ### Default: no, when calling to war offensively do we consider all members or just the leader, improves performance of big IOs
     ## cardinality = 0..1
     only_leader_country_joins_offensive_wars = bool
@@ -521,23 +508,11 @@ international_organization = {
     opinion_bonus = value_field
     ### additional opinion bonus applied to all members
     ## cardinality = 0..1
-    opinion_bonus = <script_value>
-    ### additional opinion bonus applied to all members
-    ## cardinality = 0..1
-    opinion_bonus = <static_value>
-    ### additional opinion bonus applied to all members
-    ## cardinality = 0..1
     opinion_bonus = single_alias_right[formula]
 
     ### additional trust bonus applied to all members
     ## cardinality = 0..1
     opinion_trust = value_field
-    ### additional trust bonus applied to all members
-    ## cardinality = 0..1
-    opinion_trust = <script_value>
-    ### additional trust bonus applied to all members
-    ## cardinality = 0..1
-    opinion_trust = <static_value>
     ### additional trust bonus applied to all members
     ## cardinality = 0..1
     opinion_trust = single_alias_right[formula]
@@ -555,23 +530,11 @@ international_organization = {
     min_opinion = value_field
     ### every member must have at least this opinion of every other member in the IO. If ont, the IO breaks. Use with caution. In large IOs this can be expensive to calculate.
     ## cardinality = 0..1
-    min_opinion = <script_value>
-    ### every member must have at least this opinion of every other member in the IO. If ont, the IO breaks. Use with caution. In large IOs this can be expensive to calculate.
-    ## cardinality = 0..1
-    min_opinion = <static_value>
-    ### every member must have at least this opinion of every other member in the IO. If ont, the IO breaks. Use with caution. In large IOs this can be expensive to calculate.
-    ## cardinality = 0..1
     min_opinion = single_alias_right[formula]
 
     ### every member must have at least this much trust in every other member in the IO. If ont, the IO breaks. Use with caution. In large IOs this can be expensive to calculate.
     ## cardinality = 0..1
     min_trust = value_field
-    ### every member must have at least this much trust in every other member in the IO. If ont, the IO breaks. Use with caution. In large IOs this can be expensive to calculate.
-    ## cardinality = 0..1
-    min_trust = <script_value>
-    ### every member must have at least this much trust in every other member in the IO. If ont, the IO breaks. Use with caution. In large IOs this can be expensive to calculate.
-    ## cardinality = 0..1
-    min_trust = <static_value>
     ### every member must have at least this much trust in every other member in the IO. If ont, the IO breaks. Use with caution. In large IOs this can be expensive to calculate.
     ## cardinality = 0..1
     min_trust = single_alias_right[formula]
@@ -581,23 +544,11 @@ international_organization = {
     antagonism_towards_leader_modifier = value_field
     ### modifier for the accumulation of antagonism by other members towards the leader
     ## cardinality = 0..1
-    antagonism_towards_leader_modifier = <script_value>
-    ### modifier for the accumulation of antagonism by other members towards the leader
-    ## cardinality = 0..1
-    antagonism_towards_leader_modifier = <static_value>
-    ### modifier for the accumulation of antagonism by other members towards the leader
-    ## cardinality = 0..1
     antagonism_towards_leader_modifier = single_alias_right[formula]
 
     ### modifier for antagonism gained through actions within the IO's territory when both you and the country you're antagonising are in the IO
     ## cardinality = 0..1
     antagonism_modifier_for_taking_land_from_fellow_member = value_field
-    ### modifier for antagonism gained through actions within the IO's territory when both you and the country you're antagonising are in the IO
-    ## cardinality = 0..1
-    antagonism_modifier_for_taking_land_from_fellow_member = <script_value>
-    ### modifier for antagonism gained through actions within the IO's territory when both you and the country you're antagonising are in the IO
-    ## cardinality = 0..1
-    antagonism_modifier_for_taking_land_from_fellow_member = <static_value>
     ### modifier for antagonism gained through actions within the IO's territory when both you and the country you're antagonising are in the IO
     ## cardinality = 0..1
     antagonism_modifier_for_taking_land_from_fellow_member = single_alias_right[formula]
@@ -607,12 +558,6 @@ international_organization = {
     antagonism_modifier_for_taking_land_from_member_as_outsider = value_field
     ### modifier for antagonism gained through actions within the IO's territory when you're not a member but the country you're antagonising is
     ## cardinality = 0..1
-    antagonism_modifier_for_taking_land_from_member_as_outsider = <script_value>
-    ### modifier for antagonism gained through actions within the IO's territory when you're not a member but the country you're antagonising is
-    ## cardinality = 0..1
-    antagonism_modifier_for_taking_land_from_member_as_outsider = <static_value>
-    ### modifier for antagonism gained through actions within the IO's territory when you're not a member but the country you're antagonising is
-    ## cardinality = 0..1
     antagonism_modifier_for_taking_land_from_member_as_outsider = single_alias_right[formula]
 
     ### price modifier for no cb wars with other members
@@ -620,13 +565,12 @@ international_organization = {
     no_cb_price_modifier_for_fellow_member = value_field
     ### price modifier for no cb wars with other members
     ## cardinality = 0..1
-    no_cb_price_modifier_for_fellow_member = <script_value>
-    ### price modifier for no cb wars with other members
-    ## cardinality = 0..1
-    no_cb_price_modifier_for_fellow_member = <static_value>
-    ### price modifier for no cb wars with other members
-    ## cardinality = 0..1
     no_cb_price_modifier_for_fellow_member = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    join_diplo_chance = {
+        opinion = value_field
+    }
 
     ### whether or not this IO has a parliament system (no by default)
     ## cardinality = 0..1
@@ -653,27 +597,18 @@ international_organization = {
     annexation_min_years_before = int_value_field
     ### the amount of years a member needs to be in the IO before they can be annexed. root = annexer, scope:target = country to be annexed, scope:recipient = IO
     ## cardinality = 0..1
-    annexation_min_years_before = <script_value>
-    ### the amount of years a member needs to be in the IO before they can be annexed. root = annexer, scope:target = country to be annexed, scope:recipient = IO
-    ## cardinality = 0..1
-    annexation_min_years_before = <static_value>
-    ### the amount of years a member needs to be in the IO before they can be annexed. root = annexer, scope:target = country to be annexed, scope:recipient = IO
-    ## cardinality = 0..1
     annexation_min_years_before = single_alias_right[formula]
 
     ### what conditions must be fulfilled before a member can start diplomatically annex another one. root = annexer, scope:target = country to be annexed, scope:recipient = IO
     ## cardinality = 0..1
     can_annex_members = single_alias_right[trigger_clause]
 
+    ## cardinality = 0..1
+    can_annex_visible = single_alias_right[trigger_clause]
+
     ### defines how long it takes for organization members to annex each other
     ## cardinality = 0..1
     annexation_speed = value_field
-    ### defines how long it takes for organization members to annex each other
-    ## cardinality = 0..1
-    annexation_speed = <script_value>
-    ### defines how long it takes for organization members to annex each other
-    ## cardinality = 0..1
-    annexation_speed = <static_value>
     ### defines how long it takes for organization members to annex each other
     ## cardinality = 0..1
     annexation_speed = single_alias_right[formula]
@@ -683,11 +618,10 @@ international_organization = {
     ai_issue_voting_bias = value_field
     ### script value used as extra reasoning in resolutions, used in conjunction with the ai_issue_voting_bias trigger
     ## cardinality = 0..1
-    ai_issue_voting_bias = <script_value>
-    ### script value used as extra reasoning in resolutions, used in conjunction with the ai_issue_voting_bias trigger
-    ## cardinality = 0..1
-    ai_issue_voting_bias = <static_value>
-    ### script value used as extra reasoning in resolutions, used in conjunction with the ai_issue_voting_bias trigger
-    ## cardinality = 0..1
     ai_issue_voting_bias = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    ai_desire_to_attack_other_members = value_field
+    ## cardinality = 0..1
+    ai_desire_to_attack_other_members = single_alias_right[formula]
 }

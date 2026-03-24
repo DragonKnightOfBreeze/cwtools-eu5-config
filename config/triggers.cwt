@@ -246,10 +246,10 @@ alias[trigger:cabinet_action_type] = enum[cabinet_action_type]
 ### calc_true_if = { amount = 2 <trigger> <trigger> <trigger> }
 ## scopes = { any }
 alias[trigger:calc_true_if] = {
-    amount = int
+    amount == int
 
-    ## cardinality = 1..inf
-    int = single_alias_right[trigger_clause]
+    ## cardinality = 0..inf
+    alias_name[trigger] = alias_match_left[trigger]
 }
 
 ### Can the country have the specified scripted relation with another country. Usage: can_add_relation = { first = <country> second = <country> type = <relation type> }
@@ -511,8 +511,6 @@ alias[trigger:colonial_charter_utility] = {
     source = scope[location]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -525,8 +523,6 @@ alias[trigger:conquer_desire] = {
     target = scope[country]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -539,8 +535,6 @@ alias[trigger:conquistador_utility] = {
     area = scope[area]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -561,8 +555,6 @@ alias[trigger:country_combined_special_status_power] = {
     international_organization = scope[international_organization]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -575,8 +567,6 @@ alias[trigger:country_combined_special_status_power_fraction] = {
     international_organization = scope[international_organization]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -593,8 +583,6 @@ alias[trigger:country_has_been_member_for_years] = {
     country = scope[country]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -627,8 +615,6 @@ alias[trigger:country_highest_rated_special_status_power] = {
     international_organization = scope[international_organization]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -644,8 +630,6 @@ alias[trigger:country_interaction_acceptance] = {
     target = scope[country]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -658,8 +642,6 @@ alias[trigger:country_rank_level_on_date] = {
     date = date_field
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -676,8 +658,6 @@ alias[trigger:court_language_utility] = {
     country = scope[country]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -690,8 +670,6 @@ alias[trigger:create_market_utility] = {
     location = scope[location]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -715,8 +693,6 @@ alias[trigger:culture_group_percentage] = {
     culture_group = scope[culture_group]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -729,8 +705,6 @@ alias[trigger:culture_group_percentage_in_country] = {
     culture_group = scope[culture_group]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -743,8 +717,6 @@ alias[trigger:culture_group_population] = {
     culture_group = scope[culture_group]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -757,8 +729,6 @@ alias[trigger:culture_group_population_in_country] = {
     culture_group = scope[culture_group]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -771,8 +741,6 @@ alias[trigger:culture_opinion_impact] = {
     culture = scope[culture]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -2266,8 +2234,8 @@ alias[trigger:has_support_from] = scope[pop_type]
 
 #TODO: split into relevant tags
 ### Check if that object has the specified tag.
-## scopes = { religion goods building law policy building_type heir_selection }
-alias[trigger:has_tag] = value[custom_tag_good]
+## scopes = { religion goods building law policy building_type casus_belli peace_treaty heir_selection }
+alias[trigger:has_tag] = value[custom_tag]
 
 ### Does the target have a cb on the country?
 ## scopes = { country }
@@ -5017,44 +4985,30 @@ alias[trigger:total_payment_contribution] = {
 }
 
 ### Return the threat level the scope country has towards the target country scope. Usage: threat_level_to = { country = <country scope> value = <value> } or threat_level_to(<country scope>)
-## scopes = { total_population_in_international_organization }
-alias[trigger:total_payment_contribution] = {
+## scopes = { country }
+alias[trigger:total_population_in_international_organization] = {
     international_organization = scope[international_organization]
 
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
-
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Return the threat level the scope country has towards the target country scope. Usage: threat_level_to = { country = <country scope> value = <value> } or threat_level_to(<country scope>)
-## scopes = { international_organization }
+## scopes = { country }
 alias[trigger:total_population_in_international_organization_percentage] = {
     international_organization = scope[international_organization]
 
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
-
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Get the political power of all countries in an organization with that specified special status. Usage: total_special_status_power = { type = <special status> value <operator> <float> } or total_special_status_power(<special status>)
 ## scopes = { international_organization }
-alias[trigger:total_population_in_international_organization_percentage] = {
+alias[trigger:total_special_status_power] = {
     special_status = scope[special_status]
 
     ## cardinality = 0..inf
@@ -5072,7 +5026,7 @@ alias[trigger:total_population_in_international_organization_percentage] = {
 
 ### Get the percentage political power of the target special status compared to the total amount of political power of all special statuses combined. Usage: special_status_power_fraction = { type = <special status> value <operator> <float> } or special_status_power_fraction(<special status>)
 ## scopes = { international_organization }
-alias[trigger:total_population_in_international_organization_percentage] = {
+alias[trigger:total_special_status_power_fraction] = {
     special_status = scope[special_status]
 
     ## cardinality = 0..inf
@@ -5664,3 +5618,704 @@ alias[trigger:can_rival] = <country>
 ### Could the current country scope rival the target country ignoring slots and range?
 ## scopes = { country }
 alias[trigger:can_rival] = value[dynamic_tag]
+
+### Does the scoped character have a given modifier with the compared strength. Default modifiers without any scale changes have a strength value of 1
+### character_modifier_strength = { modifier = <modifier> value <comparator> <script math> }
+### or character_modifier_strength(<modifier key>)
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
+alias[trigger:character_modifier_strength] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Does the scoped character have a given modifier with the compared strength. Default modifiers without any scale changes have a strength value of 1
+### country_modifier_strength = { modifier = <modifier> value <comparator> <script math> }
+### or country_modifier_strength(<modifier key>)
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
+alias[trigger:country_modifier_strength] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Does the scoped character have a given modifier with the compared strength. Default modifiers without any scale changes have a strength value of 1
+### dynasty_modifier_strength = { modifier = <modifier> value <comparator> <script math> }
+### or dynasty_modifier_strength(<modifier key>)
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
+alias[trigger:dynasty_modifier_strength] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Does the scoped character have a given modifier with the compared strength. Default modifiers without any scale changes have a strength value of 1
+### international_organization_modifier_strength = { modifier = <modifier> value <comparator> <script math> }
+### or international_organization_modifier_strength(<modifier key>)
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
+alias[trigger:international_organization_modifier_strength] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Does the scoped character have a given modifier with the compared strength. Default modifiers without any scale changes have a strength value of 1
+### location_modifier_strength = { modifier = <modifier> value <comparator> <script math> }
+### or location_modifier_strength(<modifier key>)
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
+alias[trigger:location_modifier_strength] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Does the scoped character have a given modifier with the compared strength. Default modifiers without any scale changes have a strength value of 1
+### mercenary_modifier_strength = { modifier = <modifier> value <comparator> <script math> }
+### or mercenary_modifier_strength(<modifier key>)
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
+alias[trigger:mercenary_modifier_strength] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Does the scoped character have a given modifier with the compared strength. Default modifiers without any scale changes have a strength value of 1
+### province_modifier_strength = { modifier = <modifier> value <comparator> <script math> }
+### or province_modifier_strength(<modifier key>)
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
+alias[trigger:province_modifier_strength] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Does the scoped character have a given modifier with the compared strength. Default modifiers without any scale changes have a strength value of 1
+### rebel_modifier_strength = { modifier = <modifier> value <comparator> <script math> }
+### or rebel_modifier_strength(<modifier key>)
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
+alias[trigger:rebel_modifier_strength] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Does the scoped character have a given modifier with the compared strength. Default modifiers without any scale changes have a strength value of 1
+### religion_modifier_strength = { modifier = <modifier> value <comparator> <script math> }
+### or religion_modifier_strength(<modifier key>)
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
+alias[trigger:religion_modifier_strength] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Does the scoped character have a given modifier with the compared strength. Default modifiers without any scale changes have a strength value of 1
+### unit_modifier_strength = { modifier = <modifier> value <comparator> <script math> }
+### or unit_modifier_strength(<modifier key>)
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
+alias[trigger:unit_modifier_strength] = {
+    modifier = <static_modifier>
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Returns the amount of owned locations with the specified climate. Usage: climate_count = { type = <climate scope> value <operator> <value> } or climtae_count(<climate scope>)
+## scopes = { country }
+alias[trigger:climate_count] = {
+    type = scope[climate]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Returns the amount of owned locations with the specified climate. Usage: climate_percent = { type = <climate scope> value <operator> <value> } or climate_percent(<climate scope>)
+## scopes = { country }
+alias[trigger:climate_percent] = {
+    type = scope[climate]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Checks if a disease is affecting some migrated pops here.
+## scopes = { location }
+alias[trigger:disease_affects_pops_here] = scope[disease]
+
+### Checks if a disease has an outbreak in a location or subunit.
+## scopes = { location sub_unit }
+alias[trigger:disease_has_outbreak_here] = scope[disease]
+
+### Gets the number of favours needed to annul relations with the target country diplomatically - usage: favors_needed_to_annul_relations_with(<target>) or favors_needed_to_annul_relations_with = { target = <country link> value <operator> <amount> }
+## scopes = { country }
+alias[trigger:favors_needed_to_annul_relations_with] = {
+    target = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+}
+
+### Checks the size of a variable map
+### variable_map_size = { name = X value >= Y }
+### Where X is the name of the variable map
+### Where Y is a script value or number
+## scopes = { any }
+alias[trigger:global_variable_map_size] = {
+    name = value[global_variable_map]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Checks the size of a variable map
+### variable_map_size = { name = X value >= Y }
+### Where X is the name of the variable map
+### Where Y is a script value or number
+## scopes = { any }
+alias[trigger:local_variable_map_size] = {
+    name = value[local_variable_map]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Checks the size of a variable map
+### variable_map_size = { name = X value >= Y }
+### Where X is the name of the variable map
+### Where Y is a script value or number
+## scopes = { any }
+alias[trigger:variable_map_size] = {
+    name = value[variable_map]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Does the country have a cb of the specified type against any country?
+## scopes = { country }
+alias[trigger:has_casus_belli_of_type] = scope[casus_belli]
+
+### Does the scoped dynasty have a given modifier
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
+alias[trigger:has_dynasty_modifier] = <static_modifier>
+
+### Does the scoped rebel have a given modifier
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
+alias[trigger:has_rebel_modifier] = <static_modifier>
+
+### Checks whether the current scope has the specified variable map
+## scopes = { any }
+alias[trigger:has_global_variable_map] = value[global_variable_map]
+
+### Checks whether the current scope has the specified variable map
+## scopes = { any }
+alias[trigger:has_local_variable_map] = value[local_variable_map]
+
+### Checks whether the current scope has the specified variable map
+## scopes = { any }
+alias[trigger:has_variable_map] = value[variable_map]
+
+### Checks if a market has a supply of any new world goods
+## scopes = { market }
+alias[trigger:has_new_world_goods_in_market] = bool
+
+### Check if a goods has origin in the new world
+## scopes = { goods }
+alias[trigger:has_origin_in_new_world] = bool
+
+### Check if a goods has origin in the old world
+## scopes = { goods }
+alias[trigger:has_origin_in_old_world] = bool
+
+### Is the country views the target country as a threat?
+## scopes = { country }
+alias[trigger:is_a_threat_for_us] = scope[country]
+### Is the country views the target country as a threat?
+## scopes = { country }
+alias[trigger:is_a_threat_for_us] = <country>
+### Is the country views the target country as a threat?
+## scopes = { country }
+alias[trigger:is_a_threat_for_us] = value[dynamic_tag]
+
+### Check if a goods has origin in the old world
+## scopes = { casus_belli }
+alias[trigger:is_cut_down_in_size_cb] = bool
+
+### if character is eligible for royal marriage
+## scopes = { character }
+alias[trigger:is_eligible_for_royal_marriage] = bool
+
+### Checks if a building can be built in foreign locations (not owned)
+## scopes = { building_type }
+alias[trigger:is_eligible_for_royal_marriage] = bool
+
+### Checks if the scope is part of the scripted geography on RHS scope e.g is_in_scripted_geography = <scripted geography scope>
+## scopes = { location province_definition area region sub_continent continent }
+alias[trigger:is_in_scripted_geography] = scope[scripted_geography]
+
+### Is the international organization able to be annulled by treaty?
+## scopes = { international_organization }
+alias[trigger:is_international_organization_annullable] = bool
+
+### Checks if a target is a key in a variable list
+### is_key_in_variable_list = { name = X target = Y }
+### Where X is the name of the variable
+### Where Y is an event target
+## scopes = { any }
+alias[trigger:is_key_in_global_variable_map] = {
+    name = value[global_variable_map]
+
+    target = value_field
+    target = scope_field
+}
+
+### Checks if a target is a key in a variable list
+### is_key_in_variable_list = { name = X target = Y }
+### Where X is the name of the variable
+### Where Y is an event target
+## scopes = { any }
+alias[trigger:is_key_in_local_variable_map] = {
+    name = value[local_variable_map]
+
+    target = value_field
+    target = scope_field
+}
+
+### Checks if a target is a key in a variable list
+### is_key_in_variable_list = { name = X target = Y }
+### Where X is the name of the variable
+### Where Y is an event target
+## scopes = { any }
+alias[trigger:is_key_in_variable_map] = {
+    name = value[variable_map]
+
+    target = value_field
+    target = scope_field
+}
+
+### The character is leading the largest land unit of the target country
+## scopes = { character }
+alias[trigger:is_leading_largest_army_of] = scope[country]
+### The character is leading the largest land unit of the target country
+## scopes = { character }
+alias[trigger:is_leading_largest_army_of] = <country>
+### The character is leading the largest land unit of the target country
+## scopes = { character }
+alias[trigger:is_leading_largest_army_of] = value[dynamic_tag]
+
+### The character is leading the largest navy unit of the target country
+## scopes = { character }
+alias[trigger:is_leading_largest_navy_of] = scope[country]
+### The character is leading the largest navy unit of the target country
+## scopes = { character }
+alias[trigger:is_leading_largest_navy_of] = <country>
+### The character is leading the largest navy unit of the target country
+## scopes = { character }
+alias[trigger:is_leading_largest_navy_of] = value[dynamic_tag]
+
+### Check if a location is neighbour to another or just across a single seazone.
+## scopes = { location }
+alias[trigger:is_neighbor_of_location_or_across_one_seazone] = scope[location]
+
+### Returns true if the rebel is owned by the target country
+## scopes = { rebels }
+alias[trigger:is_owned_by_country] = scope[country]
+### Returns true if the rebel is owned by the target country
+## scopes = { rebels }
+alias[trigger:is_owned_by_country] = <country>
+### Returns true if the rebel is owned by the target country
+## scopes = { rebels }
+alias[trigger:is_owned_by_country] = value[dynamic_tag]
+
+### Checks if a specific goods in produced in the location market
+## scopes = { location }
+alias[trigger:is_produced_in_location_market] = scope[goods]
+
+### Checks if a building is special
+## scopes = { building_type }
+alias[trigger:is_special_building] = bool
+
+### Check if a subject type can be annulled by a peace treaty
+## scopes = { subject_type }
+alias[trigger:is_subject_type_annullable] = bool
+
+### Checks if a target is a value in a variable list
+### is_key_in_variable_list = { name = X target = Y }
+### Where X is the name of the variable
+### Where Y is an event target
+## scopes = { any }
+alias[trigger:is_value_in_global_variable_map] = {
+    name = value[global_variable_map]
+
+    target = value_field
+    target = scope_field
+}
+
+### Checks if a target is a value in a variable list
+### is_key_in_variable_list = { name = X target = Y }
+### Where X is the name of the variable
+### Where Y is an event target
+## scopes = { any }
+alias[trigger:is_value_in_local_variable_map] = {
+    name = value[local_variable_map]
+
+    target = value_field
+    target = scope_field
+}
+
+### Checks if a target is a value in a variable list
+### is_key_in_variable_list = { name = X target = Y }
+### Where X is the name of the variable
+### Where Y is an event target
+## scopes = { any }
+alias[trigger:is_value_in_variable_map] = {
+    name = value[variable_map]
+
+    target = value_field
+    target = scope_field
+}
+
+### How high is the target country's AI value of accepting the scripted relation offered by the current country scope?
+### Usage: offer_relation_acceptance = { type = <scripted relation type> target = <country> value <operator> <value> } or offer_relation_acceptance(<scripted relation type>|<country>)
+## scopes = { country }
+alias[trigger:offer_relation_acceptance] = {
+    type = scope[relation_type]
+
+    target = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### How high is the current country's AI value of accepting the scripted relation offered by the specified country scope?
+### Usage: reverse_offer_relation_acceptance = { type = <scripted relation type> target = <country> value <operator> <value> } or reverse_offer_relation_acceptance(<scripted relation type>|<country>)
+## scopes = { country }
+alias[trigger:reverse_offer_relation_acceptance] = {
+    type = scope[relation_type]
+
+    target = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Checks if the geographic scope is completely owned by the target country or its subjects.
+## scopes = { province_definition area region sub_continent continent }
+alias[trigger:owned_by_or_its_subjects] = scope[country]
+### Checks if the geographic scope is completely owned by the target country or its subjects.
+## scopes = { province_definition area region sub_continent continent }
+alias[trigger:owned_by_or_its_subjects] = <country>
+### Checks if the geographic scope is completely owned by the target country or its subjects.
+## scopes = { province_definition area region sub_continent continent }
+alias[trigger:owned_by_or_its_subjects] = value[dynamic_tag]
+
+### Does the country own the majority of the foreign buildings in the target location?
+## scopes = { country }
+alias[trigger:owns_most_foreign_buildings_in_location] = scope[location]
+
+### country has a presence in the geography supplied?
+## scopes = { country }
+alias[trigger:owns_or_has_subject_in] = scope[location]
+### country has a presence in the geography supplied?
+## scopes = { country }
+alias[trigger:owns_or_has_subject_in] = scope[province_definition]
+### country has a presence in the geography supplied?
+## scopes = { country }
+alias[trigger:owns_or_has_subject_in] = scope[area]
+### country has a presence in the geography supplied?
+## scopes = { country }
+alias[trigger:owns_or_has_subject_in] = scope[region]
+### country has a presence in the geography supplied?
+## scopes = { country }
+alias[trigger:owns_or_has_subject_in] = scope[sub_continent]
+### country has a presence in the geography supplied?
+## scopes = { country }
+alias[trigger:owns_or_has_subject_in] = scope[continent]
+
+### Get how much antagonism the specified peace treaty type would cause for the current country scope against the target country. Usage: peace_treaty_antagonism = { peace_treaty = <scripted peace treaty scope> loser = <losing country scope> [target = <thing>] value <comparator> <real> } or peace_treaty_antagonism(<peace treaty scope>|<loser>|<thing>)
+## scopes = { country }
+alias[trigger:peace_treaty_antagonism] = {
+    peace_treaty = scope[peace_treaty]
+
+    loser = scope[country]
+
+    ## cardinality = 0..1
+    target = scope[any]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Get how much war score the specified peace treaty type would cost for the current country scope against the target country. Usage: war_score_cost = { peace_treaty = <scripted peace treaty scope> loser = <losing country scope> [target = <thing>] value <comparator> <real> } or war_score_cost(<peace treaty scope>|<loser>|<thing>)
+## scopes = { country }
+alias[trigger:peace_treaty_war_score_cost] = {
+    peace_treaty = scope[peace_treaty]
+
+    loser = scope[country]
+
+    ## cardinality = 0..1
+    target = scope[any]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Check if the policy has an ai join reason to begin with
+## scopes = { policy }
+alias[trigger:policy_has_ai_join_reason] = bool
+
+### Check if the policy has an ai keep value to begin with
+## scopes = { policy }
+alias[trigger:policy_has_ai_keep_value] = bool
+
+### Check if the policy has an ai vote value to begin with
+## scopes = { policy }
+alias[trigger:policy_has_ai_vote_value] = bool
+
+### Check how much goods the scope location produces.
+## scopes = { province }
+alias[trigger:province_pop_type_population] = {
+    pop_type = scope[pop_type]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Gets the relative strength of the scope country including defensive alliances to the supplied one - usage: relative_defensive_alliance_strength(<target>) or relative_defensive_alliance_strength = { target = <country link> value <operator> <amount> }
+## scopes = { country }
+alias[trigger:relative_defensive_alliance_strength] = {
+    target = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Opinion impact of a particular religion on another - usage: religious_view_impact(<religion link>) or religious_view_impact = { culture = <religion link> value <operator> <amount> }
+## scopes = { religion }
+alias[trigger:religious_view_impact] = {
+    religion = scope[religion]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Opinion impact of a particular religion on another - usage: reverse_religious_view_impact(<religion link>) or reverse_religious_view_impact = { culture = <religion link> value <operator> <amount> }
+## scopes = { religion }
+alias[trigger:reverse_religious_view_impact] = {
+    religion = scope[religion]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### How high is the target country's AI value of accepting the scripted relation requested by the current country scope?
+### Usage: request_relation_acceptance = { type = <scripted relation type> target = <country> value <operator> <value> } or request_relation_acceptance(<scripted relation type>|<country>)
+## scopes = { religion }
+alias[trigger:request_relation_acceptance] = {
+    type = scope[relation_type]
+
+    target = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### How high is the current country's AI value of accepting the scripted relation requested by the specified country scope?
+### Usage: reverse_request_relation_acceptance = { type = <scripted relation type> target = <country> value <operator> <value> } or reverse_request_relation_acceptance(<scripted relation type>|<country>)
+## scopes = { religion }
+alias[trigger:reverse_request_relation_acceptance] = {
+    type = scope[relation_type]
+
+    target = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Returns the amount of owned locations with the specified topography. Usage: topography_count = { type = <topography scope> value <operator> <value> } or topography_count(<topography scope>)
+## scopes = { country }
+alias[trigger:topography_count] = {
+    type = scope[topography]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Returns the percentage of owned locations with the specified topography. Usage: topography_percent = { type = <topography scope> value <operator> <value> } or topography_percent(<topography scope>)
+## scopes = { country }
+alias[trigger:topography_percent] = {
+    type = scope[topography]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Does this succession law use elections?
+## scopes = { heir_selection }
+alias[trigger:uses_elections] = bool
+
+### Returns the amount of owned locations with the specified vegetation. Usage: vegetation_count = { type = <vegetation scope> value <operator> <value> } or vegetation_count(<vegetation scope>)
+## scopes = { country }
+alias[trigger:vegetation_count] = {
+    type = scope[vegetation]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Returns the percentage of owned locations with the specified vegetation. Usage: vegetation_percent = { type = <vegetation scope> value <operator> <value> } or vegetation_percent(<vegetation scope>)
+## scopes = { country }
+alias[trigger:vegetation_percent] = {
+    type = scope[vegetation]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### country wants to attack another country?
+## scopes = { country }
+alias[trigger:wants_to_attack] = scope[country]
+### country wants to attack another country?
+## scopes = { country }
+alias[trigger:wants_to_attack] = <country>
+### country wants to attack another country?
+## scopes = { country }
+alias[trigger:wants_to_attack] = value[dynamic_tag]
+
+### Check if the war goal type of the war is the specified type.
+## scopes = { war }
+alias[trigger:war_goal_type] = <war_goal>
+
+### Check how much war score the war side of the current country has in the target war. Usage: war_score_in_war_whole_side = { war = <war> value <operatore> <real> } or war_score_in_war_whole_side(<war>)
+## scopes = { country }
+alias[trigger:war_score_in_war_whole_side] = {
+    war = scope[war]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Check how much war score the war side of the target country has in the current war. Usage: war_score_of_country_side = { country = <country> value <operatore> <real> } or war_score_of_country_side(<country>)
+## scopes = { war }
+alias[trigger:war_score_of_country_side] = {
+    country = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Check if a location has a road to capital
+## scopes = { location }
+alias[trigger:has_road_to_capital] = bool

@@ -143,6 +143,9 @@ subject_type = {
     ## cardinality = 0..1
     has_overlords_ruler = bool
 
+    ## cardinality = 0..1
+    has_overlords_religion = bool
+
     ### whether or not the subject's diplomacy options are limited by the overlord
     ## cardinality = 0..1
     has_limited_diplomacy = bool

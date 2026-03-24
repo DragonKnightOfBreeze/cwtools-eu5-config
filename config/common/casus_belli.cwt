@@ -52,6 +52,9 @@ casus_belli = {
     ## cardinality = 0..1
     cut_down_in_size_cb = bool
 
+    ## cardinality = 0..1
+    allow_wars_on_own_subjects = bool
+
     ### if separate peace deals are allowed (defaults to yes)
     ## cardinality = 0..1
     allow_separate_peace = bool
@@ -65,20 +68,10 @@ casus_belli = {
     additional_war_enthusiasm = value_field
     ### gets a value determining how enthusiastic for being in this war said country is. (root = country, scope:war = war)
     ## cardinality = 0..1
-    additional_war_enthusiasm = <script_value>
-    ### gets a value determining how enthusiastic for being in this war said country is. (root = country, scope:war = war)
-    ## cardinality = 0..1
-    additional_war_enthusiasm = <static_value>
-    ### gets a value determining how enthusiastic for being in this war said country is. (root = country, scope:war = war)
-    ## cardinality = 0..1
     additional_war_enthusiasm = single_alias_right[formula]
 
     ## cardinality = 0..1
     max_warscore_from_battles = value_field
-    ## cardinality = 0..1
-    max_warscore_from_battles = <script_value>
-    ## cardinality = 0..1
-    max_warscore_from_battles = <static_value>
     ## cardinality = 0..1
     max_warscore_from_battles = single_alias_right[formula]
 
@@ -90,23 +83,11 @@ casus_belli = {
     additional_war_enthusiasm_attacker = value_field
     ### gets a value determining how enthusiastic for being in this war said country is. (root = country, scope:war = war)
     ## cardinality = 0..1
-    additional_war_enthusiasm_attacker = <script_value>
-    ### gets a value determining how enthusiastic for being in this war said country is. (root = country, scope:war = war)
-    ## cardinality = 0..1
-    additional_war_enthusiasm_attacker = <static_value>
-    ### gets a value determining how enthusiastic for being in this war said country is. (root = country, scope:war = war)
-    ## cardinality = 0..1
     additional_war_enthusiasm_attacker = single_alias_right[formula]
 
     ### gets a value determining how enthusiastic for being in this war said country is. (root = country, scope:war = war)
     ## cardinality = 0..1
     additional_war_enthusiasm_defender = value_field
-    ### gets a value determining how enthusiastic for being in this war said country is. (root = country, scope:war = war)
-    ## cardinality = 0..1
-    additional_war_enthusiasm_defender = <script_value>
-    ### gets a value determining how enthusiastic for being in this war said country is. (root = country, scope:war = war)
-    ## cardinality = 0..1
-    additional_war_enthusiasm_defender = <static_value>
     ### gets a value determining how enthusiastic for being in this war said country is. (root = country, scope:war = war)
     ## cardinality = 0..1
     additional_war_enthusiasm_defender = single_alias_right[formula]
@@ -116,23 +97,11 @@ casus_belli = {
     ai_selection_desire = value_field
     ### How more likely Ai is to select this CB, 0 doesn't mean never
     ## cardinality = 0..1
-    ai_selection_desire = <script_value>
-    ### How more likely Ai is to select this CB, 0 doesn't mean never
-    ## cardinality = 0..1
-    ai_selection_desire = <static_value>
-    ### How more likely Ai is to select this CB, 0 doesn't mean never
-    ## cardinality = 0..1
     ai_selection_desire = single_alias_right[formula]
 
     ### root = country; scope:recipient = subject; scope:subject_type = type; scope:war = war;
     ## cardinality = 0..1
     ai_subjugation_desire = value_field
-    ### root = country; scope:recipient = subject; scope:subject_type = type; scope:war = war;
-    ## cardinality = 0..1
-    ai_subjugation_desire = <script_value>
-    ### root = country; scope:recipient = subject; scope:subject_type = type; scope:war = war;
-    ## cardinality = 0..1
-    ai_subjugation_desire = <static_value>
     ### root = country; scope:recipient = subject; scope:subject_type = type; scope:war = war;
     ## cardinality = 0..1
     ai_subjugation_desire = single_alias_right[formula]
@@ -142,23 +111,11 @@ casus_belli = {
     ai_cede_location_desire = value_field
     ### root = country; scope:location = location; scope:war = war;
     ## cardinality = 0..1
-    ai_cede_location_desire = <script_value>
-    ### root = country; scope:location = location; scope:war = war;
-    ## cardinality = 0..1
-    ai_cede_location_desire = <static_value>
-    ### root = country; scope:location = location; scope:war = war;
-    ## cardinality = 0..1
     ai_cede_location_desire = single_alias_right[formula]
 
     ### root = country; scope:target_province = province; scope:war = war;
     ## cardinality = 0..1
     ai_cede_province_desire = value_field
-    ### root = country; scope:target_province = province; scope:war = war;
-    ## cardinality = 0..1
-    ai_cede_province_desire = <script_value>
-    ### root = country; scope:target_province = province; scope:war = war;
-    ## cardinality = 0..1
-    ai_cede_province_desire = <static_value>
     ### root = country; scope:target_province = province; scope:war = war;
     ## cardinality = 0..1
     ai_cede_province_desire = single_alias_right[formula]
@@ -168,14 +125,19 @@ casus_belli = {
     antagonism_reduction_per_warworth_defender = value_field
     ### root = country; scope:recipient = recipient; scope:war = war;
     ## cardinality = 0..1
-    antagonism_reduction_per_warworth_defender = <script_value>
-    ### root = country; scope:recipient = recipient; scope:war = war;
-    ## cardinality = 0..1
-    antagonism_reduction_per_warworth_defender = <static_value>
-    ### root = country; scope:recipient = recipient; scope:war = war;
-    ## cardinality = 0..1
     antagonism_reduction_per_warworth_defender = single_alias_right[formula]
 
     ### when using this CB, what is the war goal
     war_goal_type = <war_goal>
+
+    ## cardinality = 0..inf
+    ai_will_do = value_field
+    ## cardinality = 0..inf
+    ai_will_do = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    custom_tags = {
+        ## cardinality = 0..inf
+        value_set[custom_tag]
+    }
 }

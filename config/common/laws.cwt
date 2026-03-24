@@ -46,6 +46,9 @@ law = {
     unique = bool
 
     ## cardinality = 0..1
+    has_levels = bool
+
+    ## cardinality = 0..1
     custom_tags = {
         ## cardinality = 0..inf
         value_set[custom_tag]
@@ -72,6 +75,9 @@ law = {
         ## cardinality = 0..1
         potential = single_alias_right[trigger_clause]
 
+        ## cardinality = 0..1
+        level = int
+
         ### trigger for whether the action can start (root = country)
         ## cardinality = 0..1
         allow = single_alias_right[trigger_clause]
@@ -96,6 +102,9 @@ law = {
             ## cardinality = 0..inf
             value_set[custom_tag]
         }
+
+        ## cardinality = 0..1
+        show_tags_in_ui = bool
 
         ### what you have to pay to activate the policy
         ## cardinality = 0..1
@@ -124,6 +133,9 @@ law = {
         ## cardinality = 0..1
         on_deactivate = single_alias_right[effect_clause]
 
+        ## cardinality = 0..1
+        unique = bool
+
         ### (scale = script for the scale, potential_trigger = trigger for if the modifier applies)> which is applied to whole countries
         ## cardinality = 0..inf
         country_modifier = single_alias_right[modifier_clause]
@@ -141,23 +153,21 @@ law = {
         wants_this_policy_bias = value_field
         ### Gets a scripted number determining how much a country will want this policy. Scope changes depending on if it's a policy for a government or an international organization. Government: root = country. IO: root = country, scope:actor = other country, scope:policy = policy (if the IO doesn't exist yet), scope:recipient = IO, scope:target = potential target
         ## cardinality = 0..1
-        wants_this_policy_bias = <script_value>
-        ### Gets a scripted number determining how much a country will want this policy. Scope changes depending on if it's a policy for a government or an international organization. Government: root = country. IO: root = country, scope:actor = other country, scope:policy = policy (if the IO doesn't exist yet), scope:recipient = IO, scope:target = potential target
-        ## cardinality = 0..1
-        wants_this_policy_bias = <static_value>
-        ### Gets a scripted number determining how much a country will want this policy. Scope changes depending on if it's a policy for a government or an international organization. Government: root = country. IO: root = country, scope:actor = other country, scope:policy = policy (if the IO doesn't exist yet), scope:recipient = IO, scope:target = potential target
-        ## cardinality = 0..1
         wants_this_policy_bias = single_alias_right[formula]
+
+        ## cardinality = 0..1
+        wants_keep_policy = value_field
+        ## cardinality = 0..1
+        wants_keep_policy = single_alias_right[formula]
+
+        ## cardinality = 0..1
+        reasons_to_join = value_field
+        ## cardinality = 0..1
+        reasons_to_join = single_alias_right[formula]
 
         ### Gets a scripted number determining how much a country wants to propose this policy for vote. root = country, scope:actor = other country (if the IO doesn't exist yet), scope:recipient = IO, scope:target = potential target
         ## cardinality = 0..1
         wants_propose_policy = value_field
-        ### Gets a scripted number determining how much a country wants to propose this policy for vote. root = country, scope:actor = other country (if the IO doesn't exist yet), scope:recipient = IO, scope:target = potential target
-        ## cardinality = 0..1
-        wants_propose_policy = <script_value>
-        ### Gets a scripted number determining how much a country wants to propose this policy for vote. root = country, scope:actor = other country (if the IO doesn't exist yet), scope:recipient = IO, scope:target = potential target
-        ## cardinality = 0..1
-        wants_propose_policy = <static_value>
         ### Gets a scripted number determining how much a country wants to propose this policy for vote. root = country, scope:actor = other country (if the IO doesn't exist yet), scope:recipient = IO, scope:target = potential target
         ## cardinality = 0..1
         wants_propose_policy = single_alias_right[formula]
@@ -165,12 +175,6 @@ law = {
         ### [IO only] how much diplomatic capacity is used by this law in an international organization for each member. root = country, scope:recipient = IO
         ## cardinality = 0..1
         diplomatic_capacity_cost = value_field
-        ### [IO only] how much diplomatic capacity is used by this law in an international organization for each member. root = country, scope:recipient = IO
-        ## cardinality = 0..1
-        diplomatic_capacity_cost = <script_value>
-        ### [IO only] how much diplomatic capacity is used by this law in an international organization for each member. root = country, scope:recipient = IO
-        ## cardinality = 0..1
-        diplomatic_capacity_cost = <static_value>
         ### [IO only] how much diplomatic capacity is used by this law in an international organization for each member. root = country, scope:recipient = IO
         ## cardinality = 0..1
         diplomatic_capacity_cost = single_alias_right[formula]
@@ -184,10 +188,6 @@ law = {
 
         ## cardinality = 0..1
         ai_will_do = value_field
-        ## cardinality = 0..inf
-        ai_will_do = <script_value>
-        ## cardinality = 0..inf
-        ai_will_do = <static_value>
         ## cardinality = 0..inf
         ai_will_do = single_alias_right[formula]
 
@@ -309,10 +309,6 @@ law = {
 
             ## cardinality = 0..1
             policy_bias_towards_new_member = value_field
-            ## cardinality = 0..1
-            policy_bias_towards_new_member = <script_value>
-            ## cardinality = 0..1
-            policy_bias_towards_new_member = <static_value>
             ## cardinality = 0..1
             policy_bias_towards_new_member = single_alias_right[formula]
 

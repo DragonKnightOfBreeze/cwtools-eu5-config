@@ -37,6 +37,9 @@ heir_selection = {
     ## cardinality = 0..1
     through_female = bool
 
+    ## cardinality = 0..1
+    depth_first = bool
+
     ### can women be candidates? Default = no
     ## cardinality = 0..1
     allow_female = bool
@@ -82,6 +85,13 @@ heir_selection = {
     allowed_estates = {
         ## cardinality = 0..inf
         <estate>
+    }
+
+    ### A list of custom strings which you can localize. They will then show up in the interface. Useful for heir selections with complex heir_is_allowed triggers which need custom explanations
+    ## cardinality = 0..1
+    custom_eligibility_rules = {
+        ## cardinality = 0..inf
+        localisation
     }
 
     ### here we add the triggers that determine if this even appears in the interface

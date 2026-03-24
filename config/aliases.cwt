@@ -148,11 +148,17 @@ single_alias[selected_trigger_clause] = {
     ## cardinality = 0..1
     tooltip_msg_key = localisation
 
+    ## cardinality = 0..1
+    bottom_widget = scalar
+
     ### character/location/province/area/region/country/value/boolean etc
     looking_for_a = enum[scope]
 
     ## cardinality = 0..1
     source_object = scope_field
+
+    ## cardinality = 0..1
+    move_to_next_section_on_click = bool
 
     ### what you want to call this target in the scope (e.g. target, target_1, target_province etc.) Then later you'll use this name to reference what was selected here. If left out it will default to target, target_1, target_2, target_3 etc
     target_flag = value[event_target]

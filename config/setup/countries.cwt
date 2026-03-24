@@ -57,6 +57,10 @@ country = {
     ## cardinality = 0..1
     difficulty = int
 
+    ## cardinality = 0..1
+    is_historic = bool
+
     culture_definition = <culture>
+
     religion_definition = <religion>
 }

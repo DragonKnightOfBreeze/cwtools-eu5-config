@@ -687,6 +687,9 @@ alias[effect:add_migration] = {
     ## cardinality = 0..1
     to_location = scope[location]
 
+    ## cardinality = 0..1
+    to_owner = scope[country]
+
     months = value_field
     months = <script_value>
     months = <static_value>
