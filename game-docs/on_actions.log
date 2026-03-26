@@ -134,6 +134,12 @@ Expected Scope: none
 
 --------------------
 
+on_lose_hegemon_status:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 on_cabinet_assigned:
 From Code: Yes
 Expected Scope: none
@@ -167,6 +173,12 @@ Expected Scope: none
 on_milanese_library_occupied:
 From Code: No
 Expected Scope: country
+
+--------------------
+
+on_character_estate_change:
+From Code: Yes
+Expected Scope: none
 
 --------------------
 
@@ -218,6 +230,12 @@ Expected Scope: none
 
 --------------------
 
+on_four_yearly_check_for_script:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 on_location_occupied:
 From Code: Yes
 Expected Scope: country
@@ -237,6 +255,12 @@ Expected Scope: none
 --------------------
 
 on_work_of_art_moved:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
+on_subject_created:
 From Code: Yes
 Expected Scope: none
 
@@ -310,6 +334,12 @@ Expected Scope: none
 
 on_vassalized_appanage:
 From Code: No
+Expected Scope: none
+
+--------------------
+
+on_gain_hegemon_status:
+From Code: Yes
 Expected Scope: none
 
 --------------------
@@ -434,6 +464,12 @@ Expected Scope: location
 
 --------------------
 
+on_union_merging:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 on_papal_opinion_added:
 From Code: No
 Expected Scope: none
@@ -441,6 +477,12 @@ Expected Scope: none
 --------------------
 
 on_join_war:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
+on_culture_changed:
 From Code: Yes
 Expected Scope: none
 
@@ -454,7 +496,7 @@ Expected Scope: none
 
 on_character_death:
 From Code: Yes
-Expected Scope: country
+Expected Scope: none
 
 --------------------
 
@@ -758,12 +800,6 @@ Expected Scope: none
 
 --------------------
 
-on_monthly_check_for_script:
-From Code: No
-Expected Scope: none
-
---------------------
-
 four_yearly_country_pulse_50_percent:
 From Code: No
 Expected Scope: country
@@ -915,6 +951,12 @@ Expected Scope: none
 --------------------
 
 on_mission_abort:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
+on_country_rank_change:
 From Code: Yes
 Expected Scope: none
 
