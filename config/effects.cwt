@@ -2058,10 +2058,10 @@ alias[effect:change_religion] = scope[religion]
 alias[effect:change_religion_view] = {
     target = scope[religion]
 
-    change = value_field
-    change = <script_value>
-    change = <static_value>
-    change = single_alias_right[formula]
+    value = value_field
+    value = <script_value>
+    value = <static_value>
+    value = single_alias_right[formula]
 }
 
 ### Changes societal value
@@ -2824,9 +2824,7 @@ alias[effect:custom_description] = {
     ## cardinality = 0..1
     value = single_alias_right[formula]
     ## cardinality = 0..1
-    value = <script_value>
-    ## cardinality = 0..1
-    value = <static_value>
+    value = scope_field
 
     alias_name[effect] = alias_match_left[effect]
 }
@@ -3484,6 +3482,8 @@ alias[effect:perform_diplomatic_action] = {
     type = <country_interaction>
 
     value_set[event_target] = scope_field
+
+    mode = accept
 }
 
 ### Runs an audio even on a "persistent" audio object

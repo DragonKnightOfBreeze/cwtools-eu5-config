@@ -14,4 +14,7 @@ types = {
 rival_criteria = {
     ## cardinality = 0..1
     enabled = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    ai_rule = single_alias_right[trigger_clause]
 }

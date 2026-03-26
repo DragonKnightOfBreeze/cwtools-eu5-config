@@ -33,6 +33,13 @@ peace_treaty = {
     ## cardinality = 0..1
     are_targets_exclusive = bool
 
+    ### can the targets be combined from all givers (i.e. is the treaty giver agnostic)
+    ## cardinality = 0..1
+    collate_targets = bool
+
+    ## cardinality = 0..1
+    ai_force_add = bool
+
     ### allows you to put the scripted peace treaty in one of the other categories
     ## cardinality = 0..1
     category = enum[peace_treaty_category]
@@ -44,21 +51,11 @@ peace_treaty = {
     ### script value for war score cost, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
     cost = value_field
     ### script value for war score cost, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
-    cost = <script_value>
-    ### script value for war score cost, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
-    cost = <static_value>
-    ### script value for war score cost, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
     cost = single_alias_right[formula]
 
     ### script value for the max amount of antagonism gained, will be adjusted by various factors per country, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
     ## cardinality = 0..1
     base_antagonism = value_field
-    ### script value for the max amount of antagonism gained, will be adjusted by various factors per country, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
-    ## cardinality = 0..1
-    base_antagonism = <script_value>
-    ### script value for the max amount of antagonism gained, will be adjusted by various factors per country, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
-    ## cardinality = 0..1
-    base_antagonism = <static_value>
     ### script value for the max amount of antagonism gained, will be adjusted by various factors per country, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
     ## cardinality = 0..1
     base_antagonism = single_alias_right[formula]
@@ -70,12 +67,6 @@ peace_treaty = {
     ### script value for how much the loser wants to accept this treaty, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
     ## cardinality = 0..1
     ai_desire = value_field
-    ### script value for how much the loser wants to accept this treaty, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
-    ## cardinality = 0..1
-    ai_desire = <script_value>
-    ### script value for how much the loser wants to accept this treaty, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
-    ## cardinality = 0..1
-    ai_desire = <static_value>
     ### script value for how much the loser wants to accept this treaty, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified
     ## cardinality = 0..1
     ai_desire = single_alias_right[formula]

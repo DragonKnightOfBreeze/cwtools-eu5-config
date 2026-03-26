@@ -195,14 +195,12 @@ alias[trigger:border_distance_to] = {
 ## scopes = { building building_type }
 alias[trigger:building_category] = <building_category>
 
-### todo
+### Check how much goods the scope building requires.
 ## scopes = { building }
 alias[trigger:building_goods_input] = {
     goods = scope[goods]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -1616,7 +1614,7 @@ alias[trigger:has_casus_belli_of_type_on] = {
 alias[trigger:has_casus_belli_on] = scope[country]
 
 ### Does the scoped character have a given modifier
-## scopes = { character }
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
 alias[trigger:has_character_modifier] = <static_modifier>
 
 ### Does the scoped child have a given education
@@ -1688,7 +1686,7 @@ alias[trigger:has_countries_with_near_coalition_grade_antagonism] = bool
 alias[trigger:has_countries_with_timed_antagonism] = bool
 
 ### Does the scoped country have a given modifier
-## scopes = { country }
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
 alias[trigger:has_country_modifier] = <static_modifier>
 
 ### If a culture belongs to a specific culture group.
@@ -1853,8 +1851,8 @@ alias[trigger:has_institution] = scope[institution]
 ## scopes = { country }
 alias[trigger:has_insulted] = scope[country]
 
-### todo
-## scopes = { international_organization }
+### Does the scoped international organization have a given modifier
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
 alias[trigger:has_international_organization_modifier] = <static_modifier>
 
 ### country has invited religious figures to work with them
@@ -1913,7 +1911,7 @@ alias[trigger:has_local_variable_list] = value[local_variable_list]
 alias[trigger:has_location] = scope[location]
 
 ### Does the scoped province have a given modifier
-## scopes = { location }
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
 alias[trigger:has_location_modifier] = <static_modifier>
 
 ### Is the location building a market?
@@ -1933,7 +1931,7 @@ alias[trigger:has_member] = scope[country]
 alias[trigger:has_mercenaries] = bool
 
 ### Does the scoped mercenary have a given modifier
-## scopes = { mercenary }
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
 alias[trigger:has_mercenary_modifier] = <static_modifier>
 
 ### checks if the market has a merchant of the specific country.
@@ -2085,7 +2083,7 @@ alias[trigger:has_prisoners] = bool
 alias[trigger:has_privateers_from] = scope[country]
 
 ### Does the scoped province have a given modifier
-## scopes = { province }
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
 alias[trigger:has_province_modifier] = <static_modifier>
 
 ### religion has purity
@@ -2125,7 +2123,7 @@ alias[trigger:has_regular_elections] = bool
 alias[trigger:has_regulars] = bool
 
 ### Does the scoped religion have a given modifier
-## scopes = { religion }
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
 alias[trigger:has_religion_modifier] = <static_modifier>
 
 ### Checks if a country has a certain religious aspect
@@ -2282,7 +2280,7 @@ alias[trigger:has_trust] = {
 alias[trigger:has_unit] = bool
 
 ### Does the scoped unit have a given modifier
-## scopes = { unit }
+## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
 alias[trigger:has_unit_modifier] = <static_modifier>
 
 ### Has the country unlocked any unit of the specified category?
@@ -4337,7 +4335,7 @@ alias[trigger:raw_material_amount] = {
 }
 
 ### Checks if a rebel is of a certain category
-## scopes = { rebels }
+## scopes = { country rebels }
 alias[trigger:rebel_category] = enum[rebel_type]
 
 ### Checks if the rebel is from the specified estate type
@@ -4731,8 +4729,6 @@ alias[trigger:save_temporary_scope_value_as] = {
     name = value_set[event_target]
 
     value = value_field
-    value = <script_value>
-    value = <static_value>
     value = single_alias_right[formula]
 }
 
@@ -4742,8 +4738,6 @@ alias[trigger:school_opinion] = {
     target = scope[religious_school]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -5258,7 +5252,7 @@ alias[trigger:wants_opinion_with] = scope[country]
 ## scopes = { any }
 alias[trigger:wants_to_give_away_any_province] = bool
 
-### todo
+### country wants to subjugate another country?
 ## scopes = { country }
 alias[trigger:wants_to_subjugate] = scope[country]
 
@@ -5333,14 +5327,6 @@ alias[trigger:war_score_versus] = {
     ## cardinality = 0..inf
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
-
-### todo
-## scopes = { any }
-alias[trigger:war_stalling_length] = bool
-
-### todo
-## scopes = { any }
-alias[trigger:war_stalling_length_in_years] = bool
 
 ### Returns true if the sum of weights of fulfilled sub-triggers amount to the specified sum
 ### weighted_calc_true_if = { amount = 10 5 = { <trigger> } 15 = { <trigger> } 7 = { <trigger> } }

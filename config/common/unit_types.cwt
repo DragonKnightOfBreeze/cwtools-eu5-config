@@ -39,6 +39,9 @@ unit_type = {
     buildable = bool
 
     ## cardinality = 0..1
+    is_special = bool
+
+    ## cardinality = 0..1
     default = bool
 
     ## cardinality = 0..1

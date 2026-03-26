@@ -136,23 +136,11 @@ scripted_relation = {
     trade_to_first = value_field
     ### increases the attraction of the first country's markets in locations belonging to the second country
     ## cardinality = 0..1
-    trade_to_first = <script_value>
-    ### increases the attraction of the first country's markets in locations belonging to the second country
-    ## cardinality = 0..1
-    trade_to_first = <static_value>
-    ### increases the attraction of the first country's markets in locations belonging to the second country
-    ## cardinality = 0..1
     trade_to_first = single_alias_right[formula]
 
     ### increases the attraction of the second country's markets in locations belonging to the first country
     ## cardinality = 0..1
     trade_to_second = value_field
-    ### increases the attraction of the second country's markets in locations belonging to the first country
-    ## cardinality = 0..1
-    trade_to_second = <script_value>
-    ### increases the attraction of the second country's markets in locations belonging to the first country
-    ## cardinality = 0..1
-    trade_to_second = <static_value>
     ### increases the attraction of the second country's markets in locations belonging to the first country
     ## cardinality = 0..1
     trade_to_second = single_alias_right[formula]
@@ -162,23 +150,11 @@ scripted_relation = {
     gold_to_first = value_field
     ### amount of gold that the second country gives the first per month
     ## cardinality = 0..1
-    gold_to_first = <script_value>
-    ### amount of gold that the second country gives the first per month
-    ## cardinality = 0..1
-    gold_to_first = <static_value>
-    ### amount of gold that the second country gives the first per month
-    ## cardinality = 0..1
     gold_to_first = single_alias_right[formula]
 
     ### amount of gold that the first country gives the second per month
     ## cardinality = 0..1
     gold_to_second = value_field
-    ### amount of gold that the first country gives the second per month
-    ## cardinality = 0..1
-    gold_to_second = <script_value>
-    ### amount of gold that the first country gives the second per month
-    ## cardinality = 0..1
-    gold_to_second = <static_value>
     ### amount of gold that the first country gives the second per month
     ## cardinality = 0..1
     gold_to_second = single_alias_right[formula]
@@ -188,12 +164,6 @@ scripted_relation = {
     favors_to_first = value_field
     ### amount of favors that the second country gives the first per month
     ## cardinality = 0..1
-    favors_to_first = <script_value>
-    ### amount of favors that the second country gives the first per month
-    ## cardinality = 0..1
-    favors_to_first = <static_value>
-    ### amount of favors that the second country gives the first per month
-    ## cardinality = 0..1
     favors_to_first = single_alias_right[formula]
 
     ### amount of favors that the first country gives the second per month
@@ -201,23 +171,32 @@ scripted_relation = {
     favors_to_second = value_field
     ### amount of favors that the first country gives the second per month
     ## cardinality = 0..1
-    favors_to_second = <script_value>
-    ### amount of favors that the first country gives the second per month
-    ## cardinality = 0..1
-    favors_to_second = <static_value>
-    ### amount of favors that the first country gives the second per month
-    ## cardinality = 0..1
     favors_to_second = single_alias_right[formula]
+
+    ### this is the scale the modifier is applied for the receiver, scope:first is the giving country, scope:second is the receiving country
+    ## cardinality = 0..1
+    receiving_modifier_scale = value_field
+    ### this is the scale the modifier is applied for the receiver, scope:first is the giving country, scope:second is the receiving country
+    ## cardinality = 0..1
+    receiving_modifier_scale = single_alias_right[formula]
+
+    ### this is the scale the modifier is applied for the giver, scope:first is the giving country, scope:second is the receiving country
+    ## cardinality = 0..1
+    giving_modifier_scale = value_field
+    ### this is the scale the modifier is applied for the giver, scope:first is the giving country, scope:second is the receiving country
+    ## cardinality = 0..1
+    giving_modifier_scale = single_alias_right[formula]
+
+    ### this is the scale the modifier is applied for both sides, scope:first is the giving country, scope:second is the receiving country
+    ## cardinality = 0..1
+    mutual_modifier_scale = value_field
+    ### this is the scale the modifier is applied for both sides, scope:first is the giving country, scope:second is the receiving country
+    ## cardinality = 0..1
+    mutual_modifier_scale = single_alias_right[formula]
 
     ### amount of institution spread that the second country sends to the first country's capital per month
     ## cardinality = 0..1
     institution_spread_to_first = value_field
-    ### amount of institution spread that the second country sends to the first country's capital per month
-    ## cardinality = 0..1
-    institution_spread_to_first = <script_value>
-    ### amount of institution spread that the second country sends to the first country's capital per month
-    ## cardinality = 0..1
-    institution_spread_to_first = <static_value>
     ### amount of institution spread that the second country sends to the first country's capital per month
     ## cardinality = 0..1
     institution_spread_to_first = single_alias_right[formula]
@@ -227,13 +206,12 @@ scripted_relation = {
     institution_spread_to_second = value_field
     ### amount of institution spread that the first country sends to the second country's capital per month
     ## cardinality = 0..1
-    institution_spread_to_second = <script_value>
-    ### amount of institution spread that the first country sends to the second country's capital per month
-    ## cardinality = 0..1
-    institution_spread_to_second = <static_value>
-    ### amount of institution spread that the first country sends to the second country's capital per month
-    ## cardinality = 0..1
     institution_spread_to_second = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    annullment_favours_required = int_value_field
+    ## cardinality = 0..1
+    annullment_favours_required = single_alias_right[formula]
 
     ### cost to create this relation
     ## cardinality = 0..1
@@ -307,25 +285,32 @@ scripted_relation = {
 
     ### is offering this relationship available
     ## cardinality = 0..1
-    offer_visible = bool
+    offer_visible = single_alias_right[trigger_clause]
 
     ### is requesting this relationship available
     ## cardinality = 0..1
-    request_visible = bool
+    request_visible = single_alias_right[trigger_clause]
 
     ### is cancelling this relationship available
     ## cardinality = 0..1
-    cancel_visible = bool
+    cancel_visible = single_alias_right[trigger_clause]
 
     ### is breaking this relationship available
     ## cardinality = 0..1
-    break_visible = bool
+    break_visible = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
     use_with_enemies = bool
 
     ## cardinality = 0..1
     dangerous_relation = bool
+
+    ### whether the relation should be shown in alert when AI is about to break it
+    ## cardinality = 0..1
+    show_break_alert = bool
+
+    ## cardinality = 0..1
+    can_share_maps = bool
 
     ## cardinality = 0..1
     relation_type_for_ai = enum[scripted_relation_for_ai]
@@ -349,6 +334,10 @@ scripted_relation = {
     ### criteria for this relationship auto-expiring
     ## cardinality = 0..1
     will_expire_trigger = single_alias_right[trigger_clause]
+
+    ### if false ai will not consider sending this relation
+    ## cardinality = 0..1
+    should_ai_offer_trigger = single_alias_right[trigger_clause]
 
     ### - use this one for both mutual and one way relations. Calculation when a request is being evaluated.
     ## cardinality = 0..1

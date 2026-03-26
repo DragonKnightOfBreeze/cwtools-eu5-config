@@ -529,7 +529,7 @@ links = {
         data_source = <estate>
     }
     estate_type = {
-        input_scopes = { estate }
+        input_scopes = { character pop rebels building estate_privilege parliament_issue estate }
         output_scope = estate_type
     }
     ethnicity = {
@@ -1148,7 +1148,7 @@ links = {
         data_source = <province>
     }
     province_definition = {
-        input_scopes = { location province province_definition area region sub_continent }
+        input_scopes = { location colonial_charter province }
         output_scope = province_definition
     }
     raw_material = {

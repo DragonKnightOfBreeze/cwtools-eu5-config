@@ -13,6 +13,8 @@ types = {
 }
 
 religious_school = {
+    alias_name[color] = alias_match_left[color]
+
     ## cardinality = 0..1
     enabled_for_country = single_alias_right[trigger_clause]
 

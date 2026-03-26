@@ -87,6 +87,9 @@ enums = {
         role
         location_rank
         ability
+        wealth
+        building
+        war
     }
     enum[scenario_proficiency] = {
         NOVICE
@@ -399,6 +402,8 @@ enums = {
         weather_system
         work_of_art
         culture_groups
+        country_interaction
+        relation_type
     }
 
     enum[annex_country_reason] = {
@@ -573,6 +578,7 @@ enums = {
     enum[scripted_relation_type] = {
         diplomacy
         subject
+        union
     }
 
     enum[scripted_relation_direction] = {
@@ -908,6 +914,39 @@ enums = {
     enum[war_manager_war_type] = {
         civil_war
         war
+    }
+
+    enum[color_gene_type] = {
+        hair
+        skin
+        eye
+    }
+    enum[gene_mode] = {
+        multiply
+        add
+        replace
+        modify
+    }
+    enum[gene_body_part] = {
+        head
+        torso
+    }
+    enum[gene_decal_blend_mode] = {
+        overlay
+        replace
+        hard_light
+        multiply
+    }
+    enum[gene_gender_reference] = {
+        male
+        female
+        boy
+        girl
+    }
+    enum[gene_decal_order] = {
+        pre_skin_color
+        post_skin_color
+        pre
     }
 
 }

@@ -119,6 +119,10 @@ resolution = {
     ## cardinality = 0..1
     ai_will_do = single_alias_right[formula]
 
+    ### script for the AI to use for how much it wants to propose a vote for whatever, scope:actor is the country we're calculating a score for; scope:recipient is either the situation or international organization this resolution applies to - depending on the looking_for_a definition, scope:target, scope:target_1, scope:target_2....etc
+    ## cardinality = 0..1
+    ai_will_select = single_alias_right[formula]
+
     ### script for the AI to use for how much it doesn't want a resolution to be rejected, scope:actor is the country we're calculating a score for; scope:proposer is the proposer country; scope:recipient, scope:target, scope:target_1, scope:target_2....etc
     ## cardinality = 0..1
     ai_proposer_risk = single_alias_right[formula]

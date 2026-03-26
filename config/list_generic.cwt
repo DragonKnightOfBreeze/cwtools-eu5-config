@@ -36,11 +36,11 @@ single_alias[effect_ordered_list_clause] = {
     ## cardinality = 0..inf
     alternative_limit = single_alias_right[trigger_clause]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = value_field
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = $define_reference
 
     ## cardinality = 0..1
@@ -89,11 +89,11 @@ single_alias[formula_ordered_list_clause] = {
     ## cardinality = 0..inf
     alternative_limit = single_alias_right[trigger_clause]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = value_field
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     order_by = $define_reference
 
     ## cardinality = 0..1
@@ -163,6 +163,28 @@ single_alias[trigger_any_list_clause] = {
 }
 
 # = Lists
+
+## scopes = { any }
+## push_scope = any
+alias[effect:every_<scripted_list>] = single_alias_right[effect_every_list_clause]
+## scopes = { any }
+## push_scope = any
+alias[effect:random_<scripted_list>] = single_alias_right[effect_random_list_clause]
+## scopes = { any }
+## push_scope = any
+alias[effect:ordered_<scripted_list>] = single_alias_right[effect_ordered_list_clause]
+## scopes = { any }
+## push_scope = any
+alias[arithmetic_operation:every_<scripted_list>] = single_alias_right[formula_every_list_clause]
+## scopes = { any }
+## push_scope = any
+alias[arithmetic_operation:random_<scripted_list>] = single_alias_right[formula_random_list_clause]
+## scopes = { any }
+## push_scope = any
+alias[arithmetic_operation:ordered_<scripted_list>] = single_alias_right[formula_ordered_list_clause]
+## scopes = { any }
+## push_scope = any
+alias[trigger:any_<scripted_list>] = single_alias_right[trigger_any_list_clause]
 
 ### Iterate through all accepted cultures in a country
 ## scopes = { country }
@@ -3723,72 +3745,6 @@ alias[arithmetic_operation:ordered_import_from_location] = single_alias_right[fo
 ## scopes = { location }
 ## push_scope = location
 alias[trigger:any_import_from_location] = single_alias_right[trigger_any_list_clause]
-
-### Iterate through all items in global list. list = name or variable = name
-## scopes = { any }
-alias[effect:every_in_global_list] = single_alias_right[effect_every_list_clause]
-### Iterate through all items in global list. list = name or variable = name
-## scopes = { any }
-alias[effect:random_in_global_list] = single_alias_right[effect_random_list_clause]
-### Iterate through all items in global list. list = name or variable = name
-## scopes = { any }
-alias[effect:ordered_in_global_list] = single_alias_right[effect_ordered_list_clause]
-### Iterate through all items in global list. list = name or variable = name
-## scopes = { any }
-alias[arithmetic_operation:every_in_global_list] = single_alias_right[formula_every_list_clause]
-### Iterate through all items in global list. list = name or variable = name
-## scopes = { any }
-alias[arithmetic_operation:random_in_global_list] = single_alias_right[formula_random_list_clause]
-### Iterate through all items in global list. list = name or variable = name
-## scopes = { any }
-alias[arithmetic_operation:ordered_in_global_list] = single_alias_right[formula_ordered_list_clause]
-### Iterate through all items in global list. list = name or variable = name
-## scopes = { any }
-alias[trigger:any_in_global_list] = single_alias_right[trigger_any_list_clause]
-
-### Iterate through all items in list. list = name or variable = name
-## scopes = { any }
-alias[effect:every_in_list] = single_alias_right[effect_every_list_clause]
-### Iterate through all items in list. list = name or variable = name
-## scopes = { any }
-alias[effect:random_in_list] = single_alias_right[effect_random_list_clause]
-### Iterate through all items in list. list = name or variable = name
-## scopes = { any }
-alias[effect:ordered_in_list] = single_alias_right[effect_ordered_list_clause]
-### Iterate through all items in list. list = name or variable = name
-## scopes = { any }
-alias[arithmetic_operation:every_in_list] = single_alias_right[formula_every_list_clause]
-### Iterate through all items in list. list = name or variable = name
-## scopes = { any }
-alias[arithmetic_operation:random_in_list] = single_alias_right[formula_random_list_clause]
-### Iterate through all items in list. list = name or variable = name
-## scopes = { any }
-alias[arithmetic_operation:ordered_in_list] = single_alias_right[formula_ordered_list_clause]
-### Iterate through all items in list. list = name or variable = name
-## scopes = { any }
-alias[trigger:any_in_list] = single_alias_right[trigger_any_list_clause]
-
-### Iterate through all items in local list. list = name or variable = name
-## scopes = { any }
-alias[effect:every_in_local_list] = single_alias_right[effect_every_list_clause]
-### Iterate through all items in local list. list = name or variable = name
-## scopes = { any }
-alias[effect:random_in_local_list] = single_alias_right[effect_random_list_clause]
-### Iterate through all items in local list. list = name or variable = name
-## scopes = { any }
-alias[effect:ordered_in_local_list] = single_alias_right[effect_ordered_list_clause]
-### Iterate through all items in local list. list = name or variable = name
-## scopes = { any }
-alias[arithmetic_operation:every_in_local_list] = single_alias_right[formula_every_list_clause]
-### Iterate through all items in local list. list = name or variable = name
-## scopes = { any }
-alias[arithmetic_operation:random_in_local_list] = single_alias_right[formula_random_list_clause]
-### Iterate through all items in local list. list = name or variable = name
-## scopes = { any }
-alias[arithmetic_operation:ordered_in_local_list] = single_alias_right[formula_ordered_list_clause]
-### Iterate through all items in local list. list = name or variable = name
-## scopes = { any }
-alias[trigger:any_in_local_list] = single_alias_right[trigger_any_list_clause]
 
 ### Iterate through all institutions a country has embraced
 ## scopes = { country }

@@ -21,6 +21,12 @@ topography = {
     defender = value_field
 
     ## cardinality = 0..1
+    proximity = value_field
+
+    ## cardinality = 0..1
+    colonial_migration_size_modifier = value_field
+
+    ## cardinality = 0..1
     blocked_in_winter = bool
 
     weather_front_strength_change_percent = value_field

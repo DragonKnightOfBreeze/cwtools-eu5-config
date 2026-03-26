@@ -18,6 +18,12 @@ vegetation = {
     movement_cost = value_field
 
     ## cardinality = 0..1
+    proximity = value_field
+
+    ## cardinality = 0..1
+    colonial_migration_size_modifier = value_field
+
+    ## cardinality = 0..1
     defender = value_field
 
     location_modifier = single_alias_right[modifier_clause]

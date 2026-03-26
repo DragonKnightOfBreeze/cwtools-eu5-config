@@ -95,6 +95,9 @@ subject_type = {
     ## cardinality = 0..1
     level = int
 
+    ## cardinality = 0..1
+    annullment_favours_required = int
+
     ### how fast annexation progresses per month if 0, it can't be annexed
     ## cardinality = 0..1
     annexation_speed = value_field
@@ -142,6 +145,13 @@ subject_type = {
     ### whether or not the subject has the overlord's ruler as their ruler
     ## cardinality = 0..1
     has_overlords_ruler = bool
+
+    ### mark if the subject type can be annexed in the first place. default: yes
+    ## cardinality = 0..1
+    can_be_annexed = bool
+
+    ## cardinality = 0..1
+    allow_subjects = bool
 
     ## cardinality = 0..1
     has_overlords_religion = bool
