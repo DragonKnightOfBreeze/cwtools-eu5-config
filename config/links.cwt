@@ -914,6 +914,14 @@ links = {
         prefix = modifier:
         data_source = <modifier_type>
     }
+    modifier_bool = {
+        input_scopes = { location country unit character religion province international_organization }
+        output_scope = bool
+        type = bool
+        from_data = yes
+        prefix = modifier:
+        data_source = <modifier_type>
+    }
     most_powerful_merchant = {
         input_scopes = { market }
         output_scope = country
@@ -6080,7 +6088,18 @@ links = {
         from_argument = yes
         argument_separator = pipe
         data_source = value[global_variable_map]
-        data_source = any
+        data_source = scope_field
+    }
+    ### Reference a previous set variable via its name eg: "global_variable_map(average_relation_map|c:FRA)"
+    global_variable_map_value = {
+        input_scopes = { any }
+        output_scope = any
+        type = both
+        prefix = global_variable_map:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = value[global_variable_map]
+        data_source = scalar
     }
     ### Reference a previous set variable via its name eg: "local_variable_map(average_relation_map|c:FRA)"
     local_variable_map = {
@@ -6091,7 +6110,18 @@ links = {
         from_argument = yes
         argument_separator = pipe
         data_source = value[local_variable_map]
-        data_source = any
+        data_source = scope_field
+    }
+    ### Reference a previous set variable via its name eg: "local_variable_map(average_relation_map|c:FRA)"
+    local_variable_map_value = {
+        input_scopes = { any }
+        output_scope = any
+        type = both
+        prefix = local_variable_map:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = value[local_variable_map]
+        data_source = scalar
     }
     ### Reference a previous set variable via its name eg: "variable_map(average_relation_map|c:FRA)"
     variable_map = {
@@ -6102,7 +6132,18 @@ links = {
         from_argument = yes
         argument_separator = pipe
         data_source = value[variable_map]
-        data_source = any
+        data_source = scope_field
+    }
+    ### Reference a previous set variable via its name eg: "variable_map(average_relation_map|c:FRA)"
+    variable_map_value = {
+        input_scopes = { any }
+        output_scope = any
+        type = both
+        prefix = variable_map:
+        from_argument = yes
+        argument_separator = pipe
+        data_source = value[variable_map]
+        data_source = scalar
     }
     ### Reference a previous set variable via its name eg: "variable_map(average_relation_map|c:FRA)"
     scripted_geography = {
