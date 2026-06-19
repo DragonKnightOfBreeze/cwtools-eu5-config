@@ -1,6 +1,6 @@
 ### Checks if a country is researching a certain religious focus
 ## scopes = { country }
-alias[trigger:active_religious_focus] = scope[religious_focus]
+alias[trigger:active_religious_focus] = <religious_focus>
 
 ### Utility of adding however much estate satisfaction to the country - usage: add_estate_satisfaction_utility(<estate>|<amount>) or add_estate_satisfaction_utility = { type = <estate type> amount = <amount> value <operator><threshold> }
 ## scopes = { country }
@@ -291,7 +291,7 @@ alias[trigger:can_build_units_of_category] = scope[sub_unit_category]
 ### Can the country see and create a cb of the supplied type on the target? Usage - can_create_casus_belli_of_type_on = { type = <cb type key> target = <country> }
 ## scopes = { any }
 alias[trigger:can_create_casus_belli_of_type_on] = {
-    type = <casus_belli>
+    type = scope[casus_belli]
 
     target = scope[country]
 }
@@ -931,10 +931,10 @@ alias[trigger:demands_goods_by_pops] = scope[goods]
 alias[trigger:dependency_length_days] = {
     target = scope[country]
 
-    amount == value_field
-    amount == <script_value>
-    amount == <static_value>
-    amount == single_alias_right[formula]
+    value == value_field
+    value == <script_value>
+    value == <static_value>
+    value == single_alias_right[formula]
 }
 
 ### Utility of destroying a market - usage: destroy_market_utility(<location>) or destroy_market_utility = { location = <location> value <operator><threshold> }
@@ -1251,6 +1251,10 @@ alias[trigger:exists] = scope_field
 ### Checks whether the specified scope target exists (check for not being the null object)
 ### exists = from.owner.var:cool_var.mother
 ## scopes = { any }
+alias[trigger:exists] = value_field
+### Checks whether the specified scope target exists (check for not being the null object)
+### exists = from.owner.var:cool_var.mother
+## scopes = { any }
 alias[trigger:exists] = bool
 
 ### gets the exploration expected cost for a country in the scope area
@@ -1260,10 +1264,6 @@ alias[trigger:exploration_expected_cost] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -1722,7 +1722,7 @@ alias[trigger:has_discovered_area] = scope[area]
 alias[trigger:has_dlc] = enum[dlc]
 
 ### religion has doom
-## scopes = { religion }
+## scopes = { country }
 alias[trigger:has_doom] = bool
 
 ### character is in a Dynasty
@@ -1929,10 +1929,6 @@ alias[trigger:has_member] = scope[country]
 ### unit has mercenaries
 ## scopes = { unit }
 alias[trigger:has_mercenaries] = bool
-
-### Does the scoped mercenary have a given modifier
-## scopes = { location country unit character dynasty religion province rebels mercenary international_organization }
-alias[trigger:has_mercenary_modifier] = <static_modifier>
 
 ### checks if the market has a merchant of the specific country.
 ## scopes = { market }
@@ -2211,8 +2207,8 @@ alias[trigger:has_societal_value] = scope[societal_value_type]
 alias[trigger:has_sound_tolls] = bool
 
 ### Has the institution spawned anywhere?
-## scopes = { any }
-alias[trigger:has_spawned] = scope[institution]
+## scopes = { institution }
+alias[trigger:has_spawned] = bool
 
 ### Checks if an international organization has a particular special status available
 ## scopes = { international_organization }
@@ -2232,7 +2228,7 @@ alias[trigger:has_support_from] = scope[pop_type]
 
 #TODO: split into relevant tags
 ### Check if that object has the specified tag.
-## scopes = { religion goods building law policy building_type casus_belli peace_treaty heir_selection }
+## scopes = { religion goods building law policy building_type casus_belli peace_treaty heir_selection trait }
 alias[trigger:has_tag] = value[custom_tag]
 
 ### Does the target have a cb on the country?
@@ -4324,10 +4320,6 @@ alias[trigger:raw_material_amount] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4627,7 +4619,7 @@ alias[trigger:requires_goods] = scope[goods]
 alias[trigger:requires_vote] = bool
 
 ### Is the resolution currently being debated in the scope international organization/situation?
-## scopes = { country international_organization }
+## scopes = { country international_organization situation }
 alias[trigger:resolution_is_active] = scope[resolution]
 
 ### Gets the current scope country's opinion of a resolution. Usage: resolution_opinion(<international organization>|<resolution>|<vote>)
@@ -5111,10 +5103,6 @@ alias[trigger:union_length_days] = {
 ## scopes = { any }
 alias[trigger:unique_international_organization_type_exists] = scope[international_organization_type]
 
-### does the unit have a leader?
-## scopes = { unit }
-alias[trigger:unit_has_leader] = bool
-
 ### Checks if a country has a certain government_power (e.g. 'legitimacy')
 ## scopes = { market }
 alias[trigger:used_merchant_capacity] = {
@@ -5434,10 +5422,6 @@ alias[trigger:world_religion_group_percentage] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -5451,10 +5435,6 @@ alias[trigger:world_religion_group_population] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -5470,10 +5450,6 @@ alias[trigger:world_religion_percentage] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -5488,10 +5464,6 @@ alias[trigger:world_religion_population] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -5505,10 +5477,6 @@ alias[trigger:years_in_international_organization] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -5885,6 +5853,10 @@ alias[trigger:has_variable_map] = value[variable_map]
 ## scopes = { market }
 alias[trigger:has_new_world_goods_in_market] = bool
 
+### Checks if a market has a supply of any old world goods
+## scopes = { market }
+alias[trigger:has_old_world_goods_in_market] = bool
+
 ### Check if a goods has origin in the new world
 ## scopes = { goods }
 alias[trigger:has_origin_in_new_world] = bool
@@ -6101,6 +6073,9 @@ alias[trigger:owns_or_has_subject_in] = scope[sub_continent]
 ### country has a presence in the geography supplied?
 ## scopes = { country }
 alias[trigger:owns_or_has_subject_in] = scope[continent]
+### country has a presence in the geography supplied?
+## scopes = { country }
+alias[trigger:owns_or_has_subject_in] = scope[scripted_geography]
 
 ### Get how much antagonism the specified peace treaty type would cause for the current country scope against the target country. Usage: peace_treaty_antagonism = { peace_treaty = <scripted peace treaty scope> loser = <losing country scope> [target = <thing>] value <comparator> <real> } or peace_treaty_antagonism(<peace treaty scope>|<loser>|<thing>)
 ## scopes = { country }
@@ -6305,3 +6280,580 @@ alias[trigger:war_score_of_country_side] = {
 ### Check if a location has a road to capital
 ## scopes = { location }
 alias[trigger:has_road_to_capital] = bool
+
+### Checks if a country has researched a certain advance but it's not useable at the moment because of conditions
+## scopes = { country }
+alias[trigger:advance_no_longer_activated] = <advance>
+
+### Check that every holy site of the religion has its location owned by the target country, its subjects, or its subjects' subjects
+## scopes = { religion }
+alias[trigger:all_holy_sites_owned_by_or_below_of] = scope[country]
+### Check that every holy site of the religion has its location owned by the target country, its subjects, or its subjects' subjects
+## scopes = { religion }
+alias[trigger:all_holy_sites_owned_by_or_below_of] = <country>
+### Check that every holy site of the religion has its location owned by the target country, its subjects, or its subjects' subjects
+## scopes = { religion }
+alias[trigger:all_holy_sites_owned_by_or_below_of] = value[dynamic_tag]
+
+### Check if a subject type allows subject creation
+## scopes = { subject_type }
+alias[trigger:allow_subject_creation] = bool
+
+### Check if the country is allowed bureaucracies
+## scopes = { country }
+alias[trigger:allowed_bureaucracies] = bool
+
+### Check if a work of art is priceless (cannot be bought or sold).
+## scopes = { work_of_art }
+alias[trigger:art_is_priceless] = bool
+
+### checks if the attacker side has access in the country in a war
+## scopes = { war }
+alias[trigger:attackers_have_access_in] = scope[country]
+### checks if the attacker side has access in the country in a war
+## scopes = { war }
+alias[trigger:attackers_have_access_in] = <country>
+### checks if the attacker side has access in the country in a war
+## scopes = { war }
+alias[trigger:attackers_have_access_in] = value[dynamic_tag]
+
+### checks if the defender side has access in the country in a war
+## scopes = { war }
+alias[trigger:defenders_have_access_in] = scope[country]
+### checks if the defender side has access in the country in a war
+## scopes = { war }
+alias[trigger:defenders_have_access_in] = <country>
+### checks if the defender side has access in the country in a war
+## scopes = { war }
+alias[trigger:defenders_have_access_in] = value[dynamic_tag]
+
+### What Age was the character born in? E.g. age_1_traditions
+## scopes = { character }
+alias[trigger:birth_age] = scope[age]
+
+### Checks if the peace treaty blocks full annexation.
+## scopes = { peace_treaty }
+alias[trigger:blocks_full_annexation] = bool
+
+### is this bureaucracy disliked by this estate?
+## scopes = { bureaucracy }
+alias[trigger:bureaucracy_disliked_by_estate] = scope[estate]
+
+### is this bureaucracy disliked by this estate type?
+## scopes = { bureaucracy }
+alias[trigger:bureaucracy_disliked_by_estate_type] = scope[estate_type]
+
+### is this bureaucracy liked by this estate?
+## scopes = { bureaucracy }
+alias[trigger:bureaucracy_liked_by_estate] = scope[estate]
+
+### is this bureaucracy liked by this estate type?
+## scopes = { bureaucracy }
+alias[trigger:bureaucracy_liked_by_estate_type] = scope[estate_type]
+
+### is this bureaucracy disliked by this estate?
+## scopes = { bureaucracy_type }
+alias[trigger:bureaucracy_type_disliked_by_estate] = scope[estate]
+
+### is this bureaucracy disliked by this estate type?
+## scopes = { bureaucracy_type }
+alias[trigger:bureaucracy_type_disliked_by_estate_type] = scope[estate_type]
+
+### is this bureaucracy liked by this estate?
+## scopes = { bureaucracy_type }
+alias[trigger:bureaucracy_type_liked_by_estate] = scope[estate]
+
+### is this bureaucracy liked by this estate type?
+## scopes = { bureaucracy_type }
+alias[trigger:bureaucracy_type_liked_by_estate_type] = scope[estate_type]
+
+### Can we use a bureaucracy for a country?
+## scopes = { country }
+alias[trigger:bureaucracy_type_is_enabled] = scope[bureaucracy_type]
+
+### Can we see a bureaucracy for a country?
+## scopes = { country }
+alias[trigger:bureaucracy_type_is_visible] = scope[bureaucracy_type]
+
+### Check if the current character scope can marry the target character
+## scopes = { character }
+alias[trigger:can_marry_character] = scope[character]
+
+### Checks if the character meets the character_eligible conditions of the active chivalric order of the given country.
+## scopes = { character }
+alias[trigger:character_is_eligible_for_active_order] = scope[country]
+### Checks if the character meets the character_eligible conditions of the active chivalric order of the given country.
+## scopes = { character }
+alias[trigger:character_is_eligible_for_active_order] = <country>
+### Checks if the character meets the character_eligible conditions of the active chivalric order of the given country.
+## scopes = { character }
+alias[trigger:character_is_eligible_for_active_order] = value[dynamic_tag]
+
+### Checks if the character is a member of the specified chivalric order.
+## scopes = { character }
+alias[trigger:character_is_in_order] = scope[chivalric_order]
+
+### Are Imperial Circles active in the scope international organization?
+## scopes = { international_organization }
+alias[trigger:circles_are_active] = bool
+
+### Checks if the country's active chivalric order law references the specified order.
+## scopes = { country }
+alias[trigger:country_has_order] = scope[chivalric_order]
+
+### Does the scope country give defensive support to specified country?
+## scopes = { country }
+alias[trigger:gives_defensive_support_to] = scope[country]
+### Does the scope country give defensive support to specified country?
+## scopes = { country }
+alias[trigger:gives_defensive_support_to] = <country>
+### Does the scope country give defensive support to specified country?
+## scopes = { country }
+alias[trigger:gives_defensive_support_to] = value[dynamic_tag]
+
+### Does the scope country give offensive support to specified country?
+## scopes = { country }
+alias[trigger:gives_offensive_support_to] = scope[country]
+### Does the scope country give offensive support to specified country?
+## scopes = { country }
+alias[trigger:gives_offensive_support_to] = <country>
+### Does the scope country give offensive support to specified country?
+## scopes = { country }
+alias[trigger:gives_offensive_support_to] = value[dynamic_tag]
+
+### Does the scope country receive defensive support from the specified country?
+## scopes = { country }
+alias[trigger:receives_defensive_support_from] = scope[country]
+### Does the scope country receive defensive support from the specified country?
+## scopes = { country }
+alias[trigger:receives_defensive_support_from] = <country>
+### Does the scope country receive defensive support from the specified country?
+## scopes = { country }
+alias[trigger:receives_defensive_support_from] = value[dynamic_tag]
+
+### Does the scope country receive offensive support from the specified country?
+## scopes = { country }
+alias[trigger:receives_offensive_support_from] = scope[country]
+### Does the scope country receive offensive support from the specified country?
+## scopes = { country }
+alias[trigger:receives_offensive_support_from] = <country>
+### Does the scope country receive offensive support from the specified country?
+## scopes = { country }
+alias[trigger:receives_offensive_support_from] = value[dynamic_tag]
+
+### Checks if a country has been or is currently in that level of the country rank
+## scopes = { country }
+alias[trigger:had_country_rank_level] = int
+
+### Does the country view the player with the given AI disposition? (alarmed/wary/planning_war/covets/rivals/indifferent)
+### Traits: alarmed, wary, planning_war, covets, rivals, indifferent
+## scopes = { country }
+alias[trigger:has_ai_disposition_toward_player] = enum[ai_disposition]
+
+### Checks if the AI has a preferred parliament law change stored
+## scopes = { country }
+alias[trigger:has_ai_preferred_parliament_law_change] = bool
+
+### True if the country owns at least one location whose raw material uses the specified goods method. Usage: has_any_rgo_of_goods_method = hunting
+## scopes = { country }
+alias[trigger:has_any_rgo_of_goods_method] = enum[good_method]
+
+### Check if a location has town rights
+## scopes = { location }
+alias[trigger:has_any_town_rights] = bool
+
+### checks if a country has a specific area preference active
+## scopes = { country }
+alias[trigger:has_area_preference] = <area_preference>
+
+### checks if the scope country has a bureaucracy of the supplied type
+## scopes = { country }
+alias[trigger:has_bureaucracy_of_type] = scope[bureaucracy_type]
+
+### Checks if the country has an active chivalric order (i.e. the ruler has joined one).
+## scopes = { country }
+alias[trigger:has_chivalric_order] = bool
+
+### Does this imperial circle have a leader?
+## scopes = { imperial_circle }
+alias[trigger:has_circle_leader] = bool
+
+### Checks if this country and the target country both have different orders.
+## scopes = { country }
+alias[trigger:has_different_order_of_chivalry] = scope[country]
+### Checks if this country and the target country both have different orders.
+## scopes = { country }
+alias[trigger:has_different_order_of_chivalry] = <country>
+### Checks if this country and the target country both have different orders.
+## scopes = { country }
+alias[trigger:has_different_order_of_chivalry] = value[dynamic_tag]
+
+### Checks if a location shares no town right types with another location
+## scopes = { location }
+alias[trigger:has_different_town_rights_than] = scope[location]
+
+### Check if a location has reached its maximum number of town rights
+## scopes = { location }
+alias[trigger:has_max_town_rights] = bool
+
+### religion has omens
+## scopes = { religion }
+alias[trigger:has_omens] = bool
+
+### returns true if the unit contains ONLY prisoners
+## scopes = { unit }
+alias[trigger:has_only_prisoners] = bool
+
+### Does the country have the specified AI personality?
+## scopes = { country }
+alias[trigger:has_personality] = <ai_personality>
+
+#TODO: unsure about this one
+### if a country has specific preference tag
+## scopes = { country }
+alias[trigger:has_preference_tag] = scalar
+
+### Checks if a rebel has a pretender character
+## scopes = { rebels }
+alias[trigger:has_pretender] = bool
+
+### Check if a location has a road to capital
+## scopes = { location }
+alias[trigger:has_road_to_capital] = bool
+
+### Check if a country has any non-priceless work of art.
+## scopes = { country }
+alias[trigger:has_sellable_art] = bool
+
+### Checks if a location has a specific town_rights
+## scopes = { location }
+alias[trigger:has_town_rights] = scope[town_rights_type]
+
+### Is the scope IO currently in the circle formation period?
+## scopes = { international_organization }
+alias[trigger:hre_io_is_in_formation_period] = bool
+
+### Are the scope country and target country members of the same Imperial Circle?
+## scopes = { country }
+alias[trigger:in_same_imperial_circle] = scope[country]
+### Are the scope country and target country members of the same Imperial Circle?
+## scopes = { country }
+alias[trigger:in_same_imperial_circle] = <country>
+### Are the scope country and target country members of the same Imperial Circle?
+## scopes = { country }
+alias[trigger:in_same_imperial_circle] = value[dynamic_tag]
+
+### Return true if locations of this international organization can be removed by the 'remove location from IO' peace treaty
+## scopes = { international_organization }
+alias[trigger:international_organization_land_can_be_removed_by_peace_treaty] = bool
+
+### Does the international organization exist?
+## scopes = { any }
+alias[trigger:io_exists] = scope[international_organization]
+
+### If a culture is active.
+## scopes = { culture }
+alias[trigger:is_active] = bool
+
+### Checks if this law is the AI's preferred parliament law change target (pass actor country as argument)
+## scopes = { law }
+alias[trigger:is_ai_preferred_parliament_change_law] = scope[country]
+### Checks if this law is the AI's preferred parliament law change target (pass actor country as argument)
+## scopes = { law }
+alias[trigger:is_ai_preferred_parliament_change_law] = <country>
+### Checks if this law is the AI's preferred parliament law change target (pass actor country as argument)
+## scopes = { law }
+alias[trigger:is_ai_preferred_parliament_change_law] = value[dynamic_tag]
+
+### Checks if this policy is the AI's preferred parliament policy change target (pass actor country as argument)
+## scopes = { policy }
+alias[trigger:is_ai_preferred_parliament_change_policy] = scope[country]
+### Checks if this policy is the AI's preferred parliament policy change target (pass actor country as argument)
+## scopes = { policy }
+alias[trigger:is_ai_preferred_parliament_change_policy] = <country>
+### Checks if this policy is the AI's preferred parliament policy change target (pass actor country as argument)
+## scopes = { policy }
+alias[trigger:is_ai_preferred_parliament_change_policy] = value[dynamic_tag]
+
+### Checks if the loan is a government bond
+## scopes = { loan }
+alias[trigger:is_bond] = bool
+
+### Mercenary's underlying unit is embarked on another fleet or has armies embarked on board. Gate destruction/delist actions on this — otherwise the embark link will be torn and the loaded armies will drown.
+## scopes = { mercenary }
+alias[trigger:is_carrying_or_loaded_unit] = bool
+
+### subunit is a lent unit (condottieri)
+## scopes = { sub_unit }
+alias[trigger:is_condottieri] = bool
+
+### Check if a location is connected by land/strait to another location in the same realm (top overlord and all subjects)
+## scopes = { location }
+alias[trigger:is_connected_to_through_realm] = scope[location]
+
+### Is the specified country the leader of this Imperial Circle?
+## scopes = { imperial_circle }
+alias[trigger:is_country_leader_of_circle] = scope[country]
+### Is the specified country the leader of this Imperial Circle?
+## scopes = { imperial_circle }
+alias[trigger:is_country_leader_of_circle] = <country>
+### Is the specified country the leader of this Imperial Circle?
+## scopes = { imperial_circle }
+alias[trigger:is_country_leader_of_circle] = value[dynamic_tag]
+
+### If a culture was originally defined as (or merged from) the target culture.
+## scopes = { culture }
+alias[trigger:is_defined_from_culture] = scope[culture]
+
+### Is this imperial circle dormant?
+## scopes = { imperial_circle }
+alias[trigger:is_dormant_imperial_circle] = bool
+
+### Check if the current character scope can marry
+## scopes = { character }
+alias[trigger:is_eligible_for_marriage] = bool
+
+### Checks if the loan is an estate loan (not from a banking country)
+## scopes = { loan }
+alias[trigger:is_estate_loan] = bool
+
+### is the god female?
+## scopes = { god }
+alias[trigger:is_god_female] = bool
+
+### Is this country the leader of any Imperial Circle?
+## scopes = { country }
+alias[trigger:is_imperial_circle_leader] = bool
+
+### Checks if the character is a member of any chivalric order.
+## scopes = { character }
+alias[trigger:is_in_chivalric_order] = bool
+
+### country is invoking omen
+## scopes = { country }
+alias[trigger:is_invoking_omen] = bool
+
+### Is this country the leader of any Imperial Circle in the specified IO?
+## scopes = { country }
+alias[trigger:is_leader_of_any_imperial_circle_in_io] = scope[international_organization]
+
+### Is this country the leader of the specified Imperial Circle?
+## scopes = { country }
+alias[trigger:is_leader_of_imperial_circle] = scope[imperial_circle]
+
+### Check if a mercenary is a unit lent from an ally
+## scopes = { mercenary }
+alias[trigger:is_lent_unit] = bool
+
+### Is the location a holy site of the specified type?
+## scopes = { location }
+alias[trigger:is_location_holy_site_type] = scope[holy_site_type]
+
+### Is this country a member of the specified Imperial Circle?
+## scopes = { country }
+alias[trigger:is_member_of_circle] = scope[imperial_circle]
+
+### Is the country or location a Neighbor to the specified country, or only a single seazone apart?
+## scopes = { location country }
+alias[trigger:is_neighbor_of_country_or_across_one_seazone] = scope[country]
+### Is the country or location a Neighbor to the specified country, or only a single seazone apart?
+## scopes = { location country }
+alias[trigger:is_neighbor_of_country_or_across_one_seazone] = <country>
+### Is the country or location a Neighbor to the specified country, or only a single seazone apart?
+## scopes = { location country }
+alias[trigger:is_neighbor_of_country_or_across_one_seazone] = value[dynamic_tag]
+
+### Check if a location is neighbour to another or just across a single seazone.
+## scopes = { location }
+alias[trigger:is_neighbor_of_location_or_across_one_seazone] = scope[location]
+
+### country is a regional power
+## scopes = { country }
+alias[trigger:is_regional_power] = bool
+
+### If a god is the one asked for guidance for selecting an omen in the target country
+## scopes = { god }
+alias[trigger:is_selected_omen_god] = scope[country]
+### If a god is the one asked for guidance for selecting an omen in the target country
+## scopes = { god }
+alias[trigger:is_selected_omen_god] = <country>
+### If a god is the one asked for guidance for selecting an omen in the target country
+## scopes = { god }
+alias[trigger:is_selected_omen_god] = value[dynamic_tag]
+
+### Checks if an automated system is active for the country. Usage: is_system_automated = credit
+## scopes = { country }
+alias[trigger:is_system_automated] = enum[automated_system]
+
+### Checks if a market is withering (sustained at-or-below MARKET_WITHERING_LOCATION_THRESHOLD locations with a fallback market available for most of them)
+## scopes = { market }
+alias[trigger:is_withering] = bool
+
+### True if this merged culture was formed from a culture group that contained the target culture.
+## scopes = { culture }
+alias[trigger:merged_culture_group_contains_culture] = scope[culture]
+
+### Check if a location's rank at campaign start matches the supplied location rank
+## scopes = { location }
+alias[trigger:original_location_rank] = scope[location_rank]
+
+### if a country is a specific historical tag or was it.
+## scopes = { country }
+alias[trigger:original_tag] = <country>
+### if a country is a specific historical tag or was it.
+## scopes = { country }
+alias[trigger:original_tag] = value[dynamic_tag]
+
+### Does the country or non-sovereign subjects own all locations in province?
+## scopes = { country }
+alias[trigger:owns_or_non_sovereign_subject_owns_entire_province] = scope[province_definition]
+
+### Check the is a policy is possible for target counntry
+## scopes = { policy }
+alias[trigger:policy_possible_for_country] = scope[country]
+### Check the is a policy is possible for target counntry
+## scopes = { policy }
+alias[trigger:policy_possible_for_country] = <country>
+### Check the is a policy is possible for target counntry
+## scopes = { policy }
+alias[trigger:policy_possible_for_country] = value[dynamic_tag]
+
+### Checks if the character's gender is allowed for the target heir selection
+## scopes = { character }
+alias[trigger:valid_gender_for_heir_selection] = scope[heir_selection]
+
+### Straight-line distance from country capital to a province's first passable location. Cheap sort proxy for colonial_charter_utility.
+## scopes = { country }
+alias[trigger:colonial_charter_distance] = {
+    province_definition = scope[province_definition]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Gets the AI conquer preference for the supplied area
+## scopes = { country }
+alias[trigger:conquer_area_preference] = {
+    area = scope[area]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### how much of a trust equilibrium type does the country have towards another country?
+## scopes = { country }
+alias[trigger:get_trust_equilibrium] = {
+    country = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### is the country's trust equilibrium towards the target greater or equal than the value?
+## scopes = { country }
+alias[trigger:trust_equilibrium] = {
+    country = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Checks the number of pops affected by a movement in a location or subunit.
+## scopes = { location sub_unit }
+alias[trigger:movement_presence] = {
+    movement = scope[movement]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### calculates the amount of common rivals between two countries.
+## scopes = { country }
+alias[trigger:num_of_common_rivals] = {
+    country = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### calculates the amount of common rivals and enemies between two countries.
+## scopes = { country }
+alias[trigger:num_of_common_rivals_and_enemies] = {
+    country = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Gets how many locations the AI wants to conquer from the supplied country
+## scopes = { country }
+alias[trigger:num_of_locations_with_high_conquer_desire] = {
+    country = scope[country]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### Utility of a policy that can subtract the utility of current policy
+## scopes = { country }
+alias[trigger:policy_utility] = {
+    law = scope[law]
+
+    policy = scope[policy]
+
+    subtract_current = bool
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### The number of population a specific religion group in the current country
+## scopes = { country }
+alias[trigger:religion_group_population_in_country] = {
+    religion_group = scope[religion_group]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### gets the number of unemployed pops of the pop type in the location
+## scopes = { location }
+alias[trigger:unemployed_pops_of_pop_type_in_location] = {
+    pop_type = scope[pop_type]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### gets the number of unemployed pops of the pop type in the province
+## scopes = { province }
+alias[trigger:unemployed_pops_of_pop_type_in_province] = {
+    pop_type = scope[pop_type]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
