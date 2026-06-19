@@ -30,6 +30,8 @@ font_definition = {
         ## cardinality = 1..inf
         fontstyle = {
             style = enum[font_styles]
+            style = enum[font_styles]|enum[font_styles]
+
             fontfiles = <font_definition.fontfiles>
         }
 

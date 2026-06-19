@@ -27,9 +27,6 @@ alias[trigger:<scripted_trigger>] = bool
 alias[trigger:<scripted_trigger>] = {
     ## cardinality = 0..inf
     $parameter = $parameter_value
-
-    ## cardinality = 0..1
-    target = scope[country]
 }
 
 inline_scripted_trigger = {
@@ -43,7 +40,4 @@ alias[trigger:<inline_scripted_trigger>] = bool
 alias[trigger:<inline_scripted_trigger>] = {
     ## cardinality = 0..inf
     $parameter = $parameter_value
-
-    ## cardinality = 0..1
-    target = scope[country]
 }

@@ -59,10 +59,18 @@ event = {
     title = single_alias_right[complex_desc]
 
     subtype[!hidden] = {
-
         ### The description of the event. Can use scopes from immediate for the localization
         desc = localisation
         ### Alternative way for event descriptions which shows the first title which fulfils the trigger. Use that if you rely on saved event targets from immediate
+        desc = single_alias_right[complex_desc]
+    }
+
+    subtype[hidden] = {
+        ### The description of the event. Can use scopes from immediate for the localization
+        ## cardinality = 0..1
+        desc = localisation
+        ### Alternative way for event descriptions which shows the first title which fulfils the trigger. Use that if you rely on saved event targets from immediate
+        ## cardinality = 0..1
         desc = single_alias_right[complex_desc]
     }
 
@@ -120,7 +128,7 @@ event = {
         ## cardinality = 0..1
         from = date_field
         ## cardinality = 0..1
-        from = date_field[y.m.]
+        from = date_field[y.m]
         ## cardinality = 0..1
         from = int
 
@@ -131,7 +139,7 @@ event = {
         ## cardinality = 0..1
         to = int
 
-        monthly_chance = int
+        monthly_chance = float
     }
 
     ### The game will not log an error about this event being unreferenced. Useful for debug events

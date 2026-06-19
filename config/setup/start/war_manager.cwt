@@ -30,11 +30,11 @@ war_manager = {
         }
 
         start_date = date_field
-        start_date = date_field[y.m.]
+        start_date = date_field[y.m]
         start_date = int
 
         action = date_field
-        action = date_field[y.m.]
+        action = date_field[y.m]
         action = int
 
         ## cardinality = 0..inf
@@ -83,7 +83,7 @@ war_manager = {
         defender = <country>
 
         start_date = date_field
-        start_date = date_field[y.m.]
+        start_date = date_field[y.m]
         start_date = int
 
         months = int

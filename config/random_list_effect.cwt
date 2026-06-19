@@ -12,6 +12,12 @@ alias[arithmetic_operation:random_list] = {
 
 # Random lists seems to both use calculations as well as effects so this will allow both to work
 single_alias[random_list_element] = {
+    ## cardinality = 0..1
+    desc = localisation
+
+    ## cardinality = 0..1
+    show_chance = bool
+
     ## cardinality = 0..inf
     alias_name[effect] = alias_match_left[effect]
 
