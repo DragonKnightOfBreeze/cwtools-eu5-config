@@ -23,6 +23,9 @@ modifier_type = {
     ## cardinality = 0..1
     decimals = int
 
+    ## cardinality = 0..1
+    no_difference_sign = bool
+
     ### percent = no(default)/yes
     ## cardinality = 0..1
     percent = bool

@@ -21,6 +21,8 @@ dynasty = {
 
     home = value[location]
 
+    important = bool
+
     ## cardinality = 0..1
     male_names = {
         ## cardinality = 0..inf

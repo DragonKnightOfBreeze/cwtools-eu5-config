@@ -28,19 +28,25 @@ character = {
     ## cardinality = 0..1
     estate = <estate>
 
+    ## cardinality = 0..inf
+    health_trait = <trait>
+
     first_name = {
         name = localisation
         name = localisation.localisation
+        name = localisation.localisation.localisation
         name = random
     }
     first_name = localisation
     first_name = localisation.localisation
+    first_name = localisation.localisation.localisation
     first_name = random
 
     ## cardinality = 0..1
     last_name = {
         name = localisation
         name = localisation.localisation
+        name = localisation.localisation.localisation
         name = random
     }
     ## cardinality = 0..1
@@ -48,18 +54,23 @@ character = {
     ## cardinality = 0..1
     last_name = localisation.localisation
     ## cardinality = 0..1
+    last_name = localisation.localisation.localisation
+    ## cardinality = 0..1
     last_name = random
 
     ## cardinality = 0..1
     nickname = {
         name = localisation
         name = localisation.localisation
+        name = localisation.localisation.localisation
         name = random
     }
     ## cardinality = 0..1
     nickname = localisation
     ## cardinality = 0..1
     nickname = localisation.localisation
+    ## cardinality = 0..1
+    nickname = localisation.localisation.localisation
     ## cardinality = 0..1
     nickname = random
 

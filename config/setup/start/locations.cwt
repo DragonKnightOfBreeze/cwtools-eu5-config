@@ -14,24 +14,53 @@ locations = {
     value[location] = {
         ## cardinality = 0..1
         rank = <location_rank>
+
         ## cardinality = 0..1
         town_setup = <town_setup>
 
         ## cardinality = 0..inf
         <institution> = bool
 
+        ## cardinality = 0..1
+        prosperity = float
+
         ## cardinality = 0..inf
         define_pop = {
             type = <pop_type>
-            size = value_field
+
+            size = float
+
             culture = <culture>
+
             religion = <religion>
         }
 
         ## cardinality = 0..1
         timed_modifiers = {
             ## cardinality = 0..inf
-            timed_modifier = single_alias_right[timed_modifier_clause]
+            timed_modifiers = {
+                ## cardinality = 0..inf
+                {
+                    modifier = <static_modifier>
+
+                    ## cardinality = 0..1
+                    start_date = date_field
+                    ## cardinality = 0..1
+                    start_date = date_field[y.m.]
+                    ## cardinality = 0..1
+                    start_date = int
+
+                    ## cardinality = 0..1
+                    date = date_field
+                    ## cardinality = 0..1
+                    date = date_field[y.m.]
+                    ## cardinality = 0..1
+                    date = int
+
+                    ## cardinality = 0..1
+                    size = value_field
+                }
+            }
         }
     }
 }

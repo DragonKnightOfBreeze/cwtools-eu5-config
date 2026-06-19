@@ -111,6 +111,10 @@ country_setup = {
 
                 ## cardinality = 0..inf
                 regnal_name = localisation
+                ## cardinality = 0..inf
+                regnal_name = localisation.localisation
+                ## cardinality = 0..inf
+                regnal_name = localisation.localisation.localisation
             }
 
             ## cardinality = 0..1
@@ -125,10 +129,28 @@ country_setup = {
                 <government_reform>
             }
 
+            ## cardinality = 0..1
+            bureaucracies = {
+                ## cardinality = 0..inf
+                {
+                    type = <bureaucracy>
+
+                    date = date_field
+                    date = date_field[y.m.]
+                    date = int
+
+                    entrenchment = float
+                }
+            }
+
             ## cardinality = 0..inf
             regnal_numbers = {
                 ## cardinality = 0..inf
                 localisation = int
+                ## cardinality = 0..inf
+                localisation.localisation = int
+                ## cardinality = 0..inf
+                localisation.localisation.localisation = int
             }
 
             ## cardinality = 0..inf
@@ -143,6 +165,15 @@ country_setup = {
                 <estate_privilege>
             }
         }
+
+        ## cardinality = 0..1
+        area_preferences = {
+            ## cardinality = 0..inf
+            <area_preference>
+        }
+
+        ## cardinality = 0..1
+        ai_personality = <ai_personality>
 
         ## cardinality = 0..1
         flag = <coat_of_arm>
@@ -172,7 +203,7 @@ country_setup = {
         ## cardinality = 0..1
         ai_advance_preference_tags = {
             ## cardinality = 0..inf
-            <advance> = value_field
+            enum[advance_ai_preference_tag] = value_field
         }
 
         ## cardinality = 0..1
@@ -209,6 +240,24 @@ country_setup = {
         ## cardinality = 0..1
         liturgical_language = <dialect>
 
+        ## cardinality = 0..1
+        past_liturgical_dialects = {
+            ## cardinality = 0..inf
+            <language>
+
+            ## cardinality = 0..inf
+            <dialect>
+        }
+
+        ## cardinality = 0..1
+        past_court_dialects = {
+            ## cardinality = 0..inf
+            <language>
+
+            ## cardinality = 0..inf
+            <dialect>
+        }
+
         ## cardinality = 0..inf
         dynasty = <dynasty>
 
@@ -232,6 +281,9 @@ country_setup = {
 
         ## cardinality = 0..inf
         include = filepath[setup/templates/,.txt]
+
+        ## cardinality = 0..1
+        rebellion_demand = <rebel_demand>
 
         ## cardinality = 0..inf
         timed_modifier = single_alias_right[timed_modifier_clause]

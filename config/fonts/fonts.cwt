@@ -32,6 +32,17 @@ font_definition = {
             style = enum[font_styles]
             fontfiles = <font_definition.fontfiles>
         }
+
+        ## cardinality = 0..1
+        underlineformats = {
+            default = {
+                ## cardinality = 0..1
+                thickness = float
+
+                ## cardinality = 0..1
+                offset = float
+            }
+        }
     }
 
     subtype[fontfiles] = {
@@ -56,5 +67,6 @@ enums = {
         regular
         italic
         bold
+        semibold
     }
 }

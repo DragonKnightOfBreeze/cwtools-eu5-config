@@ -37,6 +37,15 @@ international_organization_manager = {
             <country>
         }
 
+        regnal_numbers = {
+            ## cardinality = 0..inf
+            localisation = int
+            ## cardinality = 0..inf
+            localisation.localisation = int
+            ## cardinality = 0..inf
+            localisation.localisation.localisation = int
+        }
+
         ## cardinality = 0..inf
         ruler_term = {
             ## cardinality = 1..inf

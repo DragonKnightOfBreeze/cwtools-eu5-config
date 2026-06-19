@@ -18,6 +18,7 @@ enums = {
         internationalorganization
         rebel
         dynasty
+        movement
     }
     enum[modifier_format] = {
         FormatPopCaps
@@ -69,6 +70,13 @@ enums = {
         go_to_lobby
         pause_on_leave_enabled
         change_speed_on_multiplayer_wars
+        rename_locations_allowed
+        rename_locations_prohibited
+        byz_name_greek
+        inmersion_mode_enabled
+        ai_personalities_random
+        ai_personalities_random_per_age
+        ai_personalities_random_per_ruler
     }
 
     enum[game_concept_family] = {
@@ -90,6 +98,7 @@ enums = {
         wealth
         building
         war
+        estate
     }
     enum[scenario_proficiency] = {
         NOVICE
@@ -100,6 +109,7 @@ enums = {
 
     enum[advance_ai_preference_tag] = {
         exploration
+        warfare
     }
 
     enum[ability_type] = {
@@ -664,6 +674,7 @@ enums = {
         Guarantee
         RivalClaimant
         Scripted
+        Ally
     }
 
     enum[customizable_localization_invalid_loc_handling] = {
