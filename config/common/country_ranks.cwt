@@ -12,6 +12,7 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 country_rank = {
     ### color on map
     alias_name[color] = alias_match_left[color]

@@ -12,4 +12,6 @@ types = {
     }
 }
 
-building_category = {}
+building_category = {
+    audio_category = enum[audio_category]
+}

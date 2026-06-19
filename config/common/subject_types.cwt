@@ -12,8 +12,18 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 subject_type = {
     alias_name[color] = alias_match_left[color]
+
+    ## cardinality = 0..1
+    content_priority = int
+
+    ## cardinality = 0..1
+    visible = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    enabled = single_alias_right[trigger_clause]
 
     ### is this subject type visible through diplomacy in general. root = overlord, target = subject
     ## cardinality = 0..1
@@ -154,6 +164,9 @@ subject_type = {
     allow_subjects = bool
 
     ## cardinality = 0..1
+    shares_exploration_with_overlord = bool
+
+    ## cardinality = 0..1
     has_overlords_religion = bool
 
     ### whether or not the subject's diplomacy options are limited by the overlord
@@ -258,6 +271,9 @@ subject_type = {
     ## cardinality = 0..1
     overlord_inherit_if_no_heir = bool
 
+    ## cardinality = 0..1
+    counts_as_external = bool
+
     ### can this subject type be demanded to be broken in a peace treaty
     ## cardinality = 0..1
     can_be_force_broken_in_peace_treaty = bool
@@ -282,19 +298,16 @@ subject_type = {
     strength_vs_overlord = value_field
     ## cardinality = 0..1
     strength_vs_overlord = single_alias_right[formula]
-    ## cardinality = 0..1
-    strength_vs_overlord = <script_value>
-    ## cardinality = 0..1
-    strength_vs_overlord = <static_value>
 
     ## cardinality = 0..1
     diplomatic_capacity_cost_scale = value_field
     ## cardinality = 0..1
     diplomatic_capacity_cost_scale = single_alias_right[formula]
+
     ## cardinality = 0..1
-    diplomatic_capacity_cost_scale = <script_value>
+    maritime_path_tolerance = value_field
     ## cardinality = 0..1
-    diplomatic_capacity_cost_scale = <static_value>
+    maritime_path_tolerance = single_alias_right[formula]
 
     ### multiplier for various values for the overlord/subject comparison that lead to the overall acceptance of an offer to become this type of subject. E.g. border_distance = -0.1 will give -0.1 points towards acceptance per unit of distance between the countries' borders.
     ## cardinality = 0..1
@@ -310,12 +323,6 @@ subject_type = {
     ### effect script for the AI to use, can use scope:overlord and scope:subject, how much the AI country will want to be an overlord of this type. Used when trying to create a subject, picking subject peace treaties or releasing nations as subjects
     ## cardinality = 0..1
     ai_wants_to_be_overlord = single_alias_right[formula]
-    ### effect script for the AI to use, can use scope:overlord and scope:subject, how much the AI country will want to be an overlord of this type. Used when trying to create a subject, picking subject peace treaties or releasing nations as subjects
-    ## cardinality = 0..1
-    ai_wants_to_be_overlord = <script_value>
-    ### effect script for the AI to use, can use scope:overlord and scope:subject, how much the AI country will want to be an overlord of this type. Used when trying to create a subject, picking subject peace treaties or releasing nations as subjects
-    ## cardinality = 0..1
-    ai_wants_to_be_overlord = <static_value>
 
     ### effect script for the AI to use, can use scope:overlord and scope:subject, how much the AI will want to become a subject of this type. Used when offering to become a subject
     ## cardinality = 0..1
@@ -323,12 +330,6 @@ subject_type = {
     ### effect script for the AI to use, can use scope:overlord and scope:subject, how much the AI will want to become a subject of this type. Used when offering to become a subject
     ## cardinality = 0..1
     ai_wants_to_be_subject = single_alias_right[formula]
-    ### effect script for the AI to use, can use scope:overlord and scope:subject, how much the AI will want to become a subject of this type. Used when offering to become a subject
-    ## cardinality = 0..1
-    ai_wants_to_be_subject = <script_value>
-    ### effect script for the AI to use, can use scope:overlord and scope:subject, how much the AI will want to become a subject of this type. Used when offering to become a subject
-    ## cardinality = 0..1
-    ai_wants_to_be_subject = <static_value>
 
     ### how fast do embraced institutions spread from the Subject to the Overlord Capital?
     ## cardinality = 0..1
@@ -336,12 +337,6 @@ subject_type = {
     ### how fast do embraced institutions spread from the Subject to the Overlord Capital?
     ## cardinality = 0..1
     institution_spread_to_overlord = single_alias_right[formula]
-    ### how fast do embraced institutions spread from the Subject to the Overlord Capital?
-    ## cardinality = 0..1
-    institution_spread_to_overlord = <script_value>
-    ### how fast do embraced institutions spread from the Subject to the Overlord Capital?
-    ## cardinality = 0..1
-    institution_spread_to_overlord = <static_value>
 
     ### how fast do embraced institutions spread from the Overlord to the Subject Capital?
     ## cardinality = 0..1
@@ -349,12 +344,6 @@ subject_type = {
     ### how fast do embraced institutions spread from the Overlord to the Subject Capital?
     ## cardinality = 0..1
     institution_spread_to_subject = single_alias_right[formula]
-    ### how fast do embraced institutions spread from the Overlord to the Subject Capital?
-    ## cardinality = 0..1
-    institution_spread_to_subject = <script_value>
-    ### how fast do embraced institutions spread from the Overlord to the Subject Capital?
-    ## cardinality = 0..1
-    institution_spread_to_subject = <static_value>
 
     ### percentage of merchant power that goes to the overlord
     ## cardinality = 0..1
@@ -362,10 +351,4 @@ subject_type = {
     ### percentage of merchant power that goes to the overlord
     ## cardinality = 0..1
     merchants_to_overlord_fraction = single_alias_right[formula]
-    ### percentage of merchant power that goes to the overlord
-    ## cardinality = 0..1
-    merchants_to_overlord_fraction = <script_value>
-    ### percentage of merchant power that goes to the overlord
-    ## cardinality = 0..1
-    merchants_to_overlord_fraction = <static_value>
 }

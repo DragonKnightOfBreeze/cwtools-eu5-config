@@ -12,6 +12,7 @@ types = {
     }
 }
 
+## replace_scope = { root = unit this = unit }
 unit_ability = {
     ### trigger for if the ability is hidden (unit scope)
     ## cardinality = 0..1

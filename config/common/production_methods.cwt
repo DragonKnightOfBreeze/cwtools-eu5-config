@@ -27,5 +27,8 @@ production_method = {
     ## cardinality = 0..1
     output = value_field
 
+    ## cardinality = 0..1
+    debug_max_profit = value_field
+
     category = localisation
 }

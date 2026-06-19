@@ -29,6 +29,15 @@ age = {
     hegemons_allowed = bool
 
     ## cardinality = 0..1
+    known_goods_demand_threshold = value_field
+
+    ## cardinality = 0..1
+    burgher_max_trade_range = value_field
+
+    ## cardinality = 0..1
+    goods_demand = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
     war_score_from_battles = value_field
 
     ## cardinality = 0..1

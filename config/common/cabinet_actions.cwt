@@ -5,9 +5,14 @@ types = {
         path = "game/main_menu/common/cabinet_actions"
         path = "game/loading_screen/common/cabinet_actions"
         path_extension = .txt
+        localisation = {
+            name = $
+            desc = $_desc
+        }
     }
 }
 
+## replace_scope = { root = country this = country }
 cabinet_action = {
     ### monarch ability that this action will use (adm/dip/mil)
     ability = enum[ability_type]
@@ -40,6 +45,7 @@ cabinet_action = {
 
     ### can add multiple of these to allow selection of targets/parameters for the action. They get stored in scope:target, scope:target_1, scope:target_2....etc
     ## cardinality = 0..inf
+    ## replace_scope = { root = any this = any }
     select_trigger = single_alias_right[selected_trigger_clause]
 
     ### amount to change a societal value by
@@ -55,14 +61,17 @@ cabinet_action = {
 
     ### fired when the action is chosen (root = cabinet, scope:actor = country, scope:target, scope:target_1 etc)
     ## cardinality = 0..1
+    ## replace_scope = { root = cabinet this = cabinet }
     on_activate = single_alias_right[effect_clause]
 
     ### fired when the action's implementation reaches 100% (instant if there's no time delay) (root = cabinet, scope:actor = country, scope:target, scope:target_1 etc)
     ## cardinality = 0..1
+    ## replace_scope = { root = cabinet this = cabinet }
     on_fully_activated = single_alias_right[effect_clause]
 
     ### fired when the action is removed (root = cabinet, scope:actor = country, scope:target, scope:target_1 etc)
     ## cardinality = 0..1
+    ## replace_scope = { root = cabinet this = cabinet }
     on_deactivate = single_alias_right[effect_clause]
 
     ### <scaled and triggered modifier (scale = script for the scale, potential_trigger = trigger for if the modifier applies)> which is applied to whole countries
@@ -71,14 +80,17 @@ cabinet_action = {
 
     ### <scaled and triggered modifier (scale = script for the scale, potential_trigger = trigger for if the modifier applies)> which is applied to provinces
     ## cardinality = 0..inf
+    ## replace_scope = { root = province this = province }
     province_modifier = single_alias_right[modifier_clause]
 
     ### <scaled and triggered modifier (scale = script for the scale, potential_trigger = trigger for if the modifier applies)> which is applied to locations
     ## cardinality = 0..inf
+    ## replace_scope = { root = location this = location }
     location_modifier = single_alias_right[modifier_clause]
 
     ### <scaled and triggered modifier (scale = script for the scale, potential_trigger = trigger for if the modifier applies)> which is applied to rebels
     ## cardinality = 0..inf
+    ## replace_scope = { root = rebels this = rebels }
     rebel_modifier = single_alias_right[modifier_clause]
 
     ### effect script for the AI to use, scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc

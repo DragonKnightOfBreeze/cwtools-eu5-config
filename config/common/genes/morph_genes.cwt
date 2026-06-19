@@ -61,11 +61,6 @@ single_alias[morph_gene_clause] = {
         adolescent_girl = single_alias_right[morph_gene_gender_settings_clause]
         ## cardinality = 0..1
         adolescent_girl = enum[gene_gender_reference]
-
-        ## cardinality = 0..1
-        infant = single_alias_right[morph_gene_gender_settings_clause]
-        ## cardinality = 0..1
-        infant = enum[gene_gender_reference]
     }
 }
 

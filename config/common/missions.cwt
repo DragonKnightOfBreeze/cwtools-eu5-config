@@ -11,6 +11,7 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 mission = {
     ### Image to show in the header when the mission has been selected
     ## cardinality = 0..1
@@ -42,23 +43,11 @@ mission = {
     chance = value_field
     ### Chance of this mission chain appearing. There are POTENTIAL_MISSION_COUNT missions shown at any one time
     ## cardinality = 0..1
-    chance = <script_value>
-    ### Chance of this mission chain appearing. There are POTENTIAL_MISSION_COUNT missions shown at any one time
-    ## cardinality = 0..1
-    chance = <static_value>
-    ### Chance of this mission chain appearing. There are POTENTIAL_MISSION_COUNT missions shown at any one time
-    ## cardinality = 0..1
     chance = single_alias_right[formula]
 
     ### Chance for ai to pick this mission over other available (contains all scoped variables from the select_triggers)
     ## cardinality = 0..1
     ai_will_do = value_field
-    ### Chance for ai to pick this mission over other available (contains all scoped variables from the select_triggers)
-    ## cardinality = 0..1
-    ai_will_do = <script_value>
-    ### Chance for ai to pick this mission over other available (contains all scoped variables from the select_triggers)
-    ## cardinality = 0..1
-    ai_will_do = <static_value>
     ### Chance for ai to pick this mission over other available (contains all scoped variables from the select_triggers)
     ## cardinality = 0..1
     ai_will_do = single_alias_right[formula]
@@ -79,6 +68,10 @@ mission = {
     ## cardinality = 0..1
     on_completion = single_alias_right[effect_clause]
 
+    ## cardinality = 0..1
+    ## replace_scope = { root = any this = any }
+    select_trigger = single_alias_right[selected_trigger_clause]
+
     ### Executed after completion when the mission is no longer part of the country
     ## cardinality = 0..1
     on_post_completion = single_alias_right[effect_clause]
@@ -94,6 +87,7 @@ mission = {
 ### Image to show in the mission for the specific mission task
 alias[mission_task_element:icon] = filepath[gfx/interface/advance/,.dds]
 
+## replace_scope = { root = any this = any }
 alias[mission_task_element:select_trigger] = single_alias_right[selected_trigger_clause]
 
 ### Required tasks for starting
@@ -109,6 +103,7 @@ alias[mission_task_element:final] = bool
 alias[mission_task_element:visible] = single_alias_right[trigger_clause]
 
 ### Which provinces should be highlighted on the map when mouse is over this task. Province is provided in scope:province
+## replace_scope = { root = country this = location }
 alias[mission_task_element:highlight] = single_alias_right[trigger_clause]
 
 ### Whether the task can be completed

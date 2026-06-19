@@ -20,6 +20,8 @@ types = {
 unit_category = {
     is_army = bool
 
+    fallback = scalar
+
     ## cardinality = 0..1
     startup_amount = int
 
@@ -29,6 +31,9 @@ unit_category = {
 
     ## cardinality = 0..1
     assault = bool
+
+    ## cardinality = 0..1
+    exclude_from_combined_arms = bool
 
     ## cardinality = 0..1
     bombard = bool

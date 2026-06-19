@@ -12,6 +12,7 @@ types = {
     }
 }
 
+## replace_scope = { root = religion this = religion }
 religious_figure = {
     enabled_for_religion = single_alias_right[trigger_clause]
 }

@@ -12,6 +12,7 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 casus_belli = {
     ### yes/no only for the no cb cb (the best cb)
     ## cardinality = 0..1
@@ -21,20 +22,24 @@ casus_belli = {
     ## cardinality = 0..1
     trade = bool
 
+    ## cardinality = 0..1
+    no_spy_network_cost = bool
+
     ### checks to see if we can see this cb (root = country, scope:target = target)
     ## cardinality = 0..1
-    visible = single_alias_right[trigger_clause]
+    create_visible = single_alias_right[trigger_clause]
 
     ### checks to see if we can create a cb against another country (root = country, scope:target = target)
     ## cardinality = 0..1
-    allow_creation = single_alias_right[trigger_clause]
+    create_enabled = single_alias_right[trigger_clause]
 
     ### checks to see if we can use this cb to declare war against another country (root = country, scope:target = target)
     ## cardinality = 0..1
-    allow_declaration = single_alias_right[trigger_clause]
+    declare_enabled = single_alias_right[trigger_clause]
 
     ### if this CB has a province as a target, this trigger checks if the province is valid to target (root = province, scope:actor = who wants to use it, scope:recipient = who they're targetting)
     ## cardinality = 0..1
+    ## replace_scope = { root = province this = province }
     province = single_alias_right[trigger_clause]
 
     ### how much is added to creation progress per month, in per cent (100 = it's created)
@@ -54,6 +59,9 @@ casus_belli = {
 
     ## cardinality = 0..1
     allow_wars_on_own_subjects = bool
+
+    ## cardinality = 0..1
+    blocks_unconditional_surrender = bool
 
     ### if separate peace deals are allowed (defaults to yes)
     ## cardinality = 0..1
@@ -126,6 +134,27 @@ casus_belli = {
     ### root = country; scope:recipient = recipient; scope:war = war;
     ## cardinality = 0..1
     antagonism_reduction_per_warworth_defender = single_alias_right[formula]
+
+    ### A set of peace treaties which need to be enforced by the attacker leader to end this war in anything but a white peace
+    ## cardinality = 0..1
+    required_attacker_peace_treaties = {
+        ## cardinality = 0..inf
+        <peace_treaty>
+    }
+
+    ### A set of peace treaties which need to be enforced by the defender leader to end this war in anything but a white peace
+    ## cardinality = 0..1
+    required_defender_peace_treaties = {
+        ## cardinality = 0..inf
+        <peace_treaty>
+    }
+
+    ### A set of peace treaties which need to be enforced by either side to end this war in anything but a white peace
+    ## cardinality = 0..1
+    required_peace_treaties = {
+        ## cardinality = 0..inf
+        <peace_treaty>
+    }
 
     ### when using this CB, what is the war goal
     war_goal_type = <war_goal>

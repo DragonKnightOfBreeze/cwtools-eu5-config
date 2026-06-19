@@ -172,10 +172,6 @@ alias[effect:add_character_modifier] = {
     ## cardinality = 0..1
     size = value_field
     ## cardinality = 0..1
-    size = <script_value>
-    ## cardinality = 0..1
-    size = <static_value>
-    ## cardinality = 0..1
     size = single_alias_right[formula]
 
     ## cardinality = 0..1
@@ -219,6 +215,11 @@ alias[effect:add_core] = scope[international_organization]
 ### add_country_modifier = { name = name days/months/years=x mode = add/extend/replace/add_and_extend <size = x> <desc = string>}
 ### desc replaces the description of how long the modifier lasts
 ## scopes = { country }
+alias[effect:add_country_modifier] = <static_modifier>
+### add a modifier to a country
+### add_country_modifier = { name = name days/months/years=x mode = add/extend/replace/add_and_extend <size = x> <desc = string>}
+### desc replaces the description of how long the modifier lasts
+## scopes = { country }
 alias[effect:add_country_modifier] = {
     modifier = <static_modifier>
 
@@ -231,14 +232,13 @@ alias[effect:add_country_modifier] = {
     ## cardinality = 0..1
     size = value_field
     ## cardinality = 0..1
-    size = <script_value>
-    ## cardinality = 0..1
-    size = <static_value>
-    ## cardinality = 0..1
     size = single_alias_right[formula]
 
     ## cardinality = 0..1
     desc = localisation
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
 }
 
 ### add a country to an international organization
@@ -531,14 +531,13 @@ alias[effect:add_international_organization_modifier] = {
     ## cardinality = 0..1
     size = value_field
     ## cardinality = 0..1
-    size = <script_value>
-    ## cardinality = 0..1
-    size = <static_value>
-    ## cardinality = 0..1
     size = single_alias_right[formula]
 
     ## cardinality = 0..1
     desc = localisation
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
 }
 
 ### Adds karma
@@ -598,14 +597,13 @@ alias[effect:add_location_modifier] = {
     ## cardinality = 0..1
     size = value_field
     ## cardinality = 0..1
-    size = <script_value>
-    ## cardinality = 0..1
-    size = <static_value>
-    ## cardinality = 0..1
     size = single_alias_right[formula]
 
     ## cardinality = 0..1
     desc = localisation
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
 }
 
 ### add a location to an international organization
@@ -831,14 +829,13 @@ alias[effect:add_province_modifier] = {
     ## cardinality = 0..1
     size = value_field
     ## cardinality = 0..1
-    size = <script_value>
-    ## cardinality = 0..1
-    size = <static_value>
-    ## cardinality = 0..1
     size = single_alias_right[formula]
 
     ## cardinality = 0..1
     desc = localisation
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
 }
 
 ### Adds purity
@@ -872,14 +869,13 @@ alias[effect:add_rebel_modifier] = {
     ## cardinality = 0..1
     size = value_field
     ## cardinality = 0..1
-    size = <script_value>
-    ## cardinality = 0..1
-    size = <static_value>
-    ## cardinality = 0..1
     size = single_alias_right[formula]
 
     ## cardinality = 0..1
     desc = localisation
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
 }
 
 ### change the progress of a rebel faction
@@ -927,14 +923,13 @@ alias[effect:add_religion_modifier] = {
     ## cardinality = 0..1
     size = value_field
     ## cardinality = 0..1
-    size = <script_value>
-    ## cardinality = 0..1
-    size = <static_value>
-    ## cardinality = 0..1
     size = single_alias_right[formula]
 
     ## cardinality = 0..1
     desc = localisation
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
 }
 
 ### add a modifier to a unit
@@ -943,7 +938,7 @@ alias[effect:add_religion_modifier] = <static_modifier>
 
 ### Add a completed religious focus to the country scope
 ## scopes = { country }
-alias[effect:add_religious_aspect] = scope[religious_focus]
+alias[effect:add_religious_aspect] = scope[religious_aspect]
 
 ### Add a completed religious focus to the country scope
 ## scopes = { country }
@@ -1375,6 +1370,9 @@ alias[effect:add_unit_modifier] = {
 
     ## cardinality = 0..1
     desc = localisation
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
 }
 
 ### Adds VFX effects on the map
@@ -2343,70 +2341,42 @@ alias[effect:create_character] = {
     ## cardinality = 0..1
     ## push_scope = country
     age = single_alias_right[formula]
-    ## cardinality = 0..1
-    age = <script_value>
-    ## cardinality = 0..1
-    age = <static_value>
 
     ## cardinality = 0..1
     min_age = int_value_field
     ## cardinality = 0..1
     ## push_scope = country
     min_age = single_alias_right[formula]
-    ## cardinality = 0..1
-    min_age = <script_value>
-    ## cardinality = 0..1
-    min_age = <static_value>
 
     ## cardinality = 0..1
     fertility = int_value_field
     ## cardinality = 0..1
     ## push_scope = country
     fertility = single_alias_right[formula]
-    ## cardinality = 0..1
-    fertility = <script_value>
-    ## cardinality = 0..1
-    fertility = <static_value>
 
     ## cardinality = 0..1
     adm = value_field
     ## cardinality = 0..1
     ## push_scope = country
     adm = single_alias_right[formula]
-    ## cardinality = 0..1
-    adm = <script_value>
-    ## cardinality = 0..1
-    adm = <static_value>
 
     ## cardinality = 0..1
     dip = value_field
     ## cardinality = 0..1
     ## push_scope = country
     dip = single_alias_right[formula]
-    ## cardinality = 0..1
-    dip = <script_value>
-    ## cardinality = 0..1
-    dip = <static_value>
 
     ## cardinality = 0..1
     mil = value_field
     ## cardinality = 0..1
     ## push_scope = country
     mil = single_alias_right[formula]
-    ## cardinality = 0..1
-    mil = <script_value>
-    ## cardinality = 0..1
-    mil = <static_value>
 
     ## cardinality = 0..1
     artist_skill = value_field
     ## cardinality = 0..1
     ## push_scope = country
     artist_skill = single_alias_right[formula]
-    ## cardinality = 0..1
-    artist_skill = <script_value>
-    ## cardinality = 0..1
-    artist_skill = <static_value>
 
     ## cardinality = 0..1
     female = bool
@@ -2423,6 +2393,18 @@ alias[effect:create_character] = {
     ## cardinality = 0..1
     ## push_scope = estate_type
     random_estate_type_trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    important_character_counts = enum[important_character_counts]
+
+    ## cardinality = 0..1
+    skip_update_inheritance = bool
+
+    ## cardinality = 0..1
+    skip_on_created_action = bool
+
+    ## cardinality = 0..1
+    use_random_core_location = bool
 
     alias_name[effect] = alias_match_left[effect]
 }
@@ -2701,10 +2683,6 @@ alias[effect:create_sub_unit_with_owner] = {
     experience = value_field
     ## cardinality = 0..1
     experience = single_alias_right[formula]
-    ## cardinality = 0..1
-    experience = <script_value>
-    ## cardinality = 0..1
-    experience = <static_value>
 }
 
 ### creates a trade. Usage: in a country scope: create_trade { from = <market> to = <market> merchant = <market where the merchant is> goods = <goods> locked = <locked> desired = <desired merchant capacity to use> }
@@ -2726,8 +2704,6 @@ alias[effect:create_trade] = {
     desired = scope_field
     desired = value_field
     desired = single_alias_right[formula]
-    desired = <script_value>
-    desired = <static_value>
 }
 
 ### Current country scope creates a union with the target scope. Unions get merged if either country has a union already.
@@ -3198,7 +3174,7 @@ alias[effect:international_organization_add_special_status] = {
 }
 
 ### international organization chooses a new leader
-## scopes = { international_organization }
+## scopes = { any }
 alias[effect:international_organization_chooses_new_leader] = scope[international_organization]
 
 ### international organization removes special status from a country
@@ -3218,6 +3194,12 @@ alias[effect:join_war_against] = {
 
     ## cardinality = 0..1
     call_in_subjects = bool
+
+    ## cardinality = 0..1
+    ignore_rules = bool
+
+    ## cardinality = 0..1
+    notify_opposing_side = bool
 }
 
 ### joins the target war as an attacker. Usage: join_war_as_attacker = { war = war scope call_in_subjects = yes/no }
@@ -3230,6 +3212,12 @@ alias[effect:join_war_as_attacker] = {
 
     ## cardinality = 0..1
     call_in_subjects = bool
+
+    ## cardinality = 0..1
+    ignore_rules = bool
+
+    ## cardinality = 0..1
+    notify_opposing_side = bool
 }
 
 ### joins the target war as a defender. Usage: join_war_as_defender = { war = war scope call_in_subjects = yes/no }
@@ -3242,6 +3230,12 @@ alias[effect:join_war_as_defender] = {
 
     ## cardinality = 0..1
     call_in_subjects = bool
+
+    ## cardinality = 0..1
+    ignore_rules = bool
+
+    ## cardinality = 0..1
+    notify_opposing_side = bool
 }
 
 ### joins the target war as an ally of the target country. Usage: join_war_with = { war = war scope target = country scope call_in_subjects = yes/no }
@@ -3253,6 +3247,12 @@ alias[effect:join_war_with] = {
 
     ## cardinality = 0..1
     call_in_subjects = bool
+
+    ## cardinality = 0..1
+    ignore_rules = bool
+
+    ## cardinality = 0..1
+    notify_opposing_side = bool
 }
 
 ### Kills the target character. Usage: kill_character = <character> or kill_character = { target = <character> [location = <location>] [disease = <disease>] [killer = <character>] [reason = <reason>] }
@@ -5322,6 +5322,9 @@ alias[effect:add_movement_modifier] = {
 
     ## cardinality = 0..1
     desc = localisation
+
+    ## cardinality = 0..1
+    recalculate_immediately = bool
 }
 
 ### Remove a modifier from a movement

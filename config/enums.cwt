@@ -98,12 +98,6 @@ enums = {
         EXPERT
     }
 
-    # Undocumented. Unused so copied over Vic3
-    enum[scripted_list_base] = {
-        country
-        character_in_void
-    }
-
     enum[advance_ai_preference_tag] = {
         exploration
     }
@@ -252,6 +246,7 @@ enums = {
     }
     enum[international_organization_leave_reason] = {
         DecidedToLeave
+        WonFreedom
     }
 
     enum[modifier_mode] = {
@@ -268,142 +263,152 @@ enums = {
 
     enum[character_trait_category] = {
         admiral
+        cabinet
         artist
         explorer
         general
         child
         ruler
         none
+        religious_figure
+        health
     }
 
     enum[scope] = {
+        none
+        invalid
         value
         boolean
-        active_resolution
-        area
-        building
-        building_type
-        cabinet
-        character
-        colonial_charter
-        combat_side
-        continent
-        country
-        culture
-        culture_group
-        demand
-        dynasty
-        estate
-        exploration
-        god
-        group
-        heir_selection
-        international_organization
-        law
-        loan
+        flag
+        color
+        date
         location
-        market
-        mercenary
-        none
-        policy
+        country
+        unit
+        sub_unit
+        character
+        dynasty
         pop
-        privateer
-        production_method
+        war
+        combat
+        combat_side
+        siege
+        culture
+        religion
+        colonial_charter
+        market
         province
         province_definition
-        rebels
-        region
-        religion
-        religious_aspect
-        religious_school
-        siege
-        sub_continent
-        sub_unit
-        trade
-        unit
-        war
-        work_of_art
-        active_resolution
-        advance_type
         area
-        avatar
-        building
-        building_type
-        cabinet
-        cabinet_action
-        cardinal
-        character
-        child_education
-        colonial_charter
+        region
+        sub_continent
         continent
-        country
-        country_rank
-        culture
-        culture_group
-        demand
-        dialect
-        disaster
-        disease_outbreak
-        dynasty
-        employment_system
-        estate
-        estate_privilege
-        estate_type
-        ethnicity
-        exploration
-        formable_country
-        god
+        group
+        language
+        rebels
+        trade
+        religious_school
         goods
+        demand
+        privateer
+        exploration
+        mercenary
+        work_of_art
         government
-        government_reform
-        graphical_culture
-        heir_selection
+        international_organization
         holy_site
         institution
-        international_organization
-        law
         loan
-        location
-        location_rank
-        market
-        mercenary
-        military_stance
-        mission_task
-        parliament_agenda
+        building
+        law
+        policy
+        price
+        situation
+        building_type
+        disaster
+        religious_aspect
+        estate_privilege
+        cabinet_action
+        government_reform
+        cabinet
+        production_method
+        graphical_culture
+        disease_outbreak
+        disease
         parliament_issue
         parliament_type
-        policy
-        pop
-        pop_type
-        price
-        privateer
-        production_method
-        province
-        province_definition
-        rebels
-        region
-        religion
-        religious_aspect
-        religious_focus
-        religious_school
         resolution
-        road_type
-        situation
-        special_status
-        sub_continent
-        sub_unit
-        sub_unit_category
+        god
+        omen
+        avatar
+        religious_faction
         subject_type
-        trade
-        trait
-        unit
-        unit_type
-        war
-        weather_system
-        work_of_art
-        culture_groups
+        cardinal
+        active_resolution
+        estate
+        audio_culture
+        advance_type
+        character_interaction
         country_interaction
+        generic_action
+        unit_type
+        levy_setup
+        parliament_agenda
+        casus_belli
         relation_type
+        disaster_type
+        sub_unit_category
+        peace_treaty
+        artist_type
+        work_of_art_type
+        child_education
+        mission
+        mission_task
+        recruitment_method
+        regency_type
+        unit_ability
+        societal_value_type
+        road_type
+        language_family
+        culture_group
+        heir_selection
+        estate_type
+        dialect
+        ethnicity
+        international_organization_type
+        payment
+        special_status
+        land_ownership_rule
+        weather_system
+        formable_country
+        hegemony
+        holy_site_definition
+        holy_site_type
+        country_rank
+        location_rank
+        pop_type
+        trait
+        religious_focus
+        religious_figure
+        climate
+        vegetation
+        topography
+        age
+        employment_system
+        military_stance
+        unit_template
+        unit_formation_preference
+        scriptable_hint_definition
+        scripted_geography
+        bureaucracy_type
+        bureaucracy
+        movement
+        movement_definition
+        town_rights
+        town_rights_type
+        ai_personality
+        chivalric_order
+        imperial_circle
     }
 
     enum[annex_country_reason] = {
@@ -433,6 +438,7 @@ enums = {
         nationalist
         religious
         pretender
+        slave
     }
 
     enum[levy_type] = {
@@ -448,6 +454,7 @@ enums = {
         explorer
         child
         religious_figure
+        cabinet
     }
 
     enum[age_preference] = {
@@ -479,6 +486,7 @@ enums = {
         replaceadmirals
         replacegenerals
         privateers
+        credit
     }
 
     enum[pin_collection] = {
@@ -629,6 +637,7 @@ enums = {
     #TODO: incomplete
     enum[dlc] = {
         "Sacred Sites"
+        "d008_fate_of_the_phoenix"
     }
 
     enum[hemisphere] = {
@@ -947,6 +956,59 @@ enums = {
         pre_skin_color
         post_skin_color
         pre
+    }
+
+    enum[ai_disposition] = {
+        alarmed
+        wary
+        planning_war
+        covets
+        rivals
+        indifferent
+    }
+
+    enum[area_preference_type] = {
+        conquest
+        exploration
+    }
+
+    enum[alert_description_priority] = {
+        yellow
+        green
+        orange
+        red
+        blue
+        purple
+    }
+
+    enum[audio_category] = {
+        generic
+        industry
+        military
+        culture
+        religion
+        economy
+    }
+
+    enum[important_character_counts] = {
+        advisor
+        none
+    }
+
+    enum[alert_view_tab] = {
+        overview
+        parliament
+    }
+
+    enum[name_format] = {
+        primary
+        secondary
+    }
+
+    enum[movement_impact] = {
+        neutral
+        positive
+        negative
     }
 
 }

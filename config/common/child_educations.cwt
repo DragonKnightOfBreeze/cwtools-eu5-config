@@ -12,11 +12,13 @@ types = {
     }
 }
 
+## replace_scope = { root = character this = character }
 child_education = {
     ## cardinality = 0..1
     modifier = single_alias_right[modifier_clause]
 
     ## cardinality = 0..1
+    ## replace_scope = { root = country this = country }
     country_modifier = single_alias_right[modifier_clause]
 
     ## cardinality = 0..1
@@ -27,4 +29,10 @@ child_education = {
 
     ## cardinality = 0..1
     allow = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    potential = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    on_education_start_effect = single_alias_right[effect_clause]
 }

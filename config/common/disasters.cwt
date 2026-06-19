@@ -12,15 +12,15 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 disaster = {
     image = filepath
 
+    ## cardinality = 0..1
+    content_priority = int
+
     ### script value for how likely the disease is to spawn per month (0..1) (scope:disaster is the disaster)
     monthly_spawn_chance = value_field
-    ### script value for how likely the disease is to spawn per month (0..1) (scope:disaster is the disaster)
-    monthly_spawn_chance = <script_value>
-    ### script value for how likely the disease is to spawn per month (0..1) (scope:disaster is the disaster)
-    monthly_spawn_chance = <static_value>
     ### script value for how likely the disease is to spawn per month (0..1) (scope:disaster is the disaster)
     monthly_spawn_chance = single_alias_right[formula]
 

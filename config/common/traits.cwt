@@ -14,7 +14,7 @@ types = {
 trait = {
     ### Which type of character can use this trait? Default is "ruler".
     ## cardinality = 0..1
-    category = enum[trait_category]
+    category = enum[character_trait_category]
 
     ## cardinality = 0..1
     flavor = <trait_flavor>
@@ -30,4 +30,42 @@ trait = {
     ### MTTH style of chance determining how likely this trait is to appear
     ## cardinality = 0..1
     chance = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    chance_on_birth = value_field
+    ## cardinality = 0..1
+    chance_on_birth = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    chance_after_battle = value_field
+    ## cardinality = 0..1
+    chance_after_battle = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    upgrades_to = <trait>
+
+    ## cardinality = 0..1
+    juvenile_form = <trait>
+
+    ## cardinality = 0..1
+    recovery_trait = <trait>
+
+    ## cardinality = 0..1
+    yearly_chance_of_remove = value_field
+    ## cardinality = 0..1
+    yearly_chance_of_remove = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    yearly_chance_to_die = value_field
+    ## cardinality = 0..1
+    yearly_chance_to_die = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    is_bad = bool
+
+    ## cardinality = 0..1
+    custom_tags = {
+        ## cardinality = 0..inf
+        value_set[custom_tag]
+    }
 }

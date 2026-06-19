@@ -23,4 +23,16 @@ religion_group = {
 
     ## cardinality = 0..inf
     modifier = single_alias_right[modifier_clause]
+
+    ## cardinality = 0..1
+    clergy_goods_demand_modifier = {
+        ## cardinality = 0..inf
+        <good> = float
+    }
+
+    ## cardinality = 0..1
+    goods_demand_modifier = {
+        ## cardinality = 0..inf
+        <good> = float
+    }
 }

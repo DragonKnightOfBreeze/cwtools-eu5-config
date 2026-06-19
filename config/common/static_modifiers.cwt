@@ -17,7 +17,10 @@ static_modifier = {
         category = enum[modifier_category]
 
         ## cardinality = 0..1
-        decaying = yes
+        decaying = bool
+
+        ## cardinality = 0..1
+        transfer = bool
     }
 
     ## cardinality = 0..inf

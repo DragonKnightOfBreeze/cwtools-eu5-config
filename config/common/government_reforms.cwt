@@ -12,10 +12,14 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 government_reform = {
     ### These are exclusive reforms, you can only implement one major one per country
     ## cardinality = 0..1
     major = bool
+
+    ## cardinality = 0..1
+    content_priority = int
 
     ## cardinality = 0..1
     icon = filepath[gfx/interface/icons/government_reforms/illustrations/,.dds]
@@ -54,10 +58,12 @@ government_reform = {
 
     ### (scale = script for the scale, potential_trigger = trigger for if the modifier applies)> which is applied to provinces
     ## cardinality = 0..inf
+    ## replace_scope = { root = country this = location }
     location_modifier = single_alias_right[modifier_clause]
 
     ### (scale = script for the scale, potential_trigger = trigger for if the modifier applies)> which is applied to provinces
     ## cardinality = 0..inf
+    ## replace_scope = { root = country this = province }
     province_modifier = single_alias_right[modifier_clause]
 
     ### fired when the action is chosen (root = country)

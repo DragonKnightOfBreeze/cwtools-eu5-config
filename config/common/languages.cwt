@@ -106,7 +106,7 @@ language = {
     ## cardinality = 0..1
     first_name_conjoiner = scalar
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     ship_names = {
         ## cardinality = 0..inf
         localisation
@@ -115,7 +115,7 @@ language = {
         localisation.localisation
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     dynasty_template_keys = {
         ## cardinality = 0..inf
         localisation
@@ -124,7 +124,7 @@ language = {
         localisation.localisation
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     male_names = {
         ## cardinality = 0..inf
         localisation
@@ -133,7 +133,7 @@ language = {
         localisation.localisation
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     female_names = {
         ## cardinality = 0..inf
         localisation
@@ -142,7 +142,7 @@ language = {
         localisation.localisation
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     dynasty_names = {
         ## cardinality = 0..inf
         localisation
@@ -151,7 +151,7 @@ language = {
         localisation.localisation
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     lowborn = {
         ## cardinality = 0..inf
         localisation
@@ -160,7 +160,7 @@ language = {
         localisation.localisation
     }
 
-    ## cardinality = 0..1s
+    ## cardinality = 0..1
     dialects = {}
 }
 
@@ -172,6 +172,18 @@ dialect = {
     default = bool
 
     ## cardinality = 0..1
+    use_female_birth_order_names = bool
+
+    ## cardinality = 0..1
+    first_name_format = enum[name_format]
+
+    ## cardinality = 0..1
+    last_name_format = enum[name_format]
+
+    ## cardinality = 0..1
+    nickname_name_format = enum[name_format]
+
+    ## cardinality = 0..inf
     male_names = {
         ## cardinality = 0..inf
         localisation
@@ -183,7 +195,7 @@ dialect = {
         localisation.localisation.localisation
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     female_names = {
         ## cardinality = 0..inf
         localisation
@@ -195,7 +207,7 @@ dialect = {
         localisation.localisation.localisation
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     dynasty_names = {
         ## cardinality = 0..inf
         localisation
@@ -207,7 +219,7 @@ dialect = {
         localisation.localisation.localisation
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     lowborn = {
         ## cardinality = 0..inf
         localisation

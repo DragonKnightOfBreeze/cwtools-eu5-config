@@ -19,6 +19,9 @@ types = {
 }
 
 scripted_relation = {
+    ## cardinality = 0..1
+    texture_file = filepath
+
     ### defines if the relation type is something you can have with every country or only with subjects
     type = enum[scripted_relation_type]
 
@@ -32,11 +35,18 @@ scripted_relation = {
     ## cardinality = 0..1
     diplomatic_capacity_cost = value_field
     ## cardinality = 0..1
-    diplomatic_capacity_cost = <script_value>
-    ## cardinality = 0..1
-    diplomatic_capacity_cost = <static_value>
-    ## cardinality = 0..1
     diplomatic_capacity_cost = single_alias_right[formula]
+
+    ## cardinality = 0..1
+    is_ongoing = bool
+
+    ## cardinality = 0..1
+    concept = value[concept_alias]
+
+    ## cardinality = 0..1
+    progress = value_field
+    ## cardinality = 0..1
+    progress = single_alias_right[formula]
 
     ## cardinality = 0..1
     diplomatic_cost_request = <diplomatic_cost>
@@ -311,6 +321,10 @@ scripted_relation = {
 
     ## cardinality = 0..1
     can_share_maps = bool
+
+    ## cardinality = 0..inf
+    ## replace_scope = { root = any this = any }
+    select_trigger = single_alias_right[selected_trigger_clause]
 
     ## cardinality = 0..1
     relation_type_for_ai = enum[scripted_relation_for_ai]

@@ -2,6 +2,7 @@
 
 #CWTools magic scope
 alias[effect:scope_field] = { alias_name[effect] = alias_match_left[effect] }
+alias[effect:scope_field] = { alias_name[effect] = alias_match_left[effect] }
 
 alias[trigger:value_field] == scope_field
 alias[trigger:value_field] == value_field

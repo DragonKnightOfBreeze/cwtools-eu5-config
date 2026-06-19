@@ -12,8 +12,12 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 advance = {
     age = <age>
+
+    ## cardinality = 0..1
+    content_priority = int
 
     ## cardinality = 0..inf
     requires = <advance>
@@ -23,6 +27,9 @@ advance = {
 
     ## cardinality = 0..1
     country_type = enum[country_type]
+
+    ## cardinality = 0..1
+    pure_tooltip_entry = localisation
 
     ## cardinality = 0..inf
     unlock_law = <law>
@@ -43,6 +50,9 @@ advance = {
     unlock_heir_selection = <heir_selection>
 
     ## cardinality = 0..inf
+    unlock_chivalric_order = <chivalric_order>
+
+    ## cardinality = 0..inf
     unlock_unit = <unit_type>
 
     ## cardinality = 0..inf
@@ -59,6 +69,9 @@ advance = {
 
     ## cardinality = 0..inf
     unlock_policy = value[policy]
+
+    ## cardinality = 0..inf
+    unlock_town_rights = <town_right>
 
     ## cardinality = 0..inf
     unlock_country_interaction = <country_interaction>

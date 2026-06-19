@@ -37,9 +37,11 @@ road_type = {
     build_time_per_unit_distance = int
 
     ### Modifies how fast units move on a location with this road type
-    movement_cost = value_field
+    movement_cost = float
 
-    market_access = value_field
+    market_access = float
+
+    pop_movement = float
 
     spline_style_id = int
 

@@ -12,6 +12,7 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 avatar = {
     god = <god>
 
@@ -45,9 +46,11 @@ avatar = {
 
     ### <scaled and triggered modifier (scale = script for the scale, potential_trigger = trigger for if the modifier applies)> which is applied to provinces
     ## cardinality = 0..1
+    ## replace_scope = { root = province this = province }
     province_modifier = single_alias_right[modifier_clause]
 
     ### <scaled and triggered modifier (scale = script for the scale, potential_trigger = trigger for if the modifier applies)> which is applied to locations
     ## cardinality = 0..1
+    ## replace_scope = { root = location this = location }
     location_modifier = single_alias_right[modifier_clause]
 }

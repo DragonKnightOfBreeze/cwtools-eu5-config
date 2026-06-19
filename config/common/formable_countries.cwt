@@ -12,6 +12,7 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 formable_country = {
     ### What level is this country? Players can only form countries of equal or higher level. AI can only form of higher level.
     level = int
@@ -20,9 +21,15 @@ formable_country = {
     ## cardinality = 0..1
     required_locations_fraction = value_field
 
+    ## cardinality = 0..1
+    content_priority = int
+
     ### Must the list of required locations/regions etc contain your current capital for the formable to even be visible? default is yes
     ## cardinality = 0..1
     capital_required = bool
+
+    ## cardinality = 0..1
+    potential_requires_own = bool
 
     ### Limits sillier ones vs historical ones. Select how silly you want it in the game rules. Default is historical
     ## cardinality = 0..1

@@ -91,4 +91,9 @@ subject_military_stance = {
 
     ### prio for providing food for armies by sea
     navy_logistics_priority = value_field
+
+    friendly_naval_transport_priority = value_field
+
+    ## cardinality = 0..1
+    confront_factor = value_field
 }

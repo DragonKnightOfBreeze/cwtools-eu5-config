@@ -20,6 +20,8 @@ on_action = {
         ## cardinality = 0..inf
         int = <event>
 
+        sample_count = int
+
         ## cardinality = 0..inf
         delay = single_alias_right[duration_clause]
 
@@ -51,6 +53,12 @@ on_action = {
 
     ## cardinality  = 0..1
     on_actions = {
+        ## cardinality = 0..inf
+        <on_action>
+    }
+
+    ## cardinality  = 0..1
+    first_valid_on_action = {
         ## cardinality = 0..inf
         <on_action>
     }

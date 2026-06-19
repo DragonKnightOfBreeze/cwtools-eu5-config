@@ -12,6 +12,7 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 religious_aspect = {
     ## cardinality = 0..1
     icon = filepath[gfx/interface/icons/religious_aspects/,.dds]
@@ -24,6 +25,9 @@ religious_aspect = {
 
     ## cardinality = 0..1
     enabled = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    saints_concept = value[concept_alias]
 
     ## cardinality = 0..inf
     modifier = single_alias_right[modifier_clause]

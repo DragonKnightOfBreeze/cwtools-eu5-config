@@ -46,6 +46,7 @@ peace_treaty = {
 
     ### can add one of these to allow selection of targets/parameters for the treaty. They get stored in scope:target
     ## cardinality = 0..inf
+    ## replace_scope = { root = any this = any }
     select_trigger = single_alias_right[selected_trigger_clause]
 
     ### script value for war score cost, scope:winner = taker, scope:loser = giver, scope:war = war they're in, scope:target = location/country/province specified

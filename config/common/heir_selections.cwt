@@ -12,6 +12,7 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 heir_selection = {
     ### do we use the family tree to calculate who's in line
     ## cardinality = 0..1
@@ -123,7 +124,11 @@ heir_selection = {
     ### root = character
     ### scope:target = country
     ## cardinality = 0..1
+    ## replace_scope = { root = character this = character }
     heir_is_allowed = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    setup_fallback = <heir_selection>
 
     ### an effect that happens right after succession occurs, but before candidates are recalculated
     ### useful scopes:
@@ -135,10 +140,12 @@ heir_selection = {
 
     ### here we calculate the score for each candidate that fulfills the above parameters
     ## cardinality = 0..1
+    ## replace_scope = { root = character this = character }
     calc = single_alias_right[formula]
 
     ### here we calculate the score for each sibling when we're traversing the family tree
     ## cardinality = 0..1
+    ## replace_scope = { root = character this = character }
     sibling_score = single_alias_right[formula]
 
     ## cardinality = 0..1

@@ -9,10 +9,16 @@ types = {
             name = "$"
             desc = "$_desc"
         }
+        images = {
+            icon = icon
+        }
     }
 }
 
 generic_action = {
+    ## cardinality = 0..1
+    icon = filepath[gfx/interface/icons/generic_actions/,.dds]
+
     type = enum[generic_action_type]
 
     #TODO
@@ -45,6 +51,9 @@ generic_action = {
     ## cardinality = 0..1
     show_message = bool
 
+    ## cardinality = 0..1
+    play_sound = bool
+
     ### optional, to prevent messages to show to the target
     ## cardinality = 0..1
     show_message_to_target = bool
@@ -52,6 +61,9 @@ generic_action = {
     ### trigger, scope:actor is the country attempting to perform the action
     ## cardinality = 0..1
     potential = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    show_message_if = single_alias_right[trigger_clause]
 
     ### trigger, scope:actor is the country attempting to perform the action
     ## cardinality = 0..1
@@ -66,6 +78,9 @@ generic_action = {
     ### a scripted standard price, listed in \common\prices\ and referenced by name (like price:<price_id>) or as a result of a script (like scope:target.price)
     ## cardinality = 0..1
     price = value_field
+
+    ## cardinality = 0..1
+    imperial_circle_action = bool
 
     ## cardinality = 0..1
     maximum_targets_in_one_tick = int
@@ -138,6 +153,11 @@ generic_action = {
     ### script for the AI to use, scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc
     ## cardinality = 0..inf
     ai_will_do = single_alias_right[formula]
+
+    ## cardinality = 0..inf
+    ai_acceptance = value_field
+    ## cardinality = 0..inf
+    ai_acceptance = single_alias_right[formula]
 
     ### scope:actor is the country, scope:recipient, scope:target, scope:target_1, scope:target_2....etc
     ## cardinality = 0..1

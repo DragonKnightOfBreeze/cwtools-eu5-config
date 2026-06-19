@@ -13,6 +13,12 @@ types = {
 
 scripted_geography = {
     ## cardinality = 0..1
+    region = {
+        ## cardinality = 0..inf
+        <region>
+    }
+
+    ## cardinality = 0..1
     area = {
         ## cardinality = 0..inf
         <area>

@@ -11,6 +11,7 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 scriptable_hint = {
     ## cardinality = 0..1
     priority = single_alias_right[trigger_clause]

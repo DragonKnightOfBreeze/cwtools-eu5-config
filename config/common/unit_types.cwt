@@ -15,6 +15,9 @@ types = {
         subtype[naval] = {
             category = <unit_category.naval>
         }
+        subtype[copy] = {
+            copy_from = <unit_type>
+        }
     }
 }
 
@@ -25,6 +28,12 @@ unit_type = {
     subtype[naval] = {
         category = <unit_category.naval>
     }
+    subtype[copy] = {
+        copy_from = <unit_type>
+    }
+
+    ## cardinality = 0..1
+    content_priority = int
 
     ## cardinality = 0..1
     alias_name[color] = alias_match_left[color]
@@ -40,6 +49,12 @@ unit_type = {
 
     ## cardinality = 0..1
     is_special = bool
+
+    ## cardinality = 0..1
+    empty = bool
+
+    ## cardinality = 0..1
+    hide = bool
 
     ## cardinality = 0..1
     default = bool
@@ -65,12 +80,15 @@ unit_type = {
     }
 
     ## cardinality = 0..1
+    ## replace_scope = { root = country this = country }
     country_potential = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
+    ## replace_scope = { root = location this = location }
     location_potential = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
+    ## replace_scope = { root = location this = location }
     location_trigger = single_alias_right[trigger_clause]
 
     ## cardinality = 0..inf
@@ -88,6 +106,42 @@ unit_type = {
     ## cardinality = 0..inf
     alias_name[combat_modifier_element_general] = alias_match_left[combat_modifier_element_general]
 
+    ## cardinality = 0..1
+    combat = {
+        ## cardinality = 0..inf
+        <vegetation> = float
+
+        ## cardinality = 0..inf
+        <topography> = float
+
+        ## cardinality = 0..1
+        river = float
+
+        ## cardinality = 0..1
+        inland = float
+
+        ## cardinality = 0..1
+        coastal = float
+    }
+
+    ## cardinality = 0..1
+    impact = {
+        ## cardinality = 0..inf
+        <vegetation> = float
+
+        ## cardinality = 0..inf
+        <topography> = float
+
+        ## cardinality = 0..1
+        river = float
+
+        ## cardinality = 0..1
+        inland = float
+
+        ## cardinality = 0..1
+        coastal = float
+    }
+
     subtype[land] = {
         ## cardinality = 0..inf
         alias_name[combat_modifier_element_land] = alias_match_left[combat_modifier_element_land]
@@ -102,5 +156,19 @@ unit_type = {
 
         ## cardinality = 0..1
         use_ship_names = bool
+    }
+
+    subtype[copy] = {
+        ## cardinality = 0..inf
+        alias_name[combat_modifier_element_naval] = alias_match_left[combat_modifier_element_naval]
+
+        ## cardinality = 0..inf
+        alias_name[combat_modifier_element_land] = alias_match_left[combat_modifier_element_land]
+
+        ## cardinality = 0..1
+        use_ship_names = bool
+
+        ## cardinality = 0..1
+        light = bool
     }
 }

@@ -17,10 +17,19 @@ culture = {
 
     alias_name[color] = alias_match_left[color]
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     culture_groups = {
         ## cardinality = 0..inf
         <culture_group>
+    }
+
+    ## cardinality = 0..1
+    active = bool
+
+    ## cardinality = 0..1
+    goods_demand_modifier = {
+        ## cardinality = 0..inf
+        <good> = float
     }
 
     tags = {
@@ -28,7 +37,7 @@ culture = {
         value_set[culture_gfx_tag]
     }
 
-    ## cardinality = 0..1
+    ## cardinality = 0..inf
     opinions = {
         ## cardinality = 0..inf
         <culture> = enum[culture_opinion]

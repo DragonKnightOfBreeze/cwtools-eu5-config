@@ -51,7 +51,20 @@ attribute_column = {
         ### scripted text for getting the text to sort the column by. Text has access to all the scope variables that the rest of the script has, so root is the object being selected, then others like scope:actor, scope:recipient, scope:target etc are available
         ## cardinality = 0..1
         sort_text = {
-            #TODO
+            ## cardinality = 0..inf
+            if = {
+                limit = single_alias_right[trigger_clause]
+
+                value = localisation
+            }
+
+            ## cardinality = 0..inf
+            else = {
+                value = localisation
+            }
+
+            ## cardinality = 0..1
+            value = localisation
         }
 
         ### scripted value for getting the value to sort the column by. Script has access to all the scope variables that the rest of the script has, so root is the object being selected, then others like scope:actor, scope:recipient, scope:target etc are available
@@ -60,6 +73,9 @@ attribute_column = {
 
         ### the text to show in the tooltip for the sort headers
         sort_by_tooltip_key = localisation
+
+        ## cardinality = 0..1
+        sort_by_acceptance = bool
 
         ## cardinality = 0..1
         sort_order = enum[attribute_column_sort_order]

@@ -14,9 +14,12 @@ types = {
 goods_demand = {
     category = <goods_demand_category>
 
+    ## cardinality = 0..1
+    copy_from = <goods_demand>
+
+    ## cardinality = 0..inf
     <good> = value_field
-    <good> = <script_value>
-    <good> = <static_value>
+    ## cardinality = 0..inf
     <good> = single_alias_right[formula]
 
     ## cardinality = 0..1

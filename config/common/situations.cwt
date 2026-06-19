@@ -12,23 +12,28 @@ types = {
     }
 }
 
+## replace_scope = { root = situation this = situation }
 situation = {
     ### script value for how likely the disease is to spawn per month (0..1) (scope:situation is the situation)
     monthly_spawn_chance = value_field
     ### script value for how likely the disease is to spawn per month (0..1) (scope:situation is the situation)
     monthly_spawn_chance = single_alias_right[formula]
-    ### script value for how likely the disease is to spawn per month (0..1) (scope:situation is the situation)
-    monthly_spawn_chance = <script_value>
-    ### script value for how likely the disease is to spawn per month (0..1) (scope:situation is the situation)
-    monthly_spawn_chance = <static_value>
 
     ## cardinality = 0..1
     hint_tag = localisation
 
     ## cardinality = 0..1
+    custom_description = <customizable_localization>
+
+    ## cardinality = 0..1
     is_data_map = bool
 
+    ## cardinality = 0..1
+    ## replace_scope = { root = country this = country }
+    content_trigger = single_alias_right[trigger_clause]
+
     ## cardinality = 0..inf
+    ## replace_scope = { root = location this = location }
     legend_key = {
         ## cardinality = 0..1
         limit = single_alias_right[trigger_clause]
@@ -64,6 +69,7 @@ situation = {
     can_end = single_alias_right[trigger_clause]
 
     ### can the player country see the situation and participate in it (root = country, scope:target = situation)
+    ## replace_scope = { root = country this = country }
     visible = single_alias_right[trigger_clause]
 
     ### effect when the situation starts, used for general set up (root = situation)
@@ -81,6 +87,7 @@ situation = {
 
     ### used to generate a tooltip for the map, not actually executed (root = location, scope:target = situation)
     ## cardinality = 0..1
+    ## replace_scope = { root = location this = location }
     tooltip = single_alias_right[effect_clause]
 
     ### map color for location (root = location, scope:target = situation)

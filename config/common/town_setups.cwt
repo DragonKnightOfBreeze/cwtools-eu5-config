@@ -9,6 +9,9 @@ types = {
 }
 
 town_setup = {
+    ## cardinality = 0..1
+    copy_from = <town_setup>
+
     ## cardinality = 1..inf
     <building_type> = int
 }

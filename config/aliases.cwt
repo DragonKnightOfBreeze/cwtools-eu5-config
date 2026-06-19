@@ -8,6 +8,22 @@ single_alias[effect_clause] = {
     alias_name[effect] = alias_match_left[effect]
 }
 
+single_alias[list_builder_clause] = {
+    ## cardinality = 0..inf
+    scope_field = {
+        ## cardinality = 0..inf
+        enum[scripted_list_base] = {
+            ## cardinality = 0..1
+            type = scalar
+        }
+    }
+    ## cardinality = 0..inf
+    enum[scripted_list_base] = {
+        ## cardinality = 0..1
+        type = scalar
+    }
+}
+
 single_alias[complex_desc] = {
     ## cardinality = 0..inf
     desc = localisation
@@ -115,26 +131,24 @@ single_alias[modifier_clause] = {
     potential_trigger = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
+    display_trigger = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
     scale = value_field
-    ## cardinality = 0..1
-    scale = <script_value>
-    ## cardinality = 0..1
-    scale = <static_value>
     ## cardinality = 0..1
     scale = single_alias_right[formula]
 
     ## cardinality = 0..inf
     alias_name[modifier_element] = alias_match_left[modifier_element]
+
+    ## cardinality = 0..inf
+    pure_tooltip_entry = localisation
 }
 
 alias[modifier_element:<modifier_type>] = value_field
 alias[modifier_element:<modifier_type>] = bool
-alias[modifier_element:<modifier_type>] = <script_value>
-alias[modifier_element:<modifier_type>] = <static_value>
 
 alias[duration:enum[duration]] = value_field
-alias[duration:enum[duration]] = <script_value>
-alias[duration:enum[duration]] = <static_value>
 alias[duration:enum[duration]] = single_alias_right[formula]
 alias[duration:enum[duration]] = scope_field
 
@@ -246,12 +260,6 @@ single_alias[selected_trigger_clause] = {
     min = value_field
     ### minimum value for value types
     ## cardinality = 0..1
-    min = <script_value>
-    ### minimum value for value types
-    ## cardinality = 0..1
-    min = <static_value>
-    ### minimum value for value types
-    ## cardinality = 0..1
     min = single_alias_right[formula]
     ### minimum value for value types
     ## cardinality = 0..1
@@ -260,12 +268,6 @@ single_alias[selected_trigger_clause] = {
     ### maximum value for value types
     ## cardinality = 0..1
     max = value_field
-    ### maximum value for value types
-    ## cardinality = 0..1
-    max = <script_value>
-    ### maximum value for value types
-    ## cardinality = 0..1
-    max = <static_value>
     ### maximum value for value types
     ## cardinality = 0..1
     max = single_alias_right[formula]
@@ -278,12 +280,6 @@ single_alias[selected_trigger_clause] = {
     step = value_field
     ### step value for changing value types in the UI
     ## cardinality = 0..1
-    step = <script_value>
-    ### step value for changing value types in the UI
-    ## cardinality = 0..1
-    step = <static_value>
-    ### step value for changing value types in the UI
-    ## cardinality = 0..1
     step = single_alias_right[formula]
     ### step value for changing value types in the UI
     ## cardinality = 0..1
@@ -294,12 +290,6 @@ single_alias[selected_trigger_clause] = {
     default = value_field
     ### default value for value types
     ## cardinality = 0..1
-    default = <script_value>
-    ### default value for value types
-    ## cardinality = 0..1
-    default = <static_value>
-    ### default value for value types
-    ## cardinality = 0..1
     default = single_alias_right[formula]
     ### default value for value types
     ## cardinality = 0..1
@@ -307,10 +297,6 @@ single_alias[selected_trigger_clause] = {
 
     ## cardinality = 0..1
     ai_override_value = value_field
-    ## cardinality = 0..1
-    ai_override_value = <script_value>
-    ## cardinality = 0..1
-    ai_override_value = <static_value>
     ## cardinality = 0..1
     ai_override_value = single_alias_right[formula]
     ## cardinality = 0..1

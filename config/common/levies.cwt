@@ -8,6 +8,7 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 levy = {
     size = value_field
     unit = <unit_type>
@@ -16,9 +17,11 @@ levy = {
     country_allow = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
+    ## replace_scope = { root = pop this = pop }
     allow = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
+    ## replace_scope = { root = pop this = pop }
     allow_as_crew = single_alias_right[trigger_clause]
 
     ## cardinality = 0..inf
