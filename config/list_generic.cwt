@@ -6821,31 +6821,31 @@ alias[arithmetic_operation:ordered_religion_for_god] = single_alias_right[formul
 alias[trigger:any_religion_for_god] = single_alias_right[trigger_any_list_clause]
 
 ### Iterate through all religions in a religion group.
-## scopes = { group }
+## scopes = { religion_group }
 ## push_scope = religion
 alias[effect:every_religion_in_religion_group] = single_alias_right[effect_every_list_clause]
 ### Iterate through all religions in a religion group.
-## scopes = { group }
+## scopes = { religion_group }
 ## push_scope = religion
 alias[effect:random_religion_in_religion_group] = single_alias_right[effect_random_list_clause]
 ### Iterate through all religions in a religion group.
-## scopes = { group }
+## scopes = { religion_group }
 ## push_scope = religion
 alias[effect:ordered_religion_in_religion_group] = single_alias_right[effect_ordered_list_clause]
 ### Iterate through all religions in a religion group.
-## scopes = { group }
+## scopes = { religion_group }
 ## push_scope = religion
 alias[arithmetic_operation:every_religion_in_religion_group] = single_alias_right[formula_every_list_clause]
 ### Iterate through all religions in a religion group.
-## scopes = { group }
+## scopes = { religion_group }
 ## push_scope = religion
 alias[arithmetic_operation:random_religion_in_religion_group] = single_alias_right[formula_random_list_clause]
 ### Iterate through all religions in a religion group.
-## scopes = { group }
+## scopes = { religion_group }
 ## push_scope = religion
 alias[arithmetic_operation:ordered_religion_in_religion_group] = single_alias_right[formula_ordered_list_clause]
 ### Iterate through all religions in a religion group.
-## scopes = { group }
+## scopes = { religion_group }
 ## push_scope = religion
 alias[trigger:any_religion_in_religion_group] = single_alias_right[trigger_any_list_clause]
 
@@ -8001,3 +8001,728 @@ alias[arithmetic_operation:ordered_random_integer] = single_alias_right[formula_
 ### Uniformly random integer between 0 and 2^31-1. It will be the same if evaluated on the same scope and day.
 ## scopes = { any }
 alias[trigger:any_random_integer] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through adult dynasty members who are not a ruler or heir (cached)
+## scopes = { dynasty }
+## push_scope = character
+alias[effect:every_available_dynasty_member] = single_alias_right[effect_every_list_clause]
+### Iterate through adult dynasty members who are not a ruler or heir (cached)
+## scopes = { dynasty }
+## push_scope = character
+alias[effect:random_available_dynasty_member] = single_alias_right[effect_random_list_clause]
+### Iterate through adult dynasty members who are not a ruler or heir (cached)
+## scopes = { dynasty }
+## push_scope = character
+alias[effect:ordered_available_dynasty_member] = single_alias_right[effect_ordered_list_clause]
+### Iterate through adult dynasty members who are not a ruler or heir (cached)
+## scopes = { dynasty }
+## push_scope = character
+alias[arithmetic_operation:every_available_dynasty_member] = single_alias_right[formula_every_list_clause]
+### Iterate through adult dynasty members who are not a ruler or heir (cached)
+## scopes = { dynasty }
+## push_scope = character
+alias[arithmetic_operation:random_available_dynasty_member] = single_alias_right[formula_random_list_clause]
+### Iterate through adult dynasty members who are not a ruler or heir (cached)
+## scopes = { dynasty }
+## push_scope = character
+alias[arithmetic_operation:ordered_available_dynasty_member] = single_alias_right[formula_ordered_list_clause]
+### Iterate through adult dynasty members who are not a ruler or heir (cached)
+## scopes = { dynasty }
+## push_scope = character
+alias[trigger:any_available_dynasty_member] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all buildings that an estate has
+## scopes = { estate }
+## push_scope = building
+alias[effect:every_building_owned_by_estate] = single_alias_right[effect_every_list_clause]
+### Iterate through all buildings that an estate has
+## scopes = { estate }
+## push_scope = building
+alias[effect:random_building_owned_by_estate] = single_alias_right[effect_random_list_clause]
+### Iterate through all buildings that an estate has
+## scopes = { estate }
+## push_scope = building
+alias[effect:ordered_building_owned_by_estate] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all buildings that an estate has
+## scopes = { estate }
+## push_scope = building
+alias[arithmetic_operation:every_building_owned_by_estate] = single_alias_right[formula_every_list_clause]
+### Iterate through all buildings that an estate has
+## scopes = { estate }
+## push_scope = building
+alias[arithmetic_operation:random_building_owned_by_estate] = single_alias_right[formula_random_list_clause]
+### Iterate through all buildings that an estate has
+## scopes = { estate }
+## push_scope = building
+alias[arithmetic_operation:ordered_building_owned_by_estate] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all buildings that an estate has
+## scopes = { estate }
+## push_scope = building
+alias[trigger:any_building_owned_by_estate] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all member countries of an Imperial Circle
+## scopes = { imperial_circle }
+## push_scope = country
+alias[effect:every_circle_member] = single_alias_right[effect_every_list_clause]
+### Iterate through all member countries of an Imperial Circle
+## scopes = { imperial_circle }
+## push_scope = country
+alias[effect:random_circle_member] = single_alias_right[effect_random_list_clause]
+### Iterate through all member countries of an Imperial Circle
+## scopes = { imperial_circle }
+## push_scope = country
+alias[effect:ordered_circle_member] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all member countries of an Imperial Circle
+## scopes = { imperial_circle }
+## push_scope = country
+alias[arithmetic_operation:every_circle_member] = single_alias_right[formula_every_list_clause]
+### Iterate through all member countries of an Imperial Circle
+## scopes = { imperial_circle }
+## push_scope = country
+alias[arithmetic_operation:random_circle_member] = single_alias_right[formula_random_list_clause]
+### Iterate through all member countries of an Imperial Circle
+## scopes = { imperial_circle }
+## push_scope = country
+alias[arithmetic_operation:ordered_circle_member] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all member countries of an Imperial Circle
+## scopes = { imperial_circle }
+## push_scope = country
+alias[trigger:any_circle_member] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all countries with an active chivalric order
+## scopes = { any }
+## push_scope = country
+alias[effect:every_country_with_chivalric_order] = single_alias_right[effect_every_list_clause]
+### Iterate through all countries with an active chivalric order
+## scopes = { any }
+## push_scope = country
+alias[effect:random_country_with_chivalric_order] = single_alias_right[effect_random_list_clause]
+### Iterate through all countries with an active chivalric order
+## scopes = { any }
+## push_scope = country
+alias[effect:ordered_country_with_chivalric_order] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all countries with an active chivalric order
+## scopes = { any }
+## push_scope = country
+alias[arithmetic_operation:every_country_with_chivalric_order] = single_alias_right[formula_every_list_clause]
+### Iterate through all countries with an active chivalric order
+## scopes = { any }
+## push_scope = country
+alias[arithmetic_operation:random_country_with_chivalric_order] = single_alias_right[formula_random_list_clause]
+### Iterate through all countries with an active chivalric order
+## scopes = { any }
+## push_scope = country
+alias[arithmetic_operation:ordered_country_with_chivalric_order] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all countries with an active chivalric order
+## scopes = { any }
+## push_scope = country
+alias[trigger:any_country_with_chivalric_order] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all Bureaucracies a country has
+## scopes = { country }
+## push_scope = bureaucracy
+alias[effect:every_current_bureaucracy] = single_alias_right[effect_every_list_clause]
+### Iterate through all Bureaucracies a country has
+## scopes = { country }
+## push_scope = bureaucracy
+alias[effect:random_current_bureaucracy] = single_alias_right[effect_random_list_clause]
+### Iterate through all Bureaucracies a country has
+## scopes = { country }
+## push_scope = bureaucracy
+alias[effect:ordered_current_bureaucracy] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all Bureaucracies a country has
+## scopes = { country }
+## push_scope = bureaucracy
+alias[arithmetic_operation:every_current_bureaucracy] = single_alias_right[formula_every_list_clause]
+### Iterate through all Bureaucracies a country has
+## scopes = { country }
+## push_scope = bureaucracy
+alias[arithmetic_operation:random_current_bureaucracy] = single_alias_right[formula_random_list_clause]
+### Iterate through all Bureaucracies a country has
+## scopes = { country }
+## push_scope = bureaucracy
+alias[arithmetic_operation:ordered_current_bureaucracy] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all Bureaucracies a country has
+## scopes = { country }
+## push_scope = bureaucracy
+alias[trigger:any_current_bureaucracy] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all Bureaucracy types a country has
+## scopes = { country }
+## push_scope = bureaucracy_type
+alias[effect:every_current_bureaucracy_type] = single_alias_right[effect_every_list_clause]
+### Iterate through all Bureaucracy types a country has
+## scopes = { country }
+## push_scope = bureaucracy_type
+alias[effect:random_current_bureaucracy_type] = single_alias_right[effect_random_list_clause]
+### Iterate through all Bureaucracy types a country has
+## scopes = { country }
+## push_scope = bureaucracy_type
+alias[effect:ordered_current_bureaucracy_type] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all Bureaucracy types a country has
+## scopes = { country }
+## push_scope = bureaucracy_type
+alias[arithmetic_operation:every_current_bureaucracy_type] = single_alias_right[formula_every_list_clause]
+### Iterate through all Bureaucracy types a country has
+## scopes = { country }
+## push_scope = bureaucracy_type
+alias[arithmetic_operation:random_current_bureaucracy_type] = single_alias_right[formula_random_list_clause]
+### Iterate through all Bureaucracy types a country has
+## scopes = { country }
+## push_scope = bureaucracy_type
+alias[arithmetic_operation:ordered_current_bureaucracy_type] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all Bureaucracy types a country has
+## scopes = { country }
+## push_scope = bureaucracy_type
+alias[trigger:any_current_bureaucracy_type] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all estate types that do NOT prefer a bureaucracy
+## scopes = { bureaucracy_type }
+## push_scope = estate_type
+alias[effect:every_estate_type_that_dislikes_bureaucracy] = single_alias_right[effect_every_list_clause]
+### Iterate through all estate types that do NOT prefer a bureaucracy
+## scopes = { bureaucracy_type }
+## push_scope = estate_type
+alias[effect:random_estate_type_that_dislikes_bureaucracy] = single_alias_right[effect_random_list_clause]
+### Iterate through all estate types that do NOT prefer a bureaucracy
+## scopes = { bureaucracy_type }
+## push_scope = estate_type
+alias[effect:ordered_estate_type_that_dislikes_bureaucracy] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all estate types that do NOT prefer a bureaucracy
+## scopes = { bureaucracy_type }
+## push_scope = estate_type
+alias[arithmetic_operation:every_estate_type_that_dislikes_bureaucracy] = single_alias_right[formula_every_list_clause]
+### Iterate through all estate types that do NOT prefer a bureaucracy
+## scopes = { bureaucracy_type }
+## push_scope = estate_type
+alias[arithmetic_operation:random_estate_type_that_dislikes_bureaucracy] = single_alias_right[formula_random_list_clause]
+### Iterate through all estate types that do NOT prefer a bureaucracy
+## scopes = { bureaucracy_type }
+## push_scope = estate_type
+alias[arithmetic_operation:ordered_estate_type_that_dislikes_bureaucracy] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all estate types that do NOT prefer a bureaucracy
+## scopes = { bureaucracy_type }
+## push_scope = estate_type
+alias[trigger:any_estate_type_that_dislikes_bureaucracy] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all estate types that a prefer a bureaucracy
+## scopes = { bureaucracy_type }
+## push_scope = estate_type
+alias[effect:every_estate_type_that_likes_bureaucracy] = single_alias_right[effect_every_list_clause]
+### Iterate through all estate types that a prefer a bureaucracy
+## scopes = { bureaucracy_type }
+## push_scope = estate_type
+alias[effect:random_estate_type_that_likes_bureaucracy] = single_alias_right[effect_random_list_clause]
+### Iterate through all estate types that a prefer a bureaucracy
+## scopes = { bureaucracy_type }
+## push_scope = estate_type
+alias[effect:ordered_estate_type_that_likes_bureaucracy] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all estate types that a prefer a bureaucracy
+## scopes = { bureaucracy_type }
+## push_scope = estate_type
+alias[arithmetic_operation:every_estate_type_that_likes_bureaucracy] = single_alias_right[formula_every_list_clause]
+### Iterate through all estate types that a prefer a bureaucracy
+## scopes = { bureaucracy_type }
+## push_scope = estate_type
+alias[arithmetic_operation:random_estate_type_that_likes_bureaucracy] = single_alias_right[formula_random_list_clause]
+### Iterate through all estate types that a prefer a bureaucracy
+## scopes = { bureaucracy_type }
+## push_scope = estate_type
+alias[arithmetic_operation:ordered_estate_type_that_likes_bureaucracy] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all estate types that a prefer a bureaucracy
+## scopes = { bureaucracy_type }
+## push_scope = estate_type
+alias[trigger:any_estate_type_that_likes_bureaucracy] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all lent units currently employed by another country, scoped from the lending country
+## scopes = { country }
+## push_scope = mercenary
+alias[effect:every_every_rented_out_mercenary] = single_alias_right[effect_every_list_clause]
+### Iterate through all lent units currently employed by another country, scoped from the lending country
+## scopes = { country }
+## push_scope = mercenary
+alias[effect:random_every_rented_out_mercenary] = single_alias_right[effect_random_list_clause]
+### Iterate through all lent units currently employed by another country, scoped from the lending country
+## scopes = { country }
+## push_scope = mercenary
+alias[effect:ordered_every_rented_out_mercenary] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all lent units currently employed by another country, scoped from the lending country
+## scopes = { country }
+## push_scope = mercenary
+alias[arithmetic_operation:every_every_rented_out_mercenary] = single_alias_right[formula_every_list_clause]
+### Iterate through all lent units currently employed by another country, scoped from the lending country
+## scopes = { country }
+## push_scope = mercenary
+alias[arithmetic_operation:random_every_rented_out_mercenary] = single_alias_right[formula_random_list_clause]
+### Iterate through all lent units currently employed by another country, scoped from the lending country
+## scopes = { country }
+## push_scope = mercenary
+alias[arithmetic_operation:ordered_every_rented_out_mercenary] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all lent units currently employed by another country, scoped from the lending country
+## scopes = { country }
+## push_scope = mercenary
+alias[trigger:any_every_rented_out_mercenary] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all Imperial Circles in the scope international organization
+## scopes = { international_organization }
+## push_scope = imperial_circle
+alias[effect:every_imperial_circle] = single_alias_right[effect_every_list_clause]
+### Iterate through all Imperial Circles in the scope international organization
+## scopes = { international_organization }
+## push_scope = imperial_circle
+alias[effect:random_imperial_circle] = single_alias_right[effect_random_list_clause]
+### Iterate through all Imperial Circles in the scope international organization
+## scopes = { international_organization }
+## push_scope = imperial_circle
+alias[effect:ordered_imperial_circle] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all Imperial Circles in the scope international organization
+## scopes = { international_organization }
+## push_scope = imperial_circle
+alias[arithmetic_operation:every_imperial_circle] = single_alias_right[formula_every_list_clause]
+### Iterate through all Imperial Circles in the scope international organization
+## scopes = { international_organization }
+## push_scope = imperial_circle
+alias[arithmetic_operation:random_imperial_circle] = single_alias_right[formula_random_list_clause]
+### Iterate through all Imperial Circles in the scope international organization
+## scopes = { international_organization }
+## push_scope = imperial_circle
+alias[arithmetic_operation:ordered_imperial_circle] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all Imperial Circles in the scope international organization
+## scopes = { international_organization }
+## push_scope = imperial_circle
+alias[trigger:any_imperial_circle] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all Imperial Circles the scope country is a member of
+## scopes = { country }
+## push_scope = imperial_circle
+alias[effect:every_imperial_circle_country_is_member_of] = single_alias_right[effect_every_list_clause]
+### Iterate through all Imperial Circles the scope country is a member of
+## scopes = { country }
+## push_scope = imperial_circle
+alias[effect:random_imperial_circle_country_is_member_of] = single_alias_right[effect_random_list_clause]
+### Iterate through all Imperial Circles the scope country is a member of
+## scopes = { country }
+## push_scope = imperial_circle
+alias[effect:ordered_imperial_circle_country_is_member_of] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all Imperial Circles the scope country is a member of
+## scopes = { country }
+## push_scope = imperial_circle
+alias[arithmetic_operation:every_imperial_circle_country_is_member_of] = single_alias_right[formula_every_list_clause]
+### Iterate through all Imperial Circles the scope country is a member of
+## scopes = { country }
+## push_scope = imperial_circle
+alias[arithmetic_operation:random_imperial_circle_country_is_member_of] = single_alias_right[formula_random_list_clause]
+### Iterate through all Imperial Circles the scope country is a member of
+## scopes = { country }
+## push_scope = imperial_circle
+alias[arithmetic_operation:ordered_imperial_circle_country_is_member_of] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all Imperial Circles the scope country is a member of
+## scopes = { country }
+## push_scope = imperial_circle
+alias[trigger:any_imperial_circle_country_is_member_of] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all locations affected by the scope movement
+## scopes = { movement }
+## push_scope = location
+alias[effect:every_location_with_movement] = single_alias_right[effect_every_list_clause]
+### Iterate through all locations affected by the scope movement
+## scopes = { movement }
+## push_scope = location
+alias[effect:random_location_with_movement] = single_alias_right[effect_random_list_clause]
+### Iterate through all locations affected by the scope movement
+## scopes = { movement }
+## push_scope = location
+alias[effect:ordered_location_with_movement] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all locations affected by the scope movement
+## scopes = { movement }
+## push_scope = location
+alias[arithmetic_operation:every_location_with_movement] = single_alias_right[formula_every_list_clause]
+### Iterate through all locations affected by the scope movement
+## scopes = { movement }
+## push_scope = location
+alias[arithmetic_operation:random_location_with_movement] = single_alias_right[formula_random_list_clause]
+### Iterate through all locations affected by the scope movement
+## scopes = { movement }
+## push_scope = location
+alias[arithmetic_operation:ordered_location_with_movement] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all locations affected by the scope movement
+## scopes = { movement }
+## push_scope = location
+alias[trigger:any_location_with_movement] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all locations with Town Rights in a country
+## scopes = { country }
+## push_scope = location
+alias[effect:every_locations_with_town_rights_in_country] = single_alias_right[effect_every_list_clause]
+### Iterate through all locations with Town Rights in a country
+## scopes = { country }
+## push_scope = location
+alias[effect:random_locations_with_town_rights_in_country] = single_alias_right[effect_random_list_clause]
+### Iterate through all locations with Town Rights in a country
+## scopes = { country }
+## push_scope = location
+alias[effect:ordered_locations_with_town_rights_in_country] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all locations with Town Rights in a country
+## scopes = { country }
+## push_scope = location
+alias[arithmetic_operation:every_locations_with_town_rights_in_country] = single_alias_right[formula_every_list_clause]
+### Iterate through all locations with Town Rights in a country
+## scopes = { country }
+## push_scope = location
+alias[arithmetic_operation:random_locations_with_town_rights_in_country] = single_alias_right[formula_random_list_clause]
+### Iterate through all locations with Town Rights in a country
+## scopes = { country }
+## push_scope = location
+alias[arithmetic_operation:ordered_locations_with_town_rights_in_country] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all locations with Town Rights in a country
+## scopes = { country }
+## push_scope = location
+alias[trigger:any_locations_with_town_rights_in_country] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all movements
+## scopes = { any }
+## push_scope = movement
+alias[effect:every_movement] = single_alias_right[effect_every_list_clause]
+### Iterate through all movements
+## scopes = { any }
+## push_scope = movement
+alias[effect:random_movement] = single_alias_right[effect_random_list_clause]
+### Iterate through all movements
+## scopes = { any }
+## push_scope = movement
+alias[effect:ordered_movement] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all movements
+## scopes = { any }
+## push_scope = movement
+alias[arithmetic_operation:every_movement] = single_alias_right[formula_every_list_clause]
+### Iterate through all movements
+## scopes = { any }
+## push_scope = movement
+alias[arithmetic_operation:random_movement] = single_alias_right[formula_random_list_clause]
+### Iterate through all movements
+## scopes = { any }
+## push_scope = movement
+alias[arithmetic_operation:ordered_movement] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all movements
+## scopes = { any }
+## push_scope = movement
+alias[trigger:any_movement] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all movements in a country
+## scopes = { country }
+## push_scope = movement
+alias[effect:every_movement_in_country] = single_alias_right[effect_every_list_clause]
+### Iterate through all movements in a country
+## scopes = { country }
+## push_scope = movement
+alias[effect:random_movement_in_country] = single_alias_right[effect_random_list_clause]
+### Iterate through all movements in a country
+## scopes = { country }
+## push_scope = movement
+alias[effect:ordered_movement_in_country] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all movements in a country
+## scopes = { country }
+## push_scope = movement
+alias[arithmetic_operation:every_movement_in_country] = single_alias_right[formula_every_list_clause]
+### Iterate through all movements in a country
+## scopes = { country }
+## push_scope = movement
+alias[arithmetic_operation:random_movement_in_country] = single_alias_right[formula_random_list_clause]
+### Iterate through all movements in a country
+## scopes = { country }
+## push_scope = movement
+alias[arithmetic_operation:ordered_movement_in_country] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all movements in a country
+## scopes = { country }
+## push_scope = movement
+alias[trigger:any_movement_in_country] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all movements in a culture
+## scopes = { culture }
+## push_scope = movement
+alias[effect:every_movement_in_culture] = single_alias_right[effect_every_list_clause]
+### Iterate through all movements in a culture
+## scopes = { culture }
+## push_scope = movement
+alias[effect:random_movement_in_culture] = single_alias_right[effect_random_list_clause]
+### Iterate through all movements in a culture
+## scopes = { culture }
+## push_scope = movement
+alias[effect:ordered_movement_in_culture] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all movements in a culture
+## scopes = { culture }
+## push_scope = movement
+alias[arithmetic_operation:every_movement_in_culture] = single_alias_right[formula_every_list_clause]
+### Iterate through all movements in a culture
+## scopes = { culture }
+## push_scope = movement
+alias[arithmetic_operation:random_movement_in_culture] = single_alias_right[formula_random_list_clause]
+### Iterate through all movements in a culture
+## scopes = { culture }
+## push_scope = movement
+alias[arithmetic_operation:ordered_movement_in_culture] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all movements in a culture
+## scopes = { culture }
+## push_scope = movement
+alias[trigger:any_movement_in_culture] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all movements in a religion
+## scopes = { religion }
+## push_scope = movement
+alias[effect:every_movement_in_religion] = single_alias_right[effect_every_list_clause]
+### Iterate through all movements in a religion
+## scopes = { religion }
+## push_scope = movement
+alias[effect:random_movement_in_religion] = single_alias_right[effect_random_list_clause]
+### Iterate through all movements in a religion
+## scopes = { religion }
+## push_scope = movement
+alias[effect:ordered_movement_in_religion] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all movements in a religion
+## scopes = { religion }
+## push_scope = movement
+alias[arithmetic_operation:every_movement_in_religion] = single_alias_right[formula_every_list_clause]
+### Iterate through all movements in a religion
+## scopes = { religion }
+## push_scope = movement
+alias[arithmetic_operation:random_movement_in_religion] = single_alias_right[formula_random_list_clause]
+### Iterate through all movements in a religion
+## scopes = { religion }
+## push_scope = movement
+alias[arithmetic_operation:ordered_movement_in_religion] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all movements in a religion
+## scopes = { religion }
+## push_scope = movement
+alias[trigger:any_movement_in_religion] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all Omens active in a country
+## scopes = { country }
+## push_scope = omen
+alias[effect:every_omen_in_country] = single_alias_right[effect_every_list_clause]
+### Iterate through all Omens active in a country
+## scopes = { country }
+## push_scope = omen
+alias[effect:random_omen_in_country] = single_alias_right[effect_random_list_clause]
+### Iterate through all Omens active in a country
+## scopes = { country }
+## push_scope = omen
+alias[effect:ordered_omen_in_country] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all Omens active in a country
+## scopes = { country }
+## push_scope = omen
+alias[arithmetic_operation:every_omen_in_country] = single_alias_right[formula_every_list_clause]
+### Iterate through all Omens active in a country
+## scopes = { country }
+## push_scope = omen
+alias[arithmetic_operation:random_omen_in_country] = single_alias_right[formula_random_list_clause]
+### Iterate through all Omens active in a country
+## scopes = { country }
+## push_scope = omen
+alias[arithmetic_operation:ordered_omen_in_country] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all Omens active in a country
+## scopes = { country }
+## push_scope = omen
+alias[trigger:any_omen_in_country] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all Omens associated with a God
+## scopes = { god }
+## push_scope = omen
+alias[effect:every_omen_in_god] = single_alias_right[effect_every_list_clause]
+### Iterate through all Omens associated with a God
+## scopes = { god }
+## push_scope = omen
+alias[effect:random_omen_in_god] = single_alias_right[effect_random_list_clause]
+### Iterate through all Omens associated with a God
+## scopes = { god }
+## push_scope = omen
+alias[effect:ordered_omen_in_god] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all Omens associated with a God
+## scopes = { god }
+## push_scope = omen
+alias[arithmetic_operation:every_omen_in_god] = single_alias_right[formula_every_list_clause]
+### Iterate through all Omens associated with a God
+## scopes = { god }
+## push_scope = omen
+alias[arithmetic_operation:random_omen_in_god] = single_alias_right[formula_random_list_clause]
+### Iterate through all Omens associated with a God
+## scopes = { god }
+## push_scope = omen
+alias[arithmetic_operation:ordered_omen_in_god] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all Omens associated with a God
+## scopes = { god }
+## push_scope = omen
+alias[trigger:any_omen_in_god] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all Omens in a Religion
+## scopes = { religion }
+## push_scope = omen
+alias[effect:every_omen_in_religion] = single_alias_right[effect_every_list_clause]
+### Iterate through all Omens in a Religion
+## scopes = { religion }
+## push_scope = omen
+alias[effect:random_omen_in_religion] = single_alias_right[effect_random_list_clause]
+### Iterate through all Omens in a Religion
+## scopes = { religion }
+## push_scope = omen
+alias[effect:ordered_omen_in_religion] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all Omens in a Religion
+## scopes = { religion }
+## push_scope = omen
+alias[arithmetic_operation:every_omen_in_religion] = single_alias_right[formula_every_list_clause]
+### Iterate through all Omens in a Religion
+## scopes = { religion }
+## push_scope = omen
+alias[arithmetic_operation:random_omen_in_religion] = single_alias_right[formula_random_list_clause]
+### Iterate through all Omens in a Religion
+## scopes = { religion }
+## push_scope = omen
+alias[arithmetic_operation:ordered_omen_in_religion] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all Omens in a Religion
+## scopes = { religion }
+## push_scope = omen
+alias[trigger:any_omen_in_religion] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all court dialects a country has had before
+## scopes = { country }
+## push_scope = country
+alias[effect:every_past_court_dialect] = single_alias_right[effect_every_list_clause]
+### Iterate through all court dialects a country has had before
+## scopes = { country }
+## push_scope = country
+alias[effect:random_past_court_dialect] = single_alias_right[effect_random_list_clause]
+### Iterate through all court dialects a country has had before
+## scopes = { country }
+## push_scope = country
+alias[effect:ordered_past_court_dialect] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all court dialects a country has had before
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:every_past_court_dialect] = single_alias_right[formula_every_list_clause]
+### Iterate through all court dialects a country has had before
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:random_past_court_dialect] = single_alias_right[formula_random_list_clause]
+### Iterate through all court dialects a country has had before
+## scopes = { country }
+## push_scope = country
+alias[arithmetic_operation:ordered_past_court_dialect] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all court dialects a country has had before
+## scopes = { country }
+## push_scope = country
+alias[trigger:any_past_court_dialect] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through IOs a character rules
+## scopes = { character }
+## push_scope = international_organization
+alias[effect:every_ruled_international_organization] = single_alias_right[effect_every_list_clause]
+### Iterate through IOs a character rules
+## scopes = { character }
+## push_scope = international_organization
+alias[effect:random_ruled_international_organization] = single_alias_right[effect_random_list_clause]
+### Iterate through IOs a character rules
+## scopes = { character }
+## push_scope = international_organization
+alias[effect:ordered_ruled_international_organization] = single_alias_right[effect_ordered_list_clause]
+### Iterate through IOs a character rules
+## scopes = { character }
+## push_scope = international_organization
+alias[arithmetic_operation:every_ruled_international_organization] = single_alias_right[formula_every_list_clause]
+### Iterate through IOs a character rules
+## scopes = { character }
+## push_scope = international_organization
+alias[arithmetic_operation:random_ruled_international_organization] = single_alias_right[formula_random_list_clause]
+### Iterate through IOs a character rules
+## scopes = { character }
+## push_scope = international_organization
+alias[arithmetic_operation:ordered_ruled_international_organization] = single_alias_right[formula_ordered_list_clause]
+### Iterate through IOs a character rules
+## scopes = { character }
+## push_scope = international_organization
+alias[trigger:any_ruled_international_organization] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all Town Rights in a country
+## scopes = { country }
+## push_scope = town_rights
+alias[effect:every_town_rights_in_country] = single_alias_right[effect_every_list_clause]
+### Iterate through all Town Rights in a country
+## scopes = { country }
+## push_scope = town_rights
+alias[effect:random_town_rights_in_country] = single_alias_right[effect_random_list_clause]
+### Iterate through all Town Rights in a country
+## scopes = { country }
+## push_scope = town_rights
+alias[effect:ordered_town_rights_in_country] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all Town Rights in a country
+## scopes = { country }
+## push_scope = town_rights
+alias[arithmetic_operation:every_town_rights_in_country] = single_alias_right[formula_every_list_clause]
+### Iterate through all Town Rights in a country
+## scopes = { country }
+## push_scope = town_rights
+alias[arithmetic_operation:random_town_rights_in_country] = single_alias_right[formula_random_list_clause]
+### Iterate through all Town Rights in a country
+## scopes = { country }
+## push_scope = town_rights
+alias[arithmetic_operation:ordered_town_rights_in_country] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all Town Rights in a country
+## scopes = { country }
+## push_scope = town_rights
+alias[trigger:any_town_rights_in_country] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all Town Rights in a Location
+## scopes = { location }
+## push_scope = town_rights
+alias[effect:every_town_rights_in_location] = single_alias_right[effect_every_list_clause]
+### Iterate through all Town Rights in a Location
+## scopes = { location }
+## push_scope = town_rights
+alias[effect:random_town_rights_in_location] = single_alias_right[effect_random_list_clause]
+### Iterate through all Town Rights in a Location
+## scopes = { location }
+## push_scope = town_rights
+alias[effect:ordered_town_rights_in_location] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all Town Rights in a Location
+## scopes = { location }
+## push_scope = town_rights
+alias[arithmetic_operation:every_town_rights_in_location] = single_alias_right[formula_every_list_clause]
+### Iterate through all Town Rights in a Location
+## scopes = { location }
+## push_scope = town_rights
+alias[arithmetic_operation:random_town_rights_in_location] = single_alias_right[formula_random_list_clause]
+### Iterate through all Town Rights in a Location
+## scopes = { location }
+## push_scope = town_rights
+alias[arithmetic_operation:ordered_town_rights_in_location] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all Town Rights in a Location
+## scopes = { location }
+## push_scope = town_rights
+alias[trigger:any_town_rights_in_location] = single_alias_right[trigger_any_list_clause]
+
+### Iterate through all traits of a character.
+## scopes = { character }
+## push_scope = trait
+alias[effect:every_trait] = single_alias_right[effect_every_list_clause]
+### Iterate through all traits of a character.
+## scopes = { character }
+## push_scope = trait
+alias[effect:random_trait] = single_alias_right[effect_random_list_clause]
+### Iterate through all traits of a character.
+## scopes = { character }
+## push_scope = trait
+alias[effect:ordered_trait] = single_alias_right[effect_ordered_list_clause]
+### Iterate through all traits of a character.
+## scopes = { character }
+## push_scope = trait
+alias[arithmetic_operation:every_trait] = single_alias_right[formula_every_list_clause]
+### Iterate through all traits of a character.
+## scopes = { character }
+## push_scope = trait
+alias[arithmetic_operation:random_trait] = single_alias_right[formula_random_list_clause]
+### Iterate through all traits of a character.
+## scopes = { character }
+## push_scope = trait
+alias[arithmetic_operation:ordered_trait] = single_alias_right[formula_ordered_list_clause]
+### Iterate through all traits of a character.
+## scopes = { character }
+## push_scope = trait
+alias[trigger:any_trait] = single_alias_right[trigger_any_list_clause]
