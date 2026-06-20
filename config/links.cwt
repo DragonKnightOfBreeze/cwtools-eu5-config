@@ -266,7 +266,7 @@ links = {
         data_source = <continent>
     }
     continent = {
-        input_scopes = { country location area sub_continent }
+        input_scopes = { location province province_definition area region sub_continent }
         output_scope = continent
     }
     controller = {
@@ -342,6 +342,7 @@ links = {
         output_scope = value
         type = value
         from_data = yes
+        from_argument = yes
         prefix = default_price:
         data_source = scope[goods]
     }
@@ -724,6 +725,11 @@ links = {
         data_source = <good>
     }
     land_ownership_rule = {
+        input_scopes = { international_organization }
+        output_scope = land_ownership_rule
+        type = scope
+    }
+    land_ownership_rule_link = {
         input_scopes = { any }
         output_scope = land_ownership_rule
         from_data = yes
@@ -844,7 +850,7 @@ links = {
         data_source = value[location]
     }
     location = {
-        input_scopes = { character pop combat siege market exploration work_of_art holy_site building cardinal }
+        input_scopes = { character pop combat siege market exploration work_of_art holy_site building cardinal town_rights }
         output_scope = location
     }
     location_rank_link = {
@@ -872,8 +878,9 @@ links = {
         output_scope = value
         type = value
         from_data = yes
+        from_argument = yes
         prefix = market_price:
-        data_source = <good>
+        data_source = scope[goods]
     }
     marriage_union = {
         input_scopes = { country }
@@ -1133,6 +1140,13 @@ links = {
         prefix = production_method:
         data_source = <production_method>
     }
+    production_method_unique = {
+        input_scopes = { any }
+        output_scope = production_method
+        from_data = yes
+        prefix = production_method:
+        data_source = value[unique_production_method]
+    }
     province_link = {
         input_scopes = { any }
         output_scope = province
@@ -1201,7 +1215,7 @@ links = {
         data_source = <region>
     }
     region = {
-        input_scopes = { any }
+        input_scopes = { location province province_definition area }
         output_scope = region
     }
     relation_type = {
@@ -1428,7 +1442,7 @@ links = {
         data_source = <sub_continent>
     }
     sub_continent = {
-        input_scopes = { country location area continent }
+        input_scopes = { location province province_definition area region }
         output_scope = sub_continent
     }
     sub_unit_category_link = {
@@ -1448,7 +1462,7 @@ links = {
         type = value
         from_data = yes
         prefix = sub_unit_count:
-        data_source = <unit_type>
+        data_source = <unit_category>
     }
     sub_unit_fraction = {
         input_scopes = { unit }
@@ -1464,7 +1478,7 @@ links = {
         type = value
         from_data = yes
         prefix = sub_unit_strength:
-        data_source = <unit_type>
+        data_source = <unit_category>
     }
     subject_military_stance = {
         input_scopes = { any }

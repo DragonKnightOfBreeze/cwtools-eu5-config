@@ -22,8 +22,6 @@ alias[trigger:add_static_modifier_utility] = {
     modifier = <static_modifier>
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -114,10 +112,6 @@ alias[trigger:antagonism] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -155,8 +149,6 @@ alias[trigger:available_merchant_capacity] = {
     country = scope[country]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -169,8 +161,6 @@ alias[trigger:average_special_status_power] = {
     type = <international_organization_special_status>
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -183,8 +173,6 @@ alias[trigger:border_distance_to] = {
     country = scope[country]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -228,8 +216,6 @@ alias[trigger:building_type_max_level] = {
     owner = scope[country]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -453,8 +439,6 @@ alias[trigger:cancel_exploration_utility] = {
     area = scope[area]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -467,8 +451,6 @@ alias[trigger:cb_creation_progress_against] = {
     target = scope[country]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -493,8 +475,6 @@ alias[trigger:colonial_charter_progress] = {
     province_definition = scope[province_definition]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -769,8 +749,6 @@ alias[trigger:culture_percentage_in_area] = {
     culture = scope[culture]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -783,8 +761,6 @@ alias[trigger:culture_percentage_in_country] = {
     culture = scope[culture]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -797,8 +773,6 @@ alias[trigger:culture_population] = {
     culture = scope[culture]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -811,8 +785,6 @@ alias[trigger:culture_population_in_country] = {
     culture = scope[culture]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -825,8 +797,6 @@ alias[trigger:currency_percentage_towards_limit] = {
     currency = enum[currency]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -932,8 +902,6 @@ alias[trigger:dependency_length_days] = {
     target = scope[country]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 }
 
@@ -1009,8 +977,6 @@ alias[trigger:disease_outbreak_presence] = {
     disease_outbreak = scope[disease_outbreak]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -1023,8 +989,6 @@ alias[trigger:disease_presence] = {
     disease = scope[disease]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -1037,8 +1001,6 @@ alias[trigger:disease_resistance] = {
     disease = scope[disease]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -1052,10 +1014,6 @@ alias[trigger:distance_to] =  {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -1071,10 +1029,6 @@ alias[trigger:distance_to_area] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -1088,10 +1042,6 @@ alias[trigger:distance_to_squared] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -1118,10 +1068,6 @@ alias[trigger:dynastic_power] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -1160,10 +1106,6 @@ alias[trigger:employment_system_desire] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -1177,10 +1119,6 @@ alias[trigger:estate_max_tax] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -1198,10 +1136,6 @@ alias[trigger:estate_opinion] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -1215,10 +1149,6 @@ alias[trigger:estate_satisfaction] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -1279,10 +1209,6 @@ alias[trigger:exploration_needed_time] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -1301,10 +1227,6 @@ alias[trigger:exploration_utility] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -1318,10 +1240,6 @@ alias[trigger:favors] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -1382,10 +1300,6 @@ alias[trigger:global_variable_list_size] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -1408,10 +1322,6 @@ alias[trigger:goods_demand_in_market] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -1429,10 +1339,6 @@ alias[trigger:goods_supply_in_market] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -2101,6 +2007,9 @@ alias[trigger:has_raised_navy_levies] = bool
 ### Check if a pop has allegiance to a rebel
 ## scopes = { pop }
 alias[trigger:has_rebel] = bool
+### Check if a pop has allegiance to a rebel
+## scopes = { pop }
+alias[trigger:has_rebel] = scope[rebels]
 
 ### Checks if a country has a specific reform
 ## scopes = { country }
@@ -2334,10 +2243,6 @@ alias[trigger:heir_score] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -2351,10 +2256,6 @@ alias[trigger:heir_score_country] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -2380,10 +2281,6 @@ alias[trigger:implementation_progress_percentage] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -2955,10 +2852,6 @@ alias[trigger:is_in_surplus_in_market] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -3549,10 +3442,6 @@ alias[trigger:join_organization_ai_desire] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -3613,10 +3502,6 @@ alias[trigger:list_size] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -3630,10 +3515,6 @@ alias[trigger:liturgical_language_utility] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -3652,10 +3533,6 @@ alias[trigger:local_variable_list_size] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -3669,10 +3546,6 @@ alias[trigger:location_building_level] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -3700,10 +3573,6 @@ alias[trigger:location_maritime_merchant_power] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -3717,10 +3586,6 @@ alias[trigger:location_maritime_presence_power] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -3750,10 +3615,6 @@ alias[trigger:location_peace_cost] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -3768,10 +3629,6 @@ alias[trigger:location_progress_for_formable] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -3785,10 +3642,6 @@ alias[trigger:location_unemployed_population_for_building_type] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -3815,10 +3668,6 @@ alias[trigger:long_term_trigger_currency_utility] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -3836,10 +3685,6 @@ alias[trigger:market_possible_goods_trade_surplus] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -3853,10 +3698,6 @@ alias[trigger:max_countries_with_special_status] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -3876,10 +3717,6 @@ alias[trigger:merchant_capacity] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -3893,10 +3730,6 @@ alias[trigger:merchant_power_in_market] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -3922,8 +3755,6 @@ alias[trigger:modifier_utility] = {
     modifier = scope_field
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -3936,8 +3767,6 @@ alias[trigger:modifier_utility_include_locations] = {
     modifier = scope_field
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -3954,8 +3783,6 @@ alias[trigger:needs_opinion_with] = {
     country = scope[country]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -3970,10 +3797,6 @@ alias[trigger:num_countries_with_special_status] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -3987,10 +3810,6 @@ alias[trigger:num_of_traits_of_category] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -4018,10 +3837,6 @@ alias[trigger:opinion] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4038,10 +3853,6 @@ alias[trigger:opinion_difference_between] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4055,10 +3866,6 @@ alias[trigger:organization_strength_relative_to_country] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -4108,10 +3915,6 @@ alias[trigger:parliament_issue_chance] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4145,10 +3948,6 @@ alias[trigger:parliament_type_utility] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -4233,10 +4032,6 @@ alias[trigger:pop_type_percentage_in_country] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4253,10 +4048,6 @@ alias[trigger:pop_type_population_in_country] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -4277,10 +4068,6 @@ alias[trigger:population_with_traits] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4297,10 +4084,6 @@ alias[trigger:price_in_market] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -4374,10 +4157,6 @@ alias[trigger:relative_military_strength] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4392,10 +4171,6 @@ alias[trigger:relative_raw_material_price] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4409,10 +4184,6 @@ alias[trigger:relative_strength] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -4436,10 +4207,6 @@ alias[trigger:religion_group_percentage] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4453,10 +4220,6 @@ alias[trigger:religion_group_percentage_in_country] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -4472,10 +4235,6 @@ alias[trigger:religion_group_population] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4489,10 +4248,6 @@ alias[trigger:religion_percentage] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -4508,10 +4263,6 @@ alias[trigger:religion_percentage_in_country] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4526,10 +4277,6 @@ alias[trigger:religion_population] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4543,10 +4290,6 @@ alias[trigger:religion_population_in_country] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -4579,10 +4322,6 @@ alias[trigger:relocate_market_utility] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4599,10 +4338,6 @@ alias[trigger:remove_static_modifier_utility] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -4644,10 +4379,6 @@ alias[trigger:reverse_country_interaction_acceptance] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4679,8 +4410,6 @@ alias[trigger:reverse_school_opinion] = {
     target = scope[religious_school]
 
     value == value_field
-    value == <script_value>
-    value == <static_value>
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4731,9 +4460,7 @@ alias[trigger:school_opinion] = {
 
     value == value_field
     value == single_alias_right[formula]
-
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
+    value == enum[culture_opinion]
 }
 
 ### Checks the type of the scope object
@@ -4755,14 +4482,7 @@ alias[trigger:short_term_trigger_currency_utility] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
-
-    ## cardinality = 0..inf
-    alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
 
 ### Check if a situation has ended
@@ -4795,10 +4515,6 @@ alias[trigger:special_status_power] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4815,10 +4531,6 @@ alias[trigger:special_status_power_fraction] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4832,10 +4544,6 @@ alias[trigger:spy_network] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -4904,10 +4612,6 @@ alias[trigger:threat_level_to] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4940,10 +4644,6 @@ alias[trigger:total_effective_goods_production_buildings] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -4959,10 +4659,6 @@ alias[trigger:total_payment_contribution] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -5000,10 +4696,6 @@ alias[trigger:total_special_status_power] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -5018,10 +4710,6 @@ alias[trigger:total_special_status_power_fraction] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -5035,10 +4723,6 @@ alias[trigger:total_unique_special_status_power] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -5071,10 +4755,6 @@ alias[trigger:trust] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -5088,10 +4768,6 @@ alias[trigger:union_length_days] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -5110,10 +4786,6 @@ alias[trigger:used_merchant_capacity] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 }
@@ -5137,10 +4809,6 @@ alias[trigger:variable_list_size] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -5160,10 +4828,6 @@ alias[trigger:vote_impact_in_resolution] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -5189,10 +4853,6 @@ alias[trigger:vote_percentage_impact_in_resolution] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -5213,10 +4873,6 @@ alias[trigger:votes_for_resolution] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -5252,10 +4908,6 @@ alias[trigger:war_enthusiasm] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -5269,10 +4921,6 @@ alias[trigger:war_score_in_war] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -5288,10 +4936,6 @@ alias[trigger:war_score_of_country] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -5305,10 +4949,6 @@ alias[trigger:war_score_versus] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -5350,10 +4990,6 @@ alias[trigger:world_culture_group_percentage] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -5367,10 +5003,6 @@ alias[trigger:world_culture_group_population] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -5386,10 +5018,6 @@ alias[trigger:world_culture_percentage] = {
     ## cardinality = 0..inf
     value == value_field
     ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
-    ## cardinality = 0..inf
     value == single_alias_right[formula]
 
     ## cardinality = 0..inf
@@ -5403,10 +5031,6 @@ alias[trigger:world_culture_population] = {
 
     ## cardinality = 0..inf
     value == value_field
-    ## cardinality = 0..inf
-    value == <script_value>
-    ## cardinality = 0..inf
-    value == <static_value>
     ## cardinality = 0..inf
     value == single_alias_right[formula]
 
@@ -6851,6 +6475,17 @@ alias[trigger:unemployed_pops_of_pop_type_in_location] = {
 ## scopes = { province }
 alias[trigger:unemployed_pops_of_pop_type_in_province] = {
     pop_type = scope[pop_type]
+
+    ## cardinality = 0..inf
+    value == value_field
+    ## cardinality = 0..inf
+    value == single_alias_right[formula]
+}
+
+### does the location have the specific efficiency of a building
+## scopes = { location }
+alias[trigger:building_efficiency] = {
+    building_type = scope[building_type]
 
     ## cardinality = 0..inf
     value == value_field

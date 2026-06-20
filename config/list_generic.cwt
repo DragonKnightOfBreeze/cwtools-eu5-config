@@ -58,10 +58,14 @@ single_alias[effect_ordered_list_clause] = {
     max = $define_reference
 
     ## cardinality = 0..1
-    position = int
+    position = int_value_field
+    ## cardinality = 0..1
+    position = single_alias_right[formula]
+    ## cardinality = 0..1
+    position = $define_reference
 
     ## cardinality = 0..1
-    check_range_bounds = no
+    check_range_bounds = bool
 
     alias_name[effect] = alias_match_left[effect]
 }
@@ -114,7 +118,7 @@ single_alias[formula_ordered_list_clause] = {
     position = int
 
     ## cardinality = 0..1
-    check_range_bounds = no
+    check_range_bounds = bool
 
     alias_name[arithmetic_operation] = alias_match_left[arithmetic_operation]
 }
@@ -1840,31 +1844,31 @@ alias[arithmetic_operation:ordered_country_in_religion] = single_alias_right[for
 alias[trigger:any_country_in_religion] = single_alias_right[trigger_any_list_clause]
 
 ### Iterate through all countries in a religion group.
-## scopes = { group }
+## scopes = { religion_group }
 ## push_scope = country
 alias[effect:every_country_in_religion_group] = single_alias_right[effect_every_list_clause]
 ### Iterate through all countries in a religion group.
-## scopes = { group }
+## scopes = { religion_group }
 ## push_scope = country
 alias[effect:random_country_in_religion_group] = single_alias_right[effect_random_list_clause]
 ### Iterate through all countries in a religion group.
-## scopes = { group }
+## scopes = { religion_group }
 ## push_scope = country
 alias[effect:ordered_country_in_religion_group] = single_alias_right[effect_ordered_list_clause]
 ### Iterate through all countries in a religion group.
-## scopes = { group }
+## scopes = { religion_group }
 ## push_scope = country
 alias[arithmetic_operation:every_country_in_religion_group] = single_alias_right[formula_every_list_clause]
 ### Iterate through all countries in a religion group.
-## scopes = { group }
+## scopes = { religion_group }
 ## push_scope = country
 alias[arithmetic_operation:random_country_in_religion_group] = single_alias_right[formula_random_list_clause]
 ### Iterate through all countries in a religion group.
-## scopes = { group }
+## scopes = { religion_group }
 ## push_scope = country
 alias[arithmetic_operation:ordered_country_in_religion_group] = single_alias_right[formula_ordered_list_clause]
 ### Iterate through all countries in a religion group.
-## scopes = { group }
+## scopes = { religion_group }
 ## push_scope = country
 alias[trigger:any_country_in_religion_group] = single_alias_right[trigger_any_list_clause]
 

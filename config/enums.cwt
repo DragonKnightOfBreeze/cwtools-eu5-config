@@ -264,6 +264,7 @@ enums = {
         extend
         replace
         add_and_extend
+        set_to_largest_and_extend
     }
 
     enum[colonial_claim_category] = {
@@ -919,11 +920,14 @@ enums = {
         unit_event
         exploration_event
         age_event
+        omens_event
     }
     enum[event_outcome] = {
         positive
         neutral
         negative
+        good
+        bad
     }
     enum[event_category] = {
         disaster_event

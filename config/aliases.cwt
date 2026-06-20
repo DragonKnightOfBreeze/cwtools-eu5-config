@@ -8,6 +8,42 @@ single_alias[effect_clause] = {
     alias_name[effect] = alias_match_left[effect]
 }
 
+single_alias[create_country_clause] = {
+    ## cardinality = 0..1
+    name = localisation
+    ## cardinality = 0..1
+    name = {
+        name = localisation
+    }
+
+    ## cardinality = 0..1
+    overlord = scope[country]
+
+    ## cardinality = 0..1
+    reforms = {
+        ## cardinality = 0..inf
+        <government_reform>
+    }
+
+    ## cardinality = 0..1
+    locations = value[temporary_list]
+
+    ## cardinality = 0..1
+    culture = scope[culture]
+
+    ## cardinality = 0..1
+    religion = scope[religion]
+
+    ## cardinality = 0..1
+    subject_type = scope[subject_type]
+
+    ## cardinality = 0..1
+    ruler = scope[character]
+
+    ## cardinality = 0..inf
+    alias_name[effect] = alias_match_left[effect]
+}
+
 single_alias[list_builder_clause] = {
     ## cardinality = 0..inf
     scope_field = {

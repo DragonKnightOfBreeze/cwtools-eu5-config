@@ -53,6 +53,9 @@ event = {
 	## cardinality = 0..1
 	type = enum[event_type]
 
+    ## cardinality = 0..1
+    randomlog = bool
+
     ### The title of the event. Can use scopes from immediate for the localization
     title = localisation
     ### Alternative way for event titles which shows the first title which fulfils the trigger. Use that if you rely on saved event targets from immediate
@@ -135,7 +138,7 @@ event = {
         ## cardinality = 0..1
         to = date_field
         ## cardinality = 0..1
-        to = date_field[y.m.]
+        to = date_field[y.m]
         ## cardinality = 0..1
         to = int
 
