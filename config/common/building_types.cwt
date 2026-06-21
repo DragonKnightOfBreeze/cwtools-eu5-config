@@ -10,6 +10,19 @@ types = {
             desc = "$_desc"
         }
     }
+    type[unique_production_method] = {
+        base_type = production_method
+        path = "game/common/building_types"
+        path = "game/in_game/common/building_types"
+        path = "game/main_menu/common/building_types"
+        path = "game/loading_screen/common/building_types"
+        path_extension = .txt
+        localisation = {
+            name = "$"
+            desc = "$_desc"
+        }
+        skip_root_key = { any unique_production_methods }
+    }
 }
 
 ## replace_scope = { root = building this = building }
@@ -198,6 +211,8 @@ building_type = {
     possible_production_methods = {
         ## cardinality = 0..inf
         <production_method>
+        ## cardinality = 0..inf
+        <unique_production_method>
     }
 
     ## cardinality = 0..1
@@ -208,33 +223,7 @@ building_type = {
 
     ### defining unique production methods scripted directly into the building
     ## cardinality = 0..inf
-    unique_production_methods = {
-        value_set[unique_production_method] = {
-            ## cardinality = 0..1
-            ## replace_scope = { root = country this = country }
-            potential = single_alias_right[trigger_clause]
-
-            ## cardinality = 0..1
-            allow = single_alias_right[trigger_clause]
-
-            ## cardinality = 0..1
-            no_upkeep = bool
-
-            ## cardinality = 0..1
-            debug_max_profit = value_field
-
-            ## cardinality = 0..inf
-            <good> = value_field
-
-            ## cardinality = 0..1
-            produced = <good>
-
-            ## cardinality = 0..1
-            output = value_field
-
-            category = localisation
-        }
-    }
+    unique_production_methods = {}
 
     ### can the building be built in the location (root = location) (think of this as a "visible" check)
     ## cardinality = 0..1
@@ -320,4 +309,30 @@ building_type = {
         value_set[custom_tag]
     }
 
+}
+
+## replace_scope = { root = country this = country }
+unique_production_method = {
+    ## cardinality = 0..1
+    potential = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    allow = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    no_upkeep = bool
+
+    ## cardinality = 0..inf
+    <good> = value_field
+
+    ## cardinality = 0..1
+    produced = <good>
+
+    ## cardinality = 0..1
+    output = value_field
+
+    ## cardinality = 0..1
+    debug_max_profit = value_field
+
+    category = localisation
 }

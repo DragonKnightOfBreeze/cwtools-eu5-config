@@ -79,7 +79,7 @@ advance = {
     ## cardinality = 0..inf
     unlock_production_method = <production_method>
     ## cardinality = 0..inf
-    unlock_production_method = value[unique_production_method]
+    unlock_production_method = <unique_production_method>
 
     ## cardinality = 0..inf
     unlock_government_reform = <government_reform>

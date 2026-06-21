@@ -53,6 +53,12 @@ game_rule_category = {
 
         ## cardinality = 0..inf
         flag = disable_<production_method>
+
+        ## cardinality = 0..inf
+        flag = force_<unique_production_method>
+
+        ## cardinality = 0..inf
+        flag = disable_<unique_production_method>
     }
 }
 
@@ -69,4 +75,10 @@ game_rule = {
 
     ## cardinality = 0..inf
     flag = disable_<production_method>
+
+    ## cardinality = 0..inf
+    flag = force_<unique_production_method>
+
+    ## cardinality = 0..inf
+    flag = disable_<unique_production_method>
 }

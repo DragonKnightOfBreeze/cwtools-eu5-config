@@ -1145,7 +1145,7 @@ links = {
         output_scope = production_method
         from_data = yes
         prefix = production_method:
-        data_source = value[unique_production_method]
+        data_source = <unique_production_method>
     }
     province_link = {
         input_scopes = { any }

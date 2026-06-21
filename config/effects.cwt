@@ -2198,11 +2198,17 @@ alias[effect:copy_country_name_and_adjective] = scope[country]
 ## scopes = { province }
 ## push_scope = country
 alias[effect:create_army_country_from_province] = single_alias_right[create_country_clause]
+### Creates a new army country with the current Province scope as capital and then scopes to the new country
+## scopes = { province }
+alias[effect:create_army_country_from_province] = scope[country]
 
 ### Creates a new army country in the relevant country and then scopes to the new country
 ## scopes = { location }
 ## push_scope = country
 alias[effect:create_army_country_in_location] = single_alias_right[create_country_clause]
+### Creates a new army country in the relevant country and then scopes to the new country
+## scopes = { location }
+alias[effect:create_army_country_in_location] = scope[country]
 
 ### creates a piece of art in the current location { type = <type> artist = <char> location = <location> quality = <calc> key = name_key (if not, it uses the random generation) date = <date> (if you want another date than current date }.
 ## scopes = { location }
@@ -2239,6 +2245,9 @@ alias[effect:create_art] = {
 ## scopes = { location }
 ## push_scope = country
 alias[effect:create_building_country_in_location] = single_alias_right[create_country_clause]
+### Creates a new building country in the relevant country and then scopes to the new country
+## scopes = { location }
+alias[effect:create_country_from_location] = scope[country]
 
 ### Creates a character for a country
 ## scopes = { country }
@@ -2400,11 +2409,17 @@ alias[effect:create_colonial_charter] = {
 ## scopes = { country }
 ## push_scope = country
 alias[effect:create_country_from_cores_in_our_locations] = single_alias_right[create_country_clause]
+### creates the country from its cores
+## scopes = { country }
+alias[effect:create_country_from_cores_in_our_locations] = scope[country]
 
 ### Creates a new country with the current location scope as capital and then scopes to the new country
 ## scopes = { location }
 ## push_scope = country
 alias[effect:create_country_from_location] = single_alias_right[create_country_clause]
+### Creates a new country with the current location scope as capital and then scopes to the new country
+## scopes = { country }
+alias[effect:create_country_from_location] = scope[country]
 
 ### Creates a new dynasty with the desired name
 ## scopes = { location }
@@ -3095,7 +3110,7 @@ alias[effect:give_loan] = {
     alias_name[duration] = alias_match_left[duration]
 
     ## cardinality = 0..1
-    set_loc_key = localisation
+    set_loc_key = localisation[LOAN_TITLE_,]
 }
 
 ### grants a special estate priviledge.

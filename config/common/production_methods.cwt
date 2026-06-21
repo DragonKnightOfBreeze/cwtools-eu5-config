@@ -11,9 +11,13 @@ types = {
     }
 }
 
+## replace_scope = { root = country this = country }
 production_method = {
     ## cardinality = 0..1
     potential = single_alias_right[trigger_clause]
+
+    ## cardinality = 0..1
+    allow = single_alias_right[trigger_clause]
 
     ## cardinality = 0..1
     no_upkeep = bool
