@@ -1617,7 +1617,7 @@ alias[effect:change_country_color] = color_field
 alias[effect:change_country_color] = single_alias_right[scripted_color_clause]
 ### changes the color of a country
 ## scopes = { country }
-alias[effect:change_country_color] = $define_reference
+alias[effect:change_country_color] = value_field # defines & array defines
 ### changes the color of a country
 ## scopes = { country }
 alias[effect:change_country_color] = scope[color]
@@ -2026,12 +2026,10 @@ alias[effect:clamp_global_variable] = {
     min = single_alias_right[formula]
     min = <script_value>
     min = <static_value>
-    min = $define_reference
     max = value_field
     max = single_alias_right[formula]
     max = <script_value>
     max = <static_value>
-    max = $define_reference
 }
 
 ### Clamps a variable the specified max and min
@@ -2045,12 +2043,10 @@ alias[effect:clamp_local_variable] = {
     min = single_alias_right[formula]
     min = <script_value>
     min = <static_value>
-    min = $define_reference
     max = value_field
     max = single_alias_right[formula]
     max = <script_value>
     max = <static_value>
-    max = $define_reference
 }
 
 ### Clamps a variable the specified max and min
@@ -2064,12 +2060,12 @@ alias[effect:clamp_variable] = {
     min = single_alias_right[formula]
     min = <script_value>
     min = <static_value>
-    min = $define_reference
+    min = value_field # defines & array defines
     max = value_field
     max = single_alias_right[formula]
     max = <script_value>
     max = <static_value>
-    max = $define_reference
+    max = value_field # defines & array defines
 }
 
 ### Empties the list
@@ -3919,7 +3915,7 @@ alias[effect:save_scope_value_as] = {
     value = scope_field
     value = value_field
     value = single_alias_right[formula]
-    value = $define_reference
+    value = value_field # defines & array defines
 }
 
 ### Saves the current scope as an arbitrarily-named temporary target to be referenced later in the same effect
@@ -3936,7 +3932,7 @@ alias[effect:save_temporary_scope_value_as] = {
     value = scope_field
     value = value_field
     value = single_alias_right[formula]
-    value = $define_reference
+    value = value_field # defines & array defines
 }
 
 ### Adds goods to a market's stockpile, selling them from a specific location, and the location's owner country selling them will get the sale value. Usage: sell_goods_from_location = { goods = <goods> amount = <amount> location = <location> }
@@ -4558,7 +4554,7 @@ alias[effect:sort_variable_list] = {
 
     order = value_field
     order = single_alias_right[formula]
-    order = $define_reference
+    order = value_field # defines & array defines
 }
 
 ### Spawn an army levy unit for the target country in the current location scope
@@ -4573,7 +4569,7 @@ alias[effect:spawn_disease] = {
 
     value = value_field
     value = single_alias_right[formula]
-    value = $define_reference
+    value = value_field # defines & array defines
 
     alias_name[effect] = alias_match_left[effect]
 }

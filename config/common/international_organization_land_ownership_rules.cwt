@@ -66,7 +66,7 @@ international_organization_land_ownership_rule = {
     owned_location_color = single_alias_right[scripted_color_clause]
     ### <optional> color of owned locations on the diplomatic map (will be stripes)
     ## cardinality = 0..1
-    owned_location_color = $define_reference
+    owned_location_color = value_field # defines & array defines
 
     ## cardinality = 0..1
     allow_control_propagation = bool

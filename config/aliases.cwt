@@ -299,7 +299,7 @@ single_alias[selected_trigger_clause] = {
     min = single_alias_right[formula]
     ### minimum value for value types
     ## cardinality = 0..1
-    min = $define_reference
+    min = value_field # defines & array defines
 
     ### maximum value for value types
     ## cardinality = 0..1
@@ -309,7 +309,7 @@ single_alias[selected_trigger_clause] = {
     max = single_alias_right[formula]
     ### maximum value for value types
     ## cardinality = 0..1
-    max = $define_reference
+    max = value_field # defines & array defines
 
     ### step value for changing value types in the UI
     ## cardinality = 0..1
@@ -319,7 +319,7 @@ single_alias[selected_trigger_clause] = {
     step = single_alias_right[formula]
     ### step value for changing value types in the UI
     ## cardinality = 0..1
-    step = $define_reference
+    step = value_field # defines & array defines
 
     ### default value for value types
     ## cardinality = 0..1
@@ -329,14 +329,14 @@ single_alias[selected_trigger_clause] = {
     default = single_alias_right[formula]
     ### default value for value types
     ## cardinality = 0..1
-    default = $define_reference
+    default = value_field # defines & array defines
 
     ## cardinality = 0..1
     ai_override_value = value_field
     ## cardinality = 0..1
     ai_override_value = single_alias_right[formula]
     ## cardinality = 0..1
-    ai_override_value = $define_reference
+    ai_override_value = value_field # defines & array defines
 
     ### map mode the map will switch to while choosing this target (optional)
     ## cardinality = 0..1
@@ -366,12 +366,12 @@ single_alias[selected_trigger_clause] = {
     map_color = single_alias_right[scripted_color_clause]
     ### map color for location (root = location, scope:actor/recipient etc)
     ## cardinality = 0..1
-    map_color = $define_reference
+    map_color = value_field # defines & array defines
 
     ### striped map color for location (root = location, scope:actor/recipient etc)
     ## cardinality = 0..1
     secondary_map_color = single_alias_right[scripted_color_clause]
     ### striped map color for location (root = location, scope:actor/recipient etc)
     ## cardinality = 0..1
-    secondary_map_color = $define_reference
+    secondary_map_color = value_field # defines & array defines
 }

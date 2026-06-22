@@ -22,7 +22,7 @@ country = {
     ## cardinality = 0..1
     color2 = single_alias_right[scripted_color_clause]
     ## cardinality = 0..1
-    color2 = $define_reference
+    color2 = value_field # defines & array defines
 
     ## cardinality = 0..1
     unit_color0 = <named_color>
@@ -31,7 +31,7 @@ country = {
     ## cardinality = 0..1
     unit_color0 = single_alias_right[scripted_color_clause]
     ## cardinality = 0..1
-    unit_color0 = $define_reference
+    unit_color0 = value_field # defines & array defines
 
     ## cardinality = 0..1
     unit_color1 = <named_color>
@@ -40,7 +40,7 @@ country = {
     ## cardinality = 0..1
     unit_color1 = single_alias_right[scripted_color_clause]
     ## cardinality = 0..1
-    unit_color1 = $define_reference
+    unit_color1 = value_field # defines & array defines
 
     ## cardinality = 0..1
     unit_color2 = <named_color>
@@ -49,7 +49,7 @@ country = {
     ## cardinality = 0..1
     unit_color2 = single_alias_right[scripted_color_clause]
     ## cardinality = 0..1
-    unit_color2 = $define_reference
+    unit_color2 = value_field # defines & array defines
 
     ## cardinality = 0..1
     description_category = <country_description_category>

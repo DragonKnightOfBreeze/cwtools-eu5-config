@@ -62,7 +62,7 @@ map_mode = {
     map_color = single_alias_right[scripted_color_clause]
     ### map color for location (root = location, scope:actor/recipient etc)
     ## cardinality = 0..1
-    map_color = $define_reference
+    map_color = value_field # defines & array defines
 
     ### striped map color for location (root = location, scope:actor/recipient etc)
     ## cardinality = 0..1
@@ -75,7 +75,7 @@ map_mode = {
     secondary_map_color = single_alias_right[scripted_color_clause]
     ### striped map color for location (root = location, scope:actor/recipient etc)
     ## cardinality = 0..1
-    secondary_map_color = $define_reference
+    secondary_map_color = value_field # defines & array defines
 
     ### scripted key for the tooltip localization (root = location, scope:actor/recipient etc)
     ## cardinality = 0..1

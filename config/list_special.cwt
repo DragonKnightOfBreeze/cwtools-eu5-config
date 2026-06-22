@@ -47,29 +47,21 @@ alias[effect:ordered_country_with_special_status_of_type] = {
     order_by = value_field
     ## cardinality = 0..1
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -123,29 +115,21 @@ alias[arithmetic_operation:ordered_country_with_special_status_of_type] = {
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -162,15 +146,11 @@ alias[trigger:any_country_with_special_status_of_type] = {
     percent = value_field[0.0..1.0]
     ## cardinality = 0..1
     percent = single_alias_right[formula]
-    ## cardinality = 0..1
-    percent = $define_reference
 
     ## cardinality = 0..1
     count = int_value_field
     ## cardinality = 0..1
     count = single_alias_right[formula]
-    ## cardinality = 0..1
-    count = $define_reference
     ## cardinality = 0..1
     count = all
 
@@ -228,29 +208,21 @@ alias[effect:ordered_country_of_country_type] = {
     order_by = value_field
     ## cardinality = 0..1
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -304,29 +276,21 @@ alias[arithmetic_operation:ordered_country_of_country_type] = {
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -343,15 +307,11 @@ alias[trigger:any_country_of_country_type] = {
     percent = value_field[0.0..1.0]
     ## cardinality = 0..1
     percent = single_alias_right[formula]
-    ## cardinality = 0..1
-    percent = $define_reference
 
     ## cardinality = 0..1
     count = int_value_field
     ## cardinality = 0..1
     count = single_alias_right[formula]
-    ## cardinality = 0..1
-    count = $define_reference
     ## cardinality = 0..1
     count = all
 
@@ -409,29 +369,21 @@ alias[effect:ordered_related_country] = {
     order_by = value_field
     ## cardinality = 0..1
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -485,29 +437,21 @@ alias[arithmetic_operation:ordered_related_country] = {
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -524,15 +468,11 @@ alias[trigger:any_related_country] = {
     percent = value_field[0.0..1.0]
     ## cardinality = 0..1
     percent = single_alias_right[formula]
-    ## cardinality = 0..1
-    percent = $define_reference
 
     ## cardinality = 0..1
     count = int_value_field
     ## cardinality = 0..1
     count = single_alias_right[formula]
-    ## cardinality = 0..1
-    count = $define_reference
     ## cardinality = 0..1
     count = all
 
@@ -590,29 +530,21 @@ alias[effect:ordered_country_with_succession_law] = {
     order_by = value_field
     ## cardinality = 0..1
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -666,29 +598,21 @@ alias[arithmetic_operation:ordered_country_with_succession_law] = {
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -705,15 +629,11 @@ alias[trigger:any_country_with_succession_law] = {
     percent = value_field[0.0..1.0]
     ## cardinality = 0..1
     percent = single_alias_right[formula]
-    ## cardinality = 0..1
-    percent = $define_reference
 
     ## cardinality = 0..1
     count = int_value_field
     ## cardinality = 0..1
     count = single_alias_right[formula]
-    ## cardinality = 0..1
-    count = $define_reference
     ## cardinality = 0..1
     count = all
 
@@ -777,29 +697,21 @@ alias[effect:ordered_in_list] = {
     order_by = value_field
     ## cardinality = 0..1
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -859,29 +771,21 @@ alias[arithmetic_operation:ordered_in_list] = {
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -900,15 +804,11 @@ alias[trigger:any_in_list] = {
     percent = value_field[0.0..1.0]
     ## cardinality = 0..1
     percent = single_alias_right[formula]
-    ## cardinality = 0..1
-    percent = $define_reference
 
     ## cardinality = 0..1
     count = int_value_field
     ## cardinality = 0..1
     count = single_alias_right[formula]
-    ## cardinality = 0..1
-    count = $define_reference
     ## cardinality = 0..1
     count = all
 
@@ -966,29 +866,21 @@ alias[effect:ordered_in_local_list] = {
     order_by = value_field
     ## cardinality = 0..1
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -1041,35 +933,23 @@ alias[arithmetic_operation:ordered_in_local_list] = {
     ## cardinality = 0..1
     min = <static_value>
     ## cardinality = 0..1
-    min = $define_reference
+    max = int_value_field
+    ## cardinality = 0..1
+    max = single_alias_right[formula]
 
+    ## cardinality = 0..1
+    max = <static_value>
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
-    min = int_value_field
-    ## cardinality = 0..1
-    min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
-
-    ## cardinality = 0..1
-    max = int_value_field
-    ## cardinality = 0..1
-    max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
-
+    position = <static_value>
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -1086,15 +966,11 @@ alias[trigger:any_in_local_list] = {
     percent = value_field[0.0..1.0]
     ## cardinality = 0..1
     percent = single_alias_right[formula]
-    ## cardinality = 0..1
-    percent = $define_reference
 
     ## cardinality = 0..1
     count = int_value_field
     ## cardinality = 0..1
     count = single_alias_right[formula]
-    ## cardinality = 0..1
-    count = $define_reference
     ## cardinality = 0..1
     count = all
 
@@ -1149,29 +1025,21 @@ alias[effect:ordered_in_global_list] = {
     order_by = value_field
     ## cardinality = 0..1
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -1222,22 +1090,16 @@ alias[arithmetic_operation:ordered_in_global_list] = {
     order_by = value_field
     ## cardinality = 0..1
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int
@@ -1256,15 +1118,11 @@ alias[trigger:any_in_global_list] = {
     percent = value_field[0.0..1.0]
     ## cardinality = 0..1
     percent = single_alias_right[formula]
-    ## cardinality = 0..1
-    percent = $define_reference
 
     ## cardinality = 0..1
     count = int_value_field
     ## cardinality = 0..1
     count = single_alias_right[formula]
-    ## cardinality = 0..1
-    count = $define_reference
     ## cardinality = 0..1
     count = all
 
@@ -1319,29 +1177,21 @@ alias[effect:ordered_key_in_global_variable_map] = {
     order_by = value_field
     ## cardinality = 0..1
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -1392,29 +1242,21 @@ alias[arithmetic_operation:ordered_key_in_global_variable_map] = {
     order_by = value_field
     ## cardinality = 0..1
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -1430,15 +1272,11 @@ alias[trigger:any_key_in_global_variable_map] = {
     percent = value_field[0.0..1.0]
     ## cardinality = 0..1
     percent = single_alias_right[formula]
-    ## cardinality = 0..1
-    percent = $define_reference
 
     ## cardinality = 0..1
     count = int_value_field
     ## cardinality = 0..1
     count = single_alias_right[formula]
-    ## cardinality = 0..1
-    count = $define_reference
     ## cardinality = 0..1
     count = all
 
@@ -1493,29 +1331,21 @@ alias[effect:ordered_key_in_local_variable_map] = {
     order_by = value_field
     ## cardinality = 0..1
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -1566,29 +1396,21 @@ alias[arithmetic_operation:ordered_key_in_local_variable_map] = {
     order_by = value_field
     ## cardinality = 0..1
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -1604,15 +1426,11 @@ alias[trigger:any_key_in_local_variable_map] = {
     percent = value_field[0.0..1.0]
     ## cardinality = 0..1
     percent = single_alias_right[formula]
-    ## cardinality = 0..1
-    percent = $define_reference
 
     ## cardinality = 0..1
     count = int_value_field
     ## cardinality = 0..1
     count = single_alias_right[formula]
-    ## cardinality = 0..1
-    count = $define_reference
     ## cardinality = 0..1
     count = all
 
@@ -1667,29 +1485,21 @@ alias[effect:ordered_key_in_variable_map] = {
     order_by = value_field
     ## cardinality = 0..1
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -1740,29 +1550,21 @@ alias[arithmetic_operation:ordered_key_in_variable_map] = {
     order_by = value_field
     ## cardinality = 0..1
     order_by = single_alias_right[formula]
-    ## cardinality = 0..1
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = no
@@ -1778,15 +1580,11 @@ alias[trigger:any_key_in_variable_map] = {
     percent = value_field[0.0..1.0]
     ## cardinality = 0..1
     percent = single_alias_right[formula]
-    ## cardinality = 0..1
-    percent = $define_reference
 
     ## cardinality = 0..1
     count = int_value_field
     ## cardinality = 0..1
     count = single_alias_right[formula]
-    ## cardinality = 0..1
-    count = $define_reference
     ## cardinality = 0..1
     count = all
 

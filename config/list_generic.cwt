@@ -40,29 +40,21 @@ single_alias[effect_ordered_list_clause] = {
     order_by = value_field
     ## cardinality = 0..inf
     order_by = single_alias_right[formula]
-    ## cardinality = 0..inf
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int_value_field
     ## cardinality = 0..1
     position = single_alias_right[formula]
-    ## cardinality = 0..1
-    position = $define_reference
 
     ## cardinality = 0..1
     check_range_bounds = bool
@@ -97,22 +89,16 @@ single_alias[formula_ordered_list_clause] = {
     order_by = value_field
     ## cardinality = 0..inf
     order_by = single_alias_right[formula]
-    ## cardinality = 0..inf
-    order_by = $define_reference
 
     ## cardinality = 0..1
     min = int_value_field
     ## cardinality = 0..1
     min = single_alias_right[formula]
-    ## cardinality = 0..1
-    min = $define_reference
 
     ## cardinality = 0..1
     max = int_value_field
     ## cardinality = 0..1
     max = single_alias_right[formula]
-    ## cardinality = 0..1
-    max = $define_reference
 
     ## cardinality = 0..1
     position = int
@@ -147,15 +133,11 @@ single_alias[trigger_any_list_clause] = {
     percent = value_field[0.0..1.0]
     ## cardinality = 0..1
     percent = single_alias_right[formula]
-    ## cardinality = 0..1
-    percent = $define_reference
 
     ## cardinality = 0..1
     count == int_value_field
     ## cardinality = 0..1
     count == single_alias_right[formula]
-    ## cardinality = 0..1
-    count == $define_reference
     ## cardinality = 0..1
     count == all
 

@@ -255,7 +255,7 @@ scripted_relation = {
     mutual_color = color_field
     ### for the diplomacy map mode
     ## cardinality = 0..1
-    mutual_color = $define_reference
+    mutual_color = value_field # defines & array defines
     ### for the diplomacy map mode
     ## cardinality = 0..1
     mutual_color = scope[color]
@@ -268,7 +268,7 @@ scripted_relation = {
     giving_color = color_field
     ### for the diplomacy map mode
     ## cardinality = 0..1
-    giving_color = $define_reference
+    giving_color = value_field # defines & array defines
     ### for the diplomacy map mode
     ## cardinality = 0..1
     giving_color = scope[color]
@@ -281,7 +281,7 @@ scripted_relation = {
     receiving_color = color_field
     ### for the diplomacy map mode
     ## cardinality = 0..1
-    receiving_color = $define_reference
+    receiving_color = value_field # defines & array defines
     ### for the diplomacy map mode
     ## cardinality = 0..1
     receiving_color = scope[color]

@@ -24,7 +24,7 @@ government_type = {
     map_color = <named_color>
     map_color = color_field
     map_color = single_alias_right[scripted_color_clause]
-    map_color = $define_reference
+    map_color = value_field # defines & array defines
 
     ## cardinality = 1..inf
     heir_selection = <heir_selection>

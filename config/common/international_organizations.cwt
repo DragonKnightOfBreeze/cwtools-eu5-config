@@ -221,7 +221,7 @@ international_organization = {
     map_color_override = single_alias_right[scripted_color_clause]
     ### <optional> returns a color that will override any of the color options below like leader_color, member_color etc if you want to overlay anything. root = location, scope:recipient = IO
     ## cardinality = 0..1
-    map_color_override = $define_reference
+    map_color_override = value_field # defines & array defines
 
     ### <optional> returns a color that will override any of the striped color options like owned_location_color, member_color etc if you want to overlay anything. root = location, scope:recipient = IO
     ## cardinality = 0..1
@@ -234,7 +234,7 @@ international_organization = {
     secondary_map_color_override = single_alias_right[scripted_color_clause]
     ### <optional> returns a color that will override any of the striped color options like owned_location_color, member_color etc if you want to overlay anything. root = location, scope:recipient = IO
     ## cardinality = 0..1
-    secondary_map_color_override = $define_reference
+    secondary_map_color_override = value_field # defines & array defines
 
     ### <optional> returns a loc key that will show the tooltip for the location. root = location, scope:recipient = IO
     ## cardinality = 0..1
@@ -254,7 +254,7 @@ international_organization = {
     leader_color = single_alias_right[scripted_color_clause]
     ### <optional> color of the leader on the diplomatic map
     ## cardinality = 0..1
-    leader_color = $define_reference
+    leader_color = value_field # defines & array defines
 
     ### <optional> color of members on the diplomatic map
     ## cardinality = 0..1
@@ -267,7 +267,7 @@ international_organization = {
     member_color = single_alias_right[scripted_color_clause]
     ### <optional> color of members on the diplomatic map
     ## cardinality = 0..1
-    member_color = $define_reference
+    member_color = value_field # defines & array defines
 
     ### <optional> color of target on the diplomatic map
     ## cardinality = 0..1
@@ -280,7 +280,7 @@ international_organization = {
     target_color = single_alias_right[scripted_color_clause]
     ### <optional> color of target on the diplomatic map
     ## cardinality = 0..1
-    target_color = $define_reference
+    target_color = value_field # defines & array defines
 
     ### (script value) how much diplomatic capacity is used by this IO. root = country, scope:recipient = IO
     ## cardinality = 0..1

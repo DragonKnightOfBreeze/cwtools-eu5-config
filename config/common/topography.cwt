@@ -44,7 +44,7 @@ topography = {
     debug_color = <named_color>
     debug_color = color_field
     debug_color = single_alias_right[scripted_color_clause]
-    debug_color = $define_reference
+    debug_color = value_field # defines & array defines
 
     ## cardinality = 0..1
     vegetation_density = value_field
