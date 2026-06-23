@@ -35,7 +35,7 @@ single_alias[accessory_gene_clause] = {
     value_set[accessory_gene_variant] = {
         index = int
 
-        set_tags = scalar
+        set_tags = $tags[gene_tag] # since plugin version 2.1.10
 
         ## cardinality = 0..1
         male = single_alias_right[accessory_gene_gender_clause]
