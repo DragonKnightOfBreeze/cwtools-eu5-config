@@ -1,0 +1,15 @@
+rows = {
+    row[port] = {
+        path = "game/map_data"
+        path_file = "ports.csv"
+        skip_last_column = yes
+
+        # LandProvince;SeaZone;x;y;
+        columns = {
+            LandProvince = value[location]
+            SeaZone = value[location]
+            x = int
+            y = int
+        }
+    }
+}
