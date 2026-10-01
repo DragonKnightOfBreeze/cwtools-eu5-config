@@ -1,4 +1,4 @@
-priorities = {
+overrides = {
     "setup/start" = ordered
     "common/on_actions" = ordered
     "events" = fios
