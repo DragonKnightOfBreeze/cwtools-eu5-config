@@ -1,19 +1,33 @@
-# 覆盖规则（Europa Universalis V）
+# Override Config (Europa Universalis V)
 #
-# 说明、格式、覆盖策略与可信度标注，见 `cwt/core/00_overrides.cwt`。
-# 此处条目目前主要依据项目惯例整理，尚未与可信来源逐一核对；除下述条目外默认使用 `lios`。
+# See `cwt/core/00_overrides.cwt` for the format, strategies, confidence labels and sources.
+# Only game-specific entries are listed here; unmatched paths default to `lios`.
 #
-# 待办：参照 Stellaris 的做法，从 IMM / 官方 wiki / 社区资料中确定性获取各目录的覆盖策略。
-# 可参见：documents/ai-notes/domain/领域_规则系统_覆盖规则.md、scripts/util/fetch_override_strategies.py
+# Status: currently based on project convention and not yet verified against trusted sources.
+# TODO: derive the strategies from IMM / the official wiki / community references, following the
+# Stellaris approach. See the override-strategy note under documents/ai-notes/domain/ and
+# `scripts/util/fetch_override_strategies.py`.
 #
-# 版本：3.0.4-dev
-# 日期：2026-10-02
+# See: docs/en/ref-config-format.md#config-override
+# Version: 3.0.4-dev
+# Date: 2026-10-02
 
 overrides = {
-    "setup/start" = ordered              # [低] 开局设置：按顺序合并
-    "common/on_actions" = ordered        # [中] 动作触发：自动整合，不覆盖
-    "common/attribute_columns" = ordered # [低] 按顺序合并
-    "events" = fios                      # [中] 事件只读一次
-    "gui" = fios                         # [低] 界面定义：只读一次
-    "localization" = fios                # [低] 本地化：只读一次
+    # [low] Read in order.
+    "common/attribute_columns" = ordered
+
+    # [medium] On actions are automatically merged in load order, without overriding.
+    "common/on_actions" = ordered
+
+    # [medium] Events are read once.
+    "events" = fios
+
+    # [low] Interface definitions are read once.
+    "gui" = fios
+
+    # [low] Localisation is read once.
+    "localization" = fios
+
+    # [low] Game setup is read in order.
+    "setup/start" = ordered
 }
