@@ -14,13 +14,21 @@
 # Date: 2026-10-02
 
 overrides = {
-    # [high] Wiki: events/on_actions/random_events are appended; trigger/effect cannot be replaced
-    # without a whole-file override.
+    # [high] Manually checked.
+    "common/attribute_columns" = ordered
+
+    # [high] Wiki: events/on_actions/random_events are appended; trigger/effect cannot be replaced without a whole-file override.
     "common/on_actions" = ordered
 
     # [high] Wiki: the first loaded wins.
     "events" = fios
 
+    # [high] Wiki: the last loaded wins (LIOS should be used, instead of FIOS).
+    "gui" = lios
+
     # [high] Wiki: later keys do not overwrite earlier ones; the replace folder wins.
     "localization" = fios
+
+    # [high] Manually checked.
+    "setup/start" = ordered
 }
