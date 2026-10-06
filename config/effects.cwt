@@ -3105,8 +3105,10 @@ alias[effect:give_loan] = {
     ## cardinality = 1..inf
     alias_name[duration] = alias_match_left[duration]
 
+    # snippet-matching, since chronicle v3.0.4
+    # see: https://windea.icu/Paradox-Language-Support/ref-config-format.md#faq-snippet-matching
     ## cardinality = 0..1
-    set_loc_key = localisation[LOAN_TITLE_,]
+    set_loc_key = localisation|LOAN_TITLE_$,LOAN_SHORT_NAME_$_L,LOAN_SHORT_NAME_$_B,LOAN_NAME_$_L,LOAN_NAME_$_B,LOAN_TOOLTIP_$
 }
 
 ### grants a special estate priviledge.
